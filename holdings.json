@@ -1,0 +1,3329 @@
+{
+ "lankabangla-1st-balanced-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "LankaBangla quarterly portfolio statement",
+  "sourceUrl": "https://lbamcl.com/investor-relations/#documentsone",
+  "topKind": "equity",
+  "assetClass": [
+   {"k": "Listed equity", "v": 61.41},
+   {"k": "Government bond / T-bill", "v": 21.68},
+   {"k": "Corporate bond / Sukuk", "v": 10.62},
+   {"k": "Mutual fund unit", "v": 3.42},
+   {"k": "Cash at bank", "v": 2.87}
+  ],
+  "sectors": [
+   {"k": "Pharmaceuticals & Chemicals", "v": 11.54},
+   {"k": "Telecommunication", "v": 8.93},
+   {"k": "Insurance", "v": 7.97},
+   {"k": "Food & Allied", "v": 7.11},
+   {"k": "Bank", "v": 6.00},
+   {"k": "Miscellaneous", "v": 3.82},
+   {"k": "Fuel & Power", "v": 4.34},
+   {"k": "Financial Institutions", "v": 3.52},
+   {"k": "Engineering", "v": 3.19},
+   {"k": "Tannery", "v": 2.75},
+   {"k": "IT Sector", "v": 2.23}
+  ],
+  "top": [
+   {"name": "Beximco Pharmaceuticals", "code": "BXPHARMA", "sector": "Pharmaceuticals & Chemicals", "v": 7.08},
+   {"name": "Grameenphone", "code": "GP", "sector": "Telecommunication", "v": 6.88},
+   {"name": "British American Tobacco Bangladesh", "code": "BATBC", "sector": "Food & Allied", "v": 4.93},
+   {"name": "Marico Bangladesh", "code": "MARICO", "sector": "Pharmaceuticals & Chemicals", "v": 4.46},
+   {"name": "BRAC Bank", "code": "BRACBANK", "sector": "Bank", "v": 3.98},
+   {"name": "IDLC Finance", "code": "IDLC", "sector": "Financial Institutions", "v": 3.52},
+   {"name": "MJL Bangladesh", "code": "MJLBD", "sector": "Fuel & Power", "v": 3.30},
+   {"name": "Reliance Insurance", "code": "RELIANCINS", "sector": "Insurance", "v": 3.07},
+   {"name": "Apex Footwear", "code": null, "sector": "Tannery", "v": 2.73},
+   {"name": "LankaBangla Securities", "code": null, "sector": "Miscellaneous", "v": 2.56},
+   {"name": "Pioneer Insurance", "code": null, "sector": "Insurance", "v": 2.55},
+   {"name": "Green Delta Insurance", "code": null, "sector": "Insurance", "v": 2.35},
+   {"name": "IT Consultants", "code": null, "sector": "IT Sector", "v": 2.23},
+   {"name": "Olympic Industries", "code": "OLYMPIC", "sector": "Food & Allied", "v": 2.18},
+   {"name": "Bangladesh Submarine Cables", "code": null, "sector": "Telecommunication", "v": 2.05},
+   {"name": "Jamuna Bank", "code": "JAMUNABANK", "sector": "Bank", "v": 2.02},
+   {"name": "BSRM Steels", "code": "BSRMSTEEL", "sector": "Engineering", "v": 1.91},
+   {"name": "Singer Bangladesh", "code": null, "sector": "Engineering", "v": 1.28},
+   {"name": "Bangladesh Export Import Company", "code": null, "sector": "Miscellaneous", "v": 1.27},
+   {"name": "United Power Generation & Distribution", "code": null, "sector": "Fuel & Power", "v": 1.04},
+   {"name": "Craftsman Footwear & Accessories", "code": null, "sector": "Tannery", "v": 0.02}
+  ],
+  "top5": 27.32
+ },
+ "lb-gratuity-opportunities-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "LankaBangla quarterly portfolio statement",
+  "sourceUrl": "https://lbamcl.com/investor-relations/#documentsthree",
+  "topKind": "equity",
+  "assetClass": [
+   {"k": "Listed equity", "v": 73.37},
+   {"k": "Government & corporate bond", "v": 11.87},
+   {"k": "Non-listed mutual fund unit", "v": 10.57},
+   {"k": "Cash at bank", "v": 4.17}
+  ],
+  "sectors": [
+   {"k": "Pharmaceuticals & Chemicals", "v": 15.77},
+   {"k": "Bank", "v": 11.78},
+   {"k": "Insurance", "v": 9.65},
+   {"k": "Miscellaneous", "v": 6.31},
+   {"k": "Engineering", "v": 6.00},
+   {"k": "Food & Allied", "v": 5.87},
+   {"k": "Financial Institutions", "v": 5.45},
+   {"k": "Textile", "v": 2.86},
+   {"k": "Telecommunication", "v": 2.59},
+   {"k": "Services & Real Estate", "v": 2.80},
+   {"k": "Tannery", "v": 3.01},
+   {"k": "Fuel & Power", "v": 1.24},
+   {"k": "Paper and Printing", "v": 0.07}
+  ],
+  "top": [
+   {"name": "Beximco Pharmaceuticals", "code": "BXPHARMA", "sector": "Pharmaceuticals & Chemicals", "v": 7.72},
+   {"name": "BRAC Bank", "code": "BRACBANK", "sector": "Bank", "v": 7.11},
+   {"name": "Marico Bangladesh", "code": "MARICO", "sector": "Pharmaceuticals & Chemicals", "v": 5.79},
+   {"name": "IDLC Finance", "code": "IDLC", "sector": "Financial Institutions", "v": 5.45},
+   {"name": "BSRM Steels", "code": "BSRMSTEEL", "sector": "Engineering", "v": 4.18},
+   {"name": "British American Tobacco Bangladesh", "code": "BATBC", "sector": "Food & Allied", "v": 3.52},
+   {"name": "Apex Footwear", "code": null, "sector": "Tannery", "v": 2.93},
+   {"name": "Envoy Textiles", "code": null, "sector": "Textile", "v": 2.86},
+   {"name": "Bangladesh Shipping Corporation", "code": "BSC", "sector": "Miscellaneous", "v": 2.82},
+   {"name": "Eastern Housing", "code": null, "sector": "Services & Real Estate", "v": 2.80},
+   {"name": "Pioneer Insurance", "code": null, "sector": "Insurance", "v": 2.77},
+   {"name": "National Life Insurance", "code": null, "sector": "Insurance", "v": 2.63},
+   {"name": "Grameenphone", "code": "GP", "sector": "Telecommunication", "v": 2.59},
+   {"name": "Reliance Insurance", "code": "RELIANCINS", "sector": "Insurance", "v": 2.57},
+   {"name": "Jamuna Bank", "code": "JAMUNABANK", "sector": "Bank", "v": 2.41},
+   {"name": "Bangladesh Export Import Company", "code": null, "sector": "Miscellaneous", "v": 2.36},
+   {"name": "Olympic Industries", "code": "OLYMPIC", "sector": "Food & Allied", "v": 2.34},
+   {"name": "Bank Asia", "code": "BANKASIA", "sector": "Bank", "v": 2.26},
+   {"name": "Renata", "code": "RENATA", "sector": "Pharmaceuticals & Chemicals", "v": 2.25},
+   {"name": "Singer Bangladesh", "code": null, "sector": "Engineering", "v": 1.83},
+   {"name": "Green Delta Insurance", "code": null, "sector": "Insurance", "v": 1.68},
+   {"name": "United Power Generation & Distribution", "code": null, "sector": "Fuel & Power", "v": 1.24},
+   {"name": "LankaBangla Securities", "code": null, "sector": "Miscellaneous", "v": 1.14},
+   {"name": "Craftsman Footwear & Accessories", "code": null, "sector": "Tannery", "v": 0.08},
+   {"name": "Web Coats", "code": null, "sector": "Paper and Printing", "v": 0.07}
+  ],
+  "top5": 30.25
+ },
+ "lb-gratuity-wealth-builder-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "LankaBangla quarterly portfolio statement",
+  "sourceUrl": "https://lbamcl.com/investor-relations/#documentsfour",
+  "topKind": "equity",
+  "assetClass": [
+   {"k": "Listed equity", "v": 59.63},
+   {"k": "Government & corporate bond", "v": 15.76},
+   {"k": "Cash at bank", "v": 13.63},
+   {"k": "Non-listed mutual fund unit", "v": 10.99}
+  ],
+  "sectors": [
+   {"k": "Pharmaceuticals & Chemicals", "v": 20.36},
+   {"k": "Food & Allied", "v": 8.48},
+   {"k": "Insurance", "v": 7.59},
+   {"k": "Textile", "v": 5.42},
+   {"k": "Cement", "v": 4.23},
+   {"k": "Bank", "v": 4.05},
+   {"k": "Tannery", "v": 2.65},
+   {"k": "Fuel & Power", "v": 2.30},
+   {"k": "Engineering", "v": 1.85},
+   {"k": "Miscellaneous", "v": 1.47},
+   {"k": "Ceramics Sector", "v": 1.21}
+  ],
+  "top": [
+   {"name": "Beximco Pharmaceuticals", "code": "BXPHARMA", "sector": "Pharmaceuticals & Chemicals", "v": 8.49},
+   {"name": "Envoy Textiles", "code": null, "sector": "Textile", "v": 5.42},
+   {"name": "The ACME Laboratories", "code": null, "sector": "Pharmaceuticals & Chemicals", "v": 5.21},
+   {"name": "British American Tobacco Bangladesh", "code": "BATBC", "sector": "Food & Allied", "v": 4.42},
+   {"name": "Pioneer Insurance", "code": null, "sector": "Insurance", "v": 4.32},
+   {"name": "LafargeHolcim Bangladesh", "code": null, "sector": "Cement", "v": 4.23},
+   {"name": "Olympic Industries", "code": "OLYMPIC", "sector": "Food & Allied", "v": 4.05},
+   {"name": "Renata", "code": "RENATA", "sector": "Pharmaceuticals & Chemicals", "v": 3.42},
+   {"name": "Green Delta Insurance", "code": null, "sector": "Insurance", "v": 3.28},
+   {"name": "Jamuna Bank", "code": "JAMUNABANK", "sector": "Bank", "v": 3.13},
+   {"name": "Apex Footwear", "code": null, "sector": "Tannery", "v": 2.54},
+   {"name": "Titas Gas Transmission & Dist.", "code": null, "sector": "Fuel & Power", "v": 2.30},
+   {"name": "BSRM Steels", "code": "BSRMSTEEL", "sector": "Engineering", "v": 1.85},
+   {"name": "Orion Pharma", "code": null, "sector": "Pharmaceuticals & Chemicals", "v": 1.79},
+   {"name": "Bangladesh Export Import Company", "code": null, "sector": "Miscellaneous", "v": 1.47},
+   {"name": "Renata Preference Share", "code": null, "sector": "Pharmaceuticals & Chemicals", "v": 1.45},
+   {"name": "RAK Ceramics (Bangladesh)", "code": null, "sector": "Ceramics Sector", "v": 1.21},
+   {"name": "BRAC Bank", "code": "BRACBANK", "sector": "Bank", "v": 0.92},
+   {"name": "Craftsman Footwear & Accessories", "code": null, "sector": "Tannery", "v": 0.11}
+  ],
+  "top5": 27.86
+ },
+ "cwt-sadharan-bima-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "CWT quarterly portfolio statement",
+  "sourceUrl": "https://www.cwtamc.com/cwt-sadharan-bima-growth-fund-cwtsbgf/",
+  "topKind": "equity",
+  "assetClass": [
+   {"k": "Listed equity", "v": 84.42},
+   {"k": "Cash at bank", "v": 13.29},
+   {"k": "Government treasury bond", "v": 1.53},
+   {"k": "Non-listed mutual fund unit", "v": 0.76}
+  ],
+  "sectors": [
+   {"k": "Bank", "v": 38.48},
+   {"k": "Pharmaceuticals & Chemicals", "v": 18.29},
+   {"k": "Engineering", "v": 17.70},
+   {"k": "Insurance", "v": 5.24},
+   {"k": "Telecommunication", "v": 4.69}
+  ],
+  "top": [
+   {"name": "BRAC Bank", "code": "BRACBANK", "sector": "Bank", "v": 15.60},
+   {"name": "Prime Bank", "code": "PRIMEBANK", "sector": "Bank", "v": 10.54},
+   {"name": "Marico Bangladesh", "code": "MARICO", "sector": "Pharmaceuticals & Chemicals", "v": 10.13},
+   {"name": "BSRM Steels", "code": "BSRMSTEEL", "sector": "Engineering", "v": 9.29},
+   {"name": "BSRM Limited", "code": "BSRMLTD", "sector": "Engineering", "v": 8.41},
+   {"name": "Jamuna Bank", "code": "JAMUNABANK", "sector": "Bank", "v": 8.11},
+   {"name": "Ibn Sina Pharmaceutical", "code": "IBNSINA", "sector": "Pharmaceuticals & Chemicals", "v": 7.45},
+   {"name": "Reliance Insurance", "code": "RELIANCINS", "sector": "Insurance", "v": 5.24},
+   {"name": "Robi Axiata", "code": "ROBI", "sector": "Telecommunication", "v": 4.69},
+   {"name": "Pubali Bank", "code": "PUBALIBANK", "sector": "Bank", "v": 4.23},
+   {"name": "Square Pharmaceuticals", "code": "SQURPHARMA", "sector": "Pharmaceuticals & Chemicals", "v": 0.71}
+  ],
+  "top5": 53.97
+ },
+ "cwt-opportunities-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "CWT quarterly portfolio statement",
+  "sourceUrl": "https://www.cwtamc.com/opportunities-fund/",
+  "topKind": "equity",
+  "assetClass": [
+   {"k": "Listed equity", "v": 75.09},
+   {"k": "Cash at bank / term deposit", "v": 20.80},
+   {"k": "Non-listed mutual fund unit", "v": 2.58},
+   {"k": "Government treasury bond", "v": 1.54}
+  ],
+  "sectors": [
+   {"k": "Bank", "v": 38.75},
+   {"k": "Pharmaceuticals & Chemicals", "v": 21.64},
+   {"k": "Engineering", "v": 13.06},
+   {"k": "Telecommunication", "v": 1.62}
+  ],
+  "top": [
+   {"name": "BRAC Bank", "code": "BRACBANK", "sector": "Bank", "v": 16.70},
+   {"name": "Prime Bank", "code": "PRIMEBANK", "sector": "Bank", "v": 11.24},
+   {"name": "Marico Bangladesh", "code": "MARICO", "sector": "Pharmaceuticals & Chemicals", "v": 9.77},
+   {"name": "BSRM Steels", "code": "BSRMSTEEL", "sector": "Engineering", "v": 8.73},
+   {"name": "Ibn Sina Pharmaceutical", "code": "IBNSINA", "sector": "Pharmaceuticals & Chemicals", "v": 8.21},
+   {"name": "Jamuna Bank", "code": "JAMUNABANK", "sector": "Bank", "v": 6.69},
+   {"name": "BSRM Limited", "code": "BSRMLTD", "sector": "Engineering", "v": 4.33},
+   {"name": "Pubali Bank", "code": "PUBALIBANK", "sector": "Bank", "v": 4.12},
+   {"name": "Square Pharmaceuticals", "code": "SQURPHARMA", "sector": "Pharmaceuticals & Chemicals", "v": 3.66},
+   {"name": "Robi Axiata", "code": "ROBI", "sector": "Telecommunication", "v": 1.62}
+  ],
+  "top5": 54.65
+ },
+ "cwt-community-bank-shariah-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "CWT quarterly portfolio statement",
+  "sourceUrl": "https://www.cwtamc.com/cwt-community-bank-shariah-fund/",
+  "topKind": "equity",
+  "assetClass": [
+   {"k": "Listed equity", "v": 68.30},
+   {"k": "Cash at bank / term deposit", "v": 31.70}
+  ],
+  "sectors": [
+   {"k": "Pharmaceuticals & Chemicals", "v": 34.74},
+   {"k": "Telecommunication", "v": 23.15},
+   {"k": "Miscellaneous", "v": 9.50},
+   {"k": "Bank", "v": 0.91}
+  ],
+  "top": [
+   {"name": "Marico Bangladesh", "code": "MARICO", "sector": "Pharmaceuticals & Chemicals", "v": 18.67},
+   {"name": "Robi Axiata", "code": "ROBI", "sector": "Telecommunication", "v": 12.67},
+   {"name": "Square Pharmaceuticals", "code": "SQURPHARMA", "sector": "Pharmaceuticals & Chemicals", "v": 12.61},
+   {"name": "Bangladesh Shipping Corporation", "code": "BSCPLC", "sector": "Telecommunication", "v": 10.48},
+   {"name": "Berger Paints Bangladesh", "code": "BERGERPBL", "sector": "Miscellaneous", "v": 9.50},
+   {"name": "Ibn Sina Pharmaceutical", "code": "IBNSINA", "sector": "Pharmaceuticals & Chemicals", "v": 1.80},
+   {"name": "Reckitt Benckiser Bangladesh", "code": "RECKITTBEN", "sector": "Pharmaceuticals & Chemicals", "v": 1.65},
+   {"name": "Shahjalal Islami Bank", "code": "SHAHJABANK", "sector": "Bank", "v": 0.91}
+  ],
+  "top5": 63.93
+ },
+ "cwt-emerging-bangladesh-first-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "CWT quarterly portfolio statement",
+  "sourceUrl": "https://www.cwtamc.com/cwt-emerging-bangladesh-first-growth-fund-cwtebfgf/",
+  "topKind": "equity",
+  "assetClass": [
+   {"k": "Listed equity", "v": 79.81},
+   {"k": "Cash at bank", "v": 12.55},
+   {"k": "Non-listed mutual fund unit", "v": 6.00},
+   {"k": "Government treasury bond", "v": 1.64}
+  ],
+  "sectors": [
+   {"k": "Bank", "v": 39.59},
+   {"k": "Pharmaceuticals & Chemicals", "v": 21.23},
+   {"k": "Telecommunication", "v": 8.70},
+   {"k": "Engineering", "v": 8.05},
+   {"k": "Insurance", "v": 2.24}
+  ],
+  "top": [
+   {"name": "BRAC Bank", "code": "BRACBANK", "sector": "Bank", "v": 17.93},
+   {"name": "Prime Bank", "code": "PRIMEBANK", "sector": "Bank", "v": 12.53},
+   {"name": "Marico Bangladesh", "code": "MARICO", "sector": "Pharmaceuticals & Chemicals", "v": 10.08},
+   {"name": "Robi Axiata", "code": "ROBI", "sector": "Telecommunication", "v": 8.70},
+   {"name": "Ibn Sina Pharmaceutical", "code": "IBNSINA", "sector": "Pharmaceuticals & Chemicals", "v": 8.24},
+   {"name": "BSRM Steels", "code": "BSRMSTEEL", "sector": "Engineering", "v": 8.05},
+   {"name": "Jamuna Bank", "code": "JAMUNABANK", "sector": "Bank", "v": 5.81},
+   {"name": "Pubali Bank", "code": "PUBALIBANK", "sector": "Bank", "v": 3.32},
+   {"name": "Square Pharmaceuticals", "code": "SQURPHARMA", "sector": "Pharmaceuticals & Chemicals", "v": 2.91},
+   {"name": "Reliance Insurance", "code": "RELIANCINS", "sector": "Insurance", "v": 2.24}
+  ],
+  "top5": 57.48
+ },
+ "idlc-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 80.52
+   },
+   {
+    "k": "Cash at bank",
+    "v": 10.75
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 4.74
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 3.55
+   },
+   {
+    "k": "Corporate bond",
+    "v": 0.44
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 35.23
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 20.97
+   },
+   {
+    "k": "Telecommunication",
+    "v": 16.57
+   },
+   {
+    "k": "Cement",
+    "v": 7.75
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 14.91
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 11.97
+   },
+   {
+    "name": "City Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 10.91
+   },
+   {
+    "name": "Bank Asia",
+    "code": null,
+    "sector": "Bank",
+    "v": 9.41
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.0
+   },
+   {
+    "name": "Robi Axiata",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 8.61
+   },
+   {
+    "name": "Bangladesh Submarine Cables",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 7.96
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 7.75
+   },
+   {
+    "name": "20Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 3.55
+   },
+   {
+    "name": "APSCL corporate bond",
+    "code": null,
+    "sector": null,
+    "v": 0.44
+   }
+  ],
+  "top5": 56.2
+ },
+ "idlc-aml-shariah-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Government sukuk",
+    "v": 49.61
+   },
+   {
+    "k": "Listed equity",
+    "v": 41.34
+   },
+   {
+    "k": "Cash at bank",
+    "v": 8.79
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 0.27
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 26.52
+   },
+   {
+    "k": "Cement",
+    "v": 9.94
+   },
+   {
+    "k": "Telecommunication",
+    "v": 4.88
+   }
+  ],
+  "top": [
+   {
+    "name": "IRIDPNFL Socio-Economic Development Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 17.63
+   },
+   {
+    "name": "CIBRR-2 Socio-Economic Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 16.14
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 12.87
+   },
+   {
+    "name": "RDIRWSP Socio-Economic Development Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 12.79
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 9.94
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.86
+   },
+   {
+    "name": "Grameenphone",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 4.88
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.79
+   },
+   {
+    "name": "COWSP Social Impact Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 3.05
+   }
+  ],
+  "top5": 69.37
+ },
+ "idlc-income-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government treasury bonds",
+    "v": 90.22
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 5.72
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.91
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.15
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Government treasury bonds (BGTB)",
+    "code": null,
+    "sector": null,
+    "v": 90.22
+   },
+   {
+    "name": "IDLC Finance & MTB term deposits",
+    "code": null,
+    "sector": null,
+    "v": 5.72
+   },
+   {
+    "name": "APSCL corporate bond",
+    "code": null,
+    "sector": null,
+    "v": 1.15
+   }
+  ],
+  "top5": null
+ },
+ "ekush-first-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "Ekush quarterly portfolio statement",
+  "sourceUrl": "https://ekushwml.com/en/fund/first-unit-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 74.95
+   },
+   {
+    "k": "Closed-end mutual funds",
+    "v": 9.44
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.18
+   },
+   {
+    "k": "Cash at bank",
+    "v": 5.55
+   },
+   {
+    "k": "Open-end mutual fund",
+    "v": 3.88
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 31.98
+   },
+   {
+    "k": "Pharmaceuticals",
+    "v": 27.77
+   },
+   {
+    "k": "Closed-end mutual fund",
+    "v": 9.44
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 6.46
+   },
+   {
+    "k": "Engineering",
+    "v": 5.94
+   },
+   {
+    "k": "Cement",
+    "v": 2.78
+   },
+   {
+    "k": "Fuel & power",
+    "v": 0.02
+   }
+  ],
+  "top": [
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 11.39
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 10.3
+   },
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 9.53
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 8.66
+   },
+   {
+    "name": "SEML Lecture Equity Mgmt Fund",
+    "code": null,
+    "sector": "Closed-end mutual fund",
+    "v": 6.76
+   },
+   {
+    "name": "Marico",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 6.54
+   },
+   {
+    "name": "Bangladesh Shipping Corporation",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 6.46
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Preference shares",
+    "v": 6.18
+   },
+   {
+    "name": "BSRM Steels",
+    "code": null,
+    "sector": "Engineering",
+    "v": 5.94
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 4.83
+   }
+  ],
+  "top5": 46.64
+ },
+ "ekush-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "Ekush quarterly portfolio statement",
+  "sourceUrl": "https://ekushwml.com/en/fund/growth-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 75.39
+   },
+   {
+    "k": "Closed-end mutual funds",
+    "v": 9.24
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.35
+   },
+   {
+    "k": "Cash at bank",
+    "v": 5.2
+   },
+   {
+    "k": "Open-end mutual fund",
+    "v": 2.13
+   },
+   {
+    "k": "Term deposit",
+    "v": 1.69
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 32.42
+   },
+   {
+    "k": "Pharmaceuticals",
+    "v": 28.02
+   },
+   {
+    "k": "Closed-end mutual fund",
+    "v": 9.24
+   },
+   {
+    "k": "Engineering",
+    "v": 7.28
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 4.81
+   },
+   {
+    "k": "Cement",
+    "v": 2.83
+   },
+   {
+    "k": "Fuel & power",
+    "v": 0.02
+   }
+  ],
+  "top": [
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 12.36
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 10.97
+   },
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 9.59
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 8.96
+   },
+   {
+    "name": "BSRM Steels",
+    "code": null,
+    "sector": "Engineering",
+    "v": 7.28
+   },
+   {
+    "name": "SEML Lecture Equity Mgmt Fund",
+    "code": null,
+    "sector": "Closed-end mutual fund",
+    "v": 6.38
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Preference shares",
+    "v": 6.35
+   },
+   {
+    "name": "Marico",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 5.58
+   },
+   {
+    "name": "Bank Asia",
+    "code": null,
+    "sector": "Bank",
+    "v": 5.06
+   },
+   {
+    "name": "Bangladesh Shipping Corporation",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 4.81
+   }
+  ],
+  "top5": 49.16
+ },
+ "ekush-stable-return-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "Ekush quarterly portfolio statement",
+  "sourceUrl": "https://ekushwml.com/en/fund/stable-return-fund",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 57.31
+   },
+   {
+    "k": "Corporate & subordinated bonds",
+    "v": 21.63
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 9.29
+   },
+   {
+    "k": "Cash at bank",
+    "v": 6.01
+   },
+   {
+    "k": "Preference shares",
+    "v": 5.17
+   },
+   {
+    "k": "Open-end mutual fund",
+    "v": 0.59
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Government treasury bonds",
+    "code": null,
+    "sector": "Government securities",
+    "v": 57.31
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 10.15
+   },
+   {
+    "name": "IDLC Finance FDRs",
+    "code": null,
+    "sector": "FDR / term deposit",
+    "v": 9.29
+   },
+   {
+    "name": "Bank Asia 4th subordinated bond",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 6.88
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Preference shares",
+    "v": 5.17
+   },
+   {
+    "name": "Jamuna Bank 5th subordinated bond",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 3.44
+   }
+  ],
+  "top5": null
+ },
+ "ucb-income-plus-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "as reported by the fund",
+  "source": "UCB quarterly portfolio statement",
+  "sourceUrl": "https://ucbasset.com/funds/ucb-income-plus-fund",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government securities (T-bonds/bills)",
+    "v": 79.79
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 12.94
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 6.97
+   },
+   {
+    "k": "Cash at bank",
+    "v": 0.29
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Government treasury securities",
+    "code": null,
+    "sector": "Government securities",
+    "v": 79.79
+   },
+   {
+    "name": "Bank FDRs / term deposits",
+    "code": null,
+    "sector": "FDR / term deposit",
+    "v": 12.94
+   },
+   {
+    "name": "Corporate subordinated bonds",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 6.97
+   }
+  ],
+  "top5": null
+ },
+ "vipb-sebl-1st-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 79.24
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 7.39
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.74
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 5.68
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 0.5
+   },
+   {
+    "k": "Corporate bond (listed)",
+    "v": 0.46
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 16.13
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 14.0
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 12.94
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 9.49
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 9.43
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 8.98
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 6.74
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 6.3
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 5.68
+   },
+   {
+    "name": "20Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 4.73
+   }
+  ],
+  "top5": 61.99
+ },
+ "vipb-nli-1st-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 78.99
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 7.28
+   },
+   {
+    "k": "Preference shares",
+    "v": 7.01
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 5.13
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 1.35
+   },
+   {
+    "k": "Corporate bond (listed)",
+    "v": 0.24
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 15.43
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 13.97
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 12.72
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 11.91
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 9.11
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 8.16
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 7.28
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 7.01
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 6.78
+   },
+   {
+    "name": "20Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 3.51
+   }
+  ],
+  "top5": 63.14
+ },
+ "vipb-accelerated-income-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 77.9
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 7.63
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 7.4
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.29
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 0.78
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 16.41
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 13.31
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 12.35
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 8.97
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 8.92
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 7.68
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 7.4
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 6.29
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 6.03
+   },
+   {
+    "name": "15Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 4.28
+   }
+  ],
+  "top5": 59.96
+ },
+ "vipb-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 78.21
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 9.27
+   },
+   {
+    "k": "Preference shares",
+    "v": 5.81
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 5.39
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 1.32
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 15.43
+   },
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 13.84
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 11.24
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 9.97
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 9.72
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 9.32
+   },
+   {
+    "name": "15Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 8.2
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 5.81
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 5.57
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 3.92
+   }
+  ],
+  "top5": 60.2
+ },
+ "vipb-balanced-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 67.31
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 18.64
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.44
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 6.2
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 0.82
+   },
+   {
+    "k": "Corporate bond (listed)",
+    "v": 0.58
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 15.27
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 10.67
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 8.96
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 8.62
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 8.55
+   },
+   {
+    "name": "Jamuna Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 8.47
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 8.42
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 6.44
+   },
+   {
+    "name": "Trust Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 5.93
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 5.76
+   }
+  ],
+  "top5": 52.07
+ },
+ "vipb-fixed-income-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government treasury bonds",
+    "v": 49.24
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 34.4
+   },
+   {
+    "k": "Common stock",
+    "v": 9.51
+   },
+   {
+    "k": "Preference shares",
+    "v": 3.86
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 2.98
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Government treasury bonds (15Y & 20Y)",
+    "code": null,
+    "sector": null,
+    "v": 49.24
+   },
+   {
+    "name": "Jamuna Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 9.22
+   },
+   {
+    "name": "Trust Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 9.22
+   },
+   {
+    "name": "City Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 9.22
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 6.74
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 3.86,
+    "q": 5726,
+    "cost": 10880000,
+    "mkt": 10880000
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 3.36,
+    "q": 42316,
+    "cost": 9250000,
+    "mkt": 9480000
+   },
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 3.29,
+    "q": 141758,
+    "cost": 7770000,
+    "mkt": 9290000
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 2.86,
+    "q": 2906,
+    "cost": 7940000,
+    "mkt": 8050000
+   }
+  ],
+  "top5": null,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Government treasury bonds",
+     "v": 51.74
+    },
+    {
+     "k": "Corporate subordinated bonds",
+     "v": 24.43
+    },
+    {
+     "k": "Common stock",
+     "v": 19.3
+    },
+    {
+     "k": "Preference shares",
+     "v": 4.5
+    },
+    {
+     "k": "Cash & equivalents",
+     "v": 0.02
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "Government treasury bonds (15Y & 20Y)",
+     "v": 51.74
+    },
+    {
+     "name": "Trust Bank subordinated bonds",
+     "v": 9.52
+    },
+    {
+     "name": "Jamuna Bank subordinated bonds",
+     "v": 8.28
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 7.88
+    },
+    {
+     "name": "BRAC Bank",
+     "v": 6.89
+    },
+    {
+     "name": "BRAC Bank 2nd subordinated bond",
+     "v": 6.62
+    },
+    {
+     "name": "Renata preference shares",
+     "v": 4.5
+    },
+    {
+     "name": "Prime Bank",
+     "v": 2.39
+    }
+   ],
+   "top5": null
+  }
+ },
+ "edge-high-quality-income-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "EDGE AMC quarterly portfolio statement",
+  "sourceUrl": "https://www.edgeamc.com/edge-high-quality-income-fund",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Treasury bills & bonds",
+    "v": 43.01
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 37.35
+   },
+   {
+    "k": "Preference shares",
+    "v": 10.12
+   },
+   {
+    "k": "Cash at bank",
+    "v": 3.75
+   },
+   {
+    "k": "Open-end mutual fund",
+    "v": 3.56
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.08
+   },
+   {
+    "k": "Other assets",
+    "v": 1.13
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Bank & NBFI term deposits (IDLC, IPDC)",
+    "code": null,
+    "sector": null,
+    "v": 37.35
+   },
+   {
+    "name": "Government treasury bills",
+    "code": null,
+    "sector": null,
+    "v": 29.77
+   },
+   {
+    "name": "Government treasury bonds (BGTB)",
+    "code": null,
+    "sector": null,
+    "v": 13.24
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 10.12
+   },
+   {
+    "name": "Ekush Stable Return Fund units",
+    "code": null,
+    "sector": null,
+    "v": 3.56
+   },
+   {
+    "name": "APSCL corporate bond",
+    "code": null,
+    "sector": null,
+    "v": 1.08
+   }
+  ],
+  "top5": null
+ },
+ "edge-amc-growth-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "EDGE AMC quarterly portfolio statement",
+  "sourceUrl": "https://www.edgeamc.com/edge-amc-growth-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 80.29
+   },
+   {
+    "k": "Cash at bank",
+    "v": 9.44
+   },
+   {
+    "k": "Preference shares",
+    "v": 7.08
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 3.19
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": null,
+    "v": 16.21,
+    "q": 1161500,
+    "cost": 44721434,
+    "mkt": 76078250
+   },
+   {
+    "name": "BSRM Steels",
+    "code": null,
+    "sector": null,
+    "v": 11.16,
+    "q": 605000,
+    "cost": 39195926,
+    "mkt": 52393000
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": null,
+    "v": 10.82,
+    "q": 361050,
+    "cost": 38498190,
+    "mkt": 50763630
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": null,
+    "sector": null,
+    "v": 10.26,
+    "q": 17378,
+    "cost": 43676305,
+    "mkt": 48157914
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": null,
+    "v": 9.52,
+    "q": 199500,
+    "cost": 43574946,
+    "mkt": 44688000
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": null,
+    "sector": null,
+    "v": 8.8,
+    "q": 1720000,
+    "cost": 40781414,
+    "mkt": 41280000
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": null,
+    "v": 8.37,
+    "q": 1310000,
+    "cost": 34566685,
+    "mkt": 39300000
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 7.08,
+    "q": 17500,
+    "cost": 33250000,
+    "mkt": 33250000
+   },
+   {
+    "name": "Eastern Bank",
+    "code": null,
+    "sector": null,
+    "v": 3.44,
+    "q": 648900,
+    "cost": 15387192,
+    "mkt": 16157610
+   },
+   {
+    "name": "British American Tobacco Bangladesh",
+    "code": null,
+    "sector": null,
+    "v": 1.71,
+    "q": 36500,
+    "cost": 8014250,
+    "mkt": 8015400
+   }
+  ],
+  "top5": 57.97,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 77.61
+    },
+    {
+     "k": "Cash at bank",
+     "v": 11.52
+    },
+    {
+     "k": "Preference shares",
+     "v": 8.33
+    },
+    {
+     "k": "Open-end mutual fund units",
+     "v": 2.55
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "BRAC Bank",
+     "v": 16.9
+    },
+    {
+     "name": "Prime Bank",
+     "v": 10.34
+    },
+    {
+     "name": "Marico Bangladesh",
+     "v": 10.25
+    },
+    {
+     "name": "BSRM Steels",
+     "v": 10.09
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 10.04
+    },
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 7.57
+    },
+    {
+     "name": "Jamuna Bank",
+     "v": 6.59
+    },
+    {
+     "name": "Eastern Bank",
+     "v": 4.13
+    },
+    {
+     "name": "The IBN SINA Pharmaceutical Industry",
+     "v": 1.58
+    },
+    {
+     "name": "Renata",
+     "v": 0.11
+    }
+   ],
+   "top5": 57.62
+  }
+ },
+ "edge-bangladesh-mutual-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "EDGE AMC quarterly portfolio statement",
+  "sourceUrl": "https://www.edgeamc.com/edge-bangladesh-mutual-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 77.73
+   },
+   {
+    "k": "Preference shares",
+    "v": 8.85
+   },
+   {
+    "k": "Cash at bank",
+    "v": 5.34
+   },
+   {
+    "k": "Non-listed subordinated bond",
+    "v": 4.83
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 3.25
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": null,
+    "v": 20.9,
+    "q": 685400,
+    "cost": 23150444,
+    "mkt": 44893700
+   },
+   {
+    "name": "BSRM Steels",
+    "code": null,
+    "sector": null,
+    "v": 11.01,
+    "q": 273200,
+    "cost": 16995417,
+    "mkt": 23659120
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": null,
+    "v": 10.01,
+    "q": 152865,
+    "cost": 15061568,
+    "mkt": 21492819
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": null,
+    "v": 9.36,
+    "q": 89800,
+    "cost": 19165106,
+    "mkt": 20115200
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": null,
+    "sector": null,
+    "v": 9.16,
+    "q": 7100,
+    "cost": 16624439,
+    "mkt": 19675520
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": null,
+    "v": 9.01,
+    "q": 645000,
+    "cost": 16235305,
+    "mkt": 19350000
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 8.85,
+    "q": 10000,
+    "cost": 19000000,
+    "mkt": 19000000
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": null,
+    "sector": null,
+    "v": 5.36,
+    "q": 480000,
+    "cost": 10964234,
+    "mkt": 11520000
+   },
+   {
+    "name": "Eastern Bank",
+    "code": null,
+    "sector": null,
+    "v": 2.91,
+    "q": 251320,
+    "cost": 5748288,
+    "mkt": 6257868
+   }
+  ],
+  "top5": 60.44,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 81.52
+    },
+    {
+     "k": "Preference shares",
+     "v": 9.69
+    },
+    {
+     "k": "Non-listed subordinated bond",
+     "v": 5.14
+    },
+    {
+     "k": "Cash at bank",
+     "v": 2.63
+    },
+    {
+     "k": "Open-end mutual fund units",
+     "v": 1.02
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "BRAC Bank",
+     "v": 20.37
+    },
+    {
+     "name": "Marico Bangladesh",
+     "v": 13.24
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 11.36
+    },
+    {
+     "name": "Prime Bank",
+     "v": 10.54
+    },
+    {
+     "name": "BSRM Steels",
+     "v": 10.49
+    },
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 6.47
+    },
+    {
+     "name": "Jamuna Bank",
+     "v": 5.56
+    },
+    {
+     "name": "Eastern Bank",
+     "v": 3.26
+    },
+    {
+     "name": "Renata",
+     "v": 0.22
+    }
+   ],
+   "top5": 66.0
+  }
+ },
+ "edge-al-amin-shariah-consumer-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "EDGE AMC quarterly portfolio statement",
+  "sourceUrl": "https://www.edgeamc.com/pdfs/EDGEALAMIN/Portfolio_Statement_2026_03_31.pdf",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 61.87
+   },
+   {
+    "k": "Non-listed Sukuk",
+    "v": 21.19
+   },
+   {
+    "k": "Mudaraba term deposit",
+    "v": 13.7
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.21
+   },
+   {
+    "k": "Other assets",
+    "v": 1.03
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals",
+    "v": 37.69
+   },
+   {
+    "k": "Consumer",
+    "v": 18.04
+   },
+   {
+    "k": "Other equities",
+    "v": 4.86
+   },
+   {
+    "k": "Telco",
+    "v": 1.28
+   }
+  ],
+  "top": [
+   {
+    "name": "Marico Bangladesh",
+    "code": null,
+    "sector": "Consumer",
+    "v": 18.04
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 15.91
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 12.14
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 7.87
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": null,
+    "sector": "Other equities",
+    "v": 4.86
+   },
+   {
+    "name": "Renata",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 1.77
+   },
+   {
+    "name": "Grameenphone",
+    "code": null,
+    "sector": "Telco",
+    "v": 1.28
+   }
+  ],
+  "top5": 58.82
+ },
+ "shanta-fixed-income-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by cost value",
+  "source": "Shanta Asset Management quarterly portfolio statement",
+  "sourceUrl": null,
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government treasury bonds (BGTB)",
+    "v": 72.27
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 11.07
+   },
+   {
+    "k": "Treasury bills",
+    "v": 8.98
+   },
+   {
+    "k": "Cash at bank",
+    "v": 4.45
+   },
+   {
+    "k": "Receivables & other assets",
+    "v": 3.23
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "20-year government treasury bonds",
+    "code": null,
+    "sector": null,
+    "v": 52.37
+   },
+   {
+    "name": "10-year government treasury bonds",
+    "code": null,
+    "sector": null,
+    "v": 19.9
+   },
+   {
+    "name": "Government treasury bills",
+    "code": null,
+    "sector": null,
+    "v": 8.98
+   },
+   {
+    "name": "Dhaka Bank term deposits",
+    "code": null,
+    "sector": null,
+    "v": 5.3
+   },
+   {
+    "name": "City Bank term deposits",
+    "code": null,
+    "sector": null,
+    "v": 3.0
+   },
+   {
+    "name": "IDLC Finance term deposits",
+    "code": null,
+    "sector": null,
+    "v": 2.77
+   }
+  ],
+  "top5": null
+ },
+ "lankabangla-al-arafah-shariah-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by cost value",
+  "source": "LankaBangla quarterly portfolio statement",
+  "sourceUrl": "https://lbamcl.com/investor-relations/#documentsone",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equities",
+    "v": 64.55
+   },
+   {
+    "k": "Sukuk (Islamic securities)",
+    "v": 15.92
+   },
+   {
+    "k": "Mudaraba term deposit",
+    "v": 15.12
+   },
+   {
+    "k": "Cash at bank",
+    "v": 4.41
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 31.05
+   },
+   {
+    "k": "Telecommunication",
+    "v": 9.82
+   },
+   {
+    "k": "Food & Allied",
+    "v": 8.15
+   },
+   {
+    "k": "Cement",
+    "v": 5.0
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 4.7
+   },
+   {
+    "k": "Fuel & Power",
+    "v": 4.6
+   },
+   {
+    "k": "Bank",
+    "v": 1.23
+   },
+   {
+    "k": "Tannery",
+    "v": 0.01
+   }
+  ],
+  "top": [
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 9.82
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": "BXPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.77
+   },
+   {
+    "name": "Olympic Industries",
+    "code": "OLYMPIC",
+    "sector": "Food & Allied",
+    "v": 8.15
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 7.72
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.06
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 5.0
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
+    "code": "IBNSINA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.77
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.72
+   }
+  ],
+  "top5": 39.52
+ },
+ "shanta-amanah-shariah-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by cost value",
+  "source": "Shanta Asset Management quarterly portfolio statement",
+  "sourceUrl": null,
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equities",
+    "v": 58.33
+   },
+   {
+    "k": "Cash at bank",
+    "v": 19.62
+   },
+   {
+    "k": "Corporate sukuk (perpetual bonds)",
+    "v": 12.17
+   },
+   {
+    "k": "Government sukuk",
+    "v": 9.09
+   },
+   {
+    "k": "Receivables & other assets",
+    "v": 0.79
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 20.74
+   },
+   {
+    "k": "Telecommunication",
+    "v": 13.79
+   },
+   {
+    "k": "Household & Personal Products",
+    "v": 9.15
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 9.03
+   },
+   {
+    "k": "Cement",
+    "v": 5.61
+   }
+  ],
+  "top": [
+   {
+    "name": "Reckitt Benckiser (Bd)",
+    "code": null,
+    "sector": "Household & Personal Products",
+    "v": 9.15
+   },
+   {
+    "name": "Government Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 9.09
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 9.03
+   },
+   {
+    "name": "Grameenphone",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 8.67
+   },
+   {
+    "name": "Renata",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.33
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 7.25
+   },
+   {
+    "name": "AIBL Mudaraba Perpetual Bond",
+    "code": null,
+    "sector": null,
+    "v": 5.77
+   },
+   {
+    "name": "Heidelberg Materials Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 5.61
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.16
+   },
+   {
+    "name": "Bangladesh Submarine Cables",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 5.12
+   }
+  ],
+  "top5": 44.27
+ },
+ "shanta-first-income-unit-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by cost value",
+  "source": "Shanta Asset Management quarterly portfolio statement",
+  "sourceUrl": null,
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Listed equities",
+    "v": 48.56
+   },
+   {
+    "k": "Government treasury bonds (BGTB)",
+    "v": 25.16
+   },
+   {
+    "k": "Corporate perpetual bonds",
+    "v": 16.18
+   },
+   {
+    "k": "Cash at bank",
+    "v": 5.39
+   },
+   {
+    "k": "Receivables & other assets",
+    "v": 4.72
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 22.89
+   },
+   {
+    "k": "Food & Allied",
+    "v": 8.39
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 8.18
+   },
+   {
+    "k": "Household & Personal Products",
+    "v": 5.41
+   },
+   {
+    "k": "Bank",
+    "v": 3.69
+   }
+  ],
+  "top": [
+   {
+    "name": "20-year government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 23.76,
+    "q": 2116000,
+    "cost": 204260000,
+    "mkt": 213910000
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.62,
+    "q": 325873,
+    "cost": 74070000,
+    "mkt": 73000000
+   },
+   {
+    "name": "AIBL Mudaraba Perpetual Bond",
+    "code": null,
+    "sector": null,
+    "v": 8.56,
+    "q": 14715,
+    "cost": 73580000,
+    "mkt": 57390000
+   },
+   {
+    "name": "British American Tobacco Bangladesh",
+    "code": null,
+    "sector": "Food & Allied",
+    "v": 8.39,
+    "q": 162038,
+    "cost": 72140000,
+    "mkt": 35580000
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 8.18,
+    "q": 46584,
+    "cost": 70350000,
+    "mkt": 66510000
+   },
+   {
+    "name": "Renata",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 7.46,
+    "q": 127223,
+    "cost": 64160000,
+    "mkt": 58010000
+   },
+   {
+    "name": "Premier Bank Perpetual Bond",
+    "code": null,
+    "sector": null,
+    "v": 7.12,
+    "q": 12208,
+    "cost": 61230000,
+    "mkt": 57380000
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 6.81,
+    "q": 466243,
+    "cost": 58510000,
+    "mkt": 65550000
+   },
+   {
+    "name": "Reckitt Benckiser (Bd)",
+    "code": null,
+    "sector": "Household & Personal Products",
+    "v": 5.41,
+    "q": 13764,
+    "cost": 46480000,
+    "mkt": 46370000
+   },
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 3.69,
+    "q": 500000,
+    "cost": 31720000,
+    "mkt": 32750000
+   },
+   {
+    "name": "05-year government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 1.4,
+    "q": 120000,
+    "cost": 12020000,
+    "mkt": 11750000
+   },
+   {
+    "name": "IBBL 2nd Perpetual Mudaraba Bond",
+    "code": null,
+    "sector": null,
+    "v": 0.5,
+    "q": 856,
+    "cost": 4280000,
+    "mkt": 3510000
+   }
+  ],
+  "top5": null,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equities",
+     "v": 47.02
+    },
+    {
+     "k": "Government treasury bonds (BGTB)",
+     "v": 22.59
+    },
+    {
+     "k": "Corporate perpetual bonds",
+     "v": 16.61
+    },
+    {
+     "k": "Cash at bank",
+     "v": 13.03
+    },
+    {
+     "k": "Receivables & other assets",
+     "v": 0.76
+    }
+   ],
+   "sectors": [
+    {
+     "k": "Pharmaceuticals & Chemicals",
+     "v": 21.0
+    },
+    {
+     "k": "Food & Allied",
+     "v": 8.38
+    },
+    {
+     "k": "Miscellaneous",
+     "v": 8.37
+    },
+    {
+     "k": "Household & Personal Products",
+     "v": 5.53
+    },
+    {
+     "k": "Bank",
+     "v": 3.75
+    }
+   ],
+   "top": [
+    {
+     "name": "20-year government treasury bond",
+     "v": 21.16
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 8.82
+    },
+    {
+     "name": "AIBL Mudaraba Perpetual Bond",
+     "v": 8.79
+    },
+    {
+     "name": "British American Tobacco Bangladesh",
+     "v": 8.38
+    },
+    {
+     "name": "Berger Paints Bangladesh",
+     "v": 8.37
+    },
+    {
+     "name": "Renata",
+     "v": 7.64
+    },
+    {
+     "name": "Premier Bank Perpetual Bond",
+     "v": 7.29
+    },
+    {
+     "name": "Reckitt Benckiser (Bd)",
+     "v": 5.53
+    },
+    {
+     "name": "BRAC Bank",
+     "v": 3.75
+    },
+    {
+     "name": "The IBN SINA Pharmaceutical Industry",
+     "v": 3.5
+    }
+   ],
+   "top5": null
+  }
+ },
+ "ucb-aml-first-mutual-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "UCB quarterly portfolio statement",
+  "sourceUrl": "https://ucbasset.com/funds/ucb-aml-first-mutual-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 65.58
+   },
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 22.4
+   },
+   {
+    "k": "Cash at bank",
+    "v": 12.02
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 16.12
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 10.06
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.19
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 7.44
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 6.71
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": "Bank",
+    "v": 6.03
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 5.82
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.22
+   }
+  ],
+  "top5": 49.52
+ },
+ "ucb-taqwa-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "UCB quarterly portfolio statement",
+  "sourceUrl": "https://ucbasset.com/funds/ucb-taqwa-growth-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 38.49
+   },
+   {
+    "k": "Sukuk / Islamic securities",
+    "v": 39.25
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 20.85
+   },
+   {
+    "k": "Cash at bank",
+    "v": 1.41
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "5Y IRIDP-3 Social Impact Sukuk",
+    "code": null,
+    "sector": "Sukuk / Islamic securities",
+    "v": 21.38
+   },
+   {
+    "name": "IRIDPNFL Socio-Economic Dev. Sukuk",
+    "code": null,
+    "sector": "Sukuk / Islamic securities",
+    "v": 17.87
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 9.76
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 8.86
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 8.8
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.82
+   },
+   {
+    "name": "Robi Axiata",
+    "code": "ROBI",
+    "sector": "Telecommunication",
+    "v": 5.25
+   }
+  ],
+  "top5": 66.67,
+  "prev": {
+   "asOf": "2025-12-31",
+   "asOfLabel": "31 Dec 2025",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 51.88
+    },
+    {
+     "k": "Sukuk / Islamic securities",
+     "v": 22.16
+    },
+    {
+     "k": "FDR / term deposit",
+     "v": 21.61
+    },
+    {
+     "k": "Cash at bank",
+     "v": 4.35
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "5Y IRIDP-3 Social Impact Sukuk",
+     "v": 22.16
+    },
+    {
+     "name": "Marico Bangladesh",
+     "v": 17.09
+    },
+    {
+     "name": "Grameenphone",
+     "v": 14.79
+    },
+    {
+     "name": "Berger Paints Bangladesh",
+     "v": 10.08
+    },
+    {
+     "name": "Renata",
+     "v": 9.92
+    }
+   ],
+   "top5": 74.04
+  }
+ },
+ "bcb-icl-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "ICL quarterly financial statements (scrip-level annexure)",
+  "sourceUrl": "https://www.impresscapital.com/bcb-icl-growth-fund.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 71.83
+   },
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 24.0
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.01
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.46
+   },
+   {
+    "k": "Receivables & prepayments",
+    "v": 0.71
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 32.78
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 22.56
+   },
+   {
+    "k": "Telecommunication",
+    "v": 3.66
+   },
+   {
+    "k": "Financial Institution",
+    "v": 3.19
+   },
+   {
+    "k": "Cement",
+    "v": 3.1
+   },
+   {
+    "k": "Engineering",
+    "v": 3.04
+   },
+   {
+    "k": "Food & Allied",
+    "v": 1.9
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 1.61
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 11.6
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.16
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.14
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 8.33
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 5.21
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.27
+   },
+   {
+    "name": "Pubali Bank",
+    "code": "PUBALIBANK",
+    "sector": "Bank",
+    "v": 3.62
+   },
+   {
+    "name": "City Bank",
+    "code": "CITYBANK",
+    "sector": "Bank",
+    "v": 3.39
+   },
+   {
+    "name": "IDLC Finance",
+    "code": "IDLC",
+    "sector": "Financial Institution",
+    "v": 3.19
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": "LHB",
+    "sector": "Cement",
+    "v": 3.1
+   }
+  ],
+  "top5": 43.43,
+  "note": "T-bonds held at fair value; the Tk 20 lakh BRAC Bank subordinated bond is carried at cost in the statement."
+ },
+ "icl-balanced-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "ICL quarterly financial statements (scrip-level annexure)",
+  "sourceUrl": "https://www.impresscapital.com/icl-balanced-fund.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 74.47
+   },
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 20.79
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.17
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.96
+   },
+   {
+    "k": "Receivables & prepayments",
+    "v": 0.61
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 32.18
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 24.37
+   },
+   {
+    "k": "Telecommunication",
+    "v": 4.24
+   },
+   {
+    "k": "Financial Institution",
+    "v": 3.92
+   },
+   {
+    "k": "Engineering",
+    "v": 3.19
+   },
+   {
+    "k": "Food & Allied",
+    "v": 2.59
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 2.18
+   },
+   {
+    "k": "Cement",
+    "v": 1.8
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 12.05
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.12
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.07
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 6.56
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 6.18
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 5.97
+   },
+   {
+    "name": "Pubali Bank",
+    "code": "PUBALIBANK",
+    "sector": "Bank",
+    "v": 4.62
+   },
+   {
+    "name": "IDLC Finance",
+    "code": "IDLC",
+    "sector": "Financial Institution",
+    "v": 3.92
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 3.56
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 2.72
+   }
+  ],
+  "top5": 42.98,
+  "note": "The statement's sector column uses merged cells; labels were resolved against the identical scrips' printed sectors in the sibling BCB ICL Growth Fund statement and DSE classification."
+ },
+ "icl-inctl-shariah-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "ICL quarterly financial statements (scrip-level annexure)",
+  "sourceUrl": "https://www.impresscapital.com/icl-inctl-shariah-fund.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 56.5
+   },
+   {
+    "k": "Government Sukuk",
+    "v": 12.29
+   },
+   {
+    "k": "Cash & Islamic deposits",
+    "v": 25.68
+   },
+   {
+    "k": "Receivables & prepayments",
+    "v": 3.23
+   },
+   {
+    "k": "Preliminary & issue expenses",
+    "v": 2.29
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 16.25
+   },
+   {
+    "k": "Cement",
+    "v": 10.07
+   },
+   {
+    "k": "IT",
+    "v": 9.87
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 9.71
+   },
+   {
+    "k": "Telecommunication",
+    "v": 7.75
+   },
+   {
+    "k": "Food & Allied",
+    "v": 2.85
+   }
+  ],
+  "top": [
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 10.53
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": "LHB",
+    "sector": "Cement",
+    "v": 10.07
+   },
+   {
+    "name": "IT Consultants",
+    "code": "ITC",
+    "sector": "IT",
+    "v": 9.87
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": "Miscellaneous",
+    "v": 9.71
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 7.75
+   },
+   {
+    "name": "Ibn Sina Pharmaceutical",
+    "code": "IBNSINA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.72
+   },
+   {
+    "name": "Olympic Industries",
+    "code": "OLYMPIC",
+    "sector": "Food & Allied",
+    "v": 2.85
+   }
+  ],
+  "top5": 47.93,
+  "note": "Shariah-screened portfolio: govt holdings are Socio Economic Development Sukuk and deposits are Islamic (Mudaraba); non-compliant dividend income is purified per the DSE Shariah Index ratio."
+ },
+ "esquire-icl-apparel-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "ICL quarterly financial statements (scrip-level annexure)",
+  "sourceUrl": "https://www.impresscapital.com/esquire-icl-apparel-fund.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 74.12
+   },
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 20.65
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.56
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.5
+   },
+   {
+    "k": "Receivables & prepayments",
+    "v": 0.88
+   },
+   {
+    "k": "Preliminary & issue expenses",
+    "v": 0.29
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 33.77
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 22.1
+   },
+   {
+    "k": "Telecommunication",
+    "v": 5.14
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 3.65
+   },
+   {
+    "k": "Engineering",
+    "v": 3.51
+   },
+   {
+    "k": "Cement",
+    "v": 3.19
+   },
+   {
+    "k": "Food & Allied",
+    "v": 2.76
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 11.74
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.11
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.03
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 8.55
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 5.13
+   },
+   {
+    "name": "City Bank",
+    "code": "CITYBANK",
+    "sector": "Bank",
+    "v": 4.86
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 3.96
+   },
+   {
+    "name": "Bangladesh Shipping Corporation",
+    "code": "BSC",
+    "sector": "Miscellaneous",
+    "v": 3.65
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 3.51
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 3.42
+   }
+  ],
+  "top5": 43.56,
+  "note": "Apparel-themed by mandate (sponsor: Esquire Knit Composite), but at 31 Mar 2026 the fund held no textile or apparel stocks; three scrips' sector cells are blank in the source and were assigned Pharmaceuticals & Chemicals per DSE classification."
+ }
+}

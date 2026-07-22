@@ -1,0 +1,258 @@
+{
+ "idlc-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 80.52
+   },
+   {
+    "k": "Cash at bank",
+    "v": 10.75
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 4.74
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 3.55
+   },
+   {
+    "k": "Corporate bond",
+    "v": 0.44
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 35.23
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 20.97
+   },
+   {
+    "k": "Telecommunication",
+    "v": 16.57
+   },
+   {
+    "k": "Cement",
+    "v": 7.75
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 14.91
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 11.97
+   },
+   {
+    "name": "City Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 10.91
+   },
+   {
+    "name": "Bank Asia",
+    "code": null,
+    "sector": "Bank",
+    "v": 9.41
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.0
+   },
+   {
+    "name": "Robi Axiata",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 8.61
+   },
+   {
+    "name": "Bangladesh Submarine Cables",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 7.96
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 7.75
+   },
+   {
+    "name": "20Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 3.55
+   },
+   {
+    "name": "APSCL corporate bond",
+    "code": null,
+    "sector": null,
+    "v": 0.44
+   }
+  ],
+  "top5": 56.2
+ },
+ "idlc-aml-shariah-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Government sukuk",
+    "v": 49.61
+   },
+   {
+    "k": "Listed equity",
+    "v": 41.34
+   },
+   {
+    "k": "Cash at bank",
+    "v": 8.79
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 0.27
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 26.52
+   },
+   {
+    "k": "Cement",
+    "v": 9.94
+   },
+   {
+    "k": "Telecommunication",
+    "v": 4.88
+   }
+  ],
+  "top": [
+   {
+    "name": "IRIDPNFL Socio-Economic Development Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 17.63
+   },
+   {
+    "name": "CIBRR-2 Socio-Economic Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 16.14
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 12.87
+   },
+   {
+    "name": "RDIRWSP Socio-Economic Development Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 12.79
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 9.94
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.86
+   },
+   {
+    "name": "Grameenphone",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 4.88
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.79
+   },
+   {
+    "name": "COWSP Social Impact Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 3.05
+   }
+  ],
+  "top5": 69.37
+ },
+ "idlc-income-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government treasury bonds",
+    "v": 90.22
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 5.72
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.91
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.15
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Government treasury bonds (BGTB)",
+    "code": null,
+    "sector": null,
+    "v": 90.22
+   },
+   {
+    "name": "IDLC Finance & MTB term deposits",
+    "code": null,
+    "sector": null,
+    "v": 5.72
+   },
+   {
+    "name": "APSCL corporate bond",
+    "code": null,
+    "sector": null,
+    "v": 1.15
+   }
+  ],
+  "top5": null
+ }
+}

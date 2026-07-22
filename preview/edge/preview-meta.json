@@ -1,0 +1,13 @@
+{
+ "amc": "edge",
+ "display": "EDGE AMC",
+ "subdomain": "edge-preview.returnkoto.com",
+ "fundCount": 4,
+ "funds": [
+  "EDGE AMC Growth Fund",
+  "EDGE Bangladesh Mutual Fund",
+  "EDGE High Quality Income Fund",
+  "EDGE Al-Amin Shariah Consumer Fund"
+ ],
+ "built": "2026-07-22"
+}

@@ -1,0 +1,13 @@
+{
+ "amc": "icl",
+ "display": "Impress Capital (ICL)",
+ "subdomain": "icl-preview.returnkoto.com",
+ "fundCount": 4,
+ "funds": [
+  "BCB ICL Growth Fund",
+  "Esquire ICL Apparel Fund",
+  "ICL Balanced Fund",
+  "ICL INCTL Shariah Fund"
+ ],
+ "built": "2026-07-22"
+}

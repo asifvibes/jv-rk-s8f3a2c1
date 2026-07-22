@@ -1,0 +1,12 @@
+{
+ "amc": "shanta",
+ "display": "Shanta Asset Management",
+ "subdomain": "shanta-preview.returnkoto.com",
+ "fundCount": 3,
+ "funds": [
+  "Shanta Fixed Income Fund",
+  "Shanta Amanah Shariah Fund",
+  "Shanta First Income Unit Fund"
+ ],
+ "built": "2026-07-22"
+}

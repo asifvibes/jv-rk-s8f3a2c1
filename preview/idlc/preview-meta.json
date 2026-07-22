@@ -1,0 +1,12 @@
+{
+ "amc": "idlc",
+ "display": "IDLC Asset Management",
+ "subdomain": "idlc-preview.returnkoto.com",
+ "fundCount": 3,
+ "funds": [
+  "IDLC Income Fund",
+  "IDLC Growth Fund",
+  "IDLC AML Shariah Fund"
+ ],
+ "built": "2026-07-22"
+}

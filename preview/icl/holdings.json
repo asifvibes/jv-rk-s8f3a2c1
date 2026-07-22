@@ -1,0 +1,488 @@
+{
+ "bcb-icl-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "ICL quarterly financial statements (scrip-level annexure)",
+  "sourceUrl": "https://www.impresscapital.com/bcb-icl-growth-fund.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 71.83
+   },
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 24.0
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.01
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.46
+   },
+   {
+    "k": "Receivables & prepayments",
+    "v": 0.71
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 32.78
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 22.56
+   },
+   {
+    "k": "Telecommunication",
+    "v": 3.66
+   },
+   {
+    "k": "Financial Institution",
+    "v": 3.19
+   },
+   {
+    "k": "Cement",
+    "v": 3.1
+   },
+   {
+    "k": "Engineering",
+    "v": 3.04
+   },
+   {
+    "k": "Food & Allied",
+    "v": 1.9
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 1.61
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 11.6
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.16
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.14
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 8.33
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 5.21
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.27
+   },
+   {
+    "name": "Pubali Bank",
+    "code": "PUBALIBANK",
+    "sector": "Bank",
+    "v": 3.62
+   },
+   {
+    "name": "City Bank",
+    "code": "CITYBANK",
+    "sector": "Bank",
+    "v": 3.39
+   },
+   {
+    "name": "IDLC Finance",
+    "code": "IDLC",
+    "sector": "Financial Institution",
+    "v": 3.19
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": "LHB",
+    "sector": "Cement",
+    "v": 3.1
+   }
+  ],
+  "top5": 43.43,
+  "note": "T-bonds held at fair value; the Tk 20 lakh BRAC Bank subordinated bond is carried at cost in the statement."
+ },
+ "icl-balanced-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "ICL quarterly financial statements (scrip-level annexure)",
+  "sourceUrl": "https://www.impresscapital.com/icl-balanced-fund.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 74.47
+   },
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 20.79
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.17
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.96
+   },
+   {
+    "k": "Receivables & prepayments",
+    "v": 0.61
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 32.18
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 24.37
+   },
+   {
+    "k": "Telecommunication",
+    "v": 4.24
+   },
+   {
+    "k": "Financial Institution",
+    "v": 3.92
+   },
+   {
+    "k": "Engineering",
+    "v": 3.19
+   },
+   {
+    "k": "Food & Allied",
+    "v": 2.59
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 2.18
+   },
+   {
+    "k": "Cement",
+    "v": 1.8
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 12.05
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.12
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.07
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 6.56
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 6.18
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 5.97
+   },
+   {
+    "name": "Pubali Bank",
+    "code": "PUBALIBANK",
+    "sector": "Bank",
+    "v": 4.62
+   },
+   {
+    "name": "IDLC Finance",
+    "code": "IDLC",
+    "sector": "Financial Institution",
+    "v": 3.92
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 3.56
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 2.72
+   }
+  ],
+  "top5": 42.98,
+  "note": "The statement's sector column uses merged cells; labels were resolved against the identical scrips' printed sectors in the sibling BCB ICL Growth Fund statement and DSE classification."
+ },
+ "icl-inctl-shariah-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "ICL quarterly financial statements (scrip-level annexure)",
+  "sourceUrl": "https://www.impresscapital.com/icl-inctl-shariah-fund.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 56.5
+   },
+   {
+    "k": "Government Sukuk",
+    "v": 12.29
+   },
+   {
+    "k": "Cash & Islamic deposits",
+    "v": 25.68
+   },
+   {
+    "k": "Receivables & prepayments",
+    "v": 3.23
+   },
+   {
+    "k": "Preliminary & issue expenses",
+    "v": 2.29
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 16.25
+   },
+   {
+    "k": "Cement",
+    "v": 10.07
+   },
+   {
+    "k": "IT",
+    "v": 9.87
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 9.71
+   },
+   {
+    "k": "Telecommunication",
+    "v": 7.75
+   },
+   {
+    "k": "Food & Allied",
+    "v": 2.85
+   }
+  ],
+  "top": [
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 10.53
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": "LHB",
+    "sector": "Cement",
+    "v": 10.07
+   },
+   {
+    "name": "IT Consultants",
+    "code": "ITC",
+    "sector": "IT",
+    "v": 9.87
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": "Miscellaneous",
+    "v": 9.71
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 7.75
+   },
+   {
+    "name": "Ibn Sina Pharmaceutical",
+    "code": "IBNSINA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.72
+   },
+   {
+    "name": "Olympic Industries",
+    "code": "OLYMPIC",
+    "sector": "Food & Allied",
+    "v": 2.85
+   }
+  ],
+  "top5": 47.93,
+  "note": "Shariah-screened portfolio: govt holdings are Socio Economic Development Sukuk and deposits are Islamic (Mudaraba); non-compliant dividend income is purified per the DSE Shariah Index ratio."
+ },
+ "esquire-icl-apparel-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "ICL quarterly financial statements (scrip-level annexure)",
+  "sourceUrl": "https://www.impresscapital.com/esquire-icl-apparel-fund.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 74.12
+   },
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 20.65
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.56
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.5
+   },
+   {
+    "k": "Receivables & prepayments",
+    "v": 0.88
+   },
+   {
+    "k": "Preliminary & issue expenses",
+    "v": 0.29
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 33.77
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 22.1
+   },
+   {
+    "k": "Telecommunication",
+    "v": 5.14
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 3.65
+   },
+   {
+    "k": "Engineering",
+    "v": 3.51
+   },
+   {
+    "k": "Cement",
+    "v": 3.19
+   },
+   {
+    "k": "Food & Allied",
+    "v": 2.76
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 11.74
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.11
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.03
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 8.55
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 5.13
+   },
+   {
+    "name": "City Bank",
+    "code": "CITYBANK",
+    "sector": "Bank",
+    "v": 4.86
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 3.96
+   },
+   {
+    "name": "Bangladesh Shipping Corporation",
+    "code": "BSC",
+    "sector": "Miscellaneous",
+    "v": 3.65
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 3.51
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 3.42
+   }
+  ],
+  "top5": 43.56,
+  "note": "Apparel-themed by mandate (sponsor: Esquire Knit Composite), but at 31 Mar 2026 the fund held no textile or apparel stocks; three scrips' sector cells are blank in the source and were assigned Pharmaceuticals & Chemicals per DSE classification."
+ }
+}

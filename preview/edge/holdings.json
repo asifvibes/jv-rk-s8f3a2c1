@@ -1,0 +1,540 @@
+{
+ "edge-high-quality-income-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "EDGE AMC quarterly portfolio statement",
+  "sourceUrl": "https://www.edgeamc.com/edge-high-quality-income-fund",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Treasury bills & bonds",
+    "v": 43.01
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 37.35
+   },
+   {
+    "k": "Preference shares",
+    "v": 10.12
+   },
+   {
+    "k": "Cash at bank",
+    "v": 3.75
+   },
+   {
+    "k": "Open-end mutual fund",
+    "v": 3.56
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.08
+   },
+   {
+    "k": "Other assets",
+    "v": 1.13
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Bank & NBFI term deposits (IDLC, IPDC)",
+    "code": null,
+    "sector": null,
+    "v": 37.35
+   },
+   {
+    "name": "Government treasury bills",
+    "code": null,
+    "sector": null,
+    "v": 29.77
+   },
+   {
+    "name": "Government treasury bonds (BGTB)",
+    "code": null,
+    "sector": null,
+    "v": 13.24
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 10.12
+   },
+   {
+    "name": "Ekush Stable Return Fund units",
+    "code": null,
+    "sector": null,
+    "v": 3.56
+   },
+   {
+    "name": "APSCL corporate bond",
+    "code": null,
+    "sector": null,
+    "v": 1.08
+   }
+  ],
+  "top5": null
+ },
+ "edge-amc-growth-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "EDGE AMC quarterly portfolio statement",
+  "sourceUrl": "https://www.edgeamc.com/edge-amc-growth-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 80.29
+   },
+   {
+    "k": "Cash at bank",
+    "v": 9.44
+   },
+   {
+    "k": "Preference shares",
+    "v": 7.08
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 3.19
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": null,
+    "v": 16.21,
+    "q": 1161500,
+    "cost": 44721434,
+    "mkt": 76078250
+   },
+   {
+    "name": "BSRM Steels",
+    "code": null,
+    "sector": null,
+    "v": 11.16,
+    "q": 605000,
+    "cost": 39195926,
+    "mkt": 52393000
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": null,
+    "v": 10.82,
+    "q": 361050,
+    "cost": 38498190,
+    "mkt": 50763630
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": null,
+    "sector": null,
+    "v": 10.26,
+    "q": 17378,
+    "cost": 43676305,
+    "mkt": 48157914
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": null,
+    "v": 9.52,
+    "q": 199500,
+    "cost": 43574946,
+    "mkt": 44688000
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": null,
+    "sector": null,
+    "v": 8.8,
+    "q": 1720000,
+    "cost": 40781414,
+    "mkt": 41280000
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": null,
+    "v": 8.37,
+    "q": 1310000,
+    "cost": 34566685,
+    "mkt": 39300000
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 7.08,
+    "q": 17500,
+    "cost": 33250000,
+    "mkt": 33250000
+   },
+   {
+    "name": "Eastern Bank",
+    "code": null,
+    "sector": null,
+    "v": 3.44,
+    "q": 648900,
+    "cost": 15387192,
+    "mkt": 16157610
+   },
+   {
+    "name": "British American Tobacco Bangladesh",
+    "code": null,
+    "sector": null,
+    "v": 1.71,
+    "q": 36500,
+    "cost": 8014250,
+    "mkt": 8015400
+   }
+  ],
+  "top5": 57.97,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 77.61
+    },
+    {
+     "k": "Cash at bank",
+     "v": 11.52
+    },
+    {
+     "k": "Preference shares",
+     "v": 8.33
+    },
+    {
+     "k": "Open-end mutual fund units",
+     "v": 2.55
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "BRAC Bank",
+     "v": 16.9
+    },
+    {
+     "name": "Prime Bank",
+     "v": 10.34
+    },
+    {
+     "name": "Marico Bangladesh",
+     "v": 10.25
+    },
+    {
+     "name": "BSRM Steels",
+     "v": 10.09
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 10.04
+    },
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 7.57
+    },
+    {
+     "name": "Jamuna Bank",
+     "v": 6.59
+    },
+    {
+     "name": "Eastern Bank",
+     "v": 4.13
+    },
+    {
+     "name": "The IBN SINA Pharmaceutical Industry",
+     "v": 1.58
+    },
+    {
+     "name": "Renata",
+     "v": 0.11
+    }
+   ],
+   "top5": 57.62
+  }
+ },
+ "edge-bangladesh-mutual-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "EDGE AMC quarterly portfolio statement",
+  "sourceUrl": "https://www.edgeamc.com/edge-bangladesh-mutual-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 77.73
+   },
+   {
+    "k": "Preference shares",
+    "v": 8.85
+   },
+   {
+    "k": "Cash at bank",
+    "v": 5.34
+   },
+   {
+    "k": "Non-listed subordinated bond",
+    "v": 4.83
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 3.25
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": null,
+    "v": 20.9,
+    "q": 685400,
+    "cost": 23150444,
+    "mkt": 44893700
+   },
+   {
+    "name": "BSRM Steels",
+    "code": null,
+    "sector": null,
+    "v": 11.01,
+    "q": 273200,
+    "cost": 16995417,
+    "mkt": 23659120
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": null,
+    "v": 10.01,
+    "q": 152865,
+    "cost": 15061568,
+    "mkt": 21492819
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": null,
+    "v": 9.36,
+    "q": 89800,
+    "cost": 19165106,
+    "mkt": 20115200
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": null,
+    "sector": null,
+    "v": 9.16,
+    "q": 7100,
+    "cost": 16624439,
+    "mkt": 19675520
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": null,
+    "v": 9.01,
+    "q": 645000,
+    "cost": 16235305,
+    "mkt": 19350000
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 8.85,
+    "q": 10000,
+    "cost": 19000000,
+    "mkt": 19000000
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": null,
+    "sector": null,
+    "v": 5.36,
+    "q": 480000,
+    "cost": 10964234,
+    "mkt": 11520000
+   },
+   {
+    "name": "Eastern Bank",
+    "code": null,
+    "sector": null,
+    "v": 2.91,
+    "q": 251320,
+    "cost": 5748288,
+    "mkt": 6257868
+   }
+  ],
+  "top5": 60.44,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 81.52
+    },
+    {
+     "k": "Preference shares",
+     "v": 9.69
+    },
+    {
+     "k": "Non-listed subordinated bond",
+     "v": 5.14
+    },
+    {
+     "k": "Cash at bank",
+     "v": 2.63
+    },
+    {
+     "k": "Open-end mutual fund units",
+     "v": 1.02
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "BRAC Bank",
+     "v": 20.37
+    },
+    {
+     "name": "Marico Bangladesh",
+     "v": 13.24
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 11.36
+    },
+    {
+     "name": "Prime Bank",
+     "v": 10.54
+    },
+    {
+     "name": "BSRM Steels",
+     "v": 10.49
+    },
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 6.47
+    },
+    {
+     "name": "Jamuna Bank",
+     "v": 5.56
+    },
+    {
+     "name": "Eastern Bank",
+     "v": 3.26
+    },
+    {
+     "name": "Renata",
+     "v": 0.22
+    }
+   ],
+   "top5": 66.0
+  }
+ },
+ "edge-al-amin-shariah-consumer-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "EDGE AMC quarterly portfolio statement",
+  "sourceUrl": "https://www.edgeamc.com/pdfs/EDGEALAMIN/Portfolio_Statement_2026_03_31.pdf",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 61.87
+   },
+   {
+    "k": "Non-listed Sukuk",
+    "v": 21.19
+   },
+   {
+    "k": "Mudaraba term deposit",
+    "v": 13.7
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.21
+   },
+   {
+    "k": "Other assets",
+    "v": 1.03
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals",
+    "v": 37.69
+   },
+   {
+    "k": "Consumer",
+    "v": 18.04
+   },
+   {
+    "k": "Other equities",
+    "v": 4.86
+   },
+   {
+    "k": "Telco",
+    "v": 1.28
+   }
+  ],
+  "top": [
+   {
+    "name": "Marico Bangladesh",
+    "code": null,
+    "sector": "Consumer",
+    "v": 18.04
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 15.91
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 12.14
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 7.87
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": null,
+    "sector": "Other equities",
+    "v": 4.86
+   },
+   {
+    "name": "Renata",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 1.77
+   },
+   {
+    "name": "Grameenphone",
+    "code": null,
+    "sector": "Telco",
+    "v": 1.28
+   }
+  ],
+  "top5": 58.82
+ }
+}

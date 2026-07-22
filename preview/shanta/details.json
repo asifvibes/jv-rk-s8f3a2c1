@@ -1,0 +1,38 @@
+{
+ "shanta-fixed-income-fund": {
+  "amc": "Shanta Asset Management",
+  "sponsor": "Shanta Asset Management",
+  "trustee": "Bangladesh General Insurance Company",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "SIP cancelled before 1 year: 1%; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "500 units individual / 5,000 units institution; SIP from BDT 1,000",
+  "minSip": "BDT 1,000/month"
+ },
+ "shanta-amanah-shariah-fund": {
+  "amc": "Shanta Asset Management",
+  "sponsor": "Shanta Asset Management",
+  "trustee": "Investment Corporation of Bangladesh (ICB)",
+  "custodian": "Investment Corporation of Bangladesh (ICB)",
+  "fee": "Not stated in the prospectus",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "SIP cancelled early: 1%; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "500 units individual / 5,000 units institution; SIP from BDT 1,000",
+  "minSip": "BDT 1,000/month"
+ },
+ "shanta-first-income-unit-fund": {
+  "amc": "Shanta Asset Management",
+  "sponsor": "Shanta Asset Management",
+  "trustee": "Bangladesh General Insurance Company",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "SIP cancelled before 2 years: 1%; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "500 units individual / 5,000 units institution; SIP from BDT 1,000",
+  "minSip": "BDT 1,000/month"
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "amc": "vipb",
+ "display": "VIPB Asset Management",
+ "subdomain": "vipb-preview.returnkoto.com",
+ "fundCount": 6,
+ "funds": [
+  "VIPB Fixed Income Fund",
+  "VIPB Accelerated Income Unit Fund",
+  "VIPB Growth Fund",
+  "VIPB Balanced Fund",
+  "VIPB SEBL 1st Unit Fund",
+  "VIPB NLI 1st Unit Fund"
+ ],
+ "built": "2026-07-22"
+}

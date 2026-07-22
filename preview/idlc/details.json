@@ -1,0 +1,38 @@
+{
+ "idlc-income-fund": {
+  "amc": "IDLC Asset Management",
+  "sponsor": "IDLC Asset Management",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "0.70% per year (maximum)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Exit load 2% if held under 90 days, 1.5% for 90 to 180 days, 1% for 180 to 360 days, none after 1 year",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 5,000/month"
+ },
+ "idlc-growth-fund": {
+  "amc": "IDLC Asset Management",
+  "sponsor": "IDLC Finance",
+  "trustee": "Bangladesh General Insurance Company",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Exit load up to 2% (set by the AMC board); no entry load",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 5,000/month"
+ },
+ "idlc-aml-shariah-fund": {
+  "amc": "IDLC Asset Management",
+  "sponsor": "IDLC Asset Management",
+  "trustee": "Investment Corporation of Bangladesh (ICB)",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Exit load up to 2% (set by the AMC board); no entry load",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 5,000/month"
+ }
+}

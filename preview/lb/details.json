@@ -1,0 +1,50 @@
+{
+ "lankabangla-al-arafah-shariah-unit-fund": {
+  "amc": "LankaBangla Asset Management",
+  "sponsor": "Al-Arafah Islami Bank Employees Gratuity Fund Trust",
+  "trustee": "Investment Corporation of Bangladesh (ICB)",
+  "custodian": "Investment Corporation of Bangladesh (ICB)",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "No exit fee; partial surrender allowed",
+  "face": "BDT 10 per unit",
+  "min": "500 units individual / 5,000 units institution",
+  "minSip": "BDT 5,000/month"
+ },
+ "lankabangla-1st-balanced-unit-fund": {
+  "amc": "LankaBangla Asset Management",
+  "sponsor": "LankaBangla Finance",
+  "trustee": "Bangladesh General Insurance Company",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "No exit fee; partial surrender allowed",
+  "face": "BDT 10 per unit",
+  "min": "500 units individual / 5,000 units institution",
+  "minSip": "BDT 5,000/month"
+ },
+ "lb-gratuity-opportunities-fund": {
+  "amc": "LankaBangla Asset Management",
+  "sponsor": "LankaBangla Securities Employees' Gratuity Fund Trust",
+  "trustee": "Investment Corporation of Bangladesh (ICB)",
+  "custodian": "Investment Corporation of Bangladesh (ICB)",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "No exit fee; partial surrender allowed",
+  "face": "BDT 10 per unit",
+  "min": "500 units individual / 5,000 units institution",
+  "minSip": "BDT 5,000/month"
+ },
+ "lb-gratuity-wealth-builder-fund": {
+  "amc": "LankaBangla Asset Management",
+  "sponsor": "LankaBangla Finance Employees' Gratuity Fund Trust",
+  "trustee": "Bangladesh General Insurance Company (BGIC)",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "No exit fee; partial surrender allowed",
+  "face": "BDT 10 per unit",
+  "min": "500 units individual / 5,000 units institution",
+  "minSip": "BDT 5,000/month"
+ }
+}

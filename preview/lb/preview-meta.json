@@ -1,0 +1,13 @@
+{
+ "amc": "lb",
+ "display": "LankaBangla Asset Management",
+ "subdomain": "lb-preview.returnkoto.com",
+ "fundCount": 4,
+ "funds": [
+  "LankaBangla Al-Arafah Shariah Unit Fund",
+  "LankaBangla 1st Balanced Unit Fund",
+  "LB Gratuity Opportunities Fund",
+  "LB Gratuity Wealth Builder Fund"
+ ],
+ "built": "2026-07-22"
+}

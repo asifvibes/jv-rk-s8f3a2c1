@@ -1,0 +1,45 @@
+{
+ "bcb-icl-growth-fund": {
+  "amc": "Impress Capital",
+  "sponsor": "Bangladesh Commerce Bank",
+  "trustee": "Investment Corporation of Bangladesh",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "exit": "Tk 0.10 per unit discount from NAV on surrender",
+  "min": "BDT 1,000 (100 units)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "face": "BDT 10 per unit"
+ },
+ "icl-balanced-fund": {
+  "amc": "Impress Capital",
+  "sponsor": "Impress Capital (also the asset manager)",
+  "trustee": "Bangladesh General Insurance Company",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "min": "BDT 1,000 (100 units)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "face": "BDT 10 per unit"
+ },
+ "icl-inctl-shariah-fund": {
+  "amc": "Impress Capital",
+  "sponsor": "Impress-Newtex Composite Textiles",
+  "trustee": "Bangladesh General Insurance Company",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "exit": "Up to Tk 0.10 per unit discount from NAV on surrender",
+  "min": "BDT 1,000 (100 units)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "face": "BDT 10 per unit"
+ },
+ "esquire-icl-apparel-fund": {
+  "amc": "Impress Capital",
+  "sponsor": "Esquire Knit Composite",
+  "trustee": "Investment Corporation of Bangladesh",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "exit": "Tk 0.10 per unit discount from NAV on surrender",
+  "min": "BDT 500 (50 units)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "face": "BDT 10 per unit"
+ }
+}

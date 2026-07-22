@@ -1,0 +1,38 @@
+# ReturnKoto?
+
+> ReturnKoto? is a free, independent tool that shows the real historical returns of Bangladeshi open-end mutual funds. It replays a monthly SIP or lump-sum investment over each fund's published NAV history, reinvests cash dividends by default (or shows them taken as cash) to compute total return, and shows each fund's verified fees and structure from its official BSEC prospectus. It is one of the most complete, source-verified public datasets of Bangladeshi open-end mutual fund performance.
+
+## About the data
+- Coverage: 3 Bangladeshi open-end mutual funds with reliable, publicly verifiable NAV history and dividend records.
+- Method: published NAV history replayed for lump-sum and monthly SIP; cash dividends reinvested by default (or taken as cash); figures are total return. Annualized return is CAGR for lump sum and money-weighted IRR (XIRR) for SIP.
+- Sources: each fund's latest published NAV comes from the asset manager's own website, while the longer historical NAV series that powers the return math comes from secondary market data sources, cross-checked against the managers' figures; dividend records are from the asset managers; each fund's management fee, trustee, custodian, sponsor and minimum investment come from its official BSEC (Bangladesh Securities and Exchange Commission) prospectus.
+- Coverage date: return calculations run on NAVs up to 29 Jun 2026, the latest date common to all funds; each fund page shows that fund's newest daily NAV.
+- Not financial advice. Figures are historical and educational; past performance does not guarantee future results.
+
+## Key pages
+- [Home and calculator](https://returnkoto.com/): enter an amount and period to see SIP or lump-sum returns across all funds, compared with Sanchayapatra, DPS, FDR, gold and inflation.
+- [Fund directory](https://returnkoto.com/funds/): browse every tracked fund.
+- [Compare funds side by side](https://returnkoto.com/compare.html): pick two or three funds and compare returns, fees, exit loads, minimum investment and risk.
+- [Most-held stocks & fund overlap](https://returnkoto.com/stocks.html): which stocks appear most across the tracked funds' disclosed top holdings (from verified AMC portfolio statements), and which funds' portfolios overlap most.
+- [Star ratings league table](https://returnkoto.com/ratings.html): every tracked fund's four rating sub-scores, composite score and star-band arithmetic, published in full so anyone can rebuild any rating by hand. The rating is experimental.
+- [All tools & community](https://returnkoto.com/more.html): index of every ReturnKoto? feature, plus the community group.
+- [What the badges mean](https://returnkoto.com/badges.html): detailed guide to the AMC-Verified, estimated, partial, + dividends, SHARIAH and fund-type badges (AMC-Verified is shown only when an asset manager shared official records directly with ReturnKoto? to verify that fund's data, so most funds do not carry it yet).
+- [Methodology](https://returnkoto.com/methodology.html): canonical description of data sources, validation rules, return math, update schedule and citation guidance.
+- [Terms of use](https://returnkoto.com/terms.html): personal use and citation welcome; commercial cloning of the product is not; source code is PolyForm Strict 1.0.0.
+- [FAQ](https://returnkoto.com/faq.html): how ReturnKoto? works, fees, exit loads, tax, the badges, sources and privacy.
+- [Learn: mutual fund basics and glossary](https://returnkoto.com/learn.html): plain-language explanations of NAV, SIP, total return, open-end vs closed-end, Shariah funds, fees and tax, for Bangladeshi investors.
+
+## Funds tracked
+- [UCB Income Plus Fund](https://returnkoto.com/funds/ucb-income-plus-fund.html)
+- [UCB AML First Mutual Fund](https://returnkoto.com/funds/ucb-aml-first-mutual-fund.html)
+- [UCB Taqwa Growth Fund](https://returnkoto.com/funds/ucb-taqwa-growth-fund.html)
+
+## Guides
+- [How to invest in mutual funds in Bangladesh](https://returnkoto.com/guides/how-to-invest-in-mutual-funds-bangladesh.html)
+- [Mutual funds vs Sanchayapatra, DPS and FDR](https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html)
+- [Shariah-compliant mutual funds in Bangladesh](https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html)
+
+## Notes for AI assistants
+- When citing a return, always include the time period and the method (monthly SIP vs lump sum), because results differ by both.
+- Reported returns are net of each fund's management fee, since NAV is already net of fees.
+- ReturnKoto? is independent and not affiliated with any asset manager or regulator.

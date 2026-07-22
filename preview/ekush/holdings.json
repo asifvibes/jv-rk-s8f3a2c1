@@ -1,0 +1,326 @@
+{
+ "ekush-first-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "Ekush quarterly portfolio statement",
+  "sourceUrl": "https://ekushwml.com/en/fund/first-unit-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 74.95
+   },
+   {
+    "k": "Closed-end mutual funds",
+    "v": 9.44
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.18
+   },
+   {
+    "k": "Cash at bank",
+    "v": 5.55
+   },
+   {
+    "k": "Open-end mutual fund",
+    "v": 3.88
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 31.98
+   },
+   {
+    "k": "Pharmaceuticals",
+    "v": 27.77
+   },
+   {
+    "k": "Closed-end mutual fund",
+    "v": 9.44
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 6.46
+   },
+   {
+    "k": "Engineering",
+    "v": 5.94
+   },
+   {
+    "k": "Cement",
+    "v": 2.78
+   },
+   {
+    "k": "Fuel & power",
+    "v": 0.02
+   }
+  ],
+  "top": [
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 11.39
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 10.3
+   },
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 9.53
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 8.66
+   },
+   {
+    "name": "SEML Lecture Equity Mgmt Fund",
+    "code": null,
+    "sector": "Closed-end mutual fund",
+    "v": 6.76
+   },
+   {
+    "name": "Marico",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 6.54
+   },
+   {
+    "name": "Bangladesh Shipping Corporation",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 6.46
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Preference shares",
+    "v": 6.18
+   },
+   {
+    "name": "BSRM Steels",
+    "code": null,
+    "sector": "Engineering",
+    "v": 5.94
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 4.83
+   }
+  ],
+  "top5": 46.64
+ },
+ "ekush-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "Ekush quarterly portfolio statement",
+  "sourceUrl": "https://ekushwml.com/en/fund/growth-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 75.39
+   },
+   {
+    "k": "Closed-end mutual funds",
+    "v": 9.24
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.35
+   },
+   {
+    "k": "Cash at bank",
+    "v": 5.2
+   },
+   {
+    "k": "Open-end mutual fund",
+    "v": 2.13
+   },
+   {
+    "k": "Term deposit",
+    "v": 1.69
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 32.42
+   },
+   {
+    "k": "Pharmaceuticals",
+    "v": 28.02
+   },
+   {
+    "k": "Closed-end mutual fund",
+    "v": 9.24
+   },
+   {
+    "k": "Engineering",
+    "v": 7.28
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 4.81
+   },
+   {
+    "k": "Cement",
+    "v": 2.83
+   },
+   {
+    "k": "Fuel & power",
+    "v": 0.02
+   }
+  ],
+  "top": [
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 12.36
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 10.97
+   },
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 9.59
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 8.96
+   },
+   {
+    "name": "BSRM Steels",
+    "code": null,
+    "sector": "Engineering",
+    "v": 7.28
+   },
+   {
+    "name": "SEML Lecture Equity Mgmt Fund",
+    "code": null,
+    "sector": "Closed-end mutual fund",
+    "v": 6.38
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Preference shares",
+    "v": 6.35
+   },
+   {
+    "name": "Marico",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 5.58
+   },
+   {
+    "name": "Bank Asia",
+    "code": null,
+    "sector": "Bank",
+    "v": 5.06
+   },
+   {
+    "name": "Bangladesh Shipping Corporation",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 4.81
+   }
+  ],
+  "top5": 49.16
+ },
+ "ekush-stable-return-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "Ekush quarterly portfolio statement",
+  "sourceUrl": "https://ekushwml.com/en/fund/stable-return-fund",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 57.31
+   },
+   {
+    "k": "Corporate & subordinated bonds",
+    "v": 21.63
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 9.29
+   },
+   {
+    "k": "Cash at bank",
+    "v": 6.01
+   },
+   {
+    "k": "Preference shares",
+    "v": 5.17
+   },
+   {
+    "k": "Open-end mutual fund",
+    "v": 0.59
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Government treasury bonds",
+    "code": null,
+    "sector": "Government securities",
+    "v": 57.31
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 10.15
+   },
+   {
+    "name": "IDLC Finance FDRs",
+    "code": null,
+    "sector": "FDR / term deposit",
+    "v": 9.29
+   },
+   {
+    "name": "Bank Asia 4th subordinated bond",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 6.88
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Preference shares",
+    "v": 5.17
+   },
+   {
+    "name": "Jamuna Bank 5th subordinated bond",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 3.44
+   }
+  ],
+  "top5": null
+ }
+}

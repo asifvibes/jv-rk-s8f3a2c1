@@ -1,0 +1,740 @@
+{
+ "lankabangla-1st-balanced-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "LankaBangla quarterly portfolio statement",
+  "sourceUrl": "https://lbamcl.com/investor-relations/#documentsone",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 61.41
+   },
+   {
+    "k": "Government bond / T-bill",
+    "v": 21.68
+   },
+   {
+    "k": "Corporate bond / Sukuk",
+    "v": 10.62
+   },
+   {
+    "k": "Mutual fund unit",
+    "v": 3.42
+   },
+   {
+    "k": "Cash at bank",
+    "v": 2.87
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 11.54
+   },
+   {
+    "k": "Telecommunication",
+    "v": 8.93
+   },
+   {
+    "k": "Insurance",
+    "v": 7.97
+   },
+   {
+    "k": "Food & Allied",
+    "v": 7.11
+   },
+   {
+    "k": "Bank",
+    "v": 6.0
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 3.82
+   },
+   {
+    "k": "Fuel & Power",
+    "v": 4.34
+   },
+   {
+    "k": "Financial Institutions",
+    "v": 3.52
+   },
+   {
+    "k": "Engineering",
+    "v": 3.19
+   },
+   {
+    "k": "Tannery",
+    "v": 2.75
+   },
+   {
+    "k": "IT Sector",
+    "v": 2.23
+   }
+  ],
+  "top": [
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": "BXPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 7.08
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 6.88
+   },
+   {
+    "name": "British American Tobacco Bangladesh",
+    "code": "BATBC",
+    "sector": "Food & Allied",
+    "v": 4.93
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.46
+   },
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 3.98
+   },
+   {
+    "name": "IDLC Finance",
+    "code": "IDLC",
+    "sector": "Financial Institutions",
+    "v": 3.52
+   },
+   {
+    "name": "MJL Bangladesh",
+    "code": "MJLBD",
+    "sector": "Fuel & Power",
+    "v": 3.3
+   },
+   {
+    "name": "Reliance Insurance",
+    "code": "RELIANCINS",
+    "sector": "Insurance",
+    "v": 3.07
+   },
+   {
+    "name": "Apex Footwear",
+    "code": null,
+    "sector": "Tannery",
+    "v": 2.73
+   },
+   {
+    "name": "LankaBangla Securities",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 2.56
+   },
+   {
+    "name": "Pioneer Insurance",
+    "code": null,
+    "sector": "Insurance",
+    "v": 2.55
+   },
+   {
+    "name": "Green Delta Insurance",
+    "code": null,
+    "sector": "Insurance",
+    "v": 2.35
+   },
+   {
+    "name": "IT Consultants",
+    "code": null,
+    "sector": "IT Sector",
+    "v": 2.23
+   },
+   {
+    "name": "Olympic Industries",
+    "code": "OLYMPIC",
+    "sector": "Food & Allied",
+    "v": 2.18
+   },
+   {
+    "name": "Bangladesh Submarine Cables",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 2.05
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 2.02
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 1.91
+   },
+   {
+    "name": "Singer Bangladesh",
+    "code": null,
+    "sector": "Engineering",
+    "v": 1.28
+   },
+   {
+    "name": "Bangladesh Export Import Company",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 1.27
+   },
+   {
+    "name": "United Power Generation & Distribution",
+    "code": null,
+    "sector": "Fuel & Power",
+    "v": 1.04
+   },
+   {
+    "name": "Craftsman Footwear & Accessories",
+    "code": null,
+    "sector": "Tannery",
+    "v": 0.02
+   }
+  ],
+  "top5": 27.32
+ },
+ "lb-gratuity-opportunities-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "LankaBangla quarterly portfolio statement",
+  "sourceUrl": "https://lbamcl.com/investor-relations/#documentsthree",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 73.37
+   },
+   {
+    "k": "Government & corporate bond",
+    "v": 11.87
+   },
+   {
+    "k": "Non-listed mutual fund unit",
+    "v": 10.57
+   },
+   {
+    "k": "Cash at bank",
+    "v": 4.17
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 15.77
+   },
+   {
+    "k": "Bank",
+    "v": 11.78
+   },
+   {
+    "k": "Insurance",
+    "v": 9.65
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 6.31
+   },
+   {
+    "k": "Engineering",
+    "v": 6.0
+   },
+   {
+    "k": "Food & Allied",
+    "v": 5.87
+   },
+   {
+    "k": "Financial Institutions",
+    "v": 5.45
+   },
+   {
+    "k": "Textile",
+    "v": 2.86
+   },
+   {
+    "k": "Telecommunication",
+    "v": 2.59
+   },
+   {
+    "k": "Services & Real Estate",
+    "v": 2.8
+   },
+   {
+    "k": "Tannery",
+    "v": 3.01
+   },
+   {
+    "k": "Fuel & Power",
+    "v": 1.24
+   },
+   {
+    "k": "Paper and Printing",
+    "v": 0.07
+   }
+  ],
+  "top": [
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": "BXPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 7.72
+   },
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 7.11
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.79
+   },
+   {
+    "name": "IDLC Finance",
+    "code": "IDLC",
+    "sector": "Financial Institutions",
+    "v": 5.45
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 4.18
+   },
+   {
+    "name": "British American Tobacco Bangladesh",
+    "code": "BATBC",
+    "sector": "Food & Allied",
+    "v": 3.52
+   },
+   {
+    "name": "Apex Footwear",
+    "code": null,
+    "sector": "Tannery",
+    "v": 2.93
+   },
+   {
+    "name": "Envoy Textiles",
+    "code": null,
+    "sector": "Textile",
+    "v": 2.86
+   },
+   {
+    "name": "Bangladesh Shipping Corporation",
+    "code": "BSC",
+    "sector": "Miscellaneous",
+    "v": 2.82
+   },
+   {
+    "name": "Eastern Housing",
+    "code": null,
+    "sector": "Services & Real Estate",
+    "v": 2.8
+   },
+   {
+    "name": "Pioneer Insurance",
+    "code": null,
+    "sector": "Insurance",
+    "v": 2.77
+   },
+   {
+    "name": "National Life Insurance",
+    "code": null,
+    "sector": "Insurance",
+    "v": 2.63
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 2.59
+   },
+   {
+    "name": "Reliance Insurance",
+    "code": "RELIANCINS",
+    "sector": "Insurance",
+    "v": 2.57
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 2.41
+   },
+   {
+    "name": "Bangladesh Export Import Company",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 2.36
+   },
+   {
+    "name": "Olympic Industries",
+    "code": "OLYMPIC",
+    "sector": "Food & Allied",
+    "v": 2.34
+   },
+   {
+    "name": "Bank Asia",
+    "code": "BANKASIA",
+    "sector": "Bank",
+    "v": 2.26
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 2.25
+   },
+   {
+    "name": "Singer Bangladesh",
+    "code": null,
+    "sector": "Engineering",
+    "v": 1.83
+   },
+   {
+    "name": "Green Delta Insurance",
+    "code": null,
+    "sector": "Insurance",
+    "v": 1.68
+   },
+   {
+    "name": "United Power Generation & Distribution",
+    "code": null,
+    "sector": "Fuel & Power",
+    "v": 1.24
+   },
+   {
+    "name": "LankaBangla Securities",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 1.14
+   },
+   {
+    "name": "Craftsman Footwear & Accessories",
+    "code": null,
+    "sector": "Tannery",
+    "v": 0.08
+   },
+   {
+    "name": "Web Coats",
+    "code": null,
+    "sector": "Paper and Printing",
+    "v": 0.07
+   }
+  ],
+  "top5": 30.25
+ },
+ "lb-gratuity-wealth-builder-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "LankaBangla quarterly portfolio statement",
+  "sourceUrl": "https://lbamcl.com/investor-relations/#documentsfour",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 59.63
+   },
+   {
+    "k": "Government & corporate bond",
+    "v": 15.76
+   },
+   {
+    "k": "Cash at bank",
+    "v": 13.63
+   },
+   {
+    "k": "Non-listed mutual fund unit",
+    "v": 10.99
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 20.36
+   },
+   {
+    "k": "Food & Allied",
+    "v": 8.48
+   },
+   {
+    "k": "Insurance",
+    "v": 7.59
+   },
+   {
+    "k": "Textile",
+    "v": 5.42
+   },
+   {
+    "k": "Cement",
+    "v": 4.23
+   },
+   {
+    "k": "Bank",
+    "v": 4.05
+   },
+   {
+    "k": "Tannery",
+    "v": 2.65
+   },
+   {
+    "k": "Fuel & Power",
+    "v": 2.3
+   },
+   {
+    "k": "Engineering",
+    "v": 1.85
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 1.47
+   },
+   {
+    "k": "Ceramics Sector",
+    "v": 1.21
+   }
+  ],
+  "top": [
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": "BXPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.49
+   },
+   {
+    "name": "Envoy Textiles",
+    "code": null,
+    "sector": "Textile",
+    "v": 5.42
+   },
+   {
+    "name": "The ACME Laboratories",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.21
+   },
+   {
+    "name": "British American Tobacco Bangladesh",
+    "code": "BATBC",
+    "sector": "Food & Allied",
+    "v": 4.42
+   },
+   {
+    "name": "Pioneer Insurance",
+    "code": null,
+    "sector": "Insurance",
+    "v": 4.32
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 4.23
+   },
+   {
+    "name": "Olympic Industries",
+    "code": "OLYMPIC",
+    "sector": "Food & Allied",
+    "v": 4.05
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 3.42
+   },
+   {
+    "name": "Green Delta Insurance",
+    "code": null,
+    "sector": "Insurance",
+    "v": 3.28
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 3.13
+   },
+   {
+    "name": "Apex Footwear",
+    "code": null,
+    "sector": "Tannery",
+    "v": 2.54
+   },
+   {
+    "name": "Titas Gas Transmission & Dist.",
+    "code": null,
+    "sector": "Fuel & Power",
+    "v": 2.3
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 1.85
+   },
+   {
+    "name": "Orion Pharma",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 1.79
+   },
+   {
+    "name": "Bangladesh Export Import Company",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 1.47
+   },
+   {
+    "name": "Renata Preference Share",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 1.45
+   },
+   {
+    "name": "RAK Ceramics (Bangladesh)",
+    "code": null,
+    "sector": "Ceramics Sector",
+    "v": 1.21
+   },
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 0.92
+   },
+   {
+    "name": "Craftsman Footwear & Accessories",
+    "code": null,
+    "sector": "Tannery",
+    "v": 0.11
+   }
+  ],
+  "top5": 27.86
+ },
+ "lankabangla-al-arafah-shariah-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by cost value",
+  "source": "LankaBangla quarterly portfolio statement",
+  "sourceUrl": "https://lbamcl.com/investor-relations/#documentsone",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equities",
+    "v": 64.55
+   },
+   {
+    "k": "Sukuk (Islamic securities)",
+    "v": 15.92
+   },
+   {
+    "k": "Mudaraba term deposit",
+    "v": 15.12
+   },
+   {
+    "k": "Cash at bank",
+    "v": 4.41
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 31.05
+   },
+   {
+    "k": "Telecommunication",
+    "v": 9.82
+   },
+   {
+    "k": "Food & Allied",
+    "v": 8.15
+   },
+   {
+    "k": "Cement",
+    "v": 5.0
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 4.7
+   },
+   {
+    "k": "Fuel & Power",
+    "v": 4.6
+   },
+   {
+    "k": "Bank",
+    "v": 1.23
+   },
+   {
+    "k": "Tannery",
+    "v": 0.01
+   }
+  ],
+  "top": [
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 9.82
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": "BXPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.77
+   },
+   {
+    "name": "Olympic Industries",
+    "code": "OLYMPIC",
+    "sector": "Food & Allied",
+    "v": 8.15
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 7.72
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.06
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 5.0
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
+    "code": "IBNSINA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.77
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.72
+   }
+  ],
+  "top5": 39.52
+ }
+}

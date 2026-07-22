@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9ZHRMVLEEE');
+  window.addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-9ZHRMVLEEE';document.head.appendChild(s);},1800);});
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology: How ReturnKoto? Verifies Every Number | ReturnKoto?</title>
+<meta name="description" content="How ReturnKoto? sources and verifies Bangladeshi mutual fund data: where NAVs and holdings come from, how total returns are computed with dividends reinvested by default or taken as cash, the update schedule, known limitations, and how to cite or reuse the data.">
+<link rel="canonical" href="https://returnkoto.com/methodology.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Methodology: How ReturnKoto? Verifies Every Number | ReturnKoto?">
+<meta property="og:description" content="How ReturnKoto? sources and verifies Bangladeshi mutual fund data: where NAVs and holdings come from, how total returns are computed with dividends reinvested by default or taken as cash, the update schedule, known limitations, and how to cite or reuse the data.">
+<meta property="og:url" content="https://returnkoto.com/methodology.html">
+<meta property="og:site_name" content="ReturnKoto?">
+<meta property="og:image" content="https://returnkoto.com/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://returnkoto.com/og-card.png">
+<meta name="twitter:title" content="Methodology: How ReturnKoto? Verifies Every Number | ReturnKoto?">
+<meta name="twitter:description" content="How ReturnKoto? sources and verifies Bangladeshi mutual fund data: where NAVs and holdings come from, how total returns are computed with dividends reinvested by default or taken as cash, the update schedule, known limitations, and how to cite or reuse the data.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1F9E57">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" href="/beta-notice.js" as="script">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://returnkoto.com/#org", "name": "ReturnKoto?", "alternateName": "ReturnKoto", "url": "https://returnkoto.com/", "sameAs": ["https://www.facebook.com/ReturnKoto", "https://www.instagram.com/returnkoto/", "https://www.youtube.com/@ReturnKoto", "https://www.tiktok.com/@returnkoto", "https://www.reddit.com/r/returnkoto/", "https://www.linkedin.com/company/returnkoto"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Methodology", "item": "https://returnkoto.com/methodology.html"}]}, {"@type": "WebPage", "name": "ReturnKoto? Methodology", "url": "https://returnkoto.com/methodology.html", "description": "How ReturnKoto? sources and verifies Bangladeshi mutual fund data: where NAVs and holdings come from, how total returns are computed with dividends reinvested by default or taken as cash, the update schedule, known limitations, and how to cite or reuse the data.", "publisher": {"@id": "https://returnkoto.com/#org"}}, {"@type": "Dataset", "name": "Bangladeshi open-end mutual fund returns and holdings dataset", "description": "Daily-refreshed NAV data, total returns, latest NAVs with sources, and verified portfolio holdings of Bangladeshi open-end mutual funds, collected from asset managers' own websites and disclosures, with a secondary data source as fallback.", "url": "https://returnkoto.com/methodology.html", "creator": {"@id": "https://returnkoto.com/#org"}, "license": "https://returnkoto.com/terms.html", "isAccessibleForFree": true, "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://returnkoto.com/data.json"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://returnkoto.com/holdings.json"}]}]}</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<style>
+.skip{position:absolute;left:-9999px;top:0;z-index:1000;background:var(--green-dark,#157A43);color:#fff;padding:10px 16px;font-weight:700;text-decoration:none;border-radius:0 0 8px 0}.skip:focus{left:0}
+:root{--green:#1F9E57;--green-dark:#157A43;--green2:#2ECC71;--ink:#0f1b14;--muted:#5b6b61;--line:#e3eae5;--bg:#f6f9f7;--card:#fff}
+[data-theme="dark"]{--green-dark:#3DD98A}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:var(--green-dark)}
+.top{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--ink);text-decoration:none;font-size:18px}
+.brand svg{width:24px;height:24px;border-radius:6px}
+.back{font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
+.wrap{max-width:780px;margin:0 auto;padding:24px 20px 60px}
+h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
+.intro{font-size:16px;color:#37463d;margin:0 0 24px}
+.fund-n{font-weight:800;font-size:1.06em;color:var(--green-dark);display:inline-block;font-variant-numeric:tabular-nums;animation:fundpop 1.15s cubic-bezier(.2,.85,.3,1) both}
+@keyframes fundpop{0%{transform:scale(.5);opacity:0}55%{transform:scale(1.22);opacity:1}100%{transform:scale(1)}}
+.grp{margin-bottom:26px}
+.grp h2{font-size:16px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.gc{font-size:12px;font-weight:600;color:var(--muted);background:#eef3f0;border-radius:999px;padding:2px 9px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:10px}
+.fcard{display:flex;flex-direction:column;gap:6px;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);transition:border-color .15s,box-shadow .15s,transform .15s}
+.fcard:hover{border-color:var(--green);box-shadow:0 6px 18px rgba(31,158,87,.12);transform:translateY(-1px)}
+.fc-nm{font-weight:700;font-size:14.5px;display:flex;align-items:flex-start;gap:5px;line-height:1.25}
+.fc-ar{color:var(--green-dark);font-weight:700;flex:none}
+.fc-badges{display:flex;gap:5px;flex-wrap:wrap}
+.b{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:5px}
+.b.sh{background:#eef0fb;color:#4a4fb0}.b.ok{background:#e7f6ec;color:#1f9e57}
+.fc-stat{font-size:13px;color:var(--muted)}.fc-stat b{color:var(--ink);font-variant-numeric:tabular-nums}
+.foot{font-size:12px;color:var(--muted);text-align:center;line-height:1.7;margin-top:30px}
+.foot a{color:var(--muted)}
+@media(max-width:560px){h1{font-size:23px}.fgrid{grid-template-columns:1fr 1fr;gap:8px}.fcard{padding:11px}.fc-nm{font-size:13px}.wrap{padding:18px 14px 50px}.top{padding:12px 14px}}
+.rk-nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #eef1ef}
+.rk-logo{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:17px;color:#0f1b14;text-decoration:none;letter-spacing:-.01em}
+.rk-logo svg{width:23px;height:23px;flex:none}
+.rk-beta{font-size:8.5px;font-weight:800;letter-spacing:.06em;color:#fff;background:linear-gradient(135deg,#FF7A3D,#F7409B);padding:2px 5px;border-radius:5px;align-self:flex-start;margin-left:1px;animation:rkBetaPulse 1.9s ease-in-out infinite}
+@keyframes rkBetaPulse{0%,100%{opacity:1}50%{opacity:.55}}
+.rk-links{display:flex;align-items:center;gap:20px}
+.rk-links a{font-size:14px;font-weight:600;color:#3a4a40;text-decoration:none;transition:color .12s}
+.rk-links a:hover{color:#1F9E57}
+.rk-links a.active{color:#1F9E57;font-weight:700;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.rk-foot{margin-top:40px;background:#f4f7f5;border-top:1px solid #e6ece8}
+.rk-foot-in{max-width:680px;margin:0 auto;padding:34px 20px 38px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.rk-foot .rk-logo{font-size:18px}
+.rk-foot-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+.rk-foot-links a{color:#3a4a40;text-decoration:none;font-size:14px;font-weight:600}
+.rk-foot-links a:hover{color:#1F9E57}
+.rk-roadmap{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;text-decoration:none;color:#5b6b61;background:transparent;border:1px solid #c5cfc8;transition:color .12s,border-color .12s;min-height:40px}.rk-roadmap:hover{color:#157A43;border-color:#157A43;background:transparent;transform:none}.rk-roadmap::after{display:none;content:none;animation:none}.rk-coffee{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;padding:10px 20px;border-radius:999px;text-decoration:none;color:#7a5b12;background:#FCEFC7;border:1.5px solid #F4D58D;transition:transform .12s,background .12s}
+.rk-coffee:hover{background:#FBE7A8;transform:translateY(-1px)}
+.rk-coffee{position:relative;overflow:hidden}
+.rk-coffee::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg) translateX(0);animation:rkCofSheen 6s ease-in-out infinite;pointer-events:none}
+@keyframes rkCofSheen{0%,75%{transform:skewX(-20deg) translateX(0)}100%{transform:skewX(-20deg) translateX(560%)}}
+.rk-social{display:flex;gap:14px;justify-content:center}
+.rk-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid #e0e8e3;color:#5b6b61;transition:color .12s,border-color .12s,transform .12s}
+.rk-social a:hover{color:#1F9E57;border-color:#1F9E57;transform:translateY(-1px)}
+.rk-social svg{width:17px;height:17px;fill:currentColor}
+.rk-foot-note{font-size:12px;color:#7c8c82;line-height:1.7;margin:2px 0 0;max-width:520px}
+@media(max-width:560px){.rk-nav{padding:10px 8px;gap:6px}.rk-logo{font-size:13.5px;gap:5px}.rk-logo svg{width:18px;height:18px}.rk-beta{font-size:7px;padding:2px 3px}.rk-links{gap:8px}.rk-links a{font-size:12px}.themetog{font-size:13px;padding:3px}.rk-foot-in{padding:28px 18px 32px;gap:14px}.rk-foot-links{gap:16px}}@media(max-width:380px){.rk-logo{font-size:12.5px}.rk-logo svg{width:16px;height:16px}.rk-links{gap:7px}.rk-links a{font-size:11.5px}.themetog{font-size:12px}}@media(max-width:360px){.rk-beta{display:none}}
+.themetog{background:none;border:0;cursor:pointer;font-size:15px;line-height:1;padding:5px 7px;border-radius:7px;display:inline-flex;align-items:center}
+.themetog:hover{background:rgba(0,0,0,.06)}
+[data-theme="dark"]{--ink:#E6EAF2;--muted:#9BA7BB;--line:#2B3648;--bg:#0E141F;--card:#182130}
+[data-theme="dark"] .themetog:hover{background:rgba(255,255,255,.1)}
+[data-theme="dark"] .fcard{color:var(--ink)}
+[data-theme="dark"] .rk-nav{background:rgba(14,20,31,.92);border-bottom-color:#1E2735}
+[data-theme="dark"] .rk-logo{color:#EAF0F8}
+[data-theme="dark"] .rk-links a{color:#AEB9CC}
+[data-theme="dark"] .rk-links a:hover,[data-theme="dark"] .rk-links a.active{color:#3DD98A}
+[data-theme="dark"] .intro{color:#C2CAD6}
+[data-theme="dark"] .fund-n{color:var(--green2)}
+[data-theme="dark"] .gc{background:#212C3C;color:#9BA7BB}
+[data-theme="dark"] .fcard:hover{box-shadow:0 6px 18px rgba(0,0,0,.4)}
+[data-theme="dark"] .fc-ar{color:#3DD98A}
+[data-theme="dark"] .b.sh{background:#1E2450;color:#A5B4FC}
+[data-theme="dark"] .b.ok{background:#0C2E22;color:#34D399}
+[data-theme="dark"] .rk-foot{background:#0B111A;border-top-color:#1E2735}
+[data-theme="dark"] .rk-foot-links a{color:#AEB9CC}
+[data-theme="dark"] .rk-foot-links a:hover{color:#3DD98A}
+[data-theme="dark"] .rk-foot-note{color:#8391A5}[data-theme="dark"] .rk-roadmap{color:#8391A5;border-color:#2B3648;background:transparent}[data-theme="dark"] .rk-roadmap:hover{color:#3DD98A;border-color:#3DD98A}
+[data-theme="dark"] .rk-social a{background:#182130;border-color:#2B3648;color:#AEB9CC}
+[data-theme="dark"] .rk-social a:hover{color:#3DD98A;border-color:#3DD98A}
+
+.sx-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin-bottom:10px}
+.sx-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.sx-rank{font-size:12px;font-weight:800;color:var(--muted);flex:none;width:22px}
+.sx-name{font-size:15.5px;font-weight:800;letter-spacing:-.01em}
+.sx-n{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--green-dark);white-space:nowrap}
+.sx-trk{height:7px;border-radius:4px;background:#eef3f0;overflow:hidden;margin:9px 0 4px}
+.sx-fill{display:block;height:100%;background:var(--green);border-radius:4px}
+.sx-det summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--muted);margin-top:7px;list-style:none;display:inline-flex;align-items:center;gap:5px}
+.sx-det summary::after{content:"\25BE";font-size:10px}
+.sx-det[open] summary::after{content:"\25B4"}
+.sx-rows{margin:9px 0 2px;border-top:1px solid var(--line)}
+.sx-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #f0f4f1;font-size:13px}
+.sx-row a{color:var(--ink);text-decoration:none;font-weight:600}
+.sx-row a:hover{color:var(--green)}
+.sx-w{font-variant-numeric:tabular-nums;font-weight:700;color:var(--muted);white-space:nowrap}
+.sx-sec{font-size:17px;font-weight:800;margin:26px 0 4px;letter-spacing:-.01em}
+.sx-sub{font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.6}
+.sx-pair{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:9px}
+.sx-pair-t{font-size:13.5px;font-weight:700;line-height:1.45}
+.sx-pair-t a{color:var(--ink);text-decoration:none}
+.sx-pair-t a:hover{color:var(--green)}
+.sx-pair-m{font-size:12.5px;color:var(--muted);margin-top:4px}
+.sx-shared{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.55}
+.sx-note{font-size:12.5px;color:var(--muted);line-height:1.65;margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.sx-single{font-size:13px;color:var(--muted);line-height:1.8}
+.sx-single a{color:var(--ink);font-weight:600;text-decoration:none}
+[data-theme="dark"] .sx-trk{background:#212C3C}
+[data-theme="dark"] .sx-row{border-bottom-color:#1E2735}
+.showall{margin-top:2px;margin-bottom:14px;border:1px solid var(--line);background:var(--card);color:var(--green-dark);font-family:inherit;font-size:12.5px;font-weight:700;padding:10px 14px;border-radius:8px;cursor:pointer;width:100%}
+.sx-hidden{display:none}
+.sxp-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:0 0 12px}
+@media(max-width:640px){.sxp-row{grid-template-columns:1fr}}
+.sxp-sel{width:100%;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:10px 11px}
+.sxp-hd{display:flex;gap:8px;font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;padding-bottom:7px;border-bottom:1px solid var(--line)}
+.sxp-hd span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sxp-hd span:first-child{flex:1.6}
+.sxp-r{display:flex;gap:8px;padding:8px 0;border-bottom:1px solid #f0f4f1;font-size:13px;align-items:baseline}
+.sxp-n{flex:1.6;min-width:0;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sxp-w{flex:1;font-variant-numeric:tabular-nums;font-weight:700;color:var(--muted)}
+[data-theme="dark"] .sxp-r{border-bottom-color:#1E2735}
+@media(max-width:560px){.rk-links a.rk-sm-hide{display:none}}
+
+.m-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px 18px;margin-bottom:12px}
+.m-card h3{margin:0 0 8px;font-size:15.5px}
+.m-card p{font-size:13.5px;color:var(--muted);margin:0 0 9px;line-height:1.7}
+.m-card p:last-child{margin-bottom:0}
+.m-card p b{color:var(--ink)}
+.m-card code{font-size:12.5px;background:#f2f7f4;border-radius:5px;padding:1px 6px;color:var(--ink)}
+[data-theme="dark"] .m-card code{background:#131B29}
+.m-rule{font-size:12.5px;background:#f2f7f4;border-radius:9px;padding:9px 12px;color:var(--muted);line-height:1.65;margin:0 0 9px}
+[data-theme="dark"] .m-rule{background:#131B29}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<script src="/beta-notice.js"></script>
+<nav class="rk-nav">
+<a class="rk-logo" href="/"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="24" fill="#1F9E57"/><path d="M22 66 44 50 58 58 76 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 34 76 34 76 50" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>ReturnKoto?<span class="rk-beta">BETA</span></a>
+<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a class="rk-sm-hide" href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
+</nav>
+<main id="main" class="wrap">
+<h1>Methodology</h1>
+<p class="intro">ReturnKoto? tracks <span class="fund-n">34</span> Bangladeshi open-end mutual funds as of July 2026 and shows only figures that can be traced to an official source. NAVs are collected every day, from each fund manager&rsquo;s own website first, with a secondary data source as fallback. Every return is a total return; cash dividends are reinvested by default, with an option to view them taken as cash. This page is the complete, canonical description of how the numbers are made. Where a fund manager&rsquo;s own website has not published a NAV for more than 45 days, well beyond any book-closure pause, the fund is flagged on the site with the date of the last figure its manager published, and its data comes from secondary market data sources until the manager&rsquo;s page catches up.</p>
+<h2 class="sx-sec">1. Where the NAV data comes from</h2>
+<div class="m-card"><h3>Official sources only</h3><p>Every NAV on ReturnKoto? comes from an official source: <b>the fund manager&rsquo;s own published figures</b> are the primary source for each fund&rsquo;s latest NAV; once validated, that figure becomes the newest point in the fund&rsquo;s return series, so every calculation runs through it. <b>A secondary data source</b> is the fallback and the source of every fund&rsquo;s longer historical NAV series, the body of the series behind the return math.</p><p>Every NAV is verified before it goes live, and nothing is ever interpolated, estimated or typed in by hand.</p><p>Every fund page names its NAV source and date in the line under the stat boxes, so freshness is never a guess.</p></div>
+<h2 class="sx-sec">2. How returns are calculated</h2>
+<div class="m-card"><h3>Total return, replayed over real history</h3><p>Each fund&rsquo;s historical NAV series is condensed to monthly points, and your investment is replayed over that real history. A <b>lump sum</b> buys units once at the starting NAV. A <b>monthly SIP</b> buys units every month at that month&rsquo;s NAV. Each year&rsquo;s cash dividend, declared as a percentage of the ৳10 face value, is <b>reinvested in its payout season</b> at that month&rsquo;s NAV, buying more units, so by default all figures are total returns, not just price changes; a taken-as-cash view shows the same investment with each dividend pocketed instead of reinvested. Where an asset manager shares verified payment dates, we use them; otherwise dividends are modeled at October of the dividend year. <b>Stock dividends and unit conversions</b> (bonus issues, restructuring events that change units without a cash payout) are applied on their effective dates so the NAV series stays continuous. Dividends are reinvested gross; purchase/surrender price spreads and dividend tax at source are not modeled.</p><p>Annualized figures use <b>CAGR</b> for lump sums and the <b>money-weighted return (IRR)</b> for SIPs, which accounts for the timing of each deposit. Look-back periods run from 6 months to 42 years plus each fund&rsquo;s full history. Published NAVs are already net of each fund&rsquo;s fees, so returns are what an investor would actually have kept. Return percentages are shown to <b>two decimal places</b>.</p><p><b>Accuracy check:</b> the engine&rsquo;s results are reconciled against the asset managers&rsquo; own published return figures and match to within about 1%.</p></div>
+<div class="m-card" id="dual-return"><h3>When ReturnKoto? and an AMC show different returns</h3><p>Both can be right. ReturnKoto? measures a <b>dividends-reinvested total return</b> by default: one lump-sum purchase, every cash dividend reinvested at that month&rsquo;s NAV, annualized over the window shown. Many AMC professionals publish a <b>money-weighted return (XIRR)</b> on a dated cashflow sheet instead: buy one unit at face value, record each dividend as cash paid out (not reinvested), and treat today&rsquo;s NAV as the final payoff.</p><p>Those answer different questions. Reinvested return asks what your units would be worth if every payout stayed in the fund. Cash-out XIRR asks what annualized return your wallet would have experienced if dividends sat in your hand. When dividends are meaningful, reinvested figures are often higher; when the time window differs (our &ldquo;Max&rdquo; may start later than an AMC&rsquo;s since-inception figure), the gap widens further. Stock dividends, unit conversions and dated payout timing are all included, so a gap of one or two percentage points between the two conventions is normal, not an error.</p><p>ReturnKoto?&rsquo;s <b>Taken as cash</b> toggle is a time-weighted cash-pile path over the period you choose; an AMC&rsquo;s published XIRR is usually a separate money-weighted, since-inception cashflow rate. Both treat dividends as cash, but they are not the same number.</p><p>Where an asset manager shares verified payment dates, ReturnKoto? uses them for that fund rather than the October convention. When we show both figures on a fund page (&ldquo;Two sides of the coin&rdquo;), we label each convention plainly rather than hiding the gap. See also the <a href="/faq.html#dual-return">FAQ</a>.</p></div>
+<h2 class="sx-sec">3. Dividends, fees and fund details</h2>
+<div class="m-card"><h3>Only official records</h3><p><b>Dividends</b> come from the asset managers&rsquo; official disclosures. Where a manager does not publish year-by-year records, the return is anchored to the fund&rsquo;s own officially published total-return figures and labelled <b>estimated</b>. Where records are incomplete, only verifiable dividends are reinvested and the fund is labelled <b>partial</b>, so any error understates the return rather than inflating it.</p><p><b>Fees, exit loads, minimums, trustees and custodians</b> are read from each fund&rsquo;s BSEC-approved prospectus and cross-checked against the manager&rsquo;s own fund pages. The confidence level behind every figure is shown as a badge; the <a href="/badges.html">badge guide</a> explains each one in detail.</p></div>
+<h2 class="sx-sec">4. How holdings are verified</h2>
+<div class="m-card"><h3>From the managers&rsquo; own portfolio statements</h3><p>Every holdings panel is built from the asset manager&rsquo;s own published portfolio statement, usually quarterly, and is verified against that statement before it goes live.</p><p>When a fund files a new statement, its page also shows <b>what changed</b> since the previous one: new and exited positions, the biggest shifts in position size and the move in concentration. These lines are computed from the two statements, never written by hand.</p><p>Each fund keeps its statement&rsquo;s own as-of date and valuation basis (cost or market); these are shown, never normalized away. Where a statement discloses quantities and values, a holding may also show the fund&rsquo;s <b>average purchase cost</b> and that statement&rsquo;s <b>market price</b> per unit; both come from the statement itself, not from live DSE quotes. Funds without a publicly verifiable portfolio statement from 2025 or later are removed from the site entirely, an inclusion rule applied since July 2026.</p></div>
+<h2 class="sx-sec">5. Update schedule</h2>
+<div class="m-card"><h3>What refreshes when</h3><p><b>Automatically, every day:</b> NAVs are collected, all returns recomputed, and every fund page, chart, table and date regenerated and republished. The homepage rankings and compare tool read the same fresh data.</p><p><b>Manually, as published:</b> holdings are re-verified when managers release new portfolio statements (quarterly), and dividend records are updated when distributions are declared. These are deliberate human verification steps, not automation gaps.</p></div>
+<h2 class="sx-sec">6. Known limitations</h2>
+<div class="m-card"><h3>Stated plainly</h3><p>Sources lag: managers publish NAVs on their own schedules, and the fallback portal can trail the freshest AMC figures by days or weeks; each page shows its own dates so nothing is hidden. Where a manager&rsquo;s own published figures cannot be used reliably, that fund stays on the fallback source until they can.</p><p>Holdings trail by up to a quarter, because that is how often managers disclose them. Return calculations use monthly NAV points, so intra-month movements are smoothed. Closed-end funds are not covered. And historical returns describe the past; they do not predict the future.</p><p>Spot an error? <a href="https://docs.google.com/forms/d/e/1FAIpQLSePyn2S-1ANxmJM2viqSsVn5LJzJMk7k1IGmJsfd8Ul3KB4Ig/viewform" target="_blank" rel="noopener">Report a data issue</a>. Reports are re-verified against the official sources and corrected on the next publish.</p></div>
+<h2 class="sx-sec" id="rating">7. How the fund rating works</h2>
+<div class="m-card"><h3>A rules-based, risk-adjusted score</h3><p><b>This rating is experimental and a work in progress.</b> Treat it as one starting point for your own research, and expect it to change as the method is refined. The experimental label comes off only when three tests are met: the method has passed at least one annual July review without structural change, it has run a full year of recomputations without needing a correction, and every anchor still matches the public yardstick it is pinned to (described below).</p><p>Each fund earns <b>1 to 5 stars</b>, judged within its own category (income, growth or balanced), because holding an income fund to a growth fund&rsquo;s risk would not be fair. Every fund is measured over the <b>exact same calendar months</b>: a <b>3-year rating</b> on the last 36 months, which is the main rating shown everywhere, and a <b>5-year rating</b> on the last 60 months for funds with that much history. Both windows end at the most recent completed calendar month covered by both the fund data and the DSEX series, so funds and the benchmark always span identical periods; daily-collected NAVs flow into the calculators immediately and into the ratings when the month closes. Nothing is averaged over each fund&rsquo;s own lifetime, so a fund launched after a market crash is never compared on friendlier years than a fund that lived through it. A fund needs at least three years of history to be rated at all; younger funds show &ldquo;Not yet rated&rdquo; with their figures still visible. Shariah-compliant funds also carry a second rating against the other Shariah funds, computed on the same 3-year window.</p><p>Four figures are measured inside the window, each put on a 0 to 100 scale. <b>Return</b> is the fund&rsquo;s annualized total return against a benchmark measured over the same window: for growth and balanced funds, the midpoint of the DSEX index return and the 91-day Treasury bill average, so the hurdle is half market-beating and half opportunity cost; for income funds, the T-bill average alone, since deposits rather than stocks are their real alternative. Matching the benchmark scores 50, and every percentage point above or below moves the score by 5 points. <b>Stability</b> is downside deviation, which counts only losing months: 1% scores 100, 12% scores 0. <b>Drawdown resilience</b> scores 100 for no fall and 0 for a fall of 30% or worse. <b>Consistency</b> is the share of 12-month holding periods inside the window that ended in profit. The overall score is <b>40% return, 20% stability, 20% drawdown resilience and 20% consistency</b>. One guardrail sits on top: stars above 3 require the fund&rsquo;s return to beat <b>both</b> of its yardsticks over the window, the 91-day T-bill average and, for growth and balanced funds, the DSEX return itself. A calm NAV alone can never look premium.</p><p><b>Where the anchors come from.</b> None of those numbers is taste; each is pinned to an observable market fact, re-checked at every July review. The <b>T-bill averages</b> are built from Bangladesh Bank auction cut-offs as reported by the financial press (The Business Standard, The Daily Star, The Financial Express): about 10.9% a year over the current 3-year window, and roughly 7.9% over the 5-year window, which we publish as approximate because 2021-22 auction prints are sparse from the floored-rate era. The <b>DSEX window returns</b> come from the same published <a href="/dsex.json">dsex.json</a> month-end series used for beta; DSEX is a price-only index that excludes dividends, which makes the market yardstick slightly easier to beat, and we state that rather than hide it. The <b>downside deviation scale (1% to 12%)</b> sits just above the DSEX&rsquo;s own downside deviation of 9.9% over 2019 to 2026, and the <b>30% drawdown cap</b> sits against the DSEX&rsquo;s worst peak-to-trough fall of 36.7% in that series. One honest caveat: income funds hold bonds that are often priced at amortized cost rather than market value, which makes their NAVs look smoother than the market reality; that is one reason return carries the largest weight and the yardstick gate exists.</p><p>Stars come from fixed levels, not a ranking. Each category has a <b>reference level</b>, the score a solid, typical fund of that type earns, which sits at the centre of the 3-star band: <b>56 for growth, 56 for balanced, 72 for income and 56 for the Shariah group</b>, set at the July 2026 review. Each <b>12 points</b> moves one star: at least 18 above the level earns 5 stars, at least 6 but under 18 above earns 4, under 6 either way earns 3, at least 6 but under 18 below earns 2, and at least 18 below earns 1. Because the levels are fixed rather than a curve, funds with the same score always earn the same stars, and no band is filled just to complete a shape. The peer rank shown beside each rating is context, never an input. Every rated fund&rsquo;s sub-scores, score and band arithmetic are published in full on the <a href="/ratings.html">star ratings league table</a>, so any rating can be rebuilt by hand.</p><p><b>Governance.</b> The levels, anchors and benchmarks are reviewed <b>once a year, each July</b>, against the same public yardsticks named above; outside that annual review they do not move. Any change to the method, weights, anchors or levels is documented on this page before it takes effect, and all ratings are restated in a single build, never one fund at a time. Ratings are recomputed after every NAV collection, with both windows ending at the latest collected month, and describe <b>past performance only</b>; they do not predict the future.</p><p>Each fund with enough history also shows a <b>market sensitivity</b> figure, its <b>beta</b> against the DSEX, the Dhaka Stock Exchange&rsquo;s broad market index. Beta measures how much the fund has moved for a given move in the market: a beta near 1 tracks the market closely, while a beta near 0 means the fund moves largely on its own, as most income funds do. It is estimated from monthly returns over the fund&rsquo;s history, using official DSEX month-end closes published by the Dhaka Stock Exchange. We deliberately do <b>not</b> publish an alpha yet: DSEX is a price-only index that leaves out market dividends, so an alpha measured against it would overstate income-paying funds. A fair alpha needs a dividend-inclusive benchmark, which we will add once we can source one that meets our verification bar.</p></div><h2 class="sx-sec" id="use">Citing and using this data</h2>
+<div class="m-card"><h3>Cite freely; reuse has limits</h3><p>Cite this site as <b>ReturnKoto? (returnkoto.com)</b>, with this page as the methodology reference. Some data is currently published as public JSON at <code>returnkoto.com/data.json</code> (returns, NAV history, latest NAVs with per-fund source and date) and <code>returnkoto.com/holdings.json</code> (verified holdings with statement dates and valuation bases). The returns and NAV files refresh daily; holdings refresh when a manager files a new statement.</p><p>These files are offered as a courtesy for noncommercial analysis, journalism, research and AI systems, with attribution to ReturnKoto?. They may be changed, moved, restricted or discontinued at any time. They are not a commercial data license, and they do not permit cloning ReturnKoto? as a competing product. The public source code is under the <a href="https://polyformproject.org/licenses/strict/1.0.0" rel="noopener">PolyForm Strict License 1.0.0</a>. Full site rules: <a href="/terms.html">Terms of use</a>. Amounts typed into the calculator never appear in these files or anywhere else; they stay in the visitor&rsquo;s browser.</p></div>
+<p class="sx-note">ReturnKoto? publishes fund information for learning and research. Primary sources: the asset managers&rsquo; websites and disclosures, BSEC-approved prospectuses, and a secondary data source. <a href="/">Back to the calculator &#8594;</a></p>
+</main>
+<footer class="rk-foot">
+<div class="rk-foot-in">
+<a class="rk-logo" href="/"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="24" fill="#1F9E57"/><path d="M22 66 44 50 58 58 76 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 34 76 34 76 50" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>ReturnKoto?</a>
+<nav class="rk-foot-links"><a href="/">Calculator</a><a href="/funds/" data-nav="funds">Funds</a><a href="/stocks.html">Stocks</a><a href="/compare.html" data-nav="compare">Compare</a><a href="/learn.html" data-nav="learn">Learn</a><a href="/faq.html" data-nav="faq">FAQ</a><a href="/ratings.html">Star ratings</a><a href="/badges.html">Badge guide</a><a href="/methodology.html">Methodology</a><a href="/terms.html">Terms</a><a href="/more.html">More</a><a href="https://www.facebook.com/groups/2419388815175186" target="_blank" rel="noopener">Community</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSePyn2S-1ANxmJM2viqSsVn5LJzJMk7k1IGmJsfd8Ul3KB4Ig/viewform" target="_blank" rel="noopener">Report a data issue</a></nav>
+<div class="rk-social"><a href="https://www.facebook.com/ReturnKoto" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.instagram.com/returnkoto/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a><a href="https://www.youtube.com/@ReturnKoto" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="https://www.tiktok.com/@returnkoto" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a><a href="https://www.reddit.com/r/returnkoto/" target="_blank" rel="noopener" aria-label="Reddit"><svg viewBox="0 0 256 256" fill="currentColor" style="isolation:isolate" aria-hidden="true"><path d="M248,104a32,32,0,0,0-52.94-24.19c-16.75-8.9-36.76-14.28-57.66-15.53l5.19-31.17,17.72,2.72a24,24,0,1,0,2.87-15.74l-26-4a8,8,0,0,0-9.11,6.59L121.2,64.16c-21.84.94-42.82,6.38-60.26,15.65a32,32,0,0,0-42.59,47.74A59,59,0,0,0,16,144c0,21.93,12,42.35,33.91,57.49C70.88,216,98.61,224,128,224s57.12-8,78.09-22.51C228,186.35,240,165.93,240,144a59,59,0,0,0-2.35-16.45A32.16,32.16,0,0,0,248,104Z"/><g style="mix-blend-mode:destination-out"><circle cx="88" cy="128" r="18" fill="#000"/><circle cx="168" cy="128" r="18" fill="#000"/><path d="M100 172c12 14 28 20 28 20s16-6 28-20" fill="none" stroke="#000" stroke-width="14" stroke-linecap="round"/></g></svg></a><a href="https://www.linkedin.com/company/returnkoto/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<a class="rk-roadmap" href="/roadmap/">ReturnKoto? Roadmap</a>
+<p class="rk-foot-note">For learning and research. Returns are historical and don&rsquo;t predict the future.<br>&copy; 2026 ReturnKoto?</p>
+</div>
+<script>(function(){try{if(new Date()>new Date('2026-07-30'))document.querySelectorAll('.rk-beta').forEach(function(e){e.style.display='none';});}catch(e){}})();</script>
+<script>(function(){var p=location.pathname,k=/^\/funds(\/|$)/.test(p)?'funds':(/compare/.test(p)?'compare':(/learn/.test(p)?'learn':(/faq/.test(p)?'faq':(/more/.test(p)?'more':null))));if(k){var a=document.querySelector('.rk-links [data-nav="'+k+'"]');if(a){a.classList.add('active');a.setAttribute('aria-current','page');}}})();</script>
+<script>document.addEventListener("click",function(e){var c=e.target&&e.target.closest&&e.target.closest(".rk-coffee,.btn-coffee");if(c){e.preventDefault();var w=480,h=Math.min(940,(screen.availHeight||screen.height||800)-40),L=Math.max(0,((screen.width||1000)-w)/2),T=Math.max(0,((screen.height||800)-h)/2);window.open("https://www.supportkori.com/widget/returnkoto","skpay","popup=yes,width="+w+",height="+h+",left="+L+",top="+T);}},true);</script>
+</footer>
+<script>function rkToggleTheme(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}rkThemeIcon();}function rkThemeIcon(){var b=document.querySelector('.themetog');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙';}(function(){var b=document.querySelector('.themetog');if(b)b.addEventListener('click',rkToggleTheme);rkThemeIcon();})();</script>
+<script>(function(){function rkRoadmapTrack(){try{if(window.gtag)gtag("event","roadmap_click",{});}catch(e){}}document.querySelectorAll(".rk-roadmap").forEach(function(a){if(a.dataset.rkTrack)return;a.dataset.rkTrack="1";a.addEventListener("click",rkRoadmapTrack);});})();</script>
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+{
+ "ucb-income-plus-fund": {
+  "amc": "UCB Asset Management",
+  "sponsor": "UCB Asset Management",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "Not stated; total expenses capped at 4% of NAV",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Up to 1% if redeemed within 100 days or over 25% of holding",
+  "face": "BDT 10 per unit",
+  "min": "500 units individual / 5,000 units institution; SIP from BDT 5,000",
+  "minSip": "BDT 5,000/month"
+ },
+ "ucb-aml-first-mutual-fund": {
+  "amc": "UCB Asset Management",
+  "sponsor": "United Commercial Bank PLC",
+  "trustee": "Sandhani Life Insurance Company",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "face": "BDT 10 per unit"
+ },
+ "ucb-taqwa-growth-fund": {
+  "amc": "UCB Asset Management",
+  "sponsor": "United Commercial Bank PLC",
+  "trustee": "Sandhani Life Insurance Company",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Exit load if redeemed before 360 days (before 3 years for SIP); rate set by the AMC; no entry load",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 5,000/month"
+ }
+}

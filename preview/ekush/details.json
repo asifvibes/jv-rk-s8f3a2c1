@@ -1,0 +1,38 @@
+{
+ "ekush-stable-return-fund": {
+  "amc": "Ekush Wealth Management",
+  "sponsor": "Ekush Wealth Management",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "SIP cancelled before 3 years: 1%; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 1,000/month"
+ },
+ "ekush-first-unit-fund": {
+  "amc": "Ekush Wealth Management",
+  "sponsor": "Ekush Wealth Management",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "SIP cancelled before 3 years: up to 1%; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "500 units individual / 5,000 units institution",
+  "minSip": "BDT 1,000/month"
+ },
+ "ekush-growth-fund": {
+  "amc": "Ekush Wealth Management",
+  "sponsor": "Ekush Wealth Management",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "SIP cancelled before 3 years: up to 1%; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 1,000/month"
+ }
+}

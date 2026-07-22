@@ -1,0 +1,13 @@
+{
+ "amc": "cwt",
+ "display": "Community Bank CWT",
+ "subdomain": "cwt-preview.returnkoto.com",
+ "fundCount": 4,
+ "funds": [
+  "CWT Sadharan Bima Growth Fund",
+  "CWT Opportunities Fund",
+  "CWT Community Bank Shariah Fund",
+  "CWT Emerging Bangladesh First Growth Fund"
+ ],
+ "built": "2026-07-22"
+}

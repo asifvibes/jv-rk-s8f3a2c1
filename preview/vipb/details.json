@@ -1,0 +1,74 @@
+{
+ "vipb-accelerated-income-unit-fund": {
+  "amc": "VIPB Asset Management",
+  "sponsor": "VIPB Asset Management",
+  "trustee": "Investment Corporation of Bangladesh (ICB)",
+  "custodian": "Investment Corporation of Bangladesh (ICB)",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Buy/sell spread up to 3% of face value",
+  "face": "BDT 10 per unit",
+  "min": "BDT 20,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 2,000/month"
+ },
+ "vipb-growth-fund": {
+  "amc": "VIPB Asset Management",
+  "sponsor": "VIPB Asset Management",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Buy/sell spread 3% (up to 5%) of sale price",
+  "face": "BDT 10 per unit",
+  "min": "BDT 20,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 2,000/month"
+ },
+ "vipb-balanced-fund": {
+  "amc": "VIPB Asset Management",
+  "sponsor": "VIPB Asset Management",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Buy/sell spread 3% (up to 5%) of sale price",
+  "face": "BDT 10 per unit",
+  "min": "BDT 20,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 2,000/month"
+ },
+ "vipb-sebl-1st-unit-fund": {
+  "amc": "VIPB Asset Management",
+  "sponsor": "Southeast Bank",
+  "trustee": "Investment Corporation of Bangladesh (ICB)",
+  "custodian": "Investment Corporation of Bangladesh (ICB)",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end (converted from a closed-end fund), redeemable weekly at NAV",
+  "exit": "Buy/sell spread up to 1% of NAV",
+  "face": "BDT 10 per unit",
+  "min": "BDT 20,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 2,000/month"
+ },
+ "vipb-nli-1st-unit-fund": {
+  "amc": "VIPB Asset Management",
+  "sponsor": "National Life Insurance",
+  "trustee": "Investment Corporation of Bangladesh (ICB)",
+  "custodian": "Investment Corporation of Bangladesh (ICB)",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Buy/sell spread up to 1% of NAV",
+  "face": "BDT 10 per unit",
+  "min": "BDT 20,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 2,000/month"
+ },
+ "vipb-fixed-income-fund": {
+  "amc": "VIPB Asset Management",
+  "sponsor": "VIPB Asset Management",
+  "trustee": "Sandhani Life Insurance Co. Ltd",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable on all working days at NAV",
+  "exit": "1% exit load within 3 months; zero thereafter",
+  "face": "BDT 10 per unit",
+  "min": "BDT 20,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 2,000/month"
+ }
+}

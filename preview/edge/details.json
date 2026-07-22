@@ -1,0 +1,50 @@
+{
+ "edge-amc-growth-fund": {
+  "amc": "EDGE AMC",
+  "sponsor": "EDGE AMC",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "2% if redeemed within 60 days; or up to 1% if a SIP is cancelled before 2 years; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 1,000/month"
+ },
+ "edge-bangladesh-mutual-fund": {
+  "amc": "EDGE AMC",
+  "sponsor": "EDGE AMC",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "2% if redeemed within 60 days; or up to 1% if a SIP is cancelled before 2 years; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 1,000/month"
+ },
+ "edge-high-quality-income-fund": {
+  "amc": "EDGE AMC",
+  "sponsor": "EDGE AMC",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "1.00% per year",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "1% if redeemed within 30 days; or up to 1% if a SIP is cancelled before 2 years; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 1,000/month"
+ },
+ "edge-al-amin-shariah-consumer-fund": {
+  "amc": "EDGE AMC",
+  "sponsor": "EDGE AMC",
+  "trustee": "Sandhani Life Insurance",
+  "custodian": "BRAC Bank",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "1% if redeemed within 60 days; or up to 1% if a SIP is cancelled before 2 years; otherwise none",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 1,000/month"
+ }
+}

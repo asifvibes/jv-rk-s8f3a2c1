@@ -1,0 +1,441 @@
+{
+ "shanta-fixed-income-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by cost value",
+  "source": "Shanta Asset Management quarterly portfolio statement",
+  "sourceUrl": null,
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government treasury bonds (BGTB)",
+    "v": 72.27
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 11.07
+   },
+   {
+    "k": "Treasury bills",
+    "v": 8.98
+   },
+   {
+    "k": "Cash at bank",
+    "v": 4.45
+   },
+   {
+    "k": "Receivables & other assets",
+    "v": 3.23
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "20-year government treasury bonds",
+    "code": null,
+    "sector": null,
+    "v": 52.37
+   },
+   {
+    "name": "10-year government treasury bonds",
+    "code": null,
+    "sector": null,
+    "v": 19.9
+   },
+   {
+    "name": "Government treasury bills",
+    "code": null,
+    "sector": null,
+    "v": 8.98
+   },
+   {
+    "name": "Dhaka Bank term deposits",
+    "code": null,
+    "sector": null,
+    "v": 5.3
+   },
+   {
+    "name": "City Bank term deposits",
+    "code": null,
+    "sector": null,
+    "v": 3.0
+   },
+   {
+    "name": "IDLC Finance term deposits",
+    "code": null,
+    "sector": null,
+    "v": 2.77
+   }
+  ],
+  "top5": null
+ },
+ "shanta-amanah-shariah-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by cost value",
+  "source": "Shanta Asset Management quarterly portfolio statement",
+  "sourceUrl": null,
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equities",
+    "v": 58.33
+   },
+   {
+    "k": "Cash at bank",
+    "v": 19.62
+   },
+   {
+    "k": "Corporate sukuk (perpetual bonds)",
+    "v": 12.17
+   },
+   {
+    "k": "Government sukuk",
+    "v": 9.09
+   },
+   {
+    "k": "Receivables & other assets",
+    "v": 0.79
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 20.74
+   },
+   {
+    "k": "Telecommunication",
+    "v": 13.79
+   },
+   {
+    "k": "Household & Personal Products",
+    "v": 9.15
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 9.03
+   },
+   {
+    "k": "Cement",
+    "v": 5.61
+   }
+  ],
+  "top": [
+   {
+    "name": "Reckitt Benckiser (Bd)",
+    "code": null,
+    "sector": "Household & Personal Products",
+    "v": 9.15
+   },
+   {
+    "name": "Government Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 9.09
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 9.03
+   },
+   {
+    "name": "Grameenphone",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 8.67
+   },
+   {
+    "name": "Renata",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.33
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 7.25
+   },
+   {
+    "name": "AIBL Mudaraba Perpetual Bond",
+    "code": null,
+    "sector": null,
+    "v": 5.77
+   },
+   {
+    "name": "Heidelberg Materials Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 5.61
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.16
+   },
+   {
+    "name": "Bangladesh Submarine Cables",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 5.12
+   }
+  ],
+  "top5": 44.27
+ },
+ "shanta-first-income-unit-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by cost value",
+  "source": "Shanta Asset Management quarterly portfolio statement",
+  "sourceUrl": null,
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Listed equities",
+    "v": 48.56
+   },
+   {
+    "k": "Government treasury bonds (BGTB)",
+    "v": 25.16
+   },
+   {
+    "k": "Corporate perpetual bonds",
+    "v": 16.18
+   },
+   {
+    "k": "Cash at bank",
+    "v": 5.39
+   },
+   {
+    "k": "Receivables & other assets",
+    "v": 4.72
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 22.89
+   },
+   {
+    "k": "Food & Allied",
+    "v": 8.39
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 8.18
+   },
+   {
+    "k": "Household & Personal Products",
+    "v": 5.41
+   },
+   {
+    "k": "Bank",
+    "v": 3.69
+   }
+  ],
+  "top": [
+   {
+    "name": "20-year government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 23.76,
+    "q": 2116000,
+    "cost": 204260000,
+    "mkt": 213910000
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.62,
+    "q": 325873,
+    "cost": 74070000,
+    "mkt": 73000000
+   },
+   {
+    "name": "AIBL Mudaraba Perpetual Bond",
+    "code": null,
+    "sector": null,
+    "v": 8.56,
+    "q": 14715,
+    "cost": 73580000,
+    "mkt": 57390000
+   },
+   {
+    "name": "British American Tobacco Bangladesh",
+    "code": null,
+    "sector": "Food & Allied",
+    "v": 8.39,
+    "q": 162038,
+    "cost": 72140000,
+    "mkt": 35580000
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": null,
+    "sector": "Miscellaneous",
+    "v": 8.18,
+    "q": 46584,
+    "cost": 70350000,
+    "mkt": 66510000
+   },
+   {
+    "name": "Renata",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 7.46,
+    "q": 127223,
+    "cost": 64160000,
+    "mkt": 58010000
+   },
+   {
+    "name": "Premier Bank Perpetual Bond",
+    "code": null,
+    "sector": null,
+    "v": 7.12,
+    "q": 12208,
+    "cost": 61230000,
+    "mkt": 57380000
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 6.81,
+    "q": 466243,
+    "cost": 58510000,
+    "mkt": 65550000
+   },
+   {
+    "name": "Reckitt Benckiser (Bd)",
+    "code": null,
+    "sector": "Household & Personal Products",
+    "v": 5.41,
+    "q": 13764,
+    "cost": 46480000,
+    "mkt": 46370000
+   },
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 3.69,
+    "q": 500000,
+    "cost": 31720000,
+    "mkt": 32750000
+   },
+   {
+    "name": "05-year government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 1.4,
+    "q": 120000,
+    "cost": 12020000,
+    "mkt": 11750000
+   },
+   {
+    "name": "IBBL 2nd Perpetual Mudaraba Bond",
+    "code": null,
+    "sector": null,
+    "v": 0.5,
+    "q": 856,
+    "cost": 4280000,
+    "mkt": 3510000
+   }
+  ],
+  "top5": null,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equities",
+     "v": 47.02
+    },
+    {
+     "k": "Government treasury bonds (BGTB)",
+     "v": 22.59
+    },
+    {
+     "k": "Corporate perpetual bonds",
+     "v": 16.61
+    },
+    {
+     "k": "Cash at bank",
+     "v": 13.03
+    },
+    {
+     "k": "Receivables & other assets",
+     "v": 0.76
+    }
+   ],
+   "sectors": [
+    {
+     "k": "Pharmaceuticals & Chemicals",
+     "v": 21.0
+    },
+    {
+     "k": "Food & Allied",
+     "v": 8.38
+    },
+    {
+     "k": "Miscellaneous",
+     "v": 8.37
+    },
+    {
+     "k": "Household & Personal Products",
+     "v": 5.53
+    },
+    {
+     "k": "Bank",
+     "v": 3.75
+    }
+   ],
+   "top": [
+    {
+     "name": "20-year government treasury bond",
+     "v": 21.16
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 8.82
+    },
+    {
+     "name": "AIBL Mudaraba Perpetual Bond",
+     "v": 8.79
+    },
+    {
+     "name": "British American Tobacco Bangladesh",
+     "v": 8.38
+    },
+    {
+     "name": "Berger Paints Bangladesh",
+     "v": 8.37
+    },
+    {
+     "name": "Renata",
+     "v": 7.64
+    },
+    {
+     "name": "Premier Bank Perpetual Bond",
+     "v": 7.29
+    },
+    {
+     "name": "Reckitt Benckiser (Bd)",
+     "v": 5.53
+    },
+    {
+     "name": "BRAC Bank",
+     "v": 3.75
+    },
+    {
+     "name": "The IBN SINA Pharmaceutical Industry",
+     "v": 3.5
+    }
+   ],
+   "top5": null
+  }
+ }
+}
