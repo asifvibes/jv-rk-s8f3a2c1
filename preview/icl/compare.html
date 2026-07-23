@@ -83,7 +83,8 @@
   .tipbtn{position:relative;display:inline-block;width:12px;height:12px;border-radius:50%;border:1.15px solid var(--muted);background:transparent;color:var(--muted);font-size:8px;font-weight:800;font-family:inherit;cursor:pointer;vertical-align:baseline;margin-left:3px;line-height:10px;padding:0;text-align:center;opacity:.8}
   .tipbtn::after{content:"";position:absolute;inset:-10px;border-radius:50%}
   .tipbtn:hover,.tipbtn:focus{border-color:var(--green-dark);color:var(--green-dark)}
-  .rktip{display:block;width:100%;font-size:12.5px;font-weight:500;line-height:1.55;color:var(--text);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:10px;padding:10px 12px;margin:0;text-transform:none;letter-spacing:0}
+  .rktip{display:block;width:100%;font-size:12.5px;font-weight:500;line-height:1.55;color:var(--text);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:10px;padding:10px 12px;margin:0;text-transform:none;letter-spacing:0;box-sizing:border-box}
+  .lead + .rktip{margin:8px 0 14px}
   [data-theme="dark"] .rktip{border-color:#1E4A30;background:#12301E}
   tr.cmp-tiprow td{padding:0 13px 11px;border-bottom:1px solid var(--line);background:transparent}
   @media(max-width:560px){.tipbtn{width:13px;height:13px;font-size:8.5px;line-height:11px}.tipbtn::after{inset:-14px}}
@@ -344,12 +345,31 @@
     return [pool[0], pool[1], null];
   }
   var sel=pickSameTypePair(funds);
-  // deep-link: ?funds=a,b,c or ?a=slug
+  // deep-link: ?funds=a,b,c or ?a=slug (intentional shares only).
+  // Do NOT write ?funds= on cold open: that made hard refresh re-apply the last pair
+  // and killed same-type randomization. Share URL only after interaction or when linked.
   var q=new URLSearchParams(location.search);
+  var shareReady=!!(q.get('funds')||q.get('a'));
   function resolve(x){x=(x||'').trim().toLowerCase();return bySlug[x]||byId[x]||null;}
   if(q.get('funds')){var arr=q.get('funds').split(',').map(resolve).filter(Boolean);if(arr.length)sel=[arr[0]||null,arr[1]||null,arr[2]||null];}
   else if(q.get('a')){var fa=resolve(q.get('a'));if(fa){var other=funds.find(function(f){return f.id!==fa.id;});sel=[fa,other||null,null];}}
   if(q.get('p')&&/^(\d{1,3}|max|ytd)$/.test(q.get('p')))period=q.get('p');
+  function cmpCols(){
+    var cols=sel.filter(Boolean),seen={},uniq=[];
+    cols.forEach(function(f){if(!seen[f.id]){seen[f.id]=1;uniq.push(f);}});
+    return uniq;
+  }
+  function writeShareUrl(cols){
+    if(!shareReady)return;
+    cols=cols||cmpCols();
+    if(cols.length<2)return;
+    try{
+      var u=new URLSearchParams();
+      u.set('funds',cols.map(function(f){return slug(f.label);}).join(','));
+      if(period!=='36')u.set('p',period);
+      history.replaceState(null,'','/compare.html?'+u.toString());
+    }catch(e){}
+  }
   // build selects
   var shOnly=false;
   function opts(selectedId,allowNone){
@@ -360,10 +380,10 @@
   }
   var pk=[document.getElementById('pk0'),document.getElementById('pk1'),document.getElementById('pk2')];
   function fillSelects(){pk[0].innerHTML=opts(sel[0]&&sel[0].id,false);pk[1].innerHTML=opts(sel[1]&&sel[1].id,true);pk[2].innerHTML=opts(sel[2]&&sel[2].id,true);}
-  pk.forEach(function(el,i){el.addEventListener('change',function(){sel[i]=this.value?byId[this.value]:null;track('compare_selected',{count:sel.filter(Boolean).length});scheduleRender();});});
+  pk.forEach(function(el,i){el.addEventListener('change',function(){shareReady=true;sel[i]=this.value?byId[this.value]:null;track('compare_selected',{count:sel.filter(Boolean).length});scheduleRender();});});
   var shBtn=document.getElementById('cmpSh');
   function syncShariah(){if(!shBtn)return;shBtn.classList.toggle('on',shOnly);shBtn.setAttribute('aria-pressed',shOnly?'true':'false');}
-  if(shBtn)shBtn.addEventListener('click',function(){shOnly=!shOnly;syncShariah();if(shOnly){var sf=funds.filter(function(f){return f.sh;});sel=[sf[0]||null,sf[1]||null,(sel[2]&&sel[2].sh)?sel[2]:null];}fillSelects();scheduleRender();try{if(window.gtag)gtag('event','shariah_toggle',{on:shOnly?1:0});}catch(e){}});
+  if(shBtn)shBtn.addEventListener('click',function(){shareReady=true;shOnly=!shOnly;syncShariah();if(shOnly){var sf=funds.filter(function(f){return f.sh;});sel=[sf[0]||null,sf[1]||null,(sel[2]&&sel[2].sh)?sel[2]:null];}fillSelects();scheduleRender();try{if(window.gtag)gtag('event','shariah_toggle',{on:shOnly?1:0});}catch(e){}});
   syncShariah();
   // period select (homepage-style sticky control)
   var psel=document.getElementById('cmpPeriod');
@@ -372,7 +392,7 @@
     psel.innerHTML=optsHtml;
     if(![].some.call(psel.options,function(o){return o.value===period;}))period='36';
     psel.value=period;
-    psel.addEventListener('change',function(){if(!this.value)return;period=this.value;scheduleRender();});
+    psel.addEventListener('change',function(){if(!this.value)return;shareReady=true;period=this.value;scheduleRender();});
   }
   function horizonFor(f){if(period==='max')return String(f.M);return (f.H&&f.H[period])?period:null;}
   function typeCell(f){var s='';if(f.type)s+='<span class="ctag '+f.type.toLowerCase()+'">'+f.type+'</span>';if(f.sh)s+='<span class="ctag sh">Shariah</span>';return s||'–';}
@@ -422,9 +442,7 @@
   var _rrT;function scheduleRender(d){clearTimeout(_rrT);_rrT=setTimeout(render,d||0);}
   function render(){
     fillSelects();
-    var cols=sel.filter(Boolean);
-    // de-dup: if same fund picked twice, keep distinct
-    var seen={},uniq=[];cols.forEach(function(f){if(!seen[f.id]){seen[f.id]=1;uniq.push(f);}});cols=uniq;
+    var cols=cmpCols();
     var copyBtn=document.getElementById('cmpCopyLink');
     if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;syncScrollHint();return;}
     var pl=plabel();
@@ -466,8 +484,7 @@
     body+='</tbody>';
     root.innerHTML=head+body;
     document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Tap the ? next to each row for a short plain-language tip. "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk is a general guide based on the fund type, not a formal rating. A dash means the fund is younger than the selected period or the detail is not disclosed in its prospectus. Holdings come from each fund&rsquo;s quarterly portfolio disclosure, shown with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV. A dash in the holdings rows means the fund has not yet published its portfolio in a form ReturnKoto? can verify.';
-    // keep URL shareable
-    try{var u=new URLSearchParams();u.set('funds',cols.map(function(f){return slug(f.label);}).join(','));if(period!=='36')u.set('p',period);history.replaceState(null,'','/compare.html?'+u.toString());}catch(e){}
+    writeShareUrl(cols);
     requestAnimationFrame(syncScrollHint);
   }
   var wrapEl=document.getElementById('cmpTableWrap');
@@ -476,6 +493,8 @@
   var copyBtnInit=document.getElementById('cmpCopyLink');
   if(copyBtnInit){
     copyBtnInit.addEventListener('click',function(){
+      shareReady=true;
+      writeShareUrl();
       var url=location.href;
       function ok(){copyBtnInit.classList.add('is-ok');copyBtnInit.textContent='Link copied';setTimeout(function(){copyBtnInit.classList.remove('is-ok');copyBtnInit.textContent='Copy link';},1600);try{if(window.gtag)gtag('event','compare_copy_link',{});}catch(err){}}
       if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(ok).catch(function(){window.prompt('Copy this link',url);});}
@@ -484,11 +503,12 @@
   }
   scheduleRender();
 })();
-/* Tap tips on compare row labels: full-width callout under the row (mobile-first). */
+/* Tap tips: table-row callouts + lead/as-of inline callout (mobile-first). */
 (function(){
   var n=0;
   function closeTips(){
     document.querySelectorAll('tr.cmp-tiprow').forEach(function(r){r.remove();});
+    document.querySelectorAll('.rktip').forEach(function(p){p.remove();});
     document.querySelectorAll('[data-tip][aria-expanded="true"]').forEach(function(b){b.setAttribute('aria-expanded','false');b.removeAttribute('aria-describedby');});
   }
   document.addEventListener('click',function(e){
@@ -497,17 +517,28 @@
     var wasOpen=b.getAttribute('aria-expanded')==='true';
     closeTips();
     if(wasOpen)return;
-    var tr=b.closest('tr');
-    if(!tr)return;
-    var tipTr=document.createElement('tr');
-    tipTr.className='cmp-tiprow';
-    var cols=tr.children.length;
-    tipTr.innerHTML='<td colspan="'+cols+'"><span class="rktip" role="note" id="rktip'+(++n)+'"></span></td>';
-    var p=tipTr.querySelector('.rktip');
-    p.textContent=b.getAttribute('data-tip');
-    tr.insertAdjacentElement('afterend',tipTr);
-    b.setAttribute('aria-expanded','true');
-    b.setAttribute('aria-describedby',p.id);
+    var tipText=b.getAttribute('data-tip');
+    if(!tipText)return;
+    var tr=b.closest('tbody tr, thead tr');
+    if(tr && !tr.classList.contains('cmp-tiprow')){
+      var tipTr=document.createElement('tr');
+      tipTr.className='cmp-tiprow';
+      var cols=tr.children.length;
+      tipTr.innerHTML='<td colspan="'+cols+'"><span class="rktip" role="note" id="rktip'+(++n)+'"></span></td>';
+      var p=tipTr.querySelector('.rktip');
+      p.textContent=tipText;
+      tr.insertAdjacentElement('afterend',tipTr);
+      b.setAttribute('aria-expanded','true');
+      b.setAttribute('aria-describedby',p.id);
+    }else{
+      var p2=document.createElement('span');
+      p2.className='rktip';p2.id='rktip'+(++n);p2.setAttribute('role','note');
+      p2.textContent=tipText;
+      var host=b.closest('.lead')||b.closest('.asof-wrap')||b.closest('label')||b;
+      host.insertAdjacentElement('afterend',p2);
+      b.setAttribute('aria-expanded','true');
+      b.setAttribute('aria-describedby',p2.id);
+    }
     try{if(window.gtag)gtag('event','badge_tooltip_open',{tag:b.getAttribute('data-tipkey')||'compare'});}catch(err){}
   },false);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeTips();});
