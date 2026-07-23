@@ -288,9 +288,10 @@ function maxScroll(){return bar?Math.max(0,bar.scrollWidth-bar.clientWidth):0;}
 function amcInset(){return 48;}
 function syncAmcArrow(){
  if(!bar)return;
- var max=maxScroll(),sl=bar.scrollLeft;
+ var max=maxScroll(),sl=bar.scrollLeft,inset=amcInset();
  if(amcNext)amcNext.hidden=max<8||sl>=max-6;
- if(amcPrev)amcPrev.hidden=max<8||sl<=6;
+ // Keep left arrow off at load / peek start. Only show after real scroll past the left inset.
+ if(amcPrev)amcPrev.hidden=max<8||sl<=inset+8;
 }
 function ensureAmcPeek(smooth){
  if(!bar)return;

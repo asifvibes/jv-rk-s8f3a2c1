@@ -6,7 +6,7 @@
 - Coverage: 3 Bangladeshi open-end mutual funds with reliable, publicly verifiable NAV history and dividend records.
 - Method: published NAV history replayed for lump-sum and monthly SIP; cash dividends reinvested by default (or taken as cash); figures are total return. Annualized return is CAGR for lump sum and money-weighted IRR (XIRR) for SIP.
 - Sources: each fund's latest published NAV comes from the asset manager's own website, while the longer historical NAV series that powers the return math comes from secondary market data sources, cross-checked against the managers' figures; dividend records are from the asset managers; each fund's management fee, trustee, custodian, sponsor and minimum investment come from its official BSEC (Bangladesh Securities and Exchange Commission) prospectus.
-- Coverage date: return calculations run on NAVs up to 21 Jul 2026, the latest date common to all funds; each fund page shows that fund's newest daily NAV.
+- Coverage date: return calculations run on NAVs up to 22 Jul 2026, the latest date common to all funds; each fund page shows that fund's newest daily NAV.
 - Not financial advice. Figures are historical and educational; past performance does not guarantee future results.
 
 ## Key pages
