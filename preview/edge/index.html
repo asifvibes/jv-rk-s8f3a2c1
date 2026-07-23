@@ -1464,7 +1464,7 @@ function countTo(e,target){
   function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/900);var v=Math.floor(start+(target-start)*(1-Math.pow(1-k,3)));e.textContent=v.toLocaleString()+'+';if(k<1)requestAnimationFrame(step);}
   requestAnimationFrame(step);
 }
-fetch('https://returnkoto.com/stats.json').then(function(x){return x.ok?x.json():null;}).then(function(s){if(!s)return;
+fetch('stats.json?_='+Date.now()).then(function(x){return x.ok?x.json():null;}).then(function(s){if(!s)return;
 if(typeof s.users==='number'){var t=(s.users>=10?Math.floor(s.users/10)*10:s.users);us.forEach(function(e){countTo(e,t);});}
 var tl=document.querySelector('.st-t');if(tl&&typeof s.tools==='number')tl.textContent=f(s.tools);
 if(c&&typeof s.crowdfunding==='number')c.textContent=f(s.crowdfunding);if(n)n.hidden=false;}).catch(function(){});})();
