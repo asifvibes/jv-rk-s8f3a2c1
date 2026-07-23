@@ -746,7 +746,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   <header>
     <h1>What if you&rsquo;d actually invested?</h1>
     <p>One amount. Real Bangladesh fund history. See what it&nbsp;became.</p>
-    <p class="hero-stat">ReturnKoto? tracks <span class="fund-n">6</span> mutual funds, and <b class="st-u">2,570+</b> people have used the calculator</p>
+    <p class="hero-stat">ReturnKoto? tracks <span class="fund-n">34</span> mutual funds, and <b class="st-u">2,570+</b> people have used the calculator</p>
   </header>
 
   <h2 class="sr-only">Calculate what your money would have become</h2>
@@ -1464,7 +1464,7 @@ function countTo(e,target){
   function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/900);var v=Math.floor(start+(target-start)*(1-Math.pow(1-k,3)));e.textContent=v.toLocaleString()+'+';if(k<1)requestAnimationFrame(step);}
   requestAnimationFrame(step);
 }
-fetch('stats.json').then(function(x){return x.ok?x.json():null;}).then(function(s){if(!s)return;
+fetch('https://returnkoto.com/stats.json').then(function(x){return x.ok?x.json():null;}).then(function(s){if(!s)return;
 if(typeof s.users==='number'){var t=(s.users>=10?Math.floor(s.users/10)*10:s.users);us.forEach(function(e){countTo(e,t);});}
 var tl=document.querySelector('.st-t');if(tl&&typeof s.tools==='number')tl.textContent=f(s.tools);
 if(c&&typeof s.crowdfunding==='number')c.textContent=f(s.crowdfunding);if(n)n.hidden=false;}).catch(function(){});})();
