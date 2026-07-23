@@ -128,6 +128,26 @@
   [data-theme="dark"] .rk-social a{background:#182130;border-color:#2B3648;color:#AEB9CC}
   [data-theme="dark"] .rk-social a:hover{color:#3DD98A;border-color:#3DD98A}
 @media(max-width:560px){.rk-links a.rk-sm-hide{display:none}}
+
+  html{scroll-padding-top:130px}
+  @media(min-width:561px){html{scroll-padding-top:80px}}
+  h2[id],dt[id]{scroll-margin-top:130px}
+  @media(min-width:561px){h2[id],dt[id]{scroll-margin-top:80px}}
+  .toclbl{font-size:13px;font-weight:700;margin:0 0 8px;color:var(--ink)}
+  .tocdisc>summary{list-style:none;cursor:pointer;font-size:13px;font-weight:700;color:var(--green-dark);min-height:44px;display:flex;align-items:center;gap:7px}
+  .tocdisc>summary::-webkit-details-marker{display:none}
+  .tocdisc>summary::after{content:"\25be";transition:transform .2s}
+  .tocdisc[open]>summary::after{transform:rotate(180deg)}
+  .ln-next{font-size:13.5px;color:var(--muted);margin:12px 0 0;padding:9px 12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
+  .ln-next a{font-weight:700}
+  .srchbox{position:relative}
+  .srchclear{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;color:var(--muted);font-size:15px;cursor:pointer;border-radius:10px}
+  .lncount{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:7px;min-height:16px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  @keyframes srchPulse{0%{background:rgba(46,204,113,.16)}100%{background:transparent}}
+  .srch-hit{animation:srchPulse 1s ease-out 1}
+  @media(max-width:560px){.rk-links a{padding:13px 3px}.themetog{padding:13px 9px}.toc ul a{display:inline-block;padding:9px 0}.rk-social a{width:44px;height:44px}}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Shariah-Compliant Mutual Funds in Bangladesh: A Guide", "description": "What makes a mutual fund Shariah-compliant in Bangladesh, how these funds work, who oversees them, and how to find and compare the Shariah-compliant open-end funds.", "inLanguage": "en", "about": "Bangladeshi open-end mutual funds", "isPartOf": {"@id": "https://returnkoto.com/#website"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "mainEntityOfPage": "https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://returnkoto.com/learn.html"}, {"@type": "ListItem", "position": 3, "name": "Shariah-compliant mutual funds in Bangladesh", "item": "https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are there halal mutual funds in Bangladesh?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Several open-end mutual funds in Bangladesh are Shariah-compliant, investing only in Islamically permissible ways under the oversight of a Shariah supervisory board. ReturnKoto? has a one-tap filter to show only these funds."}}, {"@type": "Question", "name": "How is a Shariah-compliant fund different from a regular fund?", "acceptedAnswer": {"@type": "Answer", "text": "It applies Islamic screening: avoiding interest-based income and non-permissible businesses, with a Shariah board reviewing its holdings. Otherwise it works like any open-end fund, with units priced at NAV."}}, {"@type": "Question", "name": "How do I find Shariah-compliant funds on ReturnKoto?", "acceptedAnswer": {"@type": "Answer", "text": "Turn on the 'Shariah-compliant only' filter on the calculator, or look for the Shariah tag in the funds directory. You can then compare their real historical returns."}}, {"@type": "Question", "name": "Do Shariah funds give lower returns?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. Returns depend on the specific fund and the time period, not on whether it is Shariah-compliant. Compare actual history on ReturnKoto? with the Shariah filter on."}}]}]}
@@ -138,7 +158,7 @@
 <script src="/beta-notice.js"></script>
 <nav class="rk-nav">
 <a class="rk-logo" href="/"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="24" fill="#1F9E57"/><path d="M22 66 44 50 58 58 76 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 34 76 34 76 50" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>ReturnKoto?<span class="rk-beta">BETA</span></a>
-<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a class="rk-sm-hide" href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
+<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
 </nav>
 <div class="wrap" role="main" id="main">
   <h1>Shariah-compliant mutual funds in Bangladesh</h1>
@@ -153,7 +173,7 @@
   <h2 id="find">How to find Shariah funds on ReturnKoto?</h2>
   <p>ReturnKoto? tags every Shariah-compliant fund and gives you a one-tap "Shariah-compliant only" filter on the <a href="/">calculator</a>, so you can see returns for just those funds. You can also spot the Shariah tag while browsing the <a href="/funds/">funds directory</a>, and each Shariah fund has its own page with verified details.</p>
   <h2 id="returns">Returns</h2>
-  <p>Shariah-compliant funds are not automatically higher or lower returning than conventional ones; performance depends on the fund and the period. The fair way to judge is on real history. Turn on the Shariah filter and compare actual total returns over the period you care about, with dividends reinvested.</p>
+  <p>Shariah-compliant funds are not automatically higher or lower returning than conventional ones; performance depends on the fund and the period. Judge them on real history. Turn on the Shariah filter and compare actual total returns over the period you care about, with dividends reinvested.</p>
   <h2 id="choose">Choosing a Shariah fund</h2>
   <p>Look at the fund's track record and size, its verified management fee, and whether its risk profile (income, balanced or growth) matches your horizon. Then decide between a lump sum and a monthly SIP. Our <a href="/guides/how-to-invest-in-mutual-funds-bangladesh.html">how-to-invest guide</a> walks through the full process.</p>
 <h2 id="faq">Common questions</h2><p style="margin-top:10px"><b>Are there halal mutual funds in Bangladesh?</b><br>Yes. Several open-end mutual funds in Bangladesh are Shariah-compliant, investing only in Islamically permissible ways under the oversight of a Shariah supervisory board. ReturnKoto? has a one-tap filter to show only these funds.</p><p style="margin-top:10px"><b>How is a Shariah-compliant fund different from a regular fund?</b><br>It applies Islamic screening: avoiding interest-based income and non-permissible businesses, with a Shariah board reviewing its holdings. Otherwise it works like any open-end fund, with units priced at NAV.</p><p style="margin-top:10px"><b>How do I find Shariah-compliant funds on ReturnKoto?</b><br>Turn on the 'Shariah-compliant only' filter on the calculator, or look for the Shariah tag in the funds directory. You can then compare their real historical returns.</p><p style="margin-top:10px"><b>Do Shariah funds give lower returns?</b><br>Not necessarily. Returns depend on the specific fund and the time period, not on whether it is Shariah-compliant. Compare actual history on ReturnKoto? with the Shariah filter on.</p>
@@ -172,6 +192,5 @@
 <script>document.addEventListener("click",function(e){var c=e.target&&e.target.closest&&e.target.closest(".rk-coffee,.btn-coffee");if(c){e.preventDefault();var w=480,h=Math.min(940,(screen.availHeight||screen.height||800)-40),L=Math.max(0,((screen.width||1000)-w)/2),T=Math.max(0,((screen.height||800)-h)/2);window.open("https://www.supportkori.com/widget/returnkoto","skpay","popup=yes,width="+w+",height="+h+",left="+L+",top="+T);}},true);</script>
 </footer>
 <script>function rkToggleTheme(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}rkThemeIcon();}function rkThemeIcon(){var b=document.querySelector('.themetog');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙';}(function(){var b=document.querySelector('.themetog');if(b)b.addEventListener('click',rkToggleTheme);rkThemeIcon();})();</script>
-<script>(function(){function rkRoadmapTrack(){try{if(window.gtag)gtag("event","roadmap_click",{});}catch(e){}}document.querySelectorAll(".rk-roadmap").forEach(function(a){if(a.dataset.rkTrack)return;a.dataset.rkTrack="1";a.addEventListener("click",rkRoadmapTrack);});})();</script>
 </body>
 </html>

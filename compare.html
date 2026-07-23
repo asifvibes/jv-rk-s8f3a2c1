@@ -197,8 +197,8 @@
 </nav>
 <div class="wrap" role="main" id="main">
 
-  <h1>Compare mutual funds side by side</h1>
-  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical returns, fees, exit loads, minimum investment and more. Every figure is total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span id="cmpAsof">the latest update</span>.</p>
+  <h1>Compare mutual funds</h1>
+  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical returns, fees, exit loads, minimum investment and more. Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span id="cmpAsof">the latest update</span>.</p>
 
   <details class="cmp-howto">
     <summary>How to read this table</summary>
@@ -395,7 +395,7 @@
     // de-dup: if same fund picked twice, keep distinct
     var seen={},uniq=[];cols.forEach(function(f){if(!seen[f.id]){seen[f.id]=1;uniq.push(f);}});cols=uniq;
     var copyBtn=document.getElementById('cmpCopyLink');
-    if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Heads up</td><td>Pick at least two different funds above to see them side by side.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;syncScrollHint();return;}
+    if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;syncScrollHint();return;}
     var pl=plabel();
     var chip=document.getElementById('cmpPeriodChip');
     if(chip){chip.hidden=false;chip.textContent='Comparing over '+pl+(period==='max'?' (each fund\u2019s full tracked history)':'');}

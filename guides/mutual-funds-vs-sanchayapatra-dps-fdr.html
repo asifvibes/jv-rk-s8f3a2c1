@@ -128,6 +128,26 @@
   [data-theme="dark"] .rk-social a{background:#182130;border-color:#2B3648;color:#AEB9CC}
   [data-theme="dark"] .rk-social a:hover{color:#3DD98A;border-color:#3DD98A}
 @media(max-width:560px){.rk-links a.rk-sm-hide{display:none}}
+
+  html{scroll-padding-top:130px}
+  @media(min-width:561px){html{scroll-padding-top:80px}}
+  h2[id],dt[id]{scroll-margin-top:130px}
+  @media(min-width:561px){h2[id],dt[id]{scroll-margin-top:80px}}
+  .toclbl{font-size:13px;font-weight:700;margin:0 0 8px;color:var(--ink)}
+  .tocdisc>summary{list-style:none;cursor:pointer;font-size:13px;font-weight:700;color:var(--green-dark);min-height:44px;display:flex;align-items:center;gap:7px}
+  .tocdisc>summary::-webkit-details-marker{display:none}
+  .tocdisc>summary::after{content:"\25be";transition:transform .2s}
+  .tocdisc[open]>summary::after{transform:rotate(180deg)}
+  .ln-next{font-size:13.5px;color:var(--muted);margin:12px 0 0;padding:9px 12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
+  .ln-next a{font-weight:700}
+  .srchbox{position:relative}
+  .srchclear{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;color:var(--muted);font-size:15px;cursor:pointer;border-radius:10px}
+  .lncount{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:7px;min-height:16px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  @keyframes srchPulse{0%{background:rgba(46,204,113,.16)}100%{background:transparent}}
+  .srch-hit{animation:srchPulse 1s ease-out 1}
+  @media(max-width:560px){.rk-links a{padding:13px 3px}.themetog{padding:13px 9px}.toc ul a{display:inline-block;padding:9px 0}.rk-social a{width:44px;height:44px}}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Mutual Funds vs Sanchayapatra, DPS and FDR in Bangladesh", "description": "How open-end mutual funds compare with Sanchayapatra, DPS, FDR and gold in Bangladesh: returns, risk, liquidity, tax and which option suits which goal.", "inLanguage": "en", "about": "Bangladeshi open-end mutual funds", "isPartOf": {"@id": "https://returnkoto.com/#website"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "mainEntityOfPage": "https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://returnkoto.com/learn.html"}, {"@type": "ListItem", "position": 3, "name": "Mutual funds vs Sanchayapatra, DPS and FDR", "item": "https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are mutual funds better than Sanchayapatra or FDR?", "acceptedAnswer": {"@type": "Answer", "text": "Neither is universally better. Sanchayapatra and FDR give a fixed, guaranteed return with very low risk; mutual funds are market-linked, with higher potential return and real risk. ReturnKoto? lets you compare each fund's real history against the safe options so you can decide for your own goal and horizon."}}, {"@type": "Question", "name": "Do mutual funds give higher returns than a DPS?", "acceptedAnswer": {"@type": "Answer", "text": "They can, over the long run, but it is not guaranteed. A DPS pays a fixed rate, while a mutual fund's return varies with the market. Compare the actual numbers on the ReturnKoto? calculator before deciding."}}, {"@type": "Question", "name": "Which is safer, a mutual fund or a fixed deposit?", "acceptedAnswer": {"@type": "Answer", "text": "A fixed deposit is safer in the sense that your capital and rate are fixed. A mutual fund can rise or fall in value. The trade-off is that the safer option usually returns less, and inflation can eat into a fixed return."}}, {"@type": "Question", "name": "Can I withdraw from a mutual fund any time?", "acceptedAnswer": {"@type": "Answer", "text": "Open-end fund units are redeemable at net asset value on a regular basis, often weekly. Some funds apply a small early-exit charge if you redeem or cancel a SIP very early. Sanchayapatra and FDR, by contrast, are meant to be held to term."}}]}]}
@@ -138,7 +158,7 @@
 <script src="/beta-notice.js"></script>
 <nav class="rk-nav">
 <a class="rk-logo" href="/"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="24" fill="#1F9E57"/><path d="M22 66 44 50 58 58 76 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 34 76 34 76 50" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>ReturnKoto?<span class="rk-beta">BETA</span></a>
-<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a class="rk-sm-hide" href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
+<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
 </nav>
 <div class="wrap" role="main" id="main">
   <h1>Mutual funds vs Sanchayapatra, DPS and FDR</h1>
@@ -150,7 +170,7 @@
   <h2 id="funds">How mutual funds differ</h2>
   <p>An open-end mutual fund pools money from many investors and a professional manager invests it in a portfolio of shares, bonds and other assets. There is no fixed, guaranteed rate: your return depends on how the portfolio performs. That means more risk than a fixed deposit, but also the potential for higher long-run returns. New to the idea? Start with the <a href="/learn.html">plain-language guide</a>.</p>
   <h2 id="returns">Returns</h2>
-  <p>Fixed options give you the rate on the label. Mutual fund returns vary year to year and are never guaranteed. The honest way to weigh them is on real history: ReturnKoto? puts each fund's actual total return next to Sanchayapatra, DPS, FDR, gold and inflation on one chart, for the period you choose. <a href="/">See the comparison for yourself.</a></p>
+  <p>Fixed options give you the rate on the label. Mutual fund returns vary year to year and are never guaranteed. Weigh them on real history: ReturnKoto? puts each fund's actual total return next to Sanchayapatra, DPS, FDR, gold and inflation on one chart, for the period you choose. <a href="/">Open the comparison.</a></p>
   <h2 id="risk">Risk</h2>
   <p>Sanchayapatra, DPS and FDR carry very low risk and return your capital with interest. Mutual funds can fall as well as rise, and equity-leaning funds move more than income funds. Risk is the price of the higher potential return, and a longer horizon plus spreading money across funds are the usual ways to manage it.</p>
   <h2 id="liquidity">Liquidity</h2>
@@ -158,7 +178,7 @@
   <h2 id="tax">Tax</h2>
   <p>Both savings instruments and mutual funds interact with tax in their own ways. A notable recent change: the 2026-27 budget removed the old &#2547;5 lakh ceiling on how much of a mutual fund investment could earn the yearly investment tax rebate, making funds more tax-efficient than before. See the <a href="/learn.html#tax">tax section</a> and confirm current rules with the NBR.</p>
   <h2 id="who">Which is right for you?</h2>
-  <p>They are different tools for different goals. If you need certainty and capital protection for a near-term need, the fixed options shine. If you are investing for the long run and can ride out the ups and downs, a mutual fund's higher potential return may suit you better. Many people use both. The point of ReturnKoto? is to let you see the real trade-off, not guess at it.</p>
+  <p>They are different tools for different goals. If you need certainty and capital protection for a near-term need, the fixed options fit. If you are investing for the long run and can ride out the ups and downs, a mutual fund's higher potential return may suit you better. Some investors use both. ReturnKoto? shows the trade-off on published history.</p>
 <h2 id="faq">Common questions</h2><p style="margin-top:10px"><b>Are mutual funds better than Sanchayapatra or FDR?</b><br>Neither is universally better. Sanchayapatra and FDR give a fixed, guaranteed return with very low risk; mutual funds are market-linked, with higher potential return and real risk. ReturnKoto? lets you compare each fund's real history against the safe options so you can decide for your own goal and horizon.</p><p style="margin-top:10px"><b>Do mutual funds give higher returns than a DPS?</b><br>They can, over the long run, but it is not guaranteed. A DPS pays a fixed rate, while a mutual fund's return varies with the market. Compare the actual numbers on the ReturnKoto? calculator before deciding.</p><p style="margin-top:10px"><b>Which is safer, a mutual fund or a fixed deposit?</b><br>A fixed deposit is safer in the sense that your capital and rate are fixed. A mutual fund can rise or fall in value. The trade-off is that the safer option usually returns less, and inflation can eat into a fixed return.</p><p style="margin-top:10px"><b>Can I withdraw from a mutual fund any time?</b><br>Open-end fund units are redeemable at net asset value on a regular basis, often weekly. Some funds apply a small early-exit charge if you redeem or cancel a SIP very early. Sanchayapatra and FDR, by contrast, are meant to be held to term.</p>
   <p style="margin-top:26px"><a class="cta" href="/">Try the calculator &#8594;</a></p>
 </div>
@@ -175,6 +195,5 @@
 <script>document.addEventListener("click",function(e){var c=e.target&&e.target.closest&&e.target.closest(".rk-coffee,.btn-coffee");if(c){e.preventDefault();var w=480,h=Math.min(940,(screen.availHeight||screen.height||800)-40),L=Math.max(0,((screen.width||1000)-w)/2),T=Math.max(0,((screen.height||800)-h)/2);window.open("https://www.supportkori.com/widget/returnkoto","skpay","popup=yes,width="+w+",height="+h+",left="+L+",top="+T);}},true);</script>
 </footer>
 <script>function rkToggleTheme(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}rkThemeIcon();}function rkThemeIcon(){var b=document.querySelector('.themetog');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙';}(function(){var b=document.querySelector('.themetog');if(b)b.addEventListener('click',rkToggleTheme);rkThemeIcon();})();</script>
-<script>(function(){function rkRoadmapTrack(){try{if(window.gtag)gtag("event","roadmap_click",{});}catch(e){}}document.querySelectorAll(".rk-roadmap").forEach(function(a){if(a.dataset.rkTrack)return;a.dataset.rkTrack="1";a.addEventListener("click",rkRoadmapTrack);});})();</script>
 </body>
 </html>

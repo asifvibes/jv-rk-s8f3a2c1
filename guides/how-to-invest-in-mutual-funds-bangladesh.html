@@ -128,6 +128,26 @@
   [data-theme="dark"] .rk-social a{background:#182130;border-color:#2B3648;color:#AEB9CC}
   [data-theme="dark"] .rk-social a:hover{color:#3DD98A;border-color:#3DD98A}
 @media(max-width:560px){.rk-links a.rk-sm-hide{display:none}}
+
+  html{scroll-padding-top:130px}
+  @media(min-width:561px){html{scroll-padding-top:80px}}
+  h2[id],dt[id]{scroll-margin-top:130px}
+  @media(min-width:561px){h2[id],dt[id]{scroll-margin-top:80px}}
+  .toclbl{font-size:13px;font-weight:700;margin:0 0 8px;color:var(--ink)}
+  .tocdisc>summary{list-style:none;cursor:pointer;font-size:13px;font-weight:700;color:var(--green-dark);min-height:44px;display:flex;align-items:center;gap:7px}
+  .tocdisc>summary::-webkit-details-marker{display:none}
+  .tocdisc>summary::after{content:"\25be";transition:transform .2s}
+  .tocdisc[open]>summary::after{transform:rotate(180deg)}
+  .ln-next{font-size:13.5px;color:var(--muted);margin:12px 0 0;padding:9px 12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
+  .ln-next a{font-weight:700}
+  .srchbox{position:relative}
+  .srchclear{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;color:var(--muted);font-size:15px;cursor:pointer;border-radius:10px}
+  .lncount{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:7px;min-height:16px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  @keyframes srchPulse{0%{background:rgba(46,204,113,.16)}100%{background:transparent}}
+  .srch-hit{animation:srchPulse 1s ease-out 1}
+  @media(max-width:560px){.rk-links a{padding:13px 3px}.themetog{padding:13px 9px}.toc ul a{display:inline-block;padding:9px 0}.rk-social a{width:44px;height:44px}}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How to Invest in Mutual Funds in Bangladesh: Step-by-Step", "description": "A practical, step-by-step guide to investing in open-end mutual funds in Bangladesh: choosing a fund, opening an account, SIP vs lump sum, minimums, the tax rebate, and NRB eligibility.", "inLanguage": "en", "about": "Bangladeshi open-end mutual funds", "isPartOf": {"@id": "https://returnkoto.com/#website"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "mainEntityOfPage": "https://returnkoto.com/guides/how-to-invest-in-mutual-funds-bangladesh.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://returnkoto.com/learn.html"}, {"@type": "ListItem", "position": 3, "name": "How to invest in mutual funds in Bangladesh", "item": "https://returnkoto.com/guides/how-to-invest-in-mutual-funds-bangladesh.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I start investing in mutual funds in Bangladesh?", "acceptedAnswer": {"@type": "Answer", "text": "Choose an open-end fund, open an account with the asset management company or its selling agent with your KYC details, and buy units as a lump sum or a monthly SIP. You will also need a BO (Beneficiary Owner) account, since units are held in dematerialised form, and you can pay by cheque, bank transfer or mobile money."}}, {"@type": "Question", "name": "How much money do I need to start?", "acceptedAnswer": {"@type": "Answer", "text": "Many asset managers let you start a monthly SIP from around 1,000 taka. Lump-sum minimums vary by fund and are listed on each fund's page."}}, {"@type": "Question", "name": "Do I need a BO account to buy mutual funds in Bangladesh?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Open-end fund units are held in dematerialised form, so you need a BO (Beneficiary Owner) account with CDBL, which you open through a broker or a bank that offers the service, often online. You then buy units from the asset manager and they are credited to your BO account."}}, {"@type": "Question", "name": "Is investing in mutual funds tax-deductible in Bangladesh?", "acceptedAnswer": {"@type": "Answer", "text": "Mutual fund investments count toward the yearly income-tax investment rebate. The 2026-27 budget removed the old 5 lakh taka ceiling on how much of a mutual fund investment could qualify. Confirm the current limits with the NBR."}}]}]}
@@ -138,14 +158,14 @@
 <script src="/beta-notice.js"></script>
 <nav class="rk-nav">
 <a class="rk-logo" href="/"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="24" fill="#1F9E57"/><path d="M22 66 44 50 58 58 76 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 34 76 34 76 50" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>ReturnKoto?<span class="rk-beta">BETA</span></a>
-<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a class="rk-sm-hide" href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
+<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
 </nav>
 <div class="wrap" role="main" id="main">
   <h1>How to invest in mutual funds in Bangladesh</h1>
   <p class="lead">A plain, step-by-step guide to putting your money into an open-end mutual fund, from choosing a fund to setting up a monthly SIP. To compare what real funds actually returned first, use the <a href="/">calculator</a>.</p>
 <div class="toc"><h3>On this page</h3><ul><li><a href="#start">Before you start</a></li><li><a href="#choose">1. Choose a fund</a></li><li><a href="#account">2. Open an account</a></li><li><a href="#method">3. SIP or lump sum</a></li><li><a href="#pay">4. Pay and get units</a></li><li><a href="#min">Minimum investment</a></li><li><a href="#tax">Tax rebate</a></li><li><a href="#nrb">Can NRBs invest?</a></li><li><a href="#tips">Tips</a></li></ul></div>
   <h2 id="start">Before you start</h2>
-  <p>Decide three things: your goal, how long you can stay invested, and how much risk you are comfortable with. Mutual funds are market-linked, so their value moves up and down; the longer your horizon, the more that short-term movement tends to smooth out. A good first step is to compare what real Bangladeshi funds have actually returned over different periods on the <a href="/">ReturnKoto? calculator</a>, then read the <a href="/learn.html">plain-language guide</a> if any term is new.</p>
+  <p>Decide three things: your goal, how long you can stay invested, and how much risk you are comfortable with. Mutual funds are market-linked, so their value moves up and down; the longer your horizon, the more that short-term movement tends to smooth out. Compare what real Bangladeshi funds returned over different periods on the <a href="/">ReturnKoto? calculator</a> first, then read the <a href="/learn.html">plain-language guide</a> if any term is new.</p>
   <h2 id="choose">1. Choose a fund</h2>
   <p>Open-end funds come in a few flavours: income funds (lower risk, steadier), balanced funds (a mix), and growth funds (higher risk, more upside). Several are Shariah-compliant. Compare funds by historical total return, fund size and track record on ReturnKoto?, and open any fund's page to see its verified fees and details before you commit. Browse them all in the <a href="/funds/">funds directory</a>.</p>
   <h2 id="account">2. Open an account with the asset manager</h2>
@@ -161,7 +181,7 @@
   <h2 id="nrb">Can NRBs invest?</h2>
   <p>Yes. Non-Resident Bangladeshis can invest in many Bangladeshi open-end mutual funds. Check the individual fund's prospectus for the exact eligibility and process, which may involve an NITA or similar account.</p>
   <h2 id="tips">A few tips</h2>
-  <p>Compare funds on real history before you choose, not on marketing. Reinvest dividends to compound your holding. Think in years, not weeks, and match the fund's risk to your horizon. And remember that past performance is context, not a promise.</p>
+  <p>Compare funds on real history before you choose, not on marketing. Reinvest dividends to compound. Match the fund's risk to your horizon and think in years, not weeks. Past returns are history, not a forecast.</p>
 <h2 id="faq">Common questions</h2><p style="margin-top:10px"><b>How do I start investing in mutual funds in Bangladesh?</b><br>Choose an open-end fund, open an account with the asset management company or its selling agent with your KYC details, and buy units as a lump sum or a monthly SIP. You will also need a BO (Beneficiary Owner) account, since units are held in dematerialised form, and you can pay by cheque, bank transfer or mobile money.</p><p style="margin-top:10px"><b>How much money do I need to start?</b><br>Many asset managers let you start a monthly SIP from around 1,000 taka. Lump-sum minimums vary by fund and are listed on each fund's page.</p><p style="margin-top:10px"><b>Do I need a BO account to buy mutual funds in Bangladesh?</b><br>Yes. Open-end fund units are held in dematerialised form, so you need a BO (Beneficiary Owner) account with CDBL, which you open through a broker or a bank that offers the service, often online. You then buy units from the asset manager and they are credited to your BO account.</p><p style="margin-top:10px"><b>Is investing in mutual funds tax-deductible in Bangladesh?</b><br>Mutual fund investments count toward the yearly income-tax investment rebate. The 2026-27 budget removed the old 5 lakh taka ceiling on how much of a mutual fund investment could qualify. Confirm the current limits with the NBR.</p>
   <p style="margin-top:26px"><a class="cta" href="/">Try the calculator &#8594;</a></p>
 </div>
@@ -178,6 +198,5 @@
 <script>document.addEventListener("click",function(e){var c=e.target&&e.target.closest&&e.target.closest(".rk-coffee,.btn-coffee");if(c){e.preventDefault();var w=480,h=Math.min(940,(screen.availHeight||screen.height||800)-40),L=Math.max(0,((screen.width||1000)-w)/2),T=Math.max(0,((screen.height||800)-h)/2);window.open("https://www.supportkori.com/widget/returnkoto","skpay","popup=yes,width="+w+",height="+h+",left="+L+",top="+T);}},true);</script>
 </footer>
 <script>function rkToggleTheme(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}rkThemeIcon();}function rkThemeIcon(){var b=document.querySelector('.themetog');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙';}(function(){var b=document.querySelector('.themetog');if(b)b.addEventListener('click',rkToggleTheme);rkThemeIcon();})();</script>
-<script>(function(){function rkRoadmapTrack(){try{if(window.gtag)gtag("event","roadmap_click",{});}catch(e){}}document.querySelectorAll(".rk-roadmap").forEach(function(a){if(a.dataset.rkTrack)return;a.dataset.rkTrack="1";a.addEventListener("click",rkRoadmapTrack);});})();</script>
 </body>
 </html>
