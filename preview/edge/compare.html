@@ -26,7 +26,8 @@
 <meta name="twitter:image" content="https://returnkoto.com/og-card.png">
 <meta name="twitter:title" content="Compare Mutual Funds Side by Side | ReturnKoto?">
 <meta name="twitter:description" content="Compare Bangladeshi open-end mutual funds on returns, fees and exit loads.">
-<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://returnkoto.com/compare.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -77,6 +78,8 @@
   table.cmpt td.k .k-lab{display:inline;line-height:1.35}
   table.cmpt td.k .k-end{white-space:nowrap}
   .asof-wrap{white-space:nowrap}
+  .lead .tipbtn{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;font-size:10px;line-height:1;margin-left:5px;vertical-align:middle}
+  @media(max-width:560px){.lead .tipbtn{width:16px;height:16px}}
   .tipbtn{position:relative;display:inline-block;width:12px;height:12px;border-radius:50%;border:1.15px solid var(--muted);background:transparent;color:var(--muted);font-size:8px;font-weight:800;font-family:inherit;cursor:pointer;vertical-align:baseline;margin-left:3px;line-height:10px;padding:0;text-align:center;opacity:.8}
   .tipbtn::after{content:"";position:absolute;inset:-10px;border-radius:50%}
   .tipbtn:hover,.tipbtn:focus{border-color:var(--green-dark);color:var(--green-dark)}
@@ -189,11 +192,6 @@
 </script>
 </head>
 <body>
-<div id="rk-preview-banner" style="background:#FEF3C7;color:#92400E;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;border-bottom:1px solid #FDE68A;line-height:1.45">
-  Private preview for EDGE AMC Limited (EDGE). Not public. Not indexed. For AMC review only.
-</div>
-<script src="/preview-notice.js" defer></script>
-
 <a class="skip" href="#main">Skip to main content</a>
 <script src="/beta-notice.js"></script>
 <nav class="rk-nav">
@@ -203,7 +201,7 @@
 <div class="wrap" role="main" id="main">
 
   <h1>Compare mutual funds</h1>
-  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical returns, fees, exit loads, minimum investment and more. Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span>.</p>
+  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical returns, fees, exit loads, minimum investment and more. Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
 
   <details class="cmp-howto">
     <summary>How to read this table</summary>
@@ -263,6 +261,7 @@
     data=await res[0].json(); details=await res[1].json();
   }catch(e){ root.innerHTML='<tbody><tr><td>Could not load fund data. Please reload the page.</td></tr></tbody>'; return; }
   try{ holdings=await (await fetch('/holdings.json')).json(); }catch(e){ holdings={}; }
+  var funds=data.funds.slice().sort(function(a,b){return a.label.localeCompare(b.label);});
   if(data.asOf){var ap=data.asOf.split('-');var asofLabel=(+ap[2])+' '+MONTHS[(+ap[1])-1]+' '+ap[0];document.getElementById('cmpAsof').textContent=asofLabel;
     var tipEl=document.getElementById('cmpAsofTip');
     if(tipEl){
@@ -277,7 +276,6 @@
       tipEl.setAttribute('data-tip',base);
     }
   }
-  var funds=data.funds.slice().sort(function(a,b){return a.label.localeCompare(b.label);});
   function slug(l){return l.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');}
   var bySlug={},byId={}; funds.forEach(function(f){bySlug[slug(f.label)]=f;byId[String(f.id)]=f;});
   function tk(v){return TK+Math.round(v).toLocaleString('en-IN');}
@@ -328,9 +326,24 @@
   var YRS=[4,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,25,30,35,42];
   var period='36';
   function track(n,p){try{if(window.gtag)gtag('event',n,p||{});}catch(e){}}
-  // Cold open shows a populated table: default to the two largest funds by size, not the first two alphabetically
-  var byAum=funds.slice().sort(function(a,b){return (b.aum||0)-(a.aum||0);});
-  var sel=[byAum[0]||funds[0]||null, byAum[1]||funds[1]||null, null];
+  // Cold open: two random funds of the same type (Growth / Balanced / Income), fresh each visit.
+  // Deep links (?funds= / ?a=) below keep an exact comparison when shared.
+  function shuffleInPlace(arr){
+    for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t;}
+    return arr;
+  }
+  function pickSameTypePair(list){
+    var byType={};
+    list.forEach(function(f){var t=f.type||'';if(!t)return;(byType[t]=byType[t]||[]).push(f);});
+    var types=Object.keys(byType).filter(function(t){return byType[t].length>=2;});
+    if(!types.length){
+      var all=shuffleInPlace(list.slice());
+      return [all[0]||null, all[1]||null, null];
+    }
+    var pool=shuffleInPlace(byType[types[Math.floor(Math.random()*types.length)]].slice());
+    return [pool[0], pool[1], null];
+  }
+  var sel=pickSameTypePair(funds);
   // deep-link: ?funds=a,b,c or ?a=slug
   var q=new URLSearchParams(location.search);
   function resolve(x){x=(x||'').trim().toLowerCase();return bySlug[x]||byId[x]||null;}
