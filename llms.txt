@@ -16,7 +16,7 @@
 - [Most-held stocks & fund overlap](https://returnkoto.com/stocks.html): which stocks appear most across the tracked funds' disclosed top holdings (from verified AMC portfolio statements), and which funds' portfolios overlap most.
 - [Star ratings league table](https://returnkoto.com/ratings.html): every tracked fund's four rating sub-scores, composite score and star-band arithmetic, published in full so anyone can rebuild any rating by hand. The rating is experimental.
 - [All tools & community](https://returnkoto.com/more.html): index of every ReturnKoto? feature, plus the community group.
-- [What the badges mean](https://returnkoto.com/badges.html): guide to the ✓ AMC-Verified, estimated, partial, + dividends, SHARIAH and fund-type badges (AMC-Verified only when an asset manager shared official records directly with ReturnKoto?).
+- [What the badges mean](https://returnkoto.com/badges.html): guide to the ✓ AMC-Verified, estimated, partial, + dividends, SHARIAH and fund-type badges (AMC-Verified only after ReturnKoto? and that AMC spoke through official channels, discussed the figures, and reached a shared understanding).
 - [Methodology](https://returnkoto.com/methodology.html): data sources, validation rules, return math, update schedule and citation guidance.
 - [Terms of use](https://returnkoto.com/terms.html): personal use and citation welcome; commercial cloning of the product is not; source code is PolyForm Strict 1.0.0.
 - [FAQ](https://returnkoto.com/faq.html): how ReturnKoto? works, fees, exit loads, tax, the badges, sources and privacy.
