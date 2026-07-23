@@ -1,7 +1,7 @@
 {
  "edge-amc-growth-fund": {
-  "amc": "EDGE AMC",
-  "sponsor": "EDGE AMC",
+  "amc": "EDGE AMC Limited (EDGE)",
+  "sponsor": "EDGE AMC Limited (EDGE)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -12,8 +12,8 @@
   "minSip": "BDT 1,000/month"
  },
  "edge-bangladesh-mutual-fund": {
-  "amc": "EDGE AMC",
-  "sponsor": "EDGE AMC",
+  "amc": "EDGE AMC Limited (EDGE)",
+  "sponsor": "EDGE AMC Limited (EDGE)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -24,8 +24,8 @@
   "minSip": "BDT 1,000/month"
  },
  "edge-high-quality-income-fund": {
-  "amc": "EDGE AMC",
-  "sponsor": "EDGE AMC",
+  "amc": "EDGE AMC Limited (EDGE)",
+  "sponsor": "EDGE AMC Limited (EDGE)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "1.00% per year",
@@ -36,8 +36,8 @@
   "minSip": "BDT 1,000/month"
  },
  "edge-al-amin-shariah-consumer-fund": {
-  "amc": "EDGE AMC",
-  "sponsor": "EDGE AMC",
+  "amc": "EDGE AMC Limited (EDGE)",
+  "sponsor": "EDGE AMC Limited (EDGE)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
