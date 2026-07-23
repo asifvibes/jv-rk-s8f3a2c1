@@ -76,6 +76,7 @@
   table.cmpt thead th.k{z-index:3;background:var(--card)}
   table.cmpt td.k .k-lab{display:inline;line-height:1.35}
   table.cmpt td.k .k-end{white-space:nowrap}
+  .asof-wrap{white-space:nowrap}
   .tipbtn{position:relative;display:inline-block;width:12px;height:12px;border-radius:50%;border:1.15px solid var(--muted);background:transparent;color:var(--muted);font-size:8px;font-weight:800;font-family:inherit;cursor:pointer;vertical-align:baseline;margin-left:3px;line-height:10px;padding:0;text-align:center;opacity:.8}
   .tipbtn::after{content:"";position:absolute;inset:-10px;border-radius:50%}
   .tipbtn:hover,.tipbtn:focus{border-color:var(--green-dark);color:var(--green-dark)}
@@ -202,7 +203,7 @@
 <div class="wrap" role="main" id="main">
 
   <h1>Compare mutual funds</h1>
-  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical returns, fees, exit loads, minimum investment and more. Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span id="cmpAsof">the latest update</span>.</p>
+  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical returns, fees, exit loads, minimum investment and more. Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span>.</p>
 
   <details class="cmp-howto">
     <summary>How to read this table</summary>
@@ -262,7 +263,20 @@
     data=await res[0].json(); details=await res[1].json();
   }catch(e){ root.innerHTML='<tbody><tr><td>Could not load fund data. Please reload the page.</td></tr></tbody>'; return; }
   try{ holdings=await (await fetch('/holdings.json')).json(); }catch(e){ holdings={}; }
-  if(data.asOf){var ap=data.asOf.split('-');document.getElementById('cmpAsof').textContent=(+ap[2])+' '+MONTHS[(+ap[1])-1]+' '+ap[0];}
+  if(data.asOf){var ap=data.asOf.split('-');var asofLabel=(+ap[2])+' '+MONTHS[(+ap[1])-1]+' '+ap[0];document.getElementById('cmpAsof').textContent=asofLabel;
+    var tipEl=document.getElementById('cmpAsofTip');
+    if(tipEl){
+      var atFloor=funds.filter(function(f){return f.navAsOf===data.asOf;});
+      var newer=funds.some(function(f){return f.navAsOf&&f.navAsOf>data.asOf;});
+      var base='Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily.';
+      if(newer&&atFloor.length&&atFloor.length<funds.length){
+        var names=atFloor.map(function(f){return f.label;});
+        var named=names.length<=4?names.join(', '):(names.slice(0,3).join(', ')+' and '+(names.length-3)+' more');
+        base='Every figure uses one shared NAV date so funds stay comparable. Right now '+atFloor.length+' fund'+(atFloor.length===1?'':'s')+' still sit on '+asofLabel+' ('+named+'), often a year-end book closure, which holds the site-wide date back while other funds have newer NAVs. Individual fund pages can show newer dates, collected daily.';
+      }
+      tipEl.setAttribute('data-tip',base);
+    }
+  }
   var funds=data.funds.slice().sort(function(a,b){return a.label.localeCompare(b.label);});
   function slug(l){return l.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');}
   var bySlug={},byId={}; funds.forEach(function(f){bySlug[slug(f.label)]=f;byId[String(f.id)]=f;});

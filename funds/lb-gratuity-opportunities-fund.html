@@ -154,6 +154,7 @@ table.ret tr:last-child td{border-bottom:none}
 table.ret td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 table.ret td.pos{color:var(--green-dark)}table.ret td.neg{color:#c0392b}
 .asof{font-size:12px;color:var(--muted);margin:13px 0 0}
+.asof-wrap{white-space:nowrap}
 .navchart{width:100%;height:auto;display:block;border-radius:10px;background:linear-gradient(180deg,#fbfdfc,#f3f8f5)}
 .crange{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:7px}
 .crange b{color:var(--ink);font-weight:700}
@@ -416,7 +417,7 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 <tbody><tr><td>6 months</td><td class="num pos">+7.15%</td><td class="num">+14.81%</td><td class="num">+20.90%</td></tr><tr><td>Year to date</td><td class="num pos">+14.18%</td><td class="num">+25.52%</td><td class="num">+22.09%</td></tr><tr><td>1 year</td><td class="num pos">+15.46%</td><td class="num">+15.46%</td><td class="num">+19.63%</td></tr><tr><td>2 years</td><td class="num pos">+29.71%</td><td class="num">+13.89%</td><td class="num">+16.88%</td></tr><tr><td>3 years</td><td class="num pos">+15.28%</td><td class="num">+4.85%</td><td class="num">+12.29%</td></tr><tr><td>5 years</td><td class="num pos">+35.13%</td><td class="num">+6.21%</td><td class="num">+8.29%</td></tr><tr><td>Max (5.7 yrs)</td><td class="num pos">+59.16%</td><td class="num">+8.68%</td><td class="num">+8.05%</td></tr></tbody>
 </table>
 </div>
-<p class="asof">Figures as of 29 Jun 2026. Total return includes the fund&rsquo;s cash dividends (about 5%/yr), reinvested by default.</p>
+<p class="asof">Figures as of <span class="asof-wrap">29 Jun 2026 <button type="button" class="tipbtn" data-tipkey="asof" data-tip="The NAV date these return figures run through. Homepage and fund-list comparisons use one shared date across all funds; a fund page may show a newer date when that fund&#39;s own daily NAV history is ahead. Holdings below use the portfolio statement date, which can lag." aria-label="Why this as-of date?" aria-expanded="false">!</button></span>. Total return includes the fund&rsquo;s cash dividends (about 5%/yr), reinvested by default.</p>
 </section>
 
 <div class="fqbar" id="fqbar" aria-label="Quick calculator controls: method and return period">
@@ -576,7 +577,7 @@ document.addEventListener('click',function(){closeTitleTips();closeXirrTips();})
   p.textContent=b.getAttribute('data-tip');
   // Prefer section-head wrappers so the full-width callout sits below flex rows
   // (calc-head / hp-head), not between the title and a side control.
-  var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('h2')||b.closest('.calc-blabel')||b.closest('.tags')||b.closest('.fresh')||b;
+  var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('h2')||b.closest('.calc-blabel')||b.closest('.asof')||b.closest('.tags')||b.closest('.fresh')||b;
   host.insertAdjacentElement('afterend',p);
   b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby',p.id);
   try{if(window.gtag)gtag('event','badge_tooltip_open',{tag:b.getAttribute('data-tipkey')||'tip'});}catch(err){}
