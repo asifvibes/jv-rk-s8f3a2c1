@@ -1,7 +1,7 @@
 {
  "vipb-accelerated-income-unit-fund": {
-  "amc": "VIPB Asset Management",
-  "sponsor": "VIPB Asset Management",
+  "amc": "VIPB Asset Management Company Limited (VIPB AMCL)",
+  "sponsor": "VIPB Asset Management Company Limited (VIPB AMCL)",
   "trustee": "Investment Corporation of Bangladesh (ICB)",
   "custodian": "Investment Corporation of Bangladesh (ICB)",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -12,8 +12,8 @@
   "minSip": "BDT 2,000/month"
  },
  "vipb-growth-fund": {
-  "amc": "VIPB Asset Management",
-  "sponsor": "VIPB Asset Management",
+  "amc": "VIPB Asset Management Company Limited (VIPB AMCL)",
+  "sponsor": "VIPB Asset Management Company Limited (VIPB AMCL)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -24,8 +24,8 @@
   "minSip": "BDT 2,000/month"
  },
  "vipb-balanced-fund": {
-  "amc": "VIPB Asset Management",
-  "sponsor": "VIPB Asset Management",
+  "amc": "VIPB Asset Management Company Limited (VIPB AMCL)",
+  "sponsor": "VIPB Asset Management Company Limited (VIPB AMCL)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -36,7 +36,7 @@
   "minSip": "BDT 2,000/month"
  },
  "vipb-sebl-1st-unit-fund": {
-  "amc": "VIPB Asset Management",
+  "amc": "VIPB Asset Management Company Limited (VIPB AMCL)",
   "sponsor": "Southeast Bank",
   "trustee": "Investment Corporation of Bangladesh (ICB)",
   "custodian": "Investment Corporation of Bangladesh (ICB)",
@@ -48,7 +48,7 @@
   "minSip": "BDT 2,000/month"
  },
  "vipb-nli-1st-unit-fund": {
-  "amc": "VIPB Asset Management",
+  "amc": "VIPB Asset Management Company Limited (VIPB AMCL)",
   "sponsor": "National Life Insurance",
   "trustee": "Investment Corporation of Bangladesh (ICB)",
   "custodian": "Investment Corporation of Bangladesh (ICB)",
@@ -60,8 +60,8 @@
   "minSip": "BDT 2,000/month"
  },
  "vipb-fixed-income-fund": {
-  "amc": "VIPB Asset Management",
-  "sponsor": "VIPB Asset Management",
+  "amc": "VIPB Asset Management Company Limited (VIPB AMCL)",
+  "sponsor": "VIPB Asset Management Company Limited (VIPB AMCL)",
   "trustee": "Sandhani Life Insurance Co. Ltd",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",

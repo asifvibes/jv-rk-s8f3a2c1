@@ -13,7 +13,7 @@
    "aum": 213,
    "nav": 12.86,
    "navAsOf": "2026-06-29",
-   "navSrc": "Impress Capital's website",
+   "navSrc": "Impress Capital Limited (ICL)'s website",
    "div": 11,
    "conf": "complete",
    "note": "Dividends verified from ICL's official NAV-adjustment footnotes on its published NAV history (BDT 0.80 for FY2020-21, 0.65 for FY2021-22, 1.10 for FY2024-25). The trustee declared no dividend for FY2018-19; years without an adjustment had none.",
@@ -324,7 +324,7 @@
    },
    "ytdM": 6,
    "amcAsOf": "2026-06-29",
-   "amcVerified": "Impress Capital"
+   "amcVerified": "Impress Capital Limited (ICL)"
   },
   {
    "id": "esquire-icl-apparel-fund",
@@ -336,7 +336,7 @@
    "aum": 69,
    "nav": 13.8,
    "navAsOf": "2026-06-29",
-   "navSrc": "Impress Capital's website",
+   "navSrc": "Impress Capital Limited (ICL)'s website",
    "div": 14,
    "conf": "complete",
    "note": "Dividends verified from ICL's official NAV-adjustment footnotes on its published NAV history (BDT 1.00 FY2020-21, 0.85 FY2021-22, 0.30 FY2022-23, 1.40 FY2024-25).",
@@ -639,7 +639,7 @@
    },
    "ytdM": 6,
    "amcAsOf": "2026-06-29",
-   "amcVerified": "Impress Capital"
+   "amcVerified": "Impress Capital Limited (ICL)"
   },
   {
    "id": "icl-balanced-fund",
@@ -651,7 +651,7 @@
    "aum": 184,
    "nav": 12.43,
    "navAsOf": "2026-06-29",
-   "navSrc": "Impress Capital's website",
+   "navSrc": "Impress Capital Limited (ICL)'s website",
    "div": 11,
    "conf": "complete",
    "note": "Dividends verified from ICL's official NAV-adjustment footnotes on its published NAV history (BDT 0.50 FY2016-17 and 0.185 FY2018-19 predate the tracked NAV series; 1.20 FY2020-21, 0.85 FY2021-22, 1.10 FY2024-25).",
@@ -962,7 +962,7 @@
    },
    "ytdM": 6,
    "amcAsOf": "2026-06-29",
-   "amcVerified": "Impress Capital"
+   "amcVerified": "Impress Capital Limited (ICL)"
   },
   {
    "id": "icl-inctl-shariah-fund",
@@ -974,7 +974,7 @@
    "aum": 80,
    "nav": 10.88,
    "navAsOf": "2026-06-29",
-   "navSrc": "Impress Capital's website",
+   "navSrc": "Impress Capital Limited (ICL)'s website",
    "div": 0,
    "conf": "complete",
    "note": "Shariah fund launched December 2023. No cash dividend has been declared since inception; ICL's published NAV history shows no dividend adjustments.",
@@ -1123,7 +1123,7 @@
    },
    "ytdM": 6,
    "amcAsOf": "2026-06-29",
-   "amcVerified": "Impress Capital"
+   "amcVerified": "Impress Capital Limited (ICL)"
   }
  ]
 }

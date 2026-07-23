@@ -1,6 +1,6 @@
 {
  "bcb-icl-growth-fund": {
-  "amc": "Impress Capital",
+  "amc": "Impress Capital Limited (ICL)",
   "sponsor": "Bangladesh Commerce Bank",
   "trustee": "Investment Corporation of Bangladesh",
   "custodian": "BRAC Bank",
@@ -11,8 +11,8 @@
   "face": "BDT 10 per unit"
  },
  "icl-balanced-fund": {
-  "amc": "Impress Capital",
-  "sponsor": "Impress Capital (also the asset manager)",
+  "amc": "Impress Capital Limited (ICL)",
+  "sponsor": "Impress Capital Limited (ICL), also the asset manager",
   "trustee": "Bangladesh General Insurance Company",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -21,7 +21,7 @@
   "face": "BDT 10 per unit"
  },
  "icl-inctl-shariah-fund": {
-  "amc": "Impress Capital",
+  "amc": "Impress Capital Limited (ICL)",
   "sponsor": "Impress-Newtex Composite Textiles",
   "trustee": "Bangladesh General Insurance Company",
   "custodian": "BRAC Bank",
@@ -32,7 +32,7 @@
   "face": "BDT 10 per unit"
  },
  "esquire-icl-apparel-fund": {
-  "amc": "Impress Capital",
+  "amc": "Impress Capital Limited (ICL)",
   "sponsor": "Esquire Knit Composite",
   "trustee": "Investment Corporation of Bangladesh",
   "custodian": "BRAC Bank",
