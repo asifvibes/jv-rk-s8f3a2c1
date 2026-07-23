@@ -1506,7 +1506,9 @@
     ]
    },
    "ytdM": 7,
-   "amcAsOf": "2026-07-23"
+   "amcAsOf": "2026-07-23",
+   "edgeCagr": 10.79,
+   "edgeCagrAsOf": "2026-07-23"
   },
   {
    "id": "edge-bangladesh-mutual-fund",
@@ -1866,7 +1868,9 @@
     ]
    },
    "ytdM": 7,
-   "amcAsOf": "2026-07-23"
+   "amcAsOf": "2026-07-23",
+   "edgeCagr": 9.81,
+   "edgeCagrAsOf": "2026-07-23"
   },
   {
    "id": "edge-high-quality-income-fund",
@@ -2100,7 +2104,9 @@
     ]
    },
    "ytdM": 7,
-   "amcAsOf": "2026-07-23"
+   "amcAsOf": "2026-07-23",
+   "edgeCagr": 9.81,
+   "edgeCagrAsOf": "2026-07-23"
   },
   {
    "id": "edge-al-amin-shariah-consumer-fund",
@@ -2306,7 +2312,9 @@
     ]
    },
    "ytdM": 7,
-   "amcAsOf": "2026-07-23"
+   "amcAsOf": "2026-07-23",
+   "edgeCagr": 4.77,
+   "edgeCagrAsOf": "2026-07-23"
   },
   {
    "id": "ekush-stable-return-fund",
