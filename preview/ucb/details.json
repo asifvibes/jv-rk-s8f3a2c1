@@ -1,7 +1,7 @@
 {
  "ucb-income-plus-fund": {
-  "amc": "UCB Asset Management",
-  "sponsor": "UCB Asset Management",
+  "amc": "UCB Asset Management Limited (UCB AML)",
+  "sponsor": "UCB Asset Management Limited (UCB AML)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "Not stated; total expenses capped at 4% of NAV",
@@ -12,7 +12,7 @@
   "minSip": "BDT 5,000/month"
  },
  "ucb-aml-first-mutual-fund": {
-  "amc": "UCB Asset Management",
+  "amc": "UCB Asset Management Limited (UCB AML)",
   "sponsor": "United Commercial Bank PLC",
   "trustee": "Sandhani Life Insurance Company",
   "custodian": "BRAC Bank",
@@ -21,7 +21,7 @@
   "face": "BDT 10 per unit"
  },
  "ucb-taqwa-growth-fund": {
-  "amc": "UCB Asset Management",
+  "amc": "UCB Asset Management Limited (UCB AML)",
   "sponsor": "United Commercial Bank PLC",
   "trustee": "Sandhani Life Insurance Company",
   "custodian": "BRAC Bank",

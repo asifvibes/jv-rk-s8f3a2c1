@@ -1,7 +1,7 @@
 {
  "shanta-fixed-income-fund": {
-  "amc": "Shanta Asset Management",
-  "sponsor": "Shanta Asset Management",
+  "amc": "Shanta Asset Management Limited (SAML)",
+  "sponsor": "Shanta Asset Management Limited (SAML)",
   "trustee": "Bangladesh General Insurance Company",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -12,8 +12,8 @@
   "minSip": "BDT 1,000/month"
  },
  "shanta-amanah-shariah-fund": {
-  "amc": "Shanta Asset Management",
-  "sponsor": "Shanta Asset Management",
+  "amc": "Shanta Asset Management Limited (SAML)",
+  "sponsor": "Shanta Asset Management Limited (SAML)",
   "trustee": "Investment Corporation of Bangladesh (ICB)",
   "custodian": "Investment Corporation of Bangladesh (ICB)",
   "fee": "Not stated in the prospectus",
@@ -24,8 +24,8 @@
   "minSip": "BDT 1,000/month"
  },
  "shanta-first-income-unit-fund": {
-  "amc": "Shanta Asset Management",
-  "sponsor": "Shanta Asset Management",
+  "amc": "Shanta Asset Management Limited (SAML)",
+  "sponsor": "Shanta Asset Management Limited (SAML)",
   "trustee": "Bangladesh General Insurance Company",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",

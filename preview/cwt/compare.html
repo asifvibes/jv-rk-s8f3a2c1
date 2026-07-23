@@ -189,7 +189,7 @@
 </head>
 <body>
 <div id="rk-preview-banner" style="background:#FEF3C7;color:#92400E;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;border-bottom:1px solid #FDE68A;line-height:1.45">
-  Private preview for Community Bank CWT. Not public. Not indexed. For AMC review only.
+  Private preview for CWT Asset Management Company Limited (CWTAMC). Not public. Not indexed. For AMC review only.
 </div>
 <script src="/preview-notice.js" defer></script>
 
@@ -201,8 +201,8 @@
 </nav>
 <div class="wrap" role="main" id="main">
 
-  <h1>Compare mutual funds side by side</h1>
-  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical returns, fees, exit loads, minimum investment and more. Every figure is total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span id="cmpAsof">the latest update</span>.</p>
+  <h1>Compare mutual funds</h1>
+  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical returns, fees, exit loads, minimum investment and more. Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span id="cmpAsof">the latest update</span>.</p>
 
   <details class="cmp-howto">
     <summary>How to read this table</summary>
@@ -349,7 +349,7 @@
   }
   function horizonFor(f){if(period==='max')return String(f.M);return (f.H&&f.H[period])?period:null;}
   function typeCell(f){var s='';if(f.type)s+='<span class="ctag '+f.type.toLowerCase()+'">'+f.type+'</span>';if(f.sh)s+='<span class="ctag sh">Shariah</span>';return s||'–';}
-  function qualCell(f){if(f.amcVerified)return '<span class="ctag ok" title="'+String(f.amcVerified).replace(/"/g,'&quot;')+' shared official records directly with ReturnKoto? to verify this fund">✓ AMC-Verified</span>';if(f.conf==='estimated'||f.conf==='partial')return '<span class="ctag est">'+f.conf+'</span>';if(f.conf==='complete')return '<span class="ctag sc" title="Built and cross-checked from public records (BSEC prospectus, AMC portfolio statements and NAV history), not AMC-confirmed.">source-checked</span>';return '–';}
+  function qualCell(f){if(f.amcVerified)return '<span class="ctag ok" title="'+String(f.amcVerified).replace(/"/g,'&quot;')+' and ReturnKoto? spoke through official channels, discussed this fund's figures in detail, and share an understanding of what appears on the site">✓ AMC-Verified</span>';if(f.conf==='estimated'||f.conf==='partial')return '<span class="ctag est">'+f.conf+'</span>';if(f.conf==='complete')return '<span class="ctag sc" title="Built and cross-checked from public records (BSEC prospectus, AMC portfolio statements and NAV history), not AMC-confirmed.">source-checked</span>';return '–';}
   function plabel(){for(var i=0;i<PERIODS.length;i++)if(PERIODS[i][0]===period)return PERIODS[i][1];return (+period%12===0)?(+period/12+' years'):(period+' months');}
   function tipBtn(key,text,aria){
     return '<button type="button" class="tipbtn" data-tipkey="'+key+'" data-tip="'+String(text).replace(/"/g,'&quot;')+'" aria-label="'+(aria||'What does this mean?')+'" aria-expanded="false">?</button>';
@@ -399,7 +399,7 @@
     // de-dup: if same fund picked twice, keep distinct
     var seen={},uniq=[];cols.forEach(function(f){if(!seen[f.id]){seen[f.id]=1;uniq.push(f);}});cols=uniq;
     var copyBtn=document.getElementById('cmpCopyLink');
-    if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Heads up</td><td>Pick at least two different funds above to see them side by side.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;syncScrollHint();return;}
+    if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;syncScrollHint();return;}
     var pl=plabel();
     var chip=document.getElementById('cmpPeriodChip');
     if(chip){chip.hidden=false;chip.textContent='Comparing over '+pl+(period==='max'?' (each fund\u2019s full tracked history)':'');}
@@ -407,7 +407,7 @@
     if(copyBtn){copyBtn.hidden=false;copyBtn.classList.remove('is-ok');copyBtn.textContent='Copy link';}
     var rows=[];
     rows.push([lab('Type','cmp_type','The fund\u2019s stated mandate: Growth leans to equities, Income to bonds and deposits, Balanced mixes both. Shariah means a board certifies Islamic investing rules.','What does Type mean?'),cols.map(typeCell)]);
-    rows.push([lab('Data quality','cmp_quality','AMC-Verified means the asset manager shared official records directly with ReturnKoto? to verify this fund\u2019s data. Source-checked means we built the figures from public records (prospectus, portfolio statements, NAV history) without that AMC confirmation. Estimated or partial means some dividend detail is incomplete.','What does Data quality mean?'),cols.map(qualCell)]);
+    rows.push([lab('Data quality','cmp_quality','AMC-Verified means the asset manager and ReturnKoto? spoke through official channels, discussed this fund's figures in detail, and share an understanding of what appears on the site\u2019s data. Source-checked means we built the figures from public records (prospectus, portfolio statements, NAV history) without that AMC confirmation. Estimated or partial means some dividend detail is incomplete.','What does Data quality mean?'),cols.map(qualCell)]);
     rows.push([lab('Fund size','cmp_aum','Assets under management: the fund\u2019s total size across all investors, in crore (৳1 cr = ৳1,00,00,000). Not your personal investment.','What does Fund size mean?'),cols.map(function(f){return aumcr(f);})]);
     rows.push([lab('Tracked since','cmp_since','The start of the NAV history ReturnKoto? uses for this fund. Max returns run from this date (or from launch when the series starts at inception).','What does Tracked since mean?'),cols.map(function(f){return since(f.since);})]);
     var totalCells=retCells(cols,0), cagrCells=retCells(cols,1), sipCells=retCells(cols,2);

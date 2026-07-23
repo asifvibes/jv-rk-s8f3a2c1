@@ -1,6 +1,6 @@
 {
  "lankabangla-al-arafah-shariah-unit-fund": {
-  "amc": "LankaBangla Asset Management",
+  "amc": "LankaBangla Asset Management Company Limited (LBAMCL)",
   "sponsor": "Al-Arafah Islami Bank Employees Gratuity Fund Trust",
   "trustee": "Investment Corporation of Bangladesh (ICB)",
   "custodian": "Investment Corporation of Bangladesh (ICB)",
@@ -12,7 +12,7 @@
   "minSip": "BDT 5,000/month"
  },
  "lankabangla-1st-balanced-unit-fund": {
-  "amc": "LankaBangla Asset Management",
+  "amc": "LankaBangla Asset Management Company Limited (LBAMCL)",
   "sponsor": "LankaBangla Finance",
   "trustee": "Bangladesh General Insurance Company",
   "custodian": "BRAC Bank",
@@ -24,7 +24,7 @@
   "minSip": "BDT 5,000/month"
  },
  "lb-gratuity-opportunities-fund": {
-  "amc": "LankaBangla Asset Management",
+  "amc": "LankaBangla Asset Management Company Limited (LBAMCL)",
   "sponsor": "LankaBangla Securities Employees' Gratuity Fund Trust",
   "trustee": "Investment Corporation of Bangladesh (ICB)",
   "custodian": "Investment Corporation of Bangladesh (ICB)",
@@ -36,7 +36,7 @@
   "minSip": "BDT 5,000/month"
  },
  "lb-gratuity-wealth-builder-fund": {
-  "amc": "LankaBangla Asset Management",
+  "amc": "LankaBangla Asset Management Company Limited (LBAMCL)",
   "sponsor": "LankaBangla Finance Employees' Gratuity Fund Trust",
   "trustee": "Bangladesh General Insurance Company (BGIC)",
   "custodian": "BRAC Bank",

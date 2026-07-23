@@ -34,7 +34,7 @@
     b.setAttribute("role", "note");
     b.innerHTML =
       '<div class="in"><span class="pill">BETA</span>' +
-      '<span class="tx"><b>Data is still being verified.</b><span class="more"> ReturnKoto? is an experimental reference for learning and research. Figures are still being reviewed and corrected, so treat everything here as work in progress.</span></span>' +
+      '<span class="tx"><b>Data is still being verified.</b><span class="more"> ReturnKoto? is an experimental reference for learning and research. Figures are still being reviewed and corrected.</span></span>' +
       '<button class="bbtn" type="button" aria-expanded="false"></button></div>';
 
     var body = document.body;

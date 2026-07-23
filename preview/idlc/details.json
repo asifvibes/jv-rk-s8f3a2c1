@@ -1,7 +1,7 @@
 {
  "idlc-income-fund": {
-  "amc": "IDLC Asset Management",
-  "sponsor": "IDLC Asset Management",
+  "amc": "IDLC Asset Management Limited (IDLC AML)",
+  "sponsor": "IDLC Asset Management Limited (IDLC AML)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "0.70% per year (maximum)",
@@ -12,7 +12,7 @@
   "minSip": "BDT 5,000/month"
  },
  "idlc-growth-fund": {
-  "amc": "IDLC Asset Management",
+  "amc": "IDLC Asset Management Limited (IDLC AML)",
   "sponsor": "IDLC Finance",
   "trustee": "Bangladesh General Insurance Company",
   "custodian": "BRAC Bank",
@@ -24,8 +24,8 @@
   "minSip": "BDT 5,000/month"
  },
  "idlc-aml-shariah-fund": {
-  "amc": "IDLC Asset Management",
-  "sponsor": "IDLC Asset Management",
+  "amc": "IDLC Asset Management Limited (IDLC AML)",
+  "sponsor": "IDLC Asset Management Limited (IDLC AML)",
   "trustee": "Investment Corporation of Bangladesh (ICB)",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",

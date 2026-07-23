@@ -1,7 +1,7 @@
 {
  "ekush-stable-return-fund": {
-  "amc": "Ekush Wealth Management",
-  "sponsor": "Ekush Wealth Management",
+  "amc": "Ekush Wealth Management Limited (Ekush)",
+  "sponsor": "Ekush Wealth Management Limited (Ekush)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -12,8 +12,8 @@
   "minSip": "BDT 1,000/month"
  },
  "ekush-first-unit-fund": {
-  "amc": "Ekush Wealth Management",
-  "sponsor": "Ekush Wealth Management",
+  "amc": "Ekush Wealth Management Limited (Ekush)",
+  "sponsor": "Ekush Wealth Management Limited (Ekush)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -24,8 +24,8 @@
   "minSip": "BDT 1,000/month"
  },
  "ekush-growth-fund": {
-  "amc": "Ekush Wealth Management",
-  "sponsor": "Ekush Wealth Management",
+  "amc": "Ekush Wealth Management Limited (Ekush)",
+  "sponsor": "Ekush Wealth Management Limited (Ekush)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",

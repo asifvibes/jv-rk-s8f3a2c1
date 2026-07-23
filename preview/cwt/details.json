@@ -1,6 +1,6 @@
 {
  "cwt-sadharan-bima-growth-fund": {
-  "amc": "CWT Asset Management Company",
+  "amc": "CWT Asset Management Company Limited (CWTAMC)",
   "sponsor": "Sadharan Bima Corporation",
   "trustee": "Investment Corporation of Bangladesh (ICB)",
   "custodian": "BRAC Bank",
@@ -12,8 +12,8 @@
   "minSip": "BDT 1,000/month"
  },
  "cwt-opportunities-fund": {
-  "amc": "CWT Asset Management Company",
-  "sponsor": "CWT Asset Management Company",
+  "amc": "CWT Asset Management Company Limited (CWTAMC)",
+  "sponsor": "CWT Asset Management Company Limited (CWTAMC)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
@@ -24,7 +24,7 @@
   "minSip": "BDT 1,000/month"
  },
  "cwt-community-bank-shariah-fund": {
-  "amc": "CWT Asset Management Company",
+  "amc": "CWT Asset Management Company Limited (CWTAMC)",
   "sponsor": "Community Bank Bangladesh",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
@@ -36,8 +36,8 @@
   "minSip": "BDT 1,000/month"
  },
  "cwt-emerging-bangladesh-first-growth-fund": {
-  "amc": "CWT Asset Management Company",
-  "sponsor": "CWT Asset Management Company",
+  "amc": "CWT Asset Management Company Limited (CWTAMC)",
+  "sponsor": "CWT Asset Management Company Limited (CWTAMC)",
   "trustee": "Sandhani Life Insurance",
   "custodian": "BRAC Bank",
   "fee": "2.50% down to 1.00% per year (tiered by fund size)",
