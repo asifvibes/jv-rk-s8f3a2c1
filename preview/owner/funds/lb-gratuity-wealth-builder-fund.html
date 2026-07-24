@@ -154,6 +154,7 @@ table.ret tr:last-child td{border-bottom:none}
 table.ret td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 table.ret td.pos{color:var(--green-dark)}table.ret td.neg{color:#c0392b}
 .asof{font-size:12px;color:var(--muted);margin:13px 0 0}
+.asof-wrap{white-space:nowrap}
 .navchart{width:100%;height:auto;display:block;border-radius:10px;background:linear-gradient(180deg,#fbfdfc,#f3f8f5)}
 .crange{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:7px}
 .crange b{color:var(--ink);font-weight:700}
@@ -406,7 +407,7 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 <div class="stat"><span class="sv">5.0 yrs</span><span class="sl">Since Aug 2021</span></div>
 <div class="stat"><span class="sv">+2.15%</span><span class="sl">Per year, since launch</span></div>
 </div>
-<p class="fresh">Latest collected NAV: 23 Jul 2026, from LankaBangla Asset Management Company Limited (LBAMCL)'s website. Page last updated: 23 Jul 2026. NAVs are refreshed every day.</p>
+<p class="fresh">Latest collected NAV: 23 Jul 2026, from LankaBangla Asset Management Company Limited (LBAMCL)'s website. Page last updated: 24 Jul 2026. NAVs are refreshed every day.</p>
 <section class="card">
 <h2>Historical returns <button type="button" class="tipbtn" data-tipkey="hist_returns" data-tip="This table shows what the fund returned over fixed look-back windows, using ReturnKoto?&#39;s total-return method (dividends reinvested by default). Use it to compare periods at a glance before you open the calculator." aria-label="What is Historical returns?" aria-expanded="false">?</button></h2>
 <p class="sub">Total return reinvests every dividend. &ldquo;Per year&rdquo; is the annualized compound rate. The last column is the return on a fixed amount invested every month (SIP).</p>
@@ -416,7 +417,7 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 <tbody><tr><td>6 months</td><td class="num pos">+9.11%</td><td class="num">+19.05%</td><td class="num">+24.75%</td></tr><tr><td>Year to date</td><td class="num pos">+14.38%</td><td class="num">+25.91%</td><td class="num">+25.05%</td></tr><tr><td>1 year</td><td class="num pos">+9.83%</td><td class="num">+9.83%</td><td class="num">+17.18%</td></tr><tr><td>2 years</td><td class="num pos">+11.56%</td><td class="num">+5.62%</td><td class="num">+11.57%</td></tr><tr><td>3 years</td><td class="num neg">-2.48%</td><td class="num">-0.83%</td><td class="num">+6.33%</td></tr><tr><td>Max (5.0 yrs)</td><td class="num pos">+11.03%</td><td class="num">+2.15%</td><td class="num">+3.39%</td></tr></tbody>
 </table>
 </div>
-<p class="asof">Figures as of 29 Jun 2026.</p>
+<p class="asof">Figures as of <span class="asof-wrap">29 Jun 2026 <button type="button" class="tipbtn" data-tipkey="asof" data-tip="The NAV date these return figures run through. Homepage and fund-list comparisons use one shared date across all funds; a fund page may show a newer date when that fund&#39;s own daily NAV history is ahead. Holdings below use the portfolio statement date, which can lag." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
 </section>
 
 <div class="fqbar" id="fqbar" aria-label="Quick calculator controls: method and return period">
@@ -576,7 +577,7 @@ document.addEventListener('click',function(){closeTitleTips();closeXirrTips();})
   p.textContent=b.getAttribute('data-tip');
   // Prefer section-head wrappers so the full-width callout sits below flex rows
   // (calc-head / hp-head), not between the title and a side control.
-  var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('h2')||b.closest('.calc-blabel')||b.closest('.tags')||b.closest('.fresh')||b;
+  var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('h2')||b.closest('.calc-blabel')||b.closest('.asof')||b.closest('.tags')||b.closest('.fresh')||b;
   host.insertAdjacentElement('afterend',p);
   b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby',p.id);
   try{if(window.gtag)gtag('event','badge_tooltip_open',{tag:b.getAttribute('data-tipkey')||'tip'});}catch(err){}

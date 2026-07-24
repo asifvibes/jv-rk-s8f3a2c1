@@ -52,6 +52,7 @@ a{color:var(--green-dark)}
 .wrap{max-width:780px;margin:0 auto;padding:24px 20px 60px}
 h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 .intro{font-size:16px;color:#37463d;margin:0 0 24px}
+.asof-wrap{white-space:nowrap}
 .fund-n{font-weight:800;font-size:1.06em;color:var(--green-dark);display:inline-block;font-variant-numeric:tabular-nums;animation:fundpop 1.15s cubic-bezier(.2,.85,.3,1) both}
 @keyframes fundpop{0%{transform:scale(.5);opacity:0}55%{transform:scale(1.22);opacity:1}100%{transform:scale(1)}}
 .grp{margin-bottom:26px}
@@ -207,7 +208,7 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 </nav>
 <main id="main" class="wrap">
 <h1>Bangladeshi open-end mutual funds</h1>
-<p class="intro">Bangladesh has 100+ open-end funds. ReturnKoto? tracks the <span class="fund-n">6</span> whose NAV history and dividends can be verified to the source. Search, filter by AMC, or jump by type. Tap any fund for returns, holdings and fees. Figures as of 23 Jul 2026 <button type="button" class="tipbtn" data-tipkey="asof" data-tip="Every figure on this list uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></p>
+<p class="intro">Bangladesh has 100+ open-end funds. ReturnKoto? tracks the <span class="fund-n">6</span> whose NAV history and dividends can be verified to the source. Search, filter by AMC, or jump by type. Tap any fund for returns, holdings and fees. Figures as of <span class="asof-wrap">23 Jul 2026 <button type="button" class="tipbtn" data-tipkey="asof" data-tip="Every figure on this list uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
 <details class="fhowto">
 <summary>How to browse this list</summary>
 <div class="fhowto-body">

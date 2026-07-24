@@ -55,9 +55,8 @@
   header p{color:var(--muted);margin-top:4px;font-size:14.5px}
   .fresh{font-size:13px;color:#57616F;margin-top:9px}
   [data-theme="dark"] .fresh{color:var(--muted)}
-  .whydate{font-family:inherit;font-size:12.5px;font-weight:700;color:var(--green-dark);background:none;border:0;padding:6px 2px;cursor:pointer;text-decoration:underline dashed;text-underline-offset:3px;position:relative}
-  .whydate::after{content:"";position:absolute;left:-6px;right:-6px;top:-8px;bottom:-8px}
   .fresh .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:6px;vertical-align:middle}
+  .asof-wrap{white-space:nowrap}
   .hero-stat{margin-top:8px;font-weight:600}
   .fund-n{font-weight:800;font-size:1.08em;color:var(--green-dark);display:inline-block;font-variant-numeric:tabular-nums;animation:fundpop 1.15s cubic-bezier(.2,.85,.3,1) both}
   .hero-stat .st-u{display:inline-block;font-weight:800;color:var(--green-dark);font-variant-numeric:tabular-nums;animation:fundpop 1.15s cubic-bezier(.2,.85,.3,1) .4s both}
@@ -746,7 +745,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   <header>
     <h1>What if you&rsquo;d actually invested?</h1>
     <p>One amount. Real Bangladesh fund history. See what it&nbsp;became.</p>
-    <p class="hero-stat">ReturnKoto? tracks <span class="fund-n">34</span> mutual funds, and <b class="st-u">2,570+</b> people have used the calculator</p>
+    <p class="hero-stat">ReturnKoto? tracks <span class="fund-n">34</span> mutual funds, and <b class="st-u">2,900+</b> people have used the calculator</p>
   </header>
 
   <h2 class="sr-only">Calculate what your money would have become</h2>
@@ -774,7 +773,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   </div>
   <div class="sr-only" aria-live="polite" id="srlive"></div>
   <p class="hl-note">For learning and research. Past performance doesn&rsquo;t predict the future.</p>
-  <p class="fresh fresh-under"><span class="dot"></span>Comparable through <span class="asof">18 Jun 2026</span> &middot; <button type="button" class="whydate" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund holds it back. Individual fund pages show newer NAVs, collected daily. NAV is the price of one unit of a fund; it moves with the value of everything the fund owns.">Why this date?</button></p>
+  <p class="fresh fresh-under"><span class="dot"></span>Comparable through <span class="asof-wrap"><span class="asof">18 Jun 2026</span> <button type="button" class="tipbtn" id="asofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
 
   <div class="doors">
     <button type="button" class="door door-b" id="doorBeginner" aria-expanded="false" aria-controls="beginnerCard">New to funds? Start here</button>
@@ -937,7 +936,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   <a href="https://www.facebook.com/groups/2419388815175186" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:#1466C3;color:#fff;font-weight:800;font-size:14px;padding:11px 22px;border-radius:999px;text-decoration:none">Join the Facebook group &#8594;</a>
 </section>
   <div class="connect">
-    <div class="usedby"><b>Platform Stats</b> (Since June 2026): <b class="st-u">680+</b> people have used the calculator, and <b class="st-c">0+</b> people have learned about the outcome of crowdfunding. <span class="st-note">[Stats update automatically from GA4 every 24 to 48 hours.]</span></div>
+    <div class="usedby"><b>Platform Stats</b> (Since June 2026): <b class="st-u">2,900+</b> people have used the calculator, and <b class="st-c">0+</b> people have learned about the outcome of crowdfunding. <span class="st-note">[Stats update automatically from GA4 every 24 to 48 hours.]</span></div>
   </div>
   </div><!-- /cockpit -->
 </div>
@@ -1459,8 +1458,11 @@ if(el=t.closest(".connect a")){track("social_click",{network:el.getAttribute("ar
 (function(){var us=document.querySelectorAll('.st-u'),c=document.querySelector('.st-c'),n=document.querySelector('.st-note');if(!us.length)return;var f=function(x){return (x>=10?Math.floor(x/10)*10:x).toLocaleString()+'+';};
 // Subtle count-up: the live user number ticks the last stretch into place, drawing the eye without shouting
 function countTo(e,target){
-  if((typeof REDUCED_MOTION!=="undefined"&&REDUCED_MOTION)||!window.requestAnimationFrame){e.textContent=target.toLocaleString()+'+';return;}
+  // Set the final value immediately so a stalled animation frame cannot leave the HTML fallback showing
+  e.textContent=target.toLocaleString()+'+';
+  if((typeof REDUCED_MOTION!=="undefined"&&REDUCED_MOTION)||!window.requestAnimationFrame)return;
   var start=Math.max(0,Math.floor(target*0.9)),t0=null;
+  e.textContent=start.toLocaleString()+'+';
   function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/900);var v=Math.floor(start+(target-start)*(1-Math.pow(1-k,3)));e.textContent=v.toLocaleString()+'+';if(k<1)requestAnimationFrame(step);}
   requestAnimationFrame(step);
 }
@@ -1770,7 +1772,21 @@ fetch("data.json").then(r=>r.json()).then(d=>{
   FUNDS=d.funds;pruneHorizons();renderBrowse();
   if(FUNDS.some(f=>f.series&&f.series.co&&f.series.co.length)){var _dv=document.getElementById("dvrow"),_lb=document.getElementById("lcbasis");if(_dv)_dv.classList.remove("bc-off");if(_lb)_lb.classList.remove("bc-off");}
   syncBasisUI();
-  if(d.asOf){const p=d.asOf.split("-");document.querySelectorAll(".asof").forEach(e=>e.textContent=(+p[2])+" "+MONTHS[+p[1]-1]+" "+p[0]);window.RK_END_MY=MONTHS[+p[1]-1]+" "+p[0];window.RK_ASOF_Y=+p[0];window.RK_ASOF_M=+p[1];}
+  if(d.asOf){const p=d.asOf.split("-");const asofLabel=(+p[2])+" "+MONTHS[+p[1]-1]+" "+p[0];document.querySelectorAll(".asof").forEach(e=>e.textContent=asofLabel);window.RK_END_MY=MONTHS[+p[1]-1]+" "+p[0];window.RK_ASOF_Y=+p[0];window.RK_ASOF_M=+p[1];
+    // If some funds sit on the shared floor while others are newer, name the laggards in the tip
+    var tipEl=document.getElementById("asofTip");
+    if(tipEl){
+      var atFloor=FUNDS.filter(function(f){return f.navAsOf===d.asOf;});
+      var newer=FUNDS.some(function(f){return f.navAsOf&&f.navAsOf>d.asOf;});
+      var base="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily.";
+      if(newer&&atFloor.length&&atFloor.length<FUNDS.length){
+        var names=atFloor.map(function(f){return SHORT[f.id]||f.label;});
+        var named=names.length<=4?names.join(", "):(names.slice(0,3).join(", ")+" and "+(names.length-3)+" more");
+        base="Every figure uses one shared NAV date so funds stay comparable. Right now "+atFloor.length+" fund"+(atFloor.length===1?"":"s")+" still sit on "+asofLabel+" ("+named+"), often a year-end book closure, which holds the site-wide date back while other funds have newer NAVs. Individual fund pages can show newer dates, collected daily.";
+      }
+      tipEl.setAttribute("data-tip",base);
+    }
+  }
   _detailsP.then(dd=>{DETAILS=dd||{};scheduleRender();});
 }).catch(()=>{var r=document.getElementById("results");if(r)r.innerHTML='<p style="text-align:center;color:var(--muted);padding:28px 0;font-size:14px">Could not load the latest fund data. Please refresh the page.</p>';});
 </script>

@@ -55,9 +55,8 @@
   header p{color:var(--muted);margin-top:4px;font-size:14.5px}
   .fresh{font-size:13px;color:#57616F;margin-top:9px}
   [data-theme="dark"] .fresh{color:var(--muted)}
-  .whydate{font-family:inherit;font-size:12.5px;font-weight:700;color:var(--green-dark);background:none;border:0;padding:6px 2px;cursor:pointer;text-decoration:underline dashed;text-underline-offset:3px;position:relative}
-  .whydate::after{content:"";position:absolute;left:-6px;right:-6px;top:-8px;bottom:-8px}
   .fresh .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:6px;vertical-align:middle}
+  .asof-wrap{white-space:nowrap}
   .hero-stat{margin-top:8px;font-weight:600}
   .fund-n{font-weight:800;font-size:1.08em;color:var(--green-dark);display:inline-block;font-variant-numeric:tabular-nums;animation:fundpop 1.15s cubic-bezier(.2,.85,.3,1) both}
   .hero-stat .st-u{display:inline-block;font-weight:800;color:var(--green-dark);font-variant-numeric:tabular-nums;animation:fundpop 1.15s cubic-bezier(.2,.85,.3,1) .4s both}
@@ -65,7 +64,6 @@
   @keyframes fundpop{0%{transform:scale(.5);opacity:0}55%{transform:scale(1.22);opacity:1}100%{transform:scale(1)}}
   [data-theme="dark"] .fund-n{color:#3DD98A}
   .asof{font-weight:700;color:var(--text)}
-  .asof-wrap{white-space:nowrap}
   .panel{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:18px;margin-top:20px}
   label.fld{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:7px;text-transform:uppercase;letter-spacing:.03em}
   .amount{position:relative}
@@ -1460,8 +1458,11 @@ if(el=t.closest(".connect a")){track("social_click",{network:el.getAttribute("ar
 (function(){var us=document.querySelectorAll('.st-u'),c=document.querySelector('.st-c'),n=document.querySelector('.st-note');if(!us.length)return;var f=function(x){return (x>=10?Math.floor(x/10)*10:x).toLocaleString()+'+';};
 // Subtle count-up: the live user number ticks the last stretch into place, drawing the eye without shouting
 function countTo(e,target){
-  if((typeof REDUCED_MOTION!=="undefined"&&REDUCED_MOTION)||!window.requestAnimationFrame){e.textContent=target.toLocaleString()+'+';return;}
+  // Set the final value immediately so a stalled animation frame cannot leave the HTML fallback showing
+  e.textContent=target.toLocaleString()+'+';
+  if((typeof REDUCED_MOTION!=="undefined"&&REDUCED_MOTION)||!window.requestAnimationFrame)return;
   var start=Math.max(0,Math.floor(target*0.9)),t0=null;
+  e.textContent=start.toLocaleString()+'+';
   function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/900);var v=Math.floor(start+(target-start)*(1-Math.pow(1-k,3)));e.textContent=v.toLocaleString()+'+';if(k<1)requestAnimationFrame(step);}
   requestAnimationFrame(step);
 }
