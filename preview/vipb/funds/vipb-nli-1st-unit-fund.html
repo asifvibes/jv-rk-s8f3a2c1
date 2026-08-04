@@ -132,6 +132,28 @@ h1{font-size:28px;line-height:1.18;margin:0 0 11px;letter-spacing:-.02em}
 .vipb-more a{color:var(--green-dark);text-decoration:none}
 .vipb-more a:hover{text-decoration:underline}
 @media(max-width:400px){.vipb-compare{grid-template-columns:1fr}.vipb-metric-val{font-size:22px}.vipb-metric-amc .vipb-metric-val{font-size:24px}}
+/* EDGE compact match (when CAGR ≈ Max within 0.10 pp) */
+.edge-match{border:1.5px solid #a7e3bf;background:linear-gradient(165deg,#f3fbf6 0%,#fff 70%);box-shadow:0 4px 16px rgba(31,158,87,.06);padding:14px 14px 12px}
+.edge-match-row{display:flex;align-items:flex-start;gap:12px}
+.edge-match-tick{flex:none;margin-top:1px;line-height:0}
+.edge-match-body{flex:1;min-width:0}
+.edge-match-pill{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#0d7a43;background:#e8f7ee;border:1px solid #cdeeda;padding:2px 7px;border-radius:5px;margin:0 0 6px}
+.edge-match h2{font-size:16px;margin:0 0 5px;color:var(--ink);letter-spacing:-.01em;line-height:1.25}
+.edge-match-lead{font-size:12.5px;color:var(--muted);margin:0 0 10px;line-height:1.45}
+.edge-match-fig{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin:0 0 4px}
+.edge-match-pct{font-size:26px;font-weight:800;letter-spacing:-.03em;color:#0d7a43;line-height:1}
+.edge-match-yr{font-size:14px;font-weight:700;margin-left:1px;opacity:.85}
+.edge-match-meta{font-size:11.5px;color:var(--muted);line-height:1.35}
+.edge-match .vipb-wealth{margin-top:10px;margin-bottom:8px}
+.edge-match-note{font-size:11.5px;color:var(--muted);margin:8px 0 0;line-height:1.45;padding-top:8px;border-top:1px dashed #d4edda}
+.edge-match .vipb-more{margin-top:8px}
+@media(max-width:400px){.edge-match{padding:12px}.edge-match-pct{font-size:24px}.edge-match h2{font-size:15px}}
+[data-theme="dark"] .edge-match{border-color:#1e4a30;background:linear-gradient(165deg,#0a1a12 0%,#182130 70%);box-shadow:0 4px 16px rgba(0,0,0,.25)}
+[data-theme="dark"] .edge-match-pill{color:#4ade80;background:#12301e;border-color:#1e4a30}
+[data-theme="dark"] .edge-match-pct{color:#4ade80}
+[data-theme="dark"] .edge-match-note{border-top-color:#1e4a30}
+.edge-demo-banner{font-size:12px;line-height:1.4;margin:0 0 12px;padding:9px 11px;border-radius:8px;background:#FFF7ED;border:1px solid #FDBA74;color:#9A3412;font-weight:600}
+[data-theme="dark"] .edge-demo-banner{background:#2a1a0c;border-color:#9a5b20;color:#fdba74}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
 .fresh{font-size:12px;color:var(--muted);margin:-12px 0 22px;text-align:center;line-height:1.55}
 .fresh-lines{display:flex;flex-direction:column;gap:5px;align-items:center;max-width:36rem;margin:0 auto}
@@ -215,18 +237,28 @@ table.ret td.pos{color:var(--green-dark)}table.ret td.neg{color:#c0392b}
 /* Compact twin of method + period: fixed under the nav, only while card chips are off-screen. */
 .fqbar{position:fixed;left:0;right:0;top:47px;z-index:55;display:flex;gap:7px;align-items:stretch;margin:0;padding:5px 14px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);border-radius:0;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .fqbar[hidden]{display:none!important}
+/* .calc-seg sets display:inline-flex; without this, [hidden] on #fqLayer is ignored. */
+.fqbar [hidden],#fqLayer[hidden]{display:none!important}
 .fqbar .calc-seg{height:auto;min-height:34px;flex:0 0 auto;align-self:stretch}
 .fqbar .calc-seg .seg{padding:8px 10px;font-size:12px;min-height:34px}
 .fqbar .qsel2{flex:1;min-width:0;max-width:720px;border:1px solid var(--line);background:var(--card,#fff);color:var(--ink);font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;padding:8px 26px 8px 12px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%236B7280' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:12px 8px}
 @media(min-width:761px){.fqbar{padding-left:max(14px,calc(50% - 360px));padding-right:max(14px,calc(50% - 360px))}}
-@media(max-width:560px){.fqbar{top:38px;padding:4px 8px}.fqbar .calc-seg .seg,.fqbar .qsel2{min-height:44px}.fqbar .calc-seg .seg{padding:8px 8px;font-size:11.5px}}
+@media(max-width:560px){.fqbar{top:38px;padding:4px 8px;flex-wrap:wrap}.fqbar .calc-seg .seg,.fqbar .qsel2{min-height:44px}.fqbar .calc-seg .seg{padding:8px 8px;font-size:11.5px}.fqbar .fq-layer{width:100%}.fqbar .fq-layer .seg{flex:1}}
 [data-theme="dark"] .fqbar{background:rgba(14,20,31,.95);border-color:#1E2735}
 [data-theme="dark"] .fqbar .qsel2{background-color:#141C28;color:var(--ink);border-color:#2B3648}
 .calc-result{margin:2px 0 14px}
-.calc-layer{margin:0 0 12px;padding:10px 11px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
-.calc-layer-lbl{display:block;font-size:11.5px;font-weight:700;color:var(--muted);margin:0 0 7px}
-.calc-layer-note{font-size:12px;color:var(--muted);line-height:1.45;margin:8px 0 0}
+.calc-layer{margin:0 0 14px;padding:12px 12px 11px;border:1.5px solid color-mix(in srgb,var(--green) 55%,var(--line));border-radius:12px;background:var(--bg);scroll-margin-top:96px}
+.calc-layer-lbl{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--ink);margin:0 0 8px;line-height:1.35}
+.calc-layer-seg{display:flex;width:100%;height:auto;min-height:44px}
+.calc-layer-seg .seg{flex:1;min-height:44px;padding:0 10px;font-size:13px}
+.calc-layer-note{font-size:12.5px;color:var(--muted);line-height:1.5;margin:9px 0 0}
 .calc-layer-note b{color:var(--ink)}
+@keyframes rkLayerGlow{0%,100%{box-shadow:0 0 0 0 rgba(31,158,87,0);border-color:var(--line)}35%{box-shadow:0 0 0 4px rgba(31,158,87,.26);border-color:var(--green)}70%{box-shadow:0 0 0 2px rgba(31,158,87,.14);border-color:var(--green)}}
+.calc-layer.rk-layer-glow{animation:rkLayerGlow 1.55s ease-in-out .35s 3}
+@media(prefers-reduced-motion:reduce){.calc-layer.rk-layer-glow{animation:none;border-color:var(--green)}}
+.fqbar .fq-layer{flex:0 0 auto}
+.fqbar .fq-layer .seg{padding:8px 9px;font-size:11.5px;min-height:34px}
+@media(max-width:560px){.fqbar .fq-layer .seg{min-height:44px;padding:8px 7px;font-size:11px}}
 .cbench{margin:14px 0 0;border-top:1px solid var(--line);padding-top:11px}
 .cb-h{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 7px}
 .calc-head h2{margin:0}
@@ -294,6 +326,9 @@ table.ret td.pos{color:var(--green-dark)}table.ret td.neg{color:#c0392b}
 [data-theme="dark"] .calc-seg{background:#212C3C}
 [data-theme="dark"] .calc-seg .seg.on{background:#0B111A;color:#3DD98A}
 [data-theme="dark"] .calc-layer{background:#141C28}
+@keyframes rkLayerGlowDark{0%,100%{box-shadow:0 0 0 0 rgba(61,217,138,0);border-color:#2B3648}35%{box-shadow:0 0 0 4px rgba(61,217,138,.28);border-color:#3DD98A}70%{box-shadow:0 0 0 2px rgba(61,217,138,.16);border-color:#3DD98A}}
+[data-theme="dark"] .calc-layer.rk-layer-glow{animation-name:rkLayerGlowDark}
+@media(prefers-reduced-motion:reduce){[data-theme="dark"] .calc-layer.rk-layer-glow{animation:none;border-color:#3DD98A}}
 [data-theme="dark"] .cper{background:#182130;color:#AEB9CC}
 [data-theme="dark"] .cper.on{background:#1F9E57;color:#fff}
 [data-theme="dark"] .cr-main b{color:#3DD98A}
@@ -424,10 +459,11 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 <p class="fresh"><span class="fresh-lines"><span>Latest NAV date: <span class="d">4 Aug 2026</span>.</span><span>Source: VIPB Asset Management Company Limited (VIPB AMCL)'s website.</span><span>Page last updated: <span class="d">6:00 AM, 4 Aug 2026</span>.</span></span></p>
 <section class="card vipb-panel" aria-labelledby="vipb-compare-h"><div class="vipb-head"><div class="vipb-head-row"><div class="vipb-coin" aria-hidden="true"><div class="vipb-coin-inner">&#2547;</div></div><div class="vipb-head-text"><span class="vipb-pill">Two sides of the coin</span><h2 id="vipb-compare-h">Same fund. Two honest answers.</h2><p class="vipb-lead">Both are right; they answer different questions. On the <b>left</b>, every dividend is taken as cash the way many investors actually use them, which is VIPB&rsquo;s since-inception money-weighted return (XIRR). On the <b>right</b>, every dividend is reinvested to buy more units, the total return of the fund itself.</p></div></div></div><div class="vipb-compare"><div class="vipb-metric vipb-metric-amc"><span class="vipb-metric-lbl">VIPB method</span><span class="vipb-metric-valrow"><span class="vipb-metric-val">+11.94%</span><span class="vipb-xirr-wrap"><button type="button" class="vipb-xirr-mark" aria-label="About VIPB official XIRR" aria-expanded="false"><svg class="vipb-xirr-ic" viewBox="0 0 24 24" aria-hidden="true"><circle class="vipb-xirr-ring" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path class="vipb-xirr-check" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7.5 12.2l3.1 3.1 6.4-6.6"/></svg></button></span></span><span class="vipb-xirr-tip" role="tooltip">This is the official since-inception XIRR that VIPB Asset Management Company Limited (VIPB AMCL) uses to share this fund&rsquo;s performance: one unit at face value, each cash dividend taken out (not reinvested), and today&rsquo;s NAV as the final payoff.</span><span class="vipb-metric-sub">/yr &middot; dividends taken as cash &middot; since launch &middot; to 16 Jul 2026</span></div><div class="vipb-metric vipb-metric-rk"><span class="vipb-metric-lbl vipb-metric-lbl-rk"><svg class="vipb-rk-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#1F9E57"/><path d="M22 66 44 50 58 58 76 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 34 76 34 76 50" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>ReturnKoto? METHOD</span><span class="vipb-metric-val">+9.69%</span><span class="vipb-metric-sub">/yr &middot; dividends reinvested &middot; since launch &middot; dated pay dates</span></div></div><p class="vipb-wealth"><span class="vipb-wealth-ic" aria-hidden="true">&#2547;</span><span>A <b>&#2547;1,00,000</b> investment held over since launch would be worth about <b>&#2547;3,80,540</b> with dividends reinvested, or <b>&#2547;3,05,390</b> taking every dividend as cash. Reinvesting compounds, so it ends higher; the gap (about &#2547;75,150) is the cost of not reinvesting.</span></p><p class="vipb-note"><b>Why can both numbers be right?</b> Seeing two different percentages for the same fund is normal, not a mistake. VIPB&rsquo;s figure assumes each payout stayed in your hand (a cash-out, money-weighted XIRR). ReturnKoto? METHOD assumes every dividend went back into the fund (a reinvested, time-weighted total return). Both figures include the fund&rsquo;s stock dividends and unit conversions, so nothing is left out; the difference is only whether dividends are reinvested or taken as cash, plus payout timing, how long you measure and the end date, any of which can tip either side higher. The <b>Taken as cash</b> toggle elsewhere on ReturnKoto? is our own time-weighted cash path for whatever period you pick; it is not the same rate as VIPB&rsquo;s since-inception money-weighted XIRR on the left, even though both treat dividends as cash. VIPB has reviewed the fund data on this page, and neither figure is an error.</p><p class="vipb-more"><a href="/faq.html#dual-return">Read the full explanation</a> &middot; <a href="/methodology.html#dual-return">Methodology</a></p></section>
 
-<section class="card">
-<h2>Historical returns <button type="button" class="tipbtn" data-tipkey="hist_returns" data-tip="This table shows what the fund returned over fixed look-back windows, using ReturnKoto?&#39;s total-return method (dividends reinvested by default). Use it to compare periods at a glance before you open the calculator." aria-label="What is Historical returns?" aria-expanded="false">?</button></h2>
+<section class="card" id="histCard">
+<h2>Historical returns <button type="button" class="tipbtn" data-tipkey="hist_returns" data-tip="This table shows what the fund returned over fixed look-back windows. Total return reinvests dividends; Per year is the annualized rate; Monthly SIP /yr is the return on a fixed amount invested every month." aria-label="What is Historical returns?" aria-expanded="false">?</button></h2>
 <p class="sub">Total return reinvests every dividend. &ldquo;Per year&rdquo; is the annualized compound rate. The last column is the return on a fixed amount invested every month (SIP).</p>
-<p class="sub" id="hSipNote" hidden style="margin-top:-8px">SIP column is in Comparable mode, the same cross-fund method used in rankings and compare.</p>
+
+<p class="sub" id="hSipNote" hidden style="margin-top:-6px">Table is in AMC-aligned mode for this fund.</p>
 <div class="tablewrap">
 <table class="ret">
 <thead><tr><th>Return period</th><th>Total return</th><th>Per year</th><th>Monthly SIP /yr</th></tr></thead>
@@ -436,12 +472,13 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 </div>
 <p class="asof">Figures as of <span class="asof-wrap">4 Aug 2026 <button type="button" class="tipbtn" data-tipkey="asof" data-tip="The NAV date these return figures run through for this fund. Homepage and fund-list comparisons use one shared date across all funds so rankings stay comparable. Holdings below use the portfolio statement date, which can lag." aria-label="Why this as-of date?" aria-expanded="false">!</button></span> Dividends reinvested at the fund manager&rsquo;s published payment dates (not the October convention). The since-launch figure starts from the &#2547;10 face value paid at the fund&rsquo;s inception, matching the asset manager&rsquo;s own convention.</p>
 </section>
-<div class="fqbar" id="fqbar" aria-label="Quick calculator controls: method and return period" hidden>
+<div class="fqbar" id="fqbar" aria-label="Quick controls: invest style and return period" hidden>
+
 <div class="calc-seg fqseg" id="fqMethod"><button class="seg" type="button" data-m="sip">Monthly</button><button class="seg on" type="button" data-m="lump">One-time</button></div>
 <select id="fqPeriod" class="qsel2" aria-label="Return period"></select>
 </div>
 <section class="card" id="calcCard">
-<div class="calc-head"><h2>Calculate your return <button type="button" class="tipbtn" data-tipkey="calc_return" data-tip="Type an amount and pick one-time or monthly to see what this fund would have returned over a period you choose. Dividends are reinvested by default; switch to taken as cash if you want to compare. Where shown, Comparable keeps cross-fund consistency, while AMC-aligned follows that fund manager's own dated-cashflow method for reconciliation." aria-label="What is Calculate your return?" aria-expanded="false">?</button></h2></div>
+<div class="calc-head"><h2>Calculate your return <button type="button" class="tipbtn" data-tipkey="calc_return" data-tip="Type an amount and pick one-time or monthly to see what this fund would have returned over a period you choose. Dividends are reinvested by default; switch to taken as cash if you want to compare." aria-label="What is Calculate your return?" aria-expanded="false">?</button></h2></div>
 <p class="sub" id="cSub">Just this fund. Set an amount, pick one-time or monthly, and choose a period.</p>
 
 <div id="calcSteer">
@@ -476,8 +513,15 @@ var FC=window.FC; if(!FC||!FC.tr||!FC.tr.length) return;
 var tr=FC.tr, M=FC.M, sb=FC.sb||5000, H=FC.H, MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 var amt=1000, method='lump', divBasis='reinvest', layer='canonical', period=(FC.periods.map(String).indexOf('36')>-1)?'36':FC.periods[FC.periods.length-1];
 var hasAmc=!!(FC.Hamc&&Object.keys(FC.Hamc).length);
+if(hasAmc) layer='amc';
 var cSub=document.getElementById('cSub');
-if(hasAmc&&cSub)cSub.textContent='Just this fund. Use Comparable for cross-fund consistency, or AMC-aligned to match this fund manager\'s SIP convention, then choose one-time or monthly and a period.';
+if(hasAmc&&cSub)cSub.textContent='Just this fund. Set an amount, pick one-time or monthly, and choose a period. Figures follow the Method view from Historical returns.';
+var fqLayer=document.getElementById('fqLayer');
+if(hasAmc&&fqLayer)fqLayer.hidden=false;
+var fqbarEl=document.getElementById('fqbar');
+if(fqbarEl)fqbarEl.setAttribute('aria-label',hasAmc
+  ?'Quick controls: Method view, invest style, and return period'
+  :'Quick controls: invest style and return period');
 var PR={"6":{SAN:11.8,DPS:9.5,FDR:8.7,INF:9.0,GOLD:3.9},"12":{SAN:11.8,DPS:9.6,FDR:8.9,INF:8.6,GOLD:36.4},"24":{SAN:11.8,DPS:9.5,FDR:8.8,INF:9.3,GOLD:40.0},"36":{SAN:11.7,DPS:9.1,FDR:8.4,INF:9.5,GOLD:32.8},"60":{SAN:11.5,DPS:8.2,FDR:7.3,INF:8.7,GOLD:27.4},"max":{SAN:11.4,DPS:7.9,FDR:6.7,INF:7.1,GOLD:17.3}};
 function prFor(m){if(m>60)return PR["max"];return PR[m<=6?"6":m<=12?"12":m<=24?"24":m<=36?"36":"60"];}
 function benchFinal(r,m){if(divBasis==='cash'){return method==='lump'?amt*(1+r/100*m/12):amt*m+amt*(r/100)*(m*(m-1)/2)/12;}if(method==='lump')return amt*Math.pow(1+r/100,m/12);var rm=Math.pow(1+r/100,1/12)-1,s=0;for(var i=0;i<m;i++)s=s*(1+rm)+1;return amt*s;}
@@ -518,8 +562,12 @@ document.getElementById('cStartV').innerHTML=tk(amt);
 document.getElementById('cStartD').textContent=addM(FC.s,Math.max(0,M-1-r.months));
 document.getElementById('cEndV').innerHTML=tk(r.final);
 document.getElementById('cNote').innerHTML=(method==='lump'?'A one-time '+tk(amt)+' invested':tk(amt)+' invested every month')+', '+(divBasis==='cash'?'with every dividend taken as cash instead of reinvested':'total return with dividends reinvested')+'.';
-if(hasAmc&&method==='sip'){
-  var meth=(layer==='amc')?' AMC-aligned view uses dated monthly cashflows and exact-day XIRR for this fund.':' Comparable view is the cross-fund method used in rankings and compare.';
+if(hasAmc){
+  var meth=(layer==='amc')
+    ? (method==='sip'
+      ? ' AMC-aligned view grows SIP on Composite NAV month-over-month with exact-day XIRR for this fund.'
+      : ' AMC-aligned view uses Composite CAGR for this fund\'s lump path.')
+    : ' Comparable view is the cross-fund method used in rankings and compare.';
   document.getElementById('cNote').innerHTML+=meth;
 }
 var bb=document.getElementById('cBench');
@@ -560,42 +608,58 @@ var g=document.getElementById('cBasisSeg');if(g){var ch=g.querySelectorAll('[dat
 ['cMethod','fqMethod'].forEach(function(id){var g=document.getElementById(id);if(!g)return;var ch=g.children;for(var i=0;i<ch.length;i++)ch[i].classList.toggle('on',ch[i].getAttribute('data-m')===method);});
 var g=document.getElementById('cPeriods');if(g){var hit=false,ch=g.children;for(var i=0;i<ch.length;i++){var c=ch[i];if(c.tagName==='BUTTON'){var on=c.getAttribute('data-h')===period;c.classList.toggle('on',on);if(on)hit=true;}}var sel=g.querySelector('select.cmore');if(sel){var has=[].some.call(sel.options,function(o){return o.value===period;});sel.value=has?period:'';sel.classList.toggle('on',!hit&&has);}}
 var fq=document.getElementById('fqPeriod');if(fq){if([].some.call(fq.options,function(o){return o.value===period;}))fq.value=period;}
-var lg=document.getElementById('cLayerSeg');if(lg){var lb=lg.querySelectorAll('[data-layer]');for(var j=0;j<lb.length;j++)lb[j].classList.toggle('on',lb[j].getAttribute('data-layer')===layer);}
-if(hasAmc) syncHistSip();
+if(hasAmc){
+  var lbs=document.querySelectorAll('#cLayerSeg [data-layer], #cLayerSegCalc [data-layer], #fqLayer [data-layer]');
+  for(var j=0;j<lbs.length;j++)lbs[j].classList.toggle('on',lbs[j].getAttribute('data-layer')===layer);
+  syncHistSip();
+}
 }
 function syncHistSip(){
   if(!hasAmc) return;
-  var rows=document.querySelectorAll('td[data-sip-comp]');
-  for(var i=0;i<rows.length;i++){
-    var td=rows[i];
-    var v=(layer==='amc'&&td.getAttribute('data-sip-amc'))?td.getAttribute('data-sip-amc'):td.getAttribute('data-sip-comp');
+  function fillPct(td, compAttr, amcAttr, withSignClass){
+    if(!td) return;
+    var v=(layer==='amc'&&td.getAttribute(amcAttr)!=null)?td.getAttribute(amcAttr):td.getAttribute(compAttr);
     var n=parseFloat(v||'0');
-    td.textContent=(n>=0?'+':'')+Math.abs(n).toFixed(2)+'%';
-    if(n<0) td.textContent='-'+Math.abs(n).toFixed(2)+'%';
+    td.textContent=(n>=0?'+':'-')+Math.abs(n).toFixed(2)+'%';
+    if(withSignClass){
+      td.classList.toggle('pos', n>=0);
+      td.classList.toggle('neg', n<0);
+    }
+  }
+  var rows=document.querySelectorAll('#histCard tbody tr');
+  for(var i=0;i<rows.length;i++){
+    var tr=rows[i];
+    fillPct(tr.querySelector('td[data-tot-comp]'), 'data-tot-comp', 'data-tot-amc', true);
+    fillPct(tr.querySelector('td[data-yr-comp]'), 'data-yr-comp', 'data-yr-amc', false);
+    fillPct(tr.querySelector('td[data-sip-comp]'), 'data-sip-comp', 'data-sip-amc', false);
   }
   var note=document.getElementById('hSipNote');
   if(note){
     note.hidden=false;
     note.textContent=(layer==='amc')
-      ? 'SIP column is in AMC-aligned mode for this fund, using the manager\'s dated-cashflow convention.'
-      : 'SIP column is in Comparable mode, the same cross-fund method used in rankings and compare.';
+      ? 'Total return, Per year, and Monthly SIP /yr are showing AMC-aligned numbers for this fund.'
+      : 'Total return, Per year, and Monthly SIP /yr are showing Comparable numbers (homepage and compare method).';
   }
 }
 ['cMethod','fqMethod'].forEach(function(id){var g=document.getElementById(id);if(g)g.addEventListener('click',function(e){var b=e.target.closest('button');if(b&&b.hasAttribute('data-m'))setMethod(b.getAttribute('data-m'));});});
-var _cl=document.getElementById('cLayerSeg');
-if(_cl)_cl.addEventListener('click',function(e){var b=e.target.closest('[data-layer]');if(!b)return;setLayer(b.getAttribute('data-layer'));try{if(window.gtag)gtag('event','set_fund_method',{layer:layer,fund_method:(FC.amcMethodName||'amc')});}catch(_e){}});
+document.addEventListener('click',function(e){
+  var b=e.target.closest('#cLayerSeg [data-layer], #cLayerSegCalc [data-layer], #fqLayer [data-layer]');
+  if(!b) return;
+  setLayer(b.getAttribute('data-layer'));
+  try{if(window.gtag)gtag('event','set_fund_method',{layer:layer,fund_method:(FC.amcMethodName||'amc')});}catch(_e){}
+});
 var cPeriodsEl=document.getElementById('cPeriods');if(cPeriodsEl)buildPeriods(cPeriodsEl);
 buildFqPeriod();
 syncControls();
 syncHistSip();
 scheduleRender();
-/* Fixed quick bar: same method + period as the card, compact. Show only after
-   the card chips scroll under the nav so the two UIs never appear together.
-   Fixed (not sticky-in-flow) so revealing it cannot push the chips back on-screen. */
+/* Fixed quick bar: SIP method (when available) + invest style + period.
+   Show after Historical method control or calculator chips leave the top. */
 (function(){
   var qb=document.getElementById('fqbar');
   var steer=document.getElementById('calcSteer');
   var card=document.getElementById('calcCard');
+  var layerWrap=document.getElementById('cLayerWrap');
   if(!qb||!steer)return;
   var shown=false;
   function navH(){var n=document.querySelector('.rk-nav');return n?Math.ceil(n.getBoundingClientRect().height):47;}
@@ -605,8 +669,8 @@ scheduleRender();
     var top=navH()+8;
     var sr=steer.getBoundingClientRect();
     var pastCard=card&&card.getBoundingClientRect().bottom<top;
-    var show=!pastCard&&sr.bottom<top;
-    // Hysteresis: once shown, stay until chips clearly return below the bar.
+    var layerOff=hasAmc&&layerWrap&&layerWrap.getBoundingClientRect().bottom<top;
+    var show=!pastCard&&(sr.bottom<top||layerOff);
     if(shown&&!show&&!pastCard&&sr.bottom<top+56)show=true;
     if(show)place();
     shown=show;
@@ -615,10 +679,18 @@ scheduleRender();
   if(!('IntersectionObserver' in window)){place();qb.hidden=false;shown=true;return;}
   new IntersectionObserver(function(){recompute();},{threshold:[0,0.01,1],rootMargin:'-80px 0px 0px 0px'}).observe(steer);
   if(card)new IntersectionObserver(function(){recompute();},{threshold:[0,0.01,1]}).observe(card);
+  if(layerWrap)new IntersectionObserver(function(){recompute();},{threshold:[0,0.01,1],rootMargin:'-80px 0px 0px 0px'}).observe(layerWrap);
   addEventListener('scroll',recompute,{passive:true});
   var rt=null;
   addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){place();recompute();},120);},{passive:true});
   recompute();
+})();
+(function(){
+  var wrap=document.getElementById('cLayerWrap');
+  if(!wrap||!hasAmc) return;
+  function clearGlow(){wrap.classList.remove('rk-layer-glow');}
+  wrap.addEventListener('animationend',clearGlow);
+  setTimeout(clearGlow,5600);
 })();
 })();
 </script>
@@ -665,7 +737,7 @@ document.addEventListener('click',function(){closeTitleTips();closeXirrTips();})
   p.textContent=b.getAttribute('data-tip');
   // Prefer section-head wrappers so the full-width callout sits below flex rows
   // (calc-head / hp-head), not between the title and a side control.
-  var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('h2')||b.closest('.calc-blabel')||b.closest('.asof')||b.closest('.tags')||b.closest('.fresh')||b;
+  var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('h2')||b.closest('.calc-layer-lbl')||b.closest('.calc-blabel')||b.closest('.asof')||b.closest('.tags')||b.closest('.fresh')||b;
   host.insertAdjacentElement('afterend',p);
   b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby',p.id);
   try{if(window.gtag)gtag('event','badge_tooltip_open',{tag:b.getAttribute('data-tipkey')||'tip'});}catch(err){}
