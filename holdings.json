@@ -1949,8 +1949,8 @@
   }
  },
  "ekush-first-unit-fund": {
-  "asOf": "2026-03-31",
-  "asOfLabel": "31 Mar 2026",
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
   "basis": "by market value",
   "source": "Ekush quarterly portfolio statement",
   "sourceUrl": "https://ekushwml.com/en/fund/first-unit-fund",
@@ -1958,53 +1958,53 @@
   "assetClass": [
    {
     "k": "Listed equity",
-    "v": 74.95
-   },
-   {
-    "k": "Closed-end mutual funds",
-    "v": 9.44
-   },
-   {
-    "k": "Preference shares",
-    "v": 6.18
+    "v": 72.63
    },
    {
     "k": "Cash at bank",
-    "v": 5.55
+    "v": 8.43
    },
    {
     "k": "Open-end mutual fund",
-    "v": 3.88
+    "v": 7.92
+   },
+   {
+    "k": "Closed-end mutual funds",
+    "v": 5.53
+   },
+   {
+    "k": "Preference shares",
+    "v": 5.49
    }
   ],
   "sectors": [
    {
     "k": "Bank",
-    "v": 31.98
+    "v": 31.65
    },
    {
     "k": "Pharmaceuticals",
-    "v": 27.77
-   },
-   {
-    "k": "Closed-end mutual fund",
-    "v": 9.44
-   },
-   {
-    "k": "Miscellaneous",
-    "v": 6.46
+    "v": 27.43
    },
    {
     "k": "Engineering",
-    "v": 5.94
+    "v": 10.94
    },
    {
-    "k": "Cement",
-    "v": 2.78
+    "k": "Closed-end mutual fund",
+    "v": 5.53
    },
    {
     "k": "Fuel & power",
-    "v": 0.02
+    "v": 1.47
+   },
+   {
+    "k": "Telecommunication",
+    "v": 0.83
+   },
+   {
+    "k": "Cement",
+    "v": 0.3
    }
   ],
   "top": [
@@ -2012,68 +2012,260 @@
     "name": "Beximco Pharmaceuticals",
     "code": null,
     "sector": "Pharmaceuticals",
-    "v": 11.39
-   },
-   {
-    "name": "Prime Bank",
-    "code": null,
-    "sector": "Bank",
-    "v": 10.3
-   },
-   {
-    "name": "BRAC Bank",
-    "code": null,
-    "sector": "Bank",
-    "v": 9.53
-   },
-   {
-    "name": "Square Pharmaceuticals",
-    "code": null,
-    "sector": "Pharmaceuticals",
-    "v": 8.66
-   },
-   {
-    "name": "SEML Lecture Equity Mgmt Fund",
-    "code": null,
-    "sector": "Closed-end mutual fund",
-    "v": 6.76
-   },
-   {
-    "name": "Marico",
-    "code": null,
-    "sector": "Pharmaceuticals",
-    "v": 6.54
-   },
-   {
-    "name": "Bangladesh Shipping Corporation",
-    "code": null,
-    "sector": "Miscellaneous",
-    "v": 6.46
-   },
-   {
-    "name": "Renata preference shares",
-    "code": null,
-    "sector": "Preference shares",
-    "v": 6.18
+    "v": 11.2,
+    "q": 217903,
+    "cost": 25856440,
+    "mkt": 30637162
    },
    {
     "name": "BSRM Steels",
     "code": null,
     "sector": "Engineering",
-    "v": 5.94
+    "v": 10.94,
+    "q": 345698,
+    "cost": 23729598,
+    "mkt": 29937447
+   },
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 9.34,
+    "q": 390020,
+    "cost": 23746488,
+    "mkt": 25546310
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 9.1,
+    "q": 111118,
+    "cost": 23714425,
+    "mkt": 24890432
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 8.76,
+    "q": 798484,
+    "cost": 22517739,
+    "mkt": 23954520
+   },
+   {
+    "name": "SEML Lecture Equity Mgmt Fund",
+    "code": null,
+    "sector": "Open-end mutual fund",
+    "v": 7.92,
+    "q": 2167390,
+    "cost": 21673900,
+    "mkt": 21673900
    },
    {
     "name": "Jamuna Bank",
     "code": null,
     "sector": "Bank",
-    "v": 4.83
+    "v": 7.72,
+    "q": 879939,
+    "cost": 21511545,
+    "mkt": 21118536
+   },
+   {
+    "name": "Marico",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 6.36,
+    "q": 6277,
+    "cost": 16923477,
+    "mkt": 17394822
+   },
+   {
+    "name": "Bank Asia",
+    "code": null,
+    "sector": "Bank",
+    "v": 5.53,
+    "q": 821781,
+    "cost": 15813431,
+    "mkt": 15120770
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Preference shares",
+    "v": 5.49,
+    "q": 7900,
+    "cost": 15010000,
+    "mkt": 15010000
+   },
+   {
+    "name": "Vanguard AML Rupali Bank Balanced",
+    "code": null,
+    "sector": "Closed-end mutual fund",
+    "v": 3.27,
+    "q": 1175602,
+    "cost": 7894753,
+    "mkt": 8934575
+   },
+   {
+    "name": "Vanguard AML BD Finance MF One",
+    "code": null,
+    "sector": "Closed-end mutual fund",
+    "v": 2.27,
+    "q": 873081,
+    "cost": 6169720,
+    "mkt": 6198875
+   },
+   {
+    "name": "MJL Bangladesh",
+    "code": null,
+    "sector": "Fuel & power",
+    "v": 1.47,
+    "q": 42604,
+    "cost": 3798361,
+    "mkt": 4026078
+   },
+   {
+    "name": "Robi Axiata",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 0.83,
+    "q": 70000,
+    "cost": 2282500,
+    "mkt": 2282000
+   },
+   {
+    "name": "Renata",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 0.78,
+    "q": 4674,
+    "cost": 1975788,
+    "mkt": 2131344
+   },
+   {
+    "name": "Eastern Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 0.31,
+    "q": 33817,
+    "cost": 844925,
+    "mkt": 842043
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 0.3,
+    "q": 14678,
+    "cost": 762190,
+    "mkt": 821968
    }
   ],
-  "top5": 46.64
+  "top5": 49.34,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 74.95
+    },
+    {
+     "k": "Closed-end mutual funds",
+     "v": 9.44
+    },
+    {
+     "k": "Preference shares",
+     "v": 6.18
+    },
+    {
+     "k": "Cash at bank",
+     "v": 5.55
+    },
+    {
+     "k": "Open-end mutual fund",
+     "v": 3.88
+    }
+   ],
+   "sectors": [
+    {
+     "k": "Bank",
+     "v": 31.98
+    },
+    {
+     "k": "Pharmaceuticals",
+     "v": 27.77
+    },
+    {
+     "k": "Closed-end mutual fund",
+     "v": 9.44
+    },
+    {
+     "k": "Miscellaneous",
+     "v": 6.46
+    },
+    {
+     "k": "Engineering",
+     "v": 5.94
+    },
+    {
+     "k": "Cement",
+     "v": 2.78
+    },
+    {
+     "k": "Fuel & power",
+     "v": 0.02
+    }
+   ],
+   "top": [
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 11.39
+    },
+    {
+     "name": "Prime Bank",
+     "v": 10.3
+    },
+    {
+     "name": "BRAC Bank",
+     "v": 9.53
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 8.66
+    },
+    {
+     "name": "SEML Lecture Equity Mgmt Fund",
+     "v": 6.76
+    },
+    {
+     "name": "Marico",
+     "v": 6.54
+    },
+    {
+     "name": "Bangladesh Shipping Corporation",
+     "v": 6.46
+    },
+    {
+     "name": "Renata preference shares",
+     "v": 6.18
+    },
+    {
+     "name": "BSRM Steels",
+     "v": 5.94
+    },
+    {
+     "name": "Jamuna Bank",
+     "v": 4.83
+    }
+   ],
+   "top5": 46.64
+  }
  },
  "ekush-growth-fund": {
-  "asOf": "2026-03-31",
-  "asOfLabel": "31 Mar 2026",
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
   "basis": "by market value",
   "source": "Ekush quarterly portfolio statement",
   "sourceUrl": "https://ekushwml.com/en/fund/growth-fund",
@@ -2081,57 +2273,61 @@
   "assetClass": [
    {
     "k": "Listed equity",
-    "v": 75.39
-   },
-   {
-    "k": "Closed-end mutual funds",
-    "v": 9.24
-   },
-   {
-    "k": "Preference shares",
-    "v": 6.35
-   },
-   {
-    "k": "Cash at bank",
-    "v": 5.2
+    "v": 75.2
    },
    {
     "k": "Open-end mutual fund",
-    "v": 2.13
+    "v": 7.35
+   },
+   {
+    "k": "Closed-end mutual funds",
+    "v": 5.99
+   },
+   {
+    "k": "Preference shares",
+    "v": 5.54
+   },
+   {
+    "k": "Cash at bank",
+    "v": 4.45
    },
    {
     "k": "Term deposit",
-    "v": 1.69
+    "v": 1.48
    }
   ],
   "sectors": [
    {
     "k": "Bank",
-    "v": 32.42
+    "v": 32.19
    },
    {
     "k": "Pharmaceuticals",
-    "v": 28.02
-   },
-   {
-    "k": "Closed-end mutual fund",
-    "v": 9.24
+    "v": 29.52
    },
    {
     "k": "Engineering",
-    "v": 7.28
+    "v": 10.82
    },
    {
-    "k": "Miscellaneous",
-    "v": 4.81
-   },
-   {
-    "k": "Cement",
-    "v": 2.83
+    "k": "Closed-end mutual fund",
+    "v": 5.99
    },
    {
     "k": "Fuel & power",
-    "v": 0.02
+    "v": 1.24
+   },
+   {
+    "k": "Telecommunication",
+    "v": 0.96
+   },
+   {
+    "k": "Cement",
+    "v": 0.45
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 0.01
    }
   ],
   "top": [
@@ -2139,96 +2335,306 @@
     "name": "Beximco Pharmaceuticals",
     "code": null,
     "sector": "Pharmaceuticals",
-    "v": 12.36
-   },
-   {
-    "name": "Prime Bank",
-    "code": null,
-    "sector": "Bank",
-    "v": 10.97
-   },
-   {
-    "name": "BRAC Bank",
-    "code": null,
-    "sector": "Bank",
-    "v": 9.59
-   },
-   {
-    "name": "Square Pharmaceuticals",
-    "code": null,
-    "sector": "Pharmaceuticals",
-    "v": 8.96
+    "v": 12.97,
+    "q": 249935,
+    "cost": 29575140,
+    "mkt": 35140861
    },
    {
     "name": "BSRM Steels",
     "code": null,
     "sector": "Engineering",
-    "v": 7.28
+    "v": 10.82,
+    "q": 338408,
+    "cost": 23118076,
+    "mkt": 29306133
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 9.38,
+    "q": 113380,
+    "cost": 24157782,
+    "mkt": 25397120
+   },
+   {
+    "name": "Prime Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 9.32,
+    "q": 841879,
+    "cost": 23711457,
+    "mkt": 25256370
+   },
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 9.17,
+    "q": 379305,
+    "cost": 22780795,
+    "mkt": 24844478
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 7.38,
+    "q": 832376,
+    "cost": 20640276,
+    "mkt": 19977024
    },
    {
     "name": "SEML Lecture Equity Mgmt Fund",
     "code": null,
-    "sector": "Closed-end mutual fund",
-    "v": 6.38
-   },
-   {
-    "name": "Renata preference shares",
-    "code": null,
-    "sector": "Preference shares",
-    "v": 6.35
+    "sector": "Open-end mutual fund",
+    "v": 7.35,
+    "q": 1989630,
+    "cost": 19896300,
+    "mkt": 19896300
    },
    {
     "name": "Marico",
     "code": null,
     "sector": "Pharmaceuticals",
-    "v": 5.58
+    "v": 6.26,
+    "q": 6117,
+    "cost": 16315218,
+    "mkt": 16951430
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": "Preference shares",
+    "v": 5.54,
+    "q": 7900,
+    "cost": 15010000,
+    "mkt": 15010000
    },
    {
     "name": "Bank Asia",
     "code": null,
     "sector": "Bank",
-    "v": 5.06
+    "v": 5.29,
+    "q": 778519,
+    "cost": 14970737,
+    "mkt": 14324750
+   },
+   {
+    "name": "Vanguard AML Rupali Bank Balanced",
+    "code": null,
+    "sector": "Closed-end mutual fund",
+    "v": 3.64,
+    "q": 1295508,
+    "cost": 8668586,
+    "mkt": 9845861
+   },
+   {
+    "name": "Vanguard AML BD Finance MF One",
+    "code": null,
+    "sector": "Closed-end mutual fund",
+    "v": 2.35,
+    "q": 896430,
+    "cost": 6341233,
+    "mkt": 6364653
+   },
+   {
+    "name": "MJL Bangladesh",
+    "code": null,
+    "sector": "Fuel & power",
+    "v": 1.24,
+    "q": 35571,
+    "cost": 3173184,
+    "mkt": 3361460
+   },
+   {
+    "name": "Eastern Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 1.0,
+    "q": 109043,
+    "cost": 2731732,
+    "mkt": 2715171
+   },
+   {
+    "name": "Robi Axiata",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 0.96,
+    "q": 80000,
+    "cost": 2607500,
+    "mkt": 2608000
+   },
+   {
+    "name": "Renata",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 0.91,
+    "q": 5434,
+    "cost": 2293056,
+    "mkt": 2477904
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 0.45,
+    "q": 22000,
+    "cost": 1148880,
+    "mkt": 1232000
+   },
+   {
+    "name": "Uttara Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 0.03,
+    "q": 3687,
+    "cost": 69719,
+    "mkt": 80377
    },
    {
     "name": "Bangladesh Shipping Corporation",
     "code": null,
     "sector": "Miscellaneous",
-    "v": 4.81
+    "v": 0.01,
+    "q": 167,
+    "cost": 18336,
+    "mkt": 18737
    }
   ],
-  "top5": 49.16
+  "top5": 51.66,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 75.39
+    },
+    {
+     "k": "Closed-end mutual funds",
+     "v": 9.24
+    },
+    {
+     "k": "Preference shares",
+     "v": 6.35
+    },
+    {
+     "k": "Cash at bank",
+     "v": 5.2
+    },
+    {
+     "k": "Open-end mutual fund",
+     "v": 2.13
+    },
+    {
+     "k": "Term deposit",
+     "v": 1.69
+    }
+   ],
+   "sectors": [
+    {
+     "k": "Bank",
+     "v": 32.42
+    },
+    {
+     "k": "Pharmaceuticals",
+     "v": 28.02
+    },
+    {
+     "k": "Closed-end mutual fund",
+     "v": 9.24
+    },
+    {
+     "k": "Engineering",
+     "v": 7.28
+    },
+    {
+     "k": "Miscellaneous",
+     "v": 4.81
+    },
+    {
+     "k": "Cement",
+     "v": 2.83
+    },
+    {
+     "k": "Fuel & power",
+     "v": 0.02
+    }
+   ],
+   "top": [
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 12.36
+    },
+    {
+     "name": "Prime Bank",
+     "v": 10.97
+    },
+    {
+     "name": "BRAC Bank",
+     "v": 9.59
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 8.96
+    },
+    {
+     "name": "BSRM Steels",
+     "v": 7.28
+    },
+    {
+     "name": "SEML Lecture Equity Mgmt Fund",
+     "v": 6.38
+    },
+    {
+     "name": "Renata preference shares",
+     "v": 6.35
+    },
+    {
+     "name": "Marico",
+     "v": 5.58
+    },
+    {
+     "name": "Bank Asia",
+     "v": 5.06
+    },
+    {
+     "name": "Bangladesh Shipping Corporation",
+     "v": 4.81
+    }
+   ],
+   "top5": 49.16
+  }
  },
  "ekush-stable-return-fund": {
-  "asOf": "2026-03-31",
-  "asOfLabel": "31 Mar 2026",
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
   "basis": "by market value",
   "source": "Ekush quarterly portfolio statement",
-  "sourceUrl": "https://ekushwml.com/en/fund/stable-return-fund",
+  "sourceUrl": "https://ekushwml.com/fund/stable-return-fund",
   "topKind": "income",
   "assetClass": [
    {
     "k": "Government securities (T-bonds)",
-    "v": 57.31
+    "v": 50.35
    },
    {
     "k": "Corporate & subordinated bonds",
-    "v": 21.63
+    "v": 29.5
    },
    {
     "k": "FDR / term deposit",
-    "v": 9.29
+    "v": 9.07
    },
    {
     "k": "Cash at bank",
-    "v": 6.01
+    "v": 6.04
    },
    {
     "k": "Preference shares",
-    "v": 5.17
-   },
-   {
-    "k": "Open-end mutual fund",
-    "v": 0.59
+    "v": 5.04
    }
   ],
   "sectors": [],
@@ -2237,40 +2643,137 @@
     "name": "Government treasury bonds",
     "code": null,
     "sector": "Government securities",
-    "v": 57.31
+    "v": 50.35
    },
    {
     "name": "BRAC Bank 2nd subordinated bond",
     "code": null,
     "sector": "Corporate bond",
-    "v": 10.15
+    "v": 9.91,
+    "q": 59,
+    "cost": 59000000,
+    "mkt": 59000000
    },
    {
     "name": "IDLC Finance FDRs",
     "code": null,
     "sector": "FDR / term deposit",
-    "v": 9.29
+    "v": 9.07
+   },
+   {
+    "name": "City Bank 5th subordinated bond",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 8.4,
+    "q": 50,
+    "cost": 50000000,
+    "mkt": 50000000
    },
    {
     "name": "Bank Asia 4th subordinated bond",
     "code": null,
     "sector": "Corporate bond",
-    "v": 6.88
+    "v": 6.72,
+    "q": 40,
+    "cost": 40000000,
+    "mkt": 40000000
    },
    {
     "name": "Renata preference shares",
     "code": null,
     "sector": "Preference shares",
-    "v": 5.17
+    "v": 5.04,
+    "q": 15800,
+    "cost": 30020000,
+    "mkt": 30020000
    },
    {
     "name": "Jamuna Bank 5th subordinated bond",
     "code": null,
     "sector": "Corporate bond",
-    "v": 3.44
+    "v": 3.36,
+    "q": 40,
+    "cost": 20000000,
+    "mkt": 20000000
+   },
+   {
+    "name": "Dhaka Bank 4th subordinated bond",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 0.84,
+    "q": 5,
+    "cost": 5000000,
+    "mkt": 5000000
+   },
+   {
+    "name": "APSCL coupon bearing bond",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 0.29,
+    "q": 1363,
+    "cost": 1762764,
+    "mkt": 1703750
    }
   ],
-  "top5": null
+  "top5": 84.45,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Government securities (T-bonds)",
+     "v": 57.31
+    },
+    {
+     "k": "Corporate & subordinated bonds",
+     "v": 21.63
+    },
+    {
+     "k": "FDR / term deposit",
+     "v": 9.29
+    },
+    {
+     "k": "Cash at bank",
+     "v": 6.01
+    },
+    {
+     "k": "Preference shares",
+     "v": 5.17
+    },
+    {
+     "k": "Open-end mutual fund",
+     "v": 0.59
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "Government treasury bonds",
+     "v": 57.31
+    },
+    {
+     "name": "BRAC Bank 2nd subordinated bond",
+     "v": 10.15
+    },
+    {
+     "name": "IDLC Finance FDRs",
+     "v": 9.29
+    },
+    {
+     "name": "Bank Asia 4th subordinated bond",
+     "v": 6.88
+    },
+    {
+     "name": "Renata preference shares",
+     "v": 5.17
+    },
+    {
+     "name": "Jamuna Bank 5th subordinated bond",
+     "v": 3.44
+    }
+   ],
+   "top5": null
+  }
  },
  "ucb-income-plus-fund": {
   "asOf": "2026-03-31",
