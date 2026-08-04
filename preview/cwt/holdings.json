@@ -1,0 +1,424 @@
+{
+ "cwt-sadharan-bima-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "CWT quarterly portfolio statement",
+  "sourceUrl": "https://www.cwtamc.com/cwt-sadharan-bima-growth-fund-cwtsbgf/",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 84.42
+   },
+   {
+    "k": "Cash at bank",
+    "v": 13.29
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 1.53
+   },
+   {
+    "k": "Non-listed mutual fund unit",
+    "v": 0.76
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 38.48
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 18.29
+   },
+   {
+    "k": "Engineering",
+    "v": 17.7
+   },
+   {
+    "k": "Insurance",
+    "v": 5.24
+   },
+   {
+    "k": "Telecommunication",
+    "v": 4.69
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 15.6
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 10.54
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 10.13
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 9.29
+   },
+   {
+    "name": "BSRM Limited",
+    "code": "BSRMLTD",
+    "sector": "Engineering",
+    "v": 8.41
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 8.11
+   },
+   {
+    "name": "Ibn Sina Pharmaceutical",
+    "code": "IBNSINA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 7.45
+   },
+   {
+    "name": "Reliance Insurance",
+    "code": "RELIANCINS",
+    "sector": "Insurance",
+    "v": 5.24
+   },
+   {
+    "name": "Robi Axiata",
+    "code": "ROBI",
+    "sector": "Telecommunication",
+    "v": 4.69
+   },
+   {
+    "name": "Pubali Bank",
+    "code": "PUBALIBANK",
+    "sector": "Bank",
+    "v": 4.23
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 0.71
+   }
+  ],
+  "top5": 53.97
+ },
+ "cwt-opportunities-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "CWT quarterly portfolio statement",
+  "sourceUrl": "https://www.cwtamc.com/opportunities-fund/",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 75.09
+   },
+   {
+    "k": "Cash at bank / term deposit",
+    "v": 20.8
+   },
+   {
+    "k": "Non-listed mutual fund unit",
+    "v": 2.58
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 1.54
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 38.75
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 21.64
+   },
+   {
+    "k": "Engineering",
+    "v": 13.06
+   },
+   {
+    "k": "Telecommunication",
+    "v": 1.62
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 16.7
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 11.24
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.77
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 8.73
+   },
+   {
+    "name": "Ibn Sina Pharmaceutical",
+    "code": "IBNSINA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.21
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 6.69
+   },
+   {
+    "name": "BSRM Limited",
+    "code": "BSRMLTD",
+    "sector": "Engineering",
+    "v": 4.33
+   },
+   {
+    "name": "Pubali Bank",
+    "code": "PUBALIBANK",
+    "sector": "Bank",
+    "v": 4.12
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 3.66
+   },
+   {
+    "name": "Robi Axiata",
+    "code": "ROBI",
+    "sector": "Telecommunication",
+    "v": 1.62
+   }
+  ],
+  "top5": 54.65
+ },
+ "cwt-community-bank-shariah-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "CWT quarterly portfolio statement",
+  "sourceUrl": "https://www.cwtamc.com/cwt-community-bank-shariah-fund/",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 68.3
+   },
+   {
+    "k": "Cash at bank / term deposit",
+    "v": 31.7
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 34.74
+   },
+   {
+    "k": "Telecommunication",
+    "v": 23.15
+   },
+   {
+    "k": "Miscellaneous",
+    "v": 9.5
+   },
+   {
+    "k": "Bank",
+    "v": 0.91
+   }
+  ],
+  "top": [
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 18.67
+   },
+   {
+    "name": "Robi Axiata",
+    "code": "ROBI",
+    "sector": "Telecommunication",
+    "v": 12.67
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 12.61
+   },
+   {
+    "name": "Bangladesh Shipping Corporation",
+    "code": "BSCPLC",
+    "sector": "Telecommunication",
+    "v": 10.48
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": "Miscellaneous",
+    "v": 9.5
+   },
+   {
+    "name": "Ibn Sina Pharmaceutical",
+    "code": "IBNSINA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 1.8
+   },
+   {
+    "name": "Reckitt Benckiser Bangladesh",
+    "code": "RECKITTBEN",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 1.65
+   },
+   {
+    "name": "Shahjalal Islami Bank",
+    "code": "SHAHJABANK",
+    "sector": "Bank",
+    "v": 0.91
+   }
+  ],
+  "top5": 63.93
+ },
+ "cwt-emerging-bangladesh-first-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "CWT quarterly portfolio statement",
+  "sourceUrl": "https://www.cwtamc.com/cwt-emerging-bangladesh-first-growth-fund-cwtebfgf/",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 79.81
+   },
+   {
+    "k": "Cash at bank",
+    "v": 12.55
+   },
+   {
+    "k": "Non-listed mutual fund unit",
+    "v": 6.0
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 1.64
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 39.59
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 21.23
+   },
+   {
+    "k": "Telecommunication",
+    "v": 8.7
+   },
+   {
+    "k": "Engineering",
+    "v": 8.05
+   },
+   {
+    "k": "Insurance",
+    "v": 2.24
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 17.93
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 12.53
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 10.08
+   },
+   {
+    "name": "Robi Axiata",
+    "code": "ROBI",
+    "sector": "Telecommunication",
+    "v": 8.7
+   },
+   {
+    "name": "Ibn Sina Pharmaceutical",
+    "code": "IBNSINA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.24
+   },
+   {
+    "name": "BSRM Steels",
+    "code": "BSRMSTEEL",
+    "sector": "Engineering",
+    "v": 8.05
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": "JAMUNABANK",
+    "sector": "Bank",
+    "v": 5.81
+   },
+   {
+    "name": "Pubali Bank",
+    "code": "PUBALIBANK",
+    "sector": "Bank",
+    "v": 3.32
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 2.91
+   },
+   {
+    "name": "Reliance Insurance",
+    "code": "RELIANCINS",
+    "sector": "Insurance",
+    "v": 2.24
+   }
+  ],
+  "top5": 57.48
+ }
+}

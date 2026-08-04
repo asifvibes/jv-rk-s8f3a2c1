@@ -1,0 +1,12 @@
+{
+ "amc": "ekush",
+ "display": "Ekush Wealth Management Limited (Ekush)",
+ "subdomain": "ekush-preview.returnkoto.com",
+ "fundCount": 3,
+ "funds": [
+  "Ekush Stable Return Fund",
+  "Ekush First Unit Fund",
+  "Ekush Growth Fund"
+ ],
+ "built": "2026-08-04"
+}

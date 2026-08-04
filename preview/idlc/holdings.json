@@ -1,0 +1,549 @@
+{
+ "idlc-growth-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 78.12
+   },
+   {
+    "k": "Cash at bank",
+    "v": 13.87
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 4.43
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 3.22
+   },
+   {
+    "k": "Corporate bond",
+    "v": 0.36
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 34.5
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 16.97
+   },
+   {
+    "k": "Telecommunication",
+    "v": 13.14
+   },
+   {
+    "k": "Cement",
+    "v": 9.91
+   },
+   {
+    "k": "Food & Allied",
+    "v": 3.6
+   }
+  ],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 15.57,
+    "q": 2302400,
+    "cost": 88830000,
+    "mkt": 150810000
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 10.54,
+    "q": 726268,
+    "cost": 88800000,
+    "mkt": 102110000
+   },
+   {
+    "name": "City Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 10.08,
+    "q": 3051500,
+    "cost": 89030000,
+    "mkt": 97650000
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 9.91,
+    "q": 1713750,
+    "cost": 88880000,
+    "mkt": 95970000
+   },
+   {
+    "name": "Robi Axiata",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 9.52,
+    "q": 2828000,
+    "cost": 88820000,
+    "mkt": 92190000
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 6.43,
+    "q": 278000,
+    "cost": 61340000,
+    "mkt": 62270000
+   },
+   {
+    "name": "Jamuna Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 4.65,
+    "q": 1875000,
+    "cost": 45460000,
+    "mkt": 45000000
+   },
+   {
+    "name": "Bank Asia",
+    "code": null,
+    "sector": "Bank",
+    "v": 4.21,
+    "q": 2214188,
+    "cost": 43620000,
+    "mkt": 40740000
+   },
+   {
+    "name": "Grameenphone",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 3.62,
+    "q": 135000,
+    "cost": 34830000,
+    "mkt": 35050000
+   },
+   {
+    "name": "Olympic Industries",
+    "code": null,
+    "sector": "Food & Allied",
+    "v": 3.6,
+    "q": 225000,
+    "cost": 34710000,
+    "mkt": 34880000
+   },
+   {
+    "name": "20Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 3.22,
+    "q": 300000,
+    "cost": 27940000,
+    "mkt": 31150000
+   },
+   {
+    "name": "APSCL corporate bond",
+    "code": null,
+    "sector": null,
+    "v": 0.36,
+    "q": 3149,
+    "cost": 3890000,
+    "mkt": 3510000
+   }
+  ],
+  "top5": 55.62,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 80.52
+    },
+    {
+     "k": "Cash at bank",
+     "v": 10.75
+    },
+    {
+     "k": "FDR / term deposit",
+     "v": 4.74
+    },
+    {
+     "k": "Government treasury bond",
+     "v": 3.55
+    },
+    {
+     "k": "Corporate bond",
+     "v": 0.44
+    }
+   ],
+   "sectors": [
+    {
+     "k": "Bank",
+     "v": 35.23
+    },
+    {
+     "k": "Pharmaceuticals & Chemicals",
+     "v": 20.97
+    },
+    {
+     "k": "Telecommunication",
+     "v": 16.57
+    },
+    {
+     "k": "Cement",
+     "v": 7.75
+    }
+   ],
+   "top": [
+    {
+     "name": "BRAC Bank",
+     "v": 14.91
+    },
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 11.97
+    },
+    {
+     "name": "City Bank",
+     "v": 10.91
+    },
+    {
+     "name": "Bank Asia",
+     "v": 9.41
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 9.0
+    },
+    {
+     "name": "Robi Axiata",
+     "v": 8.61
+    },
+    {
+     "name": "Bangladesh Submarine Cables",
+     "v": 7.96
+    },
+    {
+     "name": "LafargeHolcim Bangladesh",
+     "v": 7.75
+    },
+    {
+     "name": "20Y government treasury bond",
+     "v": 3.55
+    },
+    {
+     "name": "APSCL corporate bond",
+     "v": 0.44
+    }
+   ],
+   "top5": 56.2
+  }
+ },
+ "idlc-aml-shariah-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 51.92
+   },
+   {
+    "k": "Government sukuk",
+    "v": 39.89
+   },
+   {
+    "k": "Cash at bank",
+    "v": 4.65
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 3.54
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 26.61
+   },
+   {
+    "k": "Cement",
+    "v": 10.34
+   },
+   {
+    "k": "Telecommunication",
+    "v": 9.98
+   },
+   {
+    "k": "Food & Allied",
+    "v": 4.98
+   }
+  ],
+  "top": [
+   {
+    "name": "IRIDPNFL Socio-Economic Development Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 14.18,
+    "q": 1420000,
+    "cost": 142000000,
+    "mkt": 142000000
+   },
+   {
+    "name": "CIBRR-2 Socio-Economic Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 12.98,
+    "q": 1300000,
+    "cost": 130000000,
+    "mkt": 130000000
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 11.16,
+    "q": 795074,
+    "cost": 99920000,
+    "mkt": 111790000
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 10.34,
+    "q": 1850000,
+    "cost": 96710000,
+    "mkt": 103600000
+   },
+   {
+    "name": "RDIRWSP Socio-Economic Development Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 10.28,
+    "q": 1030000,
+    "cost": 103000000,
+    "mkt": 103000000
+   },
+   {
+    "name": "Robi Axiata",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 9.98,
+    "q": 3067500,
+    "cost": 100110000,
+    "mkt": 100000000
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 6.59,
+    "q": 23821,
+    "cost": 60970000,
+    "mkt": 66010000
+   },
+   {
+    "name": "Olympic Industries",
+    "code": null,
+    "sector": "Food & Allied",
+    "v": 4.98,
+    "q": 321644,
+    "cost": 49340000,
+    "mkt": 49850000
+   },
+   {
+    "name": "Renata",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.96,
+    "q": 109000,
+    "cost": 47930000,
+    "mkt": 49700000
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 3.9,
+    "q": 122126,
+    "cost": 40670000,
+    "mkt": 39030000
+   },
+   {
+    "name": "CDWSP Social Impact Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 2.45,
+    "q": 245330,
+    "cost": 24530000,
+    "mkt": 24530000
+   }
+  ],
+  "top5": 58.94,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Government sukuk",
+     "v": 49.61
+    },
+    {
+     "k": "Listed equity",
+     "v": 41.34
+    },
+    {
+     "k": "Cash at bank",
+     "v": 8.79
+    },
+    {
+     "k": "FDR / term deposit",
+     "v": 0.27
+    }
+   ],
+   "sectors": [
+    {
+     "k": "Pharmaceuticals & Chemicals",
+     "v": 26.52
+    },
+    {
+     "k": "Cement",
+     "v": 9.94
+    },
+    {
+     "k": "Telecommunication",
+     "v": 4.88
+    }
+   ],
+   "top": [
+    {
+     "name": "IRIDPNFL Socio-Economic Development Sukuk",
+     "v": 17.63
+    },
+    {
+     "name": "CIBRR-2 Socio-Economic Sukuk",
+     "v": 16.14
+    },
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 12.87
+    },
+    {
+     "name": "RDIRWSP Socio-Economic Development Sukuk",
+     "v": 12.79
+    },
+    {
+     "name": "LafargeHolcim Bangladesh",
+     "v": 9.94
+    },
+    {
+     "name": "Marico Bangladesh",
+     "v": 8.86
+    },
+    {
+     "name": "Grameenphone",
+     "v": 4.88
+    },
+    {
+     "name": "The IBN SINA Pharmaceutical Industry",
+     "v": 4.79
+    },
+    {
+     "name": "COWSP Social Impact Sukuk",
+     "v": 3.05
+    }
+   ],
+   "top5": 69.37
+  }
+ },
+ "idlc-income-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government treasury bonds",
+    "v": 81.05
+   },
+   {
+    "k": "Cash at bank",
+    "v": 14.43
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 4.52
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Government treasury bonds (BGTB)",
+    "code": null,
+    "sector": null,
+    "v": 81.05
+   },
+   {
+    "name": "Mutual Trust Bank term deposits",
+    "code": null,
+    "sector": null,
+    "v": 4.52
+   }
+  ],
+  "top5": null,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Government treasury bonds",
+     "v": 90.22
+    },
+    {
+     "k": "FDR / term deposit",
+     "v": 5.72
+    },
+    {
+     "k": "Cash at bank",
+     "v": 2.91
+    },
+    {
+     "k": "Corporate bond",
+     "v": 1.15
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "Government treasury bonds (BGTB)",
+     "v": 90.22
+    },
+    {
+     "name": "IDLC Finance & MTB term deposits",
+     "v": 5.72
+    },
+    {
+     "name": "APSCL corporate bond",
+     "v": 1.15
+    }
+   ],
+   "top5": null
+  }
+ }
+}

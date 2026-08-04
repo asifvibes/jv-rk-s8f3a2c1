@@ -1,0 +1,646 @@
+{
+ "vipb-sebl-1st-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 79.24
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 7.39
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.74
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 5.68
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 0.5
+   },
+   {
+    "k": "Corporate bond (listed)",
+    "v": 0.46
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 16.13
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 14.0
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 12.94
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 9.49
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 9.43
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 8.98
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 6.74
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 6.3
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 5.68
+   },
+   {
+    "name": "20Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 4.73
+   }
+  ],
+  "top5": 61.99
+ },
+ "vipb-nli-1st-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 78.99
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 7.28
+   },
+   {
+    "k": "Preference shares",
+    "v": 7.01
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 5.13
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 1.35
+   },
+   {
+    "k": "Corporate bond (listed)",
+    "v": 0.24
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 15.43
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 13.97
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 12.72
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 11.91
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 9.11
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 8.16
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 7.28
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 7.01
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 6.78
+   },
+   {
+    "name": "20Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 3.51
+   }
+  ],
+  "top5": 63.14
+ },
+ "vipb-accelerated-income-unit-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 77.9
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 7.63
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 7.4
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.29
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 0.78
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 16.41
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 13.31
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 12.35
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 8.97
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 8.92
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 7.68
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 7.4
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 6.29
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 6.03
+   },
+   {
+    "name": "15Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 4.28
+   }
+  ],
+  "top5": 59.96
+ },
+ "vipb-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 78.21
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 9.27
+   },
+   {
+    "k": "Preference shares",
+    "v": 5.81
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 5.39
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 1.32
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 15.43
+   },
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 13.84
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 11.24
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 9.97
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 9.72
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 9.32
+   },
+   {
+    "name": "15Y government treasury bond",
+    "code": null,
+    "sector": null,
+    "v": 8.2
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 5.81
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 5.57
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 3.92
+   }
+  ],
+  "top5": 60.2
+ },
+ "vipb-balanced-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Common stock",
+    "v": 67.31
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 18.64
+   },
+   {
+    "k": "Preference shares",
+    "v": 6.44
+   },
+   {
+    "k": "Government treasury bonds",
+    "v": 6.2
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 0.82
+   },
+   {
+    "k": "Corporate bond (listed)",
+    "v": 0.58
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 15.27
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 10.67
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 8.96
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": null,
+    "v": 8.62
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": null,
+    "v": 8.55
+   },
+   {
+    "name": "Jamuna Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 8.47
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 8.42
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 6.44
+   },
+   {
+    "name": "Trust Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 5.93
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": null,
+    "v": 5.76
+   }
+  ],
+  "top5": 52.07
+ },
+ "vipb-fixed-income-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "VIPB quarterly portfolio statement",
+  "sourceUrl": "https://www.vipb.com.bd",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government treasury bonds",
+    "v": 49.24
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 34.4
+   },
+   {
+    "k": "Common stock",
+    "v": 9.51
+   },
+   {
+    "k": "Preference shares",
+    "v": 3.86
+   },
+   {
+    "k": "Cash & equivalents",
+    "v": 2.98
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Government treasury bonds (15Y & 20Y)",
+    "code": null,
+    "sector": null,
+    "v": 49.24
+   },
+   {
+    "name": "Jamuna Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 9.22
+   },
+   {
+    "name": "Trust Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 9.22
+   },
+   {
+    "name": "City Bank subordinated bonds",
+    "code": null,
+    "sector": null,
+    "v": 9.22
+   },
+   {
+    "name": "BRAC Bank 2nd subordinated bond",
+    "code": null,
+    "sector": null,
+    "v": 6.74
+   },
+   {
+    "name": "Renata preference shares",
+    "code": null,
+    "sector": null,
+    "v": 3.86,
+    "q": 5726,
+    "cost": 10880000,
+    "mkt": 10880000
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": null,
+    "v": 3.36,
+    "q": 42316,
+    "cost": 9250000,
+    "mkt": 9480000
+   },
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": null,
+    "v": 3.29,
+    "q": 141758,
+    "cost": 7770000,
+    "mkt": 9290000
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 2.86,
+    "q": 2906,
+    "cost": 7940000,
+    "mkt": 8050000
+   }
+  ],
+  "top5": null,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Government treasury bonds",
+     "v": 51.74
+    },
+    {
+     "k": "Corporate subordinated bonds",
+     "v": 24.43
+    },
+    {
+     "k": "Common stock",
+     "v": 19.3
+    },
+    {
+     "k": "Preference shares",
+     "v": 4.5
+    },
+    {
+     "k": "Cash & equivalents",
+     "v": 0.02
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "Government treasury bonds (15Y & 20Y)",
+     "v": 51.74
+    },
+    {
+     "name": "Trust Bank subordinated bonds",
+     "v": 9.52
+    },
+    {
+     "name": "Jamuna Bank subordinated bonds",
+     "v": 8.28
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 7.88
+    },
+    {
+     "name": "BRAC Bank",
+     "v": 6.89
+    },
+    {
+     "name": "BRAC Bank 2nd subordinated bond",
+     "v": 6.62
+    },
+    {
+     "name": "Renata preference shares",
+     "v": 4.5
+    },
+    {
+     "name": "Prime Bank",
+     "v": 2.39
+    }
+   ],
+   "top5": null
+  }
+ }
+}

@@ -1,0 +1,242 @@
+{
+ "ucb-income-plus-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "as reported by the fund",
+  "source": "UCB quarterly portfolio statement",
+  "sourceUrl": "https://ucbasset.com/funds/ucb-income-plus-fund",
+  "topKind": "income",
+  "assetClass": [
+   {
+    "k": "Government securities (T-bonds/bills)",
+    "v": 79.79
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 12.94
+   },
+   {
+    "k": "Corporate subordinated bonds",
+    "v": 6.97
+   },
+   {
+    "k": "Cash at bank",
+    "v": 0.29
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "Government treasury securities",
+    "code": null,
+    "sector": "Government securities",
+    "v": 79.79
+   },
+   {
+    "name": "Bank FDRs / term deposits",
+    "code": null,
+    "sector": "FDR / term deposit",
+    "v": 12.94
+   },
+   {
+    "name": "Corporate subordinated bonds",
+    "code": null,
+    "sector": "Corporate bond",
+    "v": 6.97
+   }
+  ],
+  "top5": null
+ },
+ "ucb-aml-first-mutual-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "UCB quarterly portfolio statement",
+  "sourceUrl": "https://ucbasset.com/funds/ucb-aml-first-mutual-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 65.58
+   },
+   {
+    "k": "Government securities (T-bonds)",
+    "v": 22.4
+   },
+   {
+    "k": "Cash at bank",
+    "v": 12.02
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "BRAC Bank",
+    "code": "BRACBANK",
+    "sector": "Bank",
+    "v": 16.12
+   },
+   {
+    "name": "Prime Bank",
+    "code": "PRIMEBANK",
+    "sector": "Bank",
+    "v": 10.06
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 9.19
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 7.44
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 6.71
+   },
+   {
+    "name": "Eastern Bank",
+    "code": "EBL",
+    "sector": "Bank",
+    "v": 6.03
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 5.82
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 4.22
+   }
+  ],
+  "top5": 49.52
+ },
+ "ucb-taqwa-growth-fund": {
+  "asOf": "2026-03-31",
+  "asOfLabel": "31 Mar 2026",
+  "basis": "by market value",
+  "source": "UCB quarterly portfolio statement",
+  "sourceUrl": "https://ucbasset.com/funds/ucb-taqwa-growth-fund",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 38.49
+   },
+   {
+    "k": "Sukuk / Islamic securities",
+    "v": 39.25
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 20.85
+   },
+   {
+    "k": "Cash at bank",
+    "v": 1.41
+   }
+  ],
+  "sectors": [],
+  "top": [
+   {
+    "name": "5Y IRIDP-3 Social Impact Sukuk",
+    "code": null,
+    "sector": "Sukuk / Islamic securities",
+    "v": 21.38
+   },
+   {
+    "name": "IRIDPNFL Socio-Economic Dev. Sukuk",
+    "code": null,
+    "sector": "Sukuk / Islamic securities",
+    "v": 17.87
+   },
+   {
+    "name": "Berger Paints Bangladesh",
+    "code": "BERGERPBL",
+    "sector": null,
+    "v": 9.76
+   },
+   {
+    "name": "Marico Bangladesh",
+    "code": "MARICO",
+    "sector": null,
+    "v": 8.86
+   },
+   {
+    "name": "Grameenphone",
+    "code": "GP",
+    "sector": "Telecommunication",
+    "v": 8.8
+   },
+   {
+    "name": "Renata",
+    "code": "RENATA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 5.82
+   },
+   {
+    "name": "Robi Axiata",
+    "code": "ROBI",
+    "sector": "Telecommunication",
+    "v": 5.25
+   }
+  ],
+  "top5": 66.67,
+  "prev": {
+   "asOf": "2025-12-31",
+   "asOfLabel": "31 Dec 2025",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 51.88
+    },
+    {
+     "k": "Sukuk / Islamic securities",
+     "v": 22.16
+    },
+    {
+     "k": "FDR / term deposit",
+     "v": 21.61
+    },
+    {
+     "k": "Cash at bank",
+     "v": 4.35
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "5Y IRIDP-3 Social Impact Sukuk",
+     "v": 22.16
+    },
+    {
+     "name": "Marico Bangladesh",
+     "v": 17.09
+    },
+    {
+     "name": "Grameenphone",
+     "v": 14.79
+    },
+    {
+     "name": "Berger Paints Bangladesh",
+     "v": 10.08
+    },
+    {
+     "name": "Renata",
+     "v": 9.92
+    }
+   ],
+   "top5": 74.04
+  }
+ }
+}
