@@ -25,6 +25,8 @@
 - [Learn: mutual fund basics and glossary](https://returnkoto.com/learn.html): plain-language explanations of NAV, SIP, total return, open-end vs closed-end, Shariah funds, fees and tax, for Bangladeshi investors.
 - [Roadmap](https://returnkoto.com/roadmap/): what is shipping next on ReturnKoto?.
 
+- [Invest with our partners](https://returnkoto.com/invest-with-our-partners.html): mutual fund, BO-account and learning partners (pilot: Bini). ReturnKoto? may earn a distribution share when you invest through a partner; rankings stay independent.
+
 ## Funds tracked
 - [IDLC Income Fund](https://returnkoto.com/funds/idlc-income-fund.html)
 - [Shanta Fixed Income Fund](https://returnkoto.com/funds/shanta-fixed-income-fund.html)

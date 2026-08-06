@@ -193,6 +193,22 @@
   [data-theme="dark"] .rk-social a{background:#182130;border-color:#2B3648;color:#AEB9CC}
   [data-theme="dark"] .rk-social a:hover{color:#3DD98A;border-color:#3DD98A}
 @media(max-width:560px){.rk-links a.rk-sm-hide{display:none}}
+
+  
+
+
+  
+
+
+  /* rk-owner-partners:compare-css */
+  .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center}
+  .cta-row .cta{margin-top:0}
+  .cta.outline{background:transparent;color:var(--green-dark);border:1.5px solid var(--green-dark)}
+  .cta.outline:hover{background:#E8F8F0;color:var(--green-dark)}
+  [data-theme="dark"] .cta.outline{color:#3DD98A;border-color:#3DD98A}
+  [data-theme="dark"] .cta.outline:hover{background:#12301E;color:#3DD98A}
+  /* /rk-owner-partners:compare-css */
+
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "ReturnKoto? Fund Comparison", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "url": "https://returnkoto.com/compare.html", "description": "Compare Bangladeshi open-end mutual funds side by side: historical returns, fees, exit loads, minimum investment, risk and what each fund holds.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BDT"}, "dateModified": "2026-08-03", "isAccessibleForFree": true, "inLanguage": "en", "publisher": {"@id": "https://returnkoto.com/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://returnkoto.com/compare.html"}]}]}
@@ -208,7 +224,7 @@
 <script src="/beta-notice.js"></script>
 <nav class="rk-nav">
 <a class="rk-logo" href="/"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="24" fill="#1F9E57"/><path d="M22 66 44 50 58 58 76 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 34 76 34 76 50" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>ReturnKoto?<span class="rk-beta">BETA</span></a>
-<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a class="rk-sm-hide" href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
+<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a class="rk-sm-hide" href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/invest-with-our-partners.html" data-nav="invest">Invest</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
 </nav>
 <div class="wrap" role="main" id="main">
 
@@ -254,7 +270,7 @@
   <p class="cmp-scrollhint" id="cmpScrollHint" aria-hidden="true">Swipe sideways to see every fund</p>
   <p class="cmp-note" id="cmpNote"></p>
 
-  <p><a class="cta" href="/">Run the full calculator &#8594;</a></p>
+  
 
 </div>
 <footer class="rk-foot">
@@ -265,7 +281,7 @@
 <a class="rk-coffee btn-coffee" href="https://www.supportkori.com/returnkoto" target="_blank" rel="noopener"><span class="rk-mug" aria-hidden="true"><span class="rk-steam rk-steam-1"></span><span class="rk-steam rk-steam-2"></span><span class="rk-steam rk-steam-3"></span><span class="rk-mug-ic">&#9749;</span></span>A coffee keeps ReturnKoto? running</a>
 <p class="rk-foot-note">For research. Not investment advice. Past results do not predict the future.<br>&copy; 2026 ReturnKoto?</p>
 </div>
-<script>(function(){var p=location.pathname,k=/^\/funds(\/|$)/.test(p)?'funds':(/compare/.test(p)?'compare':(/learn/.test(p)?'learn':(/faq/.test(p)?'faq':(/more/.test(p)?'more':null))));if(k){var a=document.querySelector('.rk-links [data-nav="'+k+'"]');if(a){a.classList.add('active');a.setAttribute('aria-current','page');}}})();</script>
+<script>(function(){var p=location.pathname,k=/^\/funds(\/|$)/.test(p)?'funds':(/compare/.test(p)?'compare':(/learn/.test(p)?'learn':(/faq/.test(p)?'faq':(/invest-with-our-partners/.test(p)?'invest':(/more/.test(p)?'more':null)))));if(k){var a=document.querySelector('.rk-links [data-nav="'+k+'"]');if(a){a.classList.add('active');a.setAttribute('aria-current','page');}}})();</script>
 <script>document.addEventListener("click",function(e){var c=e.target&&e.target.closest&&e.target.closest(".rk-coffee,.btn-coffee");if(c){e.preventDefault();var w=480,h=Math.min(940,(screen.availHeight||screen.height||800)-40),L=Math.max(0,((screen.width||1000)-w)/2),T=Math.max(0,((screen.height||800)-h)/2);window.open("https://www.supportkori.com/widget/returnkoto","skpay","popup=yes,width="+w+",height="+h+",left="+L+",top="+T);}},true);</script>
 </footer>
 <script>function rkToggleTheme(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}rkThemeIcon();}function rkThemeIcon(){var b=document.querySelector('.themetog');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙';}(function(){var b=document.querySelector('.themetog');if(b)b.addEventListener('click',rkToggleTheme);rkThemeIcon();})();</script>

@@ -702,6 +702,17 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
     body.rk-home:not(.rk-answered) #calcpanel .amount input,
     body.rk-home.rk-answered #answerzone{animation:none!important;opacity:1;transform:none}
   }
+
+  
+
+
+  
+
+
+  /* rk-owner-partners:home-css */
+  [data-theme="dark"] .rk-partners-teaser{background:var(--card,#182130);border-color:var(--line,#2B3648)}
+  /* /rk-owner-partners:home-css */
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"ReturnKoto?","alternateName":"ReturnKoto?","url":"https://returnkoto.com/","description":"Historical return calculator for Bangladeshi open-end mutual funds. See what a SIP or lump-sum investment would actually have earned, with dividends reinvested by default or taken as cash, and verified fund fees and details.","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"BDT"},"featureList":["Historical SIP and lump-sum returns","Total return with dividends reinvested by default or taken as cash","Verified management fees, trustee and custodian for each fund","Dedicated Shariah funds section","Comparison with Sanchayapatra, DPS, FDR, gold and inflation"],"areaServed":{"@type":"Country","name":"Bangladesh"}}
@@ -725,7 +736,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
 <script src="/beta-notice.js"></script>
 <nav class="rk-nav">
 <a class="rk-logo" href="/"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="24" fill="#1F9E57"/><path d="M22 66 44 50 58 58 76 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 34 76 34 76 50" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>ReturnKoto?<span class="rk-beta">BETA</span></a>
-<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
+<div class="rk-links"><a href="/funds/" data-nav="funds">Funds</a><a href="/compare.html" data-nav="compare">Compare</a><a href="/learn.html" data-nav="learn">Learn</a><a class="rk-sm-hide" href="/faq.html" data-nav="faq">FAQ</a><a href="/invest-with-our-partners.html" data-nav="invest">Invest</a><a href="/more.html" data-nav="more">More</a><button class="themetog" aria-label="Toggle dark mode">🌙</button></div>
 </nav>
 <div class="wrap" role="main" id="main">
   <div class="rk-fold" id="rkfold">
@@ -917,7 +928,23 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
       <p style="margin-top:13px"><a href="/faq.html" style="color:var(--green-dark);font-weight:700;text-decoration:none">See all questions, sources and privacy on the FAQ page &#8594;</a></p>
     </div>
   </details>
-  <section style="margin:30px 0 0;background:var(--card,#fff);border:1px solid var(--line,#e3eae5);border-radius:16px;padding:20px;text-align:center">
+  
+  
+
+  
+
+  <!-- rk-owner-partners:home -->
+  <section id="partners-teaser" class="rk-partners-teaser" style="margin:30px 0 0;background:var(--card,#fff);border:1px solid var(--line,#e3eae5);border-radius:16px;padding:20px;text-align:center">
+  <h2 style="font-size:18px;font-weight:800;letter-spacing:-.01em;margin:0 0 6px">See our partners</h2>
+  <p style="font-size:13.5px;color:var(--muted);margin:0 0 14px;line-height:1.6">Ready to invest after comparing returns? Start with <b>Bini</b> (pilot partner), or browse every partner slot on one page.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+    <a href="/invest-with-our-partners.html#bini" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;gap:7px;background:var(--green-dark,#157A43);color:#fff;font-weight:800;font-size:14px;padding:11px 20px;border-radius:999px;text-decoration:none">Bini &#8594;</a>
+    <a href="/invest-with-our-partners.html" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;gap:7px;background:transparent;color:var(--green-dark,#157A43);font-weight:800;font-size:14px;padding:11px 20px;border-radius:999px;text-decoration:none;border:1.5px solid var(--green-dark,#157A43)">See all partners &#8594;</a>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin:14px 0 0;line-height:1.5">ReturnKoto? may earn a distribution share when you invest through a partner. Rankings and returns are independent of partnerships.</p>
+</section>
+  <!-- /rk-owner-partners:home -->
+<section style="margin:30px 0 0;background:var(--card,#fff);border:1px solid var(--line,#e3eae5);border-radius:16px;padding:20px;text-align:center">
   <h2 style="font-size:18px;font-weight:800;letter-spacing:-.01em;margin:0 0 6px">Join the ReturnKoto? community</h2>
   <p style="font-size:13.5px;color:var(--muted);margin:0 0 14px;line-height:1.6">Questions about a fund? Found something in the data? Talk it through with other Bangladeshi mutual fund investors in our Facebook group.</p>
   <a href="https://www.facebook.com/groups/2419388815175186" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:#1466C3;color:#fff;font-weight:800;font-size:14px;padding:11px 22px;border-radius:999px;text-decoration:none">Join the Facebook group &#8594;</a>
