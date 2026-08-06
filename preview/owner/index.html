@@ -709,9 +709,6 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   
 
 
-  
-
-
   /* rk-owner-partners:home-css */
   .rk-partners-teaser{margin:28px 0 0}
   .rk-pt-lead{font-size:13.5px;color:var(--muted);margin:0 0 12px;line-height:1.6}
@@ -944,8 +941,6 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
     </div>
   </details>
   
-  
-
   
 
   
@@ -1481,7 +1476,7 @@ if(el=t.closest('[data-nav="funds"]')){track("funds_click",{});return;}
 if(el=t.closest(".btn-coffee")){track("support_click",{place:"coffee"});return;}
 if(el=t.closest(".connect a")){track("social_click",{network:el.getAttribute("aria-label")||""});return;}
 },true);
-(function(){var us=document.querySelectorAll('.st-u');if(!us.length)return;function countTo(e,target){e.textContent=target.toLocaleString()+'+';if((typeof REDUCED_MOTION!=="undefined"&&REDUCED_MOTION)||!window.requestAnimationFrame)return;var start=Math.max(0,Math.floor(target*0.9)),t0=null;e.textContent=start.toLocaleString()+'+';function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/900);var v=Math.floor(start+(target-start)*(1-Math.pow(1-k,3)));e.textContent=v.toLocaleString()+'+';if(k<1)requestAnimationFrame(step);}requestAnimationFrame(step);}fetch('https://returnkoto.com/stats.json?_='+Date.now()).then(function(x){return x.ok?x.json():null;}).then(function(s){if(!s||typeof s.users!=='number')return;var t=(s.users>=10?Math.floor(s.users/10)*10:s.users);us.forEach(function(e){countTo(e,t);});}).catch(function(){});})();
+(function(){var us=document.querySelectorAll('.st-u');if(!us.length)return;function countTo(e,target){e.textContent=target.toLocaleString()+'+';if((typeof REDUCED_MOTION!=="undefined"&&REDUCED_MOTION)||!window.requestAnimationFrame)return;var start=Math.max(0,Math.floor(target*0.9)),t0=null;e.textContent=start.toLocaleString()+'+';function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/900);var v=Math.floor(start+(target-start)*(1-Math.pow(1-k,3)));e.textContent=v.toLocaleString()+'+';if(k<1)requestAnimationFrame(step);}requestAnimationFrame(step);}fetch('stats.json?_='+Date.now()).then(function(x){return x.ok?x.json():null;}).then(function(s){if(!s||typeof s.users!=='number')return;var t=(s.users>=10?Math.floor(s.users/10)*10:s.users);us.forEach(function(e){countTo(e,t);});}).catch(function(){});})();
 (function(){
   const host=document.getElementById("linechart");
   const panel=host&&host.closest(".chartpanel");
