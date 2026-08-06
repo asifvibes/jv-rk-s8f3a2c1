@@ -709,8 +709,23 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   
 
 
+  
+
+
   /* rk-owner-partners:home-css */
-  [data-theme="dark"] .rk-partners-teaser{background:var(--card,#182130);border-color:var(--line,#2B3648)}
+  .rk-partners-teaser{margin:28px 0 0}
+  .rk-pt-lead{font-size:13.5px;color:var(--muted);margin:0 0 12px;line-height:1.6}
+  .rk-pt-actions{display:flex;flex-direction:column;gap:10px}
+  .rk-pt-note{font-size:12px;color:var(--muted);margin:12px 0 0;line-height:1.5}
+  .rk-partners-teaser .ba-allbtn{display:block;text-align:center;padding:13px;border-radius:12px;background:#fff;border:1.5px solid #157A43;color:#157A43;font-weight:700;font-size:14px;text-decoration:none;transition:background .12s,border-color .12s,color .12s,transform .12s;min-height:48px;box-sizing:border-box}
+  .rk-partners-teaser .ba-allbtn:hover{background:#f1f8f4}
+  .rk-partners-teaser .ba-allbtn.rk-pt-primary{background:#F4FBF7;box-shadow:0 4px 14px rgba(21,122,67,.12)}
+  .rk-partners-teaser .ba-allbtn.rk-pt-primary:hover{background:#E8F8F0;transform:translateY(-1px)}
+  [data-theme="dark"] .rk-partners-teaser .ba-allbtn{background:#182130;border-color:#2A5E3C;color:#3DD98A}
+  [data-theme="dark"] .rk-partners-teaser .ba-allbtn:hover{background:#12301E;border-color:#3DD98A}
+  [data-theme="dark"] .rk-partners-teaser .ba-allbtn.rk-pt-primary{background:#12301E;border-color:#2A5E3C;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+  [data-theme="dark"] .rk-partners-teaser .ba-allbtn.rk-pt-primary:hover{background:#173D27;border-color:#3DD98A;color:#5FE0A0}
+  @media(min-width:561px){.rk-pt-actions{flex-direction:row}.rk-pt-actions .ba-allbtn{flex:1}}
   /* /rk-owner-partners:home-css */
 
 </style>
@@ -933,15 +948,17 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
 
   
 
+  
+
   <!-- rk-owner-partners:home -->
-  <section id="partners-teaser" class="rk-partners-teaser" style="margin:30px 0 0;background:var(--card,#fff);border:1px solid var(--line,#e3eae5);border-radius:16px;padding:20px;text-align:center">
-  <h2 style="font-size:18px;font-weight:800;letter-spacing:-.01em;margin:0 0 6px">See our partners</h2>
-  <p style="font-size:13.5px;color:var(--muted);margin:0 0 14px;line-height:1.6">Ready to invest after comparing returns? Start with <b>Bini</b> (pilot partner), or browse every partner slot on one page.</p>
-  <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
-    <a href="/invest-with-our-partners.html#bini" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;gap:7px;background:var(--green-dark,#157A43);color:#fff;font-weight:800;font-size:14px;padding:11px 20px;border-radius:999px;text-decoration:none">Bini &#8594;</a>
-    <a href="/invest-with-our-partners.html" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;gap:7px;background:transparent;color:var(--green-dark,#157A43);font-weight:800;font-size:14px;padding:11px 20px;border-radius:999px;text-decoration:none;border:1.5px solid var(--green-dark,#157A43)">See all partners &#8594;</a>
+  <section id="partners-teaser" class="rk-partners-teaser" aria-labelledby="partners-teaser-h">
+  <h2 id="partners-teaser-h" class="sec-title" style="margin-top:28px">See our partners</h2>
+  <p class="rk-pt-lead">Ready to invest after comparing returns? Start with <b>Bini</b> (pilot partner), or browse every partner on one page.</p>
+  <div class="rk-pt-actions">
+    <a class="ba-allbtn rk-pt-primary" href="/invest-with-our-partners.html#bini">Bini &#8594;</a>
+    <a class="ba-allbtn" href="/invest-with-our-partners.html">See all partners &#8594;</a>
   </div>
-  <p style="font-size:12px;color:var(--muted);margin:14px 0 0;line-height:1.5">ReturnKoto? may earn a distribution share when you invest through a partner. Rankings and returns are independent of partnerships.</p>
+  <p class="rk-pt-note">ReturnKoto? may earn a distribution share when you invest through a partner. Rankings and returns are independent of partnerships.</p>
 </section>
   <!-- /rk-owner-partners:home -->
 <section style="margin:30px 0 0;background:var(--card,#fff);border:1px solid var(--line,#e3eae5);border-radius:16px;padding:20px;text-align:center">

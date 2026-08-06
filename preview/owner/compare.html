@@ -200,13 +200,20 @@
   
 
 
+  
+
+
   /* rk-owner-partners:compare-css */
-  .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center}
-  .cta-row .cta{margin-top:0}
-  .cta.outline{background:transparent;color:var(--green-dark);border:1.5px solid var(--green-dark)}
-  .cta.outline:hover{background:#E8F8F0;color:var(--green-dark)}
-  [data-theme="dark"] .cta.outline{color:#3DD98A;border-color:#3DD98A}
-  [data-theme="dark"] .cta.outline:hover{background:#12301E;color:#3DD98A}
+  .cmp-cta-row{display:flex;flex-direction:column;gap:10px}
+  .ba-allbtn{display:block;text-align:center;padding:13px;border-radius:12px;background:#fff;border:1.5px solid #157A43;color:#157A43;font-weight:700;font-size:14px;text-decoration:none;transition:background .12s,border-color .12s,color .12s;min-height:48px;box-sizing:border-box}
+  .ba-allbtn:hover{background:#f1f8f4}
+  .ba-allbtn.rk-pt-primary{background:#F4FBF7;box-shadow:0 4px 14px rgba(21,122,67,.12)}
+  .ba-allbtn.rk-pt-primary:hover{background:#E8F8F0;transform:translateY(-1px)}
+  [data-theme="dark"] .ba-allbtn{background:#182130;border-color:#2A5E3C;color:#3DD98A}
+  [data-theme="dark"] .ba-allbtn:hover{background:#12301E;border-color:#3DD98A}
+  [data-theme="dark"] .ba-allbtn.rk-pt-primary{background:#12301E;border-color:#2A5E3C;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+  [data-theme="dark"] .ba-allbtn.rk-pt-primary:hover{background:#173D27;border-color:#3DD98A;color:#5FE0A0}
+  @media(min-width:561px){.cmp-cta-row{flex-direction:row}.cmp-cta-row .ba-allbtn{flex:1}}
   /* /rk-owner-partners:compare-css */
 
 </style>
@@ -269,6 +276,14 @@
   </div>
   <p class="cmp-scrollhint" id="cmpScrollHint" aria-hidden="true">Swipe sideways to see every fund</p>
   <p class="cmp-note" id="cmpNote"></p>
+
+  <!-- rk-owner-partners:compare-cta -->
+  <div class="rk-pt-actions cmp-cta-row" style="margin-top:22px">
+    <a class="ba-allbtn rk-pt-primary" href="/">Run the full calculator &#8594;</a>
+    <a class="ba-allbtn" href="/invest-with-our-partners.html">Invest with our partners &#8594;</a>
+  </div>
+  <!-- /rk-owner-partners:compare-cta -->
+
 
   
 
