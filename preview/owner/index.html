@@ -706,20 +706,40 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
     body.rk-home.rk-answered #answerzone{animation:none!important;opacity:1;transform:none}
   }
 
+  
+
+
   /* rk-owner-partners:home-css */
   .rk-partners-teaser{margin:28px 0 0}
   .rk-pt-lead{font-size:13.5px;color:var(--muted);margin:0 0 12px;line-height:1.6}
-  .rk-pt-actions{display:flex;flex-direction:column;gap:10px}
+  .rk-pt-actions{display:flex;flex-direction:column;gap:10px;margin-top:4px}
   .rk-pt-note{font-size:12px;color:var(--muted);margin:12px 0 0;line-height:1.5}
+  .rk-pt-logos-wrap{margin:0 0 14px}
+  .rk-pt-logos{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 2px 6px;margin:0 -2px}
+  .rk-pt-logos::-webkit-scrollbar{display:none}
+  .rk-pt-logo{flex:0 0 auto;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;gap:8px;min-width:132px;max-width:70vw;min-height:52px;padding:10px 14px;border-radius:12px;text-decoration:none;background:#fff;border:1px solid #e0e8e3;color:#0f1b14;box-sizing:border-box}
+  .rk-pt-logos--multi .rk-pt-logo{min-width:148px}
+  .rk-pt-logo img{display:block;height:28px;width:auto;max-width:110px;object-fit:contain}
+  .rk-pt-logo-name{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  .rk-pt-logo-fallback{font-size:14.5px;font-weight:800;letter-spacing:-.01em;color:#0f1b14}
+  .rk-pt-logo-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;background:#e7f6ec;color:#157A43;flex:none}
+  .rk-pt-logos-hint{font-size:11.5px;color:var(--muted);margin:4px 0 0}
   .rk-partners-teaser .ba-allbtn{display:block;text-align:center;padding:13px;border-radius:12px;background:#fff;border:1.5px solid #157A43;color:#157A43;font-weight:700;font-size:14px;text-decoration:none;transition:background .12s,border-color .12s,color .12s,transform .12s;min-height:48px;box-sizing:border-box}
   .rk-partners-teaser .ba-allbtn:hover{background:#f1f8f4}
   .rk-partners-teaser .ba-allbtn.rk-pt-primary{background:#F4FBF7;box-shadow:0 4px 14px rgba(21,122,67,.12)}
   .rk-partners-teaser .ba-allbtn.rk-pt-primary:hover{background:#E8F8F0;transform:translateY(-1px)}
+  [data-theme="dark"] .rk-pt-logo{background:#182130;border-color:#2B3648;color:#E8EEF7}
+  [data-theme="dark"] .rk-pt-logo-fallback{color:#E8EEF7}
+  [data-theme="dark"] .rk-pt-logo-badge{background:#12301E;color:#3DD98A}
   [data-theme="dark"] .rk-partners-teaser .ba-allbtn{background:#182130;border-color:#2A5E3C;color:#3DD98A}
   [data-theme="dark"] .rk-partners-teaser .ba-allbtn:hover{background:#12301E;border-color:#3DD98A}
   [data-theme="dark"] .rk-partners-teaser .ba-allbtn.rk-pt-primary{background:#12301E;border-color:#2A5E3C;box-shadow:0 4px 16px rgba(0,0,0,.35)}
   [data-theme="dark"] .rk-partners-teaser .ba-allbtn.rk-pt-primary:hover{background:#173D27;border-color:#3DD98A;color:#5FE0A0}
-  @media(min-width:561px){.rk-pt-actions{flex-direction:row}.rk-pt-actions .ba-allbtn{flex:1}}
+  @media(min-width:561px){
+    .rk-pt-actions{flex-direction:row}
+    .rk-pt-actions .ba-allbtn{flex:1}
+    .rk-pt-logos{justify-content:flex-start}
+  }
   /* /rk-owner-partners:home-css */
 
 </style>
@@ -938,13 +958,20 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
     </div>
   </details>
   
+  
+
   <!-- rk-owner-partners:home -->
   <section id="partners-teaser" class="rk-partners-teaser" aria-labelledby="partners-teaser-h">
-  <h2 id="partners-teaser-h" class="sec-title" style="margin-top:28px">See our partners</h2>
-  <p class="rk-pt-lead">Ready to invest after comparing returns? Start with <b>Bini</b> (pilot partner), or browse every partner on one page.</p>
+  <h2 id="partners-teaser-h" class="sec-title" style="margin-top:28px">Ready to invest?</h2>
+  <p class="rk-pt-lead">Start with <b>Bini</b> (pilot partner), then open the full partners page.</p>
+  <div class="rk-pt-logos-wrap">
+    <div class="rk-pt-logos" role="list" aria-label="Partner logos">
+      <a class="rk-pt-logo" href="/invest-with-our-partners.html#bini" aria-label="Bini"><span class="rk-pt-logo-fallback">Bini</span><span class="rk-pt-logo-badge">Pilot</span></a>
+    </div>
+    
+  </div>
   <div class="rk-pt-actions">
-    <a class="ba-allbtn rk-pt-primary" href="/invest-with-our-partners.html#bini">Bini &#8594;</a>
-    <a class="ba-allbtn" href="/invest-with-our-partners.html">See all partners &#8594;</a>
+    <a class="ba-allbtn rk-pt-primary" href="/invest-with-our-partners.html">See partners &#8594;</a>
   </div>
   <p class="rk-pt-note">ReturnKoto? may earn a distribution share when you invest through a partner. Rankings and returns are independent of partnerships.</p>
 </section>

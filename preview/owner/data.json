@@ -1596,7 +1596,7 @@
    "amcAsOf": "2026-08-06",
    "fullPublishedHistory": 1,
    "edgeCagr": 10.75,
-   "edgeCagrAsOf": "2026-08-07",
+   "edgeCagrAsOf": "2026-08-06",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -1730,8 +1730,7 @@
    },
    "hasAmcMethod": 1,
    "amcMethodName": "EDGE Composite MoM SIP (XIRR) + Composite lump CAGR",
-   "amcMethodScope": "SIP + lump overlay",
-   "amcVerified": "EDGE AMC Limited (EDGE)"
+   "amcMethodScope": "SIP + lump overlay"
   },
   {
    "id": "edge-bangladesh-mutual-fund",
@@ -2110,7 +2109,7 @@
    "amcAsOf": "2026-08-06",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.77,
-   "edgeCagrAsOf": "2026-08-07",
+   "edgeCagrAsOf": "2026-08-06",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -2272,8 +2271,7 @@
    },
    "hasAmcMethod": 1,
    "amcMethodName": "EDGE Composite MoM SIP (XIRR) + Composite lump CAGR",
-   "amcMethodScope": "SIP + lump overlay",
-   "amcVerified": "EDGE AMC Limited (EDGE)"
+   "amcMethodScope": "SIP + lump overlay"
   },
   {
    "id": "edge-high-quality-income-fund",
@@ -2512,7 +2510,7 @@
    "amcAsOf": "2026-08-06",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.82,
-   "edgeCagrAsOf": "2026-08-07",
+   "edgeCagrAsOf": "2026-08-06",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -2618,8 +2616,7 @@
    },
    "hasAmcMethod": 1,
    "amcMethodName": "EDGE Composite MoM SIP (XIRR) + Composite lump CAGR",
-   "amcMethodScope": "SIP + lump overlay",
-   "amcVerified": "EDGE AMC Limited (EDGE)"
+   "amcMethodScope": "SIP + lump overlay"
   },
   {
    "id": "edge-al-amin-shariah-consumer-fund",
@@ -2830,7 +2827,7 @@
    "amcAsOf": "2026-08-06",
    "fullPublishedHistory": 1,
    "edgeCagr": 4.79,
-   "edgeCagrAsOf": "2026-08-07",
+   "edgeCagrAsOf": "2026-08-06",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -2922,8 +2919,7 @@
    },
    "hasAmcMethod": 1,
    "amcMethodName": "EDGE Composite MoM SIP (XIRR) + Composite lump CAGR",
-   "amcMethodScope": "SIP + lump overlay",
-   "amcVerified": "EDGE AMC Limited (EDGE)"
+   "amcMethodScope": "SIP + lump overlay"
   },
   {
    "id": "ekush-stable-return-fund",
