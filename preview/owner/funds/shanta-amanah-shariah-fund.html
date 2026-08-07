@@ -445,12 +445,94 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
   
 
 
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
   /* rk-owner-partners:fund-css */
   a.cta.rk-pt-invest{display:block;text-align:center;margin:0 0 22px;padding:15px;border-radius:14px;font-weight:700;font-size:15px;text-decoration:none;color:#157A43;background:#F4FBF7;border:1.5px solid #1F9E57;box-shadow:0 4px 14px rgba(21,122,67,.12)}
   a.cta.rk-pt-invest:hover{background:#E8F8F0;color:#0F5C32}
   [data-theme="dark"] a.cta.rk-pt-invest{color:#3DD98A;background:#12301E;border-color:#2A5E3C;box-shadow:0 4px 16px rgba(0,0,0,.35)}
   [data-theme="dark"] a.cta.rk-pt-invest:hover{background:#173D27;border-color:#3DD98A;color:#5FE0A0}
   /* /rk-owner-partners:fund-css */
+
+
+  /* rk-owner-partners:home-css */
+  .rk-partners-teaser{margin:28px 0 0}
+  .rk-pt-panel{display:flex;flex-direction:column;align-items:center;text-align:center;padding:28px 18px 26px;border-radius:20px;background:linear-gradient(180deg,#0E1620 0%,#121B28 100%);border:1.5px solid #2A5E3C;box-sizing:border-box;box-shadow:0 0 0 0 rgba(46,204,113,0);animation:rkPtPanelHint 1.6s ease-in-out infinite}
+  @keyframes rkPtPanelHint{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,0);border-color:#2A5E3C}50%{box-shadow:0 0 0 4px rgba(46,204,113,.22);border-color:#3DD98A}}
+  .rk-pt-hero{margin:0 0 14px}
+  .rk-pt-sprout{display:block;width:112px;height:112px}
+  .rk-pt-rule{width:36px;height:3px;border-radius:99px;background:#3DD98A;margin:0 0 18px}
+  .rk-pt-title{margin:0 0 10px;font-size:26px;line-height:1.15;font-weight:800;letter-spacing:-.02em;color:#F4F7FB}
+  .rk-pt-lead{font-size:14.5px;color:#AEB9CC;margin:0 0 22px;line-height:1.6;max-width:30em}
+  .rk-pt-lead b{color:#F4F7FB;font-weight:800}
+  .rk-pt-cta{display:inline-flex;align-items:center;justify-content:center;gap:0;width:100%;max-width:320px;min-height:52px;padding:13px 18px;border-radius:12px;background:#12301E;border:1.5px solid #2A5E3C;color:#3DD98A;font-weight:700;font-size:15px;text-decoration:none;box-sizing:border-box;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:background .12s,border-color .12s,color .12s}
+  .rk-pt-cta:hover{background:#173D27;border-color:#3DD98A;color:#5FE0A0}
+  .rk-pt-cta-label{flex:none}
+  .rk-pt-cta-arrow{display:inline-block;margin-left:.4em;transform-origin:left center;animation:rkPtArrow 1.35s ease-in-out infinite}
+  @keyframes rkPtArrow{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.65)}}
+  .rk-pt-logos-wrap{width:100%;max-width:360px;margin:18px 0 0}
+  .rk-pt-logos{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px;justify-content:center}
+  .rk-pt-logos--multi{justify-content:flex-start}
+  .rk-pt-logos::-webkit-scrollbar{display:none}
+  .rk-pt-logo{flex:0 0 auto;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;gap:8px;min-width:132px;min-height:52px;padding:10px 14px;border-radius:12px;text-decoration:none;background:#182130;border:1px solid #2B3648;box-sizing:border-box}
+  .rk-pt-logo img{display:block;height:28px;width:auto;max-width:110px;object-fit:contain}
+  .rk-pt-logo-name{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  .rk-pt-logo-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;background:#12301E;color:#3DD98A;flex:none}
+  .rk-pt-logos-hint{font-size:11.5px;color:#8391A5;margin:6px 0 0}
+  .rk-pt-note{display:flex;align-items:flex-start;justify-content:center;gap:8px;font-size:12px;color:#8391A5;margin:18px 0 0;line-height:1.5;max-width:28em;text-align:left}
+  .rk-pt-shield{flex:none;margin-top:2px;color:#3DD98A;opacity:.9}
+  [data-theme="light"] .rk-pt-panel{background:linear-gradient(180deg,#F4FBF7 0%,#EEF6F1 100%);border-color:var(--line,#e3eae5);animation-name:rkPtPanelHintLight}
+  @keyframes rkPtPanelHintLight{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,0);border-color:var(--line,#e3eae5)}50%{box-shadow:0 0 0 4px rgba(46,204,113,.22);border-color:var(--green-dark,#157A43)}}
+  [data-theme="light"] .rk-pt-title{color:#0f1b14}
+  [data-theme="light"] .rk-pt-lead{color:#5b6b61}
+  [data-theme="light"] .rk-pt-lead b{color:#0f1b14}
+  [data-theme="light"] .rk-pt-rule{background:#1F9E57}
+  [data-theme="light"] .rk-pt-cta{background:#F4FBF7;border-color:#157A43;color:#157A43;box-shadow:0 4px 14px rgba(21,122,67,.12)}
+  [data-theme="light"] .rk-pt-cta:hover{background:#E8F8F0;border-color:#157A43;color:#0F5C32}
+  [data-theme="light"] .rk-pt-note{color:#5b6b61}
+  [data-theme="light"] .rk-pt-shield{color:#157A43}
+  [data-theme="light"] .rk-pt-logo{background:#fff;border-color:#e0e8e3}
+  [data-theme="light"] .rk-pt-logo-badge{background:#e7f6ec;color:#157A43}
+  @media(max-width:560px){
+    .rk-pt-panel{padding:24px 16px 22px}
+    .rk-pt-title{font-size:24px}
+    .rk-pt-sprout{width:100px;height:100px}
+  }
+  @media(min-width:561px){
+    .rk-pt-panel{padding:36px 28px 32px}
+    .rk-pt-title{font-size:28px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .rk-pt-panel,[data-theme="light"] .rk-pt-panel{animation:none!important;box-shadow:0 0 0 3px rgba(31,158,87,.15);border-color:var(--green,#1F9E57)}
+    [data-theme="dark"] .rk-pt-panel{border-color:#3DD98A;box-shadow:0 0 0 3px rgba(61,217,138,.18)}
+    .rk-pt-cta-arrow{animation:none!important}
+  }
+  /* /rk-owner-partners:home-css */
 
 </style>
 </head>
@@ -531,6 +613,61 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  <!-- rk-owner-partners:home -->
+  <section id="partners-teaser" class="rk-partners-teaser" aria-labelledby="partners-teaser-h">
+  <div class="rk-pt-panel">
+  
+  <div class="rk-pt-hero" aria-hidden="true">
+    <svg class="rk-pt-sprout" viewBox="0 0 120 120" width="112" height="112" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <circle cx="60" cy="60" r="58" fill="#121A24" stroke="#1E2A38" stroke-width="2"/>
+      <circle cx="38" cy="36" r="1.4" fill="#AEB9CC"/>
+      <circle cx="78" cy="30" r="1.1" fill="#AEB9CC"/>
+      <circle cx="92" cy="48" r="1.2" fill="#AEB9CC"/>
+      <circle cx="28" cy="52" r="0.9" fill="#8391A5"/>
+      <ellipse cx="60" cy="88" rx="34" ry="14" fill="#1A2430"/>
+      <ellipse cx="60" cy="84" rx="26" ry="10" fill="#243040"/>
+      <path d="M60 82 V52" fill="none" stroke="#2ECC71" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M60 62 C48 58 40 48 42 38 C52 42 58 50 60 58 Z" fill="#3DD98A"/>
+      <path d="M60 58 C72 54 80 44 78 34 C68 38 62 48 60 56 Z" fill="#1F9E57"/>
+    </svg>
+  </div>
+  <div class="rk-pt-rule" aria-hidden="true"></div>
+  <h2 id="partners-teaser-h" class="rk-pt-title">Ready to invest?</h2>
+  <p class="rk-pt-lead">When you are ready to move from research to action, start with <b>Bini</b> (pilot partner), or see every partner in one place.</p>
+  <a class="rk-pt-cta" href="/invest-with-our-partners.html"><span class="rk-pt-cta-label">See partners</span><span class="rk-pt-cta-arrow" aria-hidden="true">&#8594;</span></a>
+  <p class="rk-pt-note"><svg class="rk-pt-shield" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3zm-1.2 13.3-3.1-3.1 1.4-1.4 1.7 1.7 3.9-3.9 1.4 1.4-5.3 5.3z"/></svg><span>ReturnKoto? may earn a distribution share when you invest through a partner. Rankings and returns are independent of partnerships.</span></p>
+  </div>
+</section>
+  <!-- /rk-owner-partners:home -->
 
 </main>
 <script>window.FC={"tr":[100,100.4,100.2,101.1,102.7,103.3,104.7,104.3,102.6,103.4,102.3,100.5,101.2,94.9,94.9,94.9,95.2,99.5,107.4,111,127.4,128.8,125.5,131.1,129.6,129.3,130,134.6,133.9,144.5,150.1,153,157.2,156.1,157.5,146.9,146.3,145.6,146.1,142.1,145,141.3,145.3,146.3,152.3,149.4,145,147.4,146.9,145.9,147,148.4,149.8,148.9,149.5,149.5,155.1,154.4,156.9,144.5,141.6,134,131.9,124.6,128.4,127.3,128.9,128.4,123.7,124,125.7,129.2,129.8,129.3,129.3,125.3,127.5,137,138.6,135.7,132.1,130.9,128.4,134.3,136.5,132.7,132.4,134.3,139.8,141.8,141.4],"s":"2019-02","M":91,"label":"Shanta Amanah Shariah Fund","H":{"6":[1.036,31148],"ytd":[1.1013,41917],"12":[1.0198,62975],"24":[1.0966,129188],"36":[0.9454,189701],"60":[0.9419,304737],"91":[1.4136,504124],"48":[0.9727,247363],"72":[1.3157,372104],"84":[1.3503,457245]},"periods":["6","ytd","12","24","36","60","91"],"extra":["48","72","84"],"sb":5000,"ytdM":8,"co":[100,100.4,100.2,101.1,102.7,103.3,104.7,104.3,102.6,103.4,102.3,100.5,101.2,95,95,95,95.3,99.5,107.4,110.9,127.1,128.3,125.4,130.4,129,128.8,129.4,133.5,132.9,142.4,147.4,150,153.7,152.8,153.9,145.2,144.7,144.1,144.5,141.2,143.6,140.5,143.9,144.7,149.7,147.4,143.9,145.8,145.4,144.6,145.5,146.6,147.7,147,147.5,147.5,151.8,151.3,153.2,143.8,141.6,135.8,134.2,128.6,131.5,130.7,131.9,131.6,128,128.2,129.5,132.1,132.6,132.2,132.2,129.1,130.9,138.1,139.3,137.1,134.4,133.4,131.5,136,137.7,134.8,134.6,136,140.2,141.7,141.4],"hco":{"6":[1.036,31148],"ytd":[1.1013,41917],"12":[1.0198,62975],"24":[1.0966,129188],"36":[0.9487,189751],"60":[0.9555,305553],"91":[1.414,505971],"48":[0.9795,247669],"72":[1.3207,373692],"84":[1.3507,459081]}};</script>

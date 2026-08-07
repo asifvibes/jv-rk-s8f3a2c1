@@ -445,12 +445,94 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
   
 
 
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
   /* rk-owner-partners:fund-css */
   a.cta.rk-pt-invest{display:block;text-align:center;margin:0 0 22px;padding:15px;border-radius:14px;font-weight:700;font-size:15px;text-decoration:none;color:#157A43;background:#F4FBF7;border:1.5px solid #1F9E57;box-shadow:0 4px 14px rgba(21,122,67,.12)}
   a.cta.rk-pt-invest:hover{background:#E8F8F0;color:#0F5C32}
   [data-theme="dark"] a.cta.rk-pt-invest{color:#3DD98A;background:#12301E;border-color:#2A5E3C;box-shadow:0 4px 16px rgba(0,0,0,.35)}
   [data-theme="dark"] a.cta.rk-pt-invest:hover{background:#173D27;border-color:#3DD98A;color:#5FE0A0}
   /* /rk-owner-partners:fund-css */
+
+
+  /* rk-owner-partners:home-css */
+  .rk-partners-teaser{margin:28px 0 0}
+  .rk-pt-panel{display:flex;flex-direction:column;align-items:center;text-align:center;padding:28px 18px 26px;border-radius:20px;background:linear-gradient(180deg,#0E1620 0%,#121B28 100%);border:1.5px solid #2A5E3C;box-sizing:border-box;box-shadow:0 0 0 0 rgba(46,204,113,0);animation:rkPtPanelHint 1.6s ease-in-out infinite}
+  @keyframes rkPtPanelHint{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,0);border-color:#2A5E3C}50%{box-shadow:0 0 0 4px rgba(46,204,113,.22);border-color:#3DD98A}}
+  .rk-pt-hero{margin:0 0 14px}
+  .rk-pt-sprout{display:block;width:112px;height:112px}
+  .rk-pt-rule{width:36px;height:3px;border-radius:99px;background:#3DD98A;margin:0 0 18px}
+  .rk-pt-title{margin:0 0 10px;font-size:26px;line-height:1.15;font-weight:800;letter-spacing:-.02em;color:#F4F7FB}
+  .rk-pt-lead{font-size:14.5px;color:#AEB9CC;margin:0 0 22px;line-height:1.6;max-width:30em}
+  .rk-pt-lead b{color:#F4F7FB;font-weight:800}
+  .rk-pt-cta{display:inline-flex;align-items:center;justify-content:center;gap:0;width:100%;max-width:320px;min-height:52px;padding:13px 18px;border-radius:12px;background:#12301E;border:1.5px solid #2A5E3C;color:#3DD98A;font-weight:700;font-size:15px;text-decoration:none;box-sizing:border-box;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:background .12s,border-color .12s,color .12s}
+  .rk-pt-cta:hover{background:#173D27;border-color:#3DD98A;color:#5FE0A0}
+  .rk-pt-cta-label{flex:none}
+  .rk-pt-cta-arrow{display:inline-block;margin-left:.4em;transform-origin:left center;animation:rkPtArrow 1.35s ease-in-out infinite}
+  @keyframes rkPtArrow{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.65)}}
+  .rk-pt-logos-wrap{width:100%;max-width:360px;margin:18px 0 0}
+  .rk-pt-logos{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px;justify-content:center}
+  .rk-pt-logos--multi{justify-content:flex-start}
+  .rk-pt-logos::-webkit-scrollbar{display:none}
+  .rk-pt-logo{flex:0 0 auto;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;gap:8px;min-width:132px;min-height:52px;padding:10px 14px;border-radius:12px;text-decoration:none;background:#182130;border:1px solid #2B3648;box-sizing:border-box}
+  .rk-pt-logo img{display:block;height:28px;width:auto;max-width:110px;object-fit:contain}
+  .rk-pt-logo-name{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  .rk-pt-logo-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;background:#12301E;color:#3DD98A;flex:none}
+  .rk-pt-logos-hint{font-size:11.5px;color:#8391A5;margin:6px 0 0}
+  .rk-pt-note{display:flex;align-items:flex-start;justify-content:center;gap:8px;font-size:12px;color:#8391A5;margin:18px 0 0;line-height:1.5;max-width:28em;text-align:left}
+  .rk-pt-shield{flex:none;margin-top:2px;color:#3DD98A;opacity:.9}
+  [data-theme="light"] .rk-pt-panel{background:linear-gradient(180deg,#F4FBF7 0%,#EEF6F1 100%);border-color:var(--line,#e3eae5);animation-name:rkPtPanelHintLight}
+  @keyframes rkPtPanelHintLight{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,0);border-color:var(--line,#e3eae5)}50%{box-shadow:0 0 0 4px rgba(46,204,113,.22);border-color:var(--green-dark,#157A43)}}
+  [data-theme="light"] .rk-pt-title{color:#0f1b14}
+  [data-theme="light"] .rk-pt-lead{color:#5b6b61}
+  [data-theme="light"] .rk-pt-lead b{color:#0f1b14}
+  [data-theme="light"] .rk-pt-rule{background:#1F9E57}
+  [data-theme="light"] .rk-pt-cta{background:#F4FBF7;border-color:#157A43;color:#157A43;box-shadow:0 4px 14px rgba(21,122,67,.12)}
+  [data-theme="light"] .rk-pt-cta:hover{background:#E8F8F0;border-color:#157A43;color:#0F5C32}
+  [data-theme="light"] .rk-pt-note{color:#5b6b61}
+  [data-theme="light"] .rk-pt-shield{color:#157A43}
+  [data-theme="light"] .rk-pt-logo{background:#fff;border-color:#e0e8e3}
+  [data-theme="light"] .rk-pt-logo-badge{background:#e7f6ec;color:#157A43}
+  @media(max-width:560px){
+    .rk-pt-panel{padding:24px 16px 22px}
+    .rk-pt-title{font-size:24px}
+    .rk-pt-sprout{width:100px;height:100px}
+  }
+  @media(min-width:561px){
+    .rk-pt-panel{padding:36px 28px 32px}
+    .rk-pt-title{font-size:28px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .rk-pt-panel,[data-theme="light"] .rk-pt-panel{animation:none!important;box-shadow:0 0 0 3px rgba(31,158,87,.15);border-color:var(--green,#1F9E57)}
+    [data-theme="dark"] .rk-pt-panel{border-color:#3DD98A;box-shadow:0 0 0 3px rgba(61,217,138,.18)}
+    .rk-pt-cta-arrow{animation:none!important}
+  }
+  /* /rk-owner-partners:home-css */
 
 </style>
 </head>
@@ -532,6 +614,61 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  <!-- rk-owner-partners:home -->
+  <section id="partners-teaser" class="rk-partners-teaser" aria-labelledby="partners-teaser-h">
+  <div class="rk-pt-panel">
+  
+  <div class="rk-pt-hero" aria-hidden="true">
+    <svg class="rk-pt-sprout" viewBox="0 0 120 120" width="112" height="112" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <circle cx="60" cy="60" r="58" fill="#121A24" stroke="#1E2A38" stroke-width="2"/>
+      <circle cx="38" cy="36" r="1.4" fill="#AEB9CC"/>
+      <circle cx="78" cy="30" r="1.1" fill="#AEB9CC"/>
+      <circle cx="92" cy="48" r="1.2" fill="#AEB9CC"/>
+      <circle cx="28" cy="52" r="0.9" fill="#8391A5"/>
+      <ellipse cx="60" cy="88" rx="34" ry="14" fill="#1A2430"/>
+      <ellipse cx="60" cy="84" rx="26" ry="10" fill="#243040"/>
+      <path d="M60 82 V52" fill="none" stroke="#2ECC71" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M60 62 C48 58 40 48 42 38 C52 42 58 50 60 58 Z" fill="#3DD98A"/>
+      <path d="M60 58 C72 54 80 44 78 34 C68 38 62 48 60 56 Z" fill="#1F9E57"/>
+    </svg>
+  </div>
+  <div class="rk-pt-rule" aria-hidden="true"></div>
+  <h2 id="partners-teaser-h" class="rk-pt-title">Ready to invest?</h2>
+  <p class="rk-pt-lead">When you are ready to move from research to action, start with <b>Bini</b> (pilot partner), or see every partner in one place.</p>
+  <a class="rk-pt-cta" href="/invest-with-our-partners.html"><span class="rk-pt-cta-label">See partners</span><span class="rk-pt-cta-arrow" aria-hidden="true">&#8594;</span></a>
+  <p class="rk-pt-note"><svg class="rk-pt-shield" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3zm-1.2 13.3-3.1-3.1 1.4-1.4 1.7 1.7 3.9-3.9 1.4 1.4-5.3 5.3z"/></svg><span>ReturnKoto? may earn a distribution share when you invest through a partner. Rankings and returns are independent of partnerships.</span></p>
+  </div>
+</section>
+  <!-- /rk-owner-partners:home -->
 
 </main>
 <script>window.FC={"tr":[100,103.1,106,106,106.4,105.8,108.5,109.7,110.7,110.9,112.1,114.1,113.7,115.5,115.8,118.4,120.1,120.8,111.4,111.5,112.1,114.1,114.7,117.5,118.7,120.6,122.5,123,124.6,151,138.4,144.5,149.6,147.7,149.3,150.5,151.8,151.1,145.2,151.4,153.9,178.3,179.2,165.3,171.6,172.2,170.6,172.1,171.9,164,165.7,172,186.2,208.3,189.3,199.3,198.4,203.1,204.1,214.7,216.2,221.5,223.2,222.9,232.5,261.4,243.3,248.9,256.1,270,269.7,274.2,264.8,260.8,265.6,255.3,253.3,262.5,250.2,240.2,238.7,242.6,246.7,259.3,259.4,259.9,254.5,251.8,257.9,281.9,248.1,253.6,242.4,239.2,231.7,225,222.6,204.7,204.7,204.7,206.4,222.1,252.5,249.4,245.8,247.7,264.4,287.9,274.3,272.3,278.9,293.3,295.1,337.3,342,316.9,302.4,305.6,310.5,316.3,319.9,319.9,319.9,319.9,319.9,319.9,319.9,299.1,297.5,297.8,299.8,300.1,299.1,299.4,300.1,301.4,302.6,303.3,306.8,303.9,304.6,304.2,305.8,313.5,306.5,291.4,283.8,271,288.2,290.8,327.3,326.6,315.4,313.8,317,321.2,332.7,322.2,317.7,315.8,324.1,368.9,370.9,368.5,358.9,358.6,351.3,375.8,400.7,364.9,377.5,382.8,388.8,374.8,374.2],"s":"2012-02","M":175,"label":"VIPB NLI 1st Unit Fund","H":{"6":[0.9869,29443],"ytd":[1.0561,39747],"12":[1.0144,60298],"24":[1.2881,129630],"36":[1.2311,205204],"60":[1.1081,353453],"175":[3.7953,1598392],"48":[1.1696,282742],"72":[1.6519,436380],"84":[1.3659,536898],"96":[1.4182,626161],"108":[1.4117,713131],"120":[1.7756,818645],"132":[2.0973,948359],"144":[2.4894,1098547],"156":[3.1058,1289164],"168":[3.5437,1485992]},"periods":["6","ytd","12","24","36","60","175"],"extra":["48","72","84","96","108","120","132","144","156","168"],"sb":5000,"ytdM":8,"co":[100,103.1,106,106,106.4,105.8,108.5,109.7,110.7,110.9,112.1,114.1,113.7,115.5,115.8,118.4,120.1,120.8,111.4,111.5,112.1,114.1,114.7,117.5,118.7,120.6,122.5,123,124.6,149.8,138.3,143.9,148.6,146.8,148.2,149.3,150.5,149.9,144.5,150.2,152.5,174.7,175.5,163.9,169.1,169.7,168.3,169.6,169.4,162.8,164.2,169.5,181.3,199.8,185.3,192.9,192.2,195.8,196.6,204.7,205.7,209.8,211.1,210.9,218.2,240.2,227.5,231.4,236.5,246.1,245.9,249.1,242.6,239.7,243.1,235.9,234.5,240.9,233.1,226.7,225.7,228.2,230.8,238.9,239,239.3,235.8,234.1,238,253.3,233.4,236.7,230,228.2,223.7,219.8,218.4,207.8,207.8,207.8,208.8,218,235.3,233.5,231.4,232.5,242,255.3,247.6,246.5,250.2,258.3,259.3,283.2,285.6,272.8,265.4,267.1,269.6,272.5,274.4,274.4,274.4,274.4,274.4,274.4,274.4,263.8,263,263.1,264.1,264.3,263.8,263.9,264.3,264.9,265.6,265.9,267.7,266.2,266.5,266.4,267.2,271.1,267.5,259.9,256,249.4,258.2,259.5,278.1,277.8,272.1,271.3,272.9,275,280.9,275.5,273.2,272.2,276.5,299.3,300.2,299.1,294.4,294.2,290.6,302.7,314.9,297.3,303.5,306.1,309,302.2,301.9],"hco":{"6":[0.9869,29443],"ytd":[1.0561,39747],"12":[1.0144,60298],"24":[1.2874,129596],"36":[1.2305,205133],"60":[1.1075,353309],"175":[3.0489,1442751],"48":[1.169,282633],"72":[1.6349,435382],"84":[1.3284,533209],"96":[1.3513,618542],"108":[1.3153,699843],"120":[1.6188,796432],"132":[1.846,911089],"144":[2.1032,1038521],"156":[2.495,1192307],"168":[2.8468,1351103]}};</script>
