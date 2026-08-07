@@ -448,6 +448,9 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
   
 
 
+  
+
+
   /* rk-owner-partners:home-css */
   .rk-partners-teaser{margin:28px 0 0}
   .rk-pt-panel{display:flex;flex-direction:column;align-items:center;text-align:center;padding:28px 18px 26px;border-radius:20px;background:linear-gradient(180deg,#0E1620 0%,#121B28 100%);border:1.5px solid #2A5E3C;box-sizing:border-box;box-shadow:0 0 0 0 rgba(46,204,113,0);animation:rkPtPanelHint 1.6s ease-in-out infinite}
@@ -458,6 +461,9 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
   .rk-pt-title{margin:0 0 10px;font-size:26px;line-height:1.15;font-weight:800;letter-spacing:-.02em;color:#F4F7FB}
   .rk-pt-lead{font-size:14.5px;color:#AEB9CC;margin:0 0 22px;line-height:1.6;max-width:30em}
   .rk-pt-lead b{color:#F4F7FB;font-weight:800}
+  .rk-pt-lead a.rk-pt-bini{color:inherit;text-decoration:underline;text-decoration-color:rgba(244,247,251,.45);text-underline-offset:2px}
+  .rk-pt-lead a.rk-pt-bini:hover{text-decoration-color:#F4F7FB}
+  .rk-pt-lead a.rk-pt-bini b{color:#F4F7FB}
   .rk-pt-cta{display:inline-flex;align-items:center;justify-content:center;gap:0;width:100%;max-width:320px;min-height:52px;padding:13px 18px;border-radius:12px;background:#12301E;border:1.5px solid #2A5E3C;color:#3DD98A;font-weight:700;font-size:15px;text-decoration:none;box-sizing:border-box;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:background .12s,border-color .12s,color .12s}
   .rk-pt-cta:hover{background:#173D27;border-color:#3DD98A;color:#5FE0A0}
   .rk-pt-cta-label{flex:none}
@@ -479,6 +485,9 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
   [data-theme="light"] .rk-pt-title{color:#0f1b14}
   [data-theme="light"] .rk-pt-lead{color:#5b6b61}
   [data-theme="light"] .rk-pt-lead b{color:#0f1b14}
+  [data-theme="light"] .rk-pt-lead a.rk-pt-bini{text-decoration-color:rgba(15,27,20,.4)}
+  [data-theme="light"] .rk-pt-lead a.rk-pt-bini:hover{text-decoration-color:#0f1b14}
+  [data-theme="light"] .rk-pt-lead a.rk-pt-bini b{color:#0f1b14}
   [data-theme="light"] .rk-pt-rule{background:#1F9E57}
   [data-theme="light"] .rk-pt-cta{background:#F4FBF7;border-color:#157A43;color:#157A43;box-shadow:0 4px 14px rgba(21,122,67,.12)}
   [data-theme="light"] .rk-pt-cta:hover{background:#E8F8F0;border-color:#157A43;color:#0F5C32}
@@ -571,6 +580,9 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 <section class="card hp-wrap"><div class="hp-head"><h2>What UCB Income Plus Fund holds <button type="button" class="tipbtn" data-tipkey="holdings" data-tip="Snapshot of what the fund owns from its latest portfolio statement: asset mix, sectors where labeled, and largest positions. Holdings update quarterly, so they can lag the daily NAV figures above. ReturnKoto? verifies each statement against the manager&#39;s own disclosure." aria-label="What does this holdings section show?" aria-expanded="false">?</button></h2><span class="hp-asof">As of 31 Mar 2026</span></div><p class="sub">From the fund&rsquo;s quarterly portfolio disclosure. Percentages as reported by the fund.</p><div class="hp-sec">Asset mix</div><div class="hp-mixrow"><svg class="hp-donut" viewBox="0 0 150 150" role="img" aria-label="Asset mix of UCB Income Plus Fund"><g transform="rotate(-90 75.0 75.0)"><circle r="52.0" cx="75.0" cy="75.0" fill="none" stroke="#1F9E57" stroke-width="30.0" stroke-dasharray="260.720 326.726" stroke-dashoffset="-0.000" data-l="Government securities (T-bonds/bills): 79.79%"></circle><circle r="52.0" cx="75.0" cy="75.0" fill="none" stroke="#2F80ED" stroke-width="30.0" stroke-dasharray="42.283 326.726" stroke-dashoffset="-260.720" data-l="FDR / term deposit: 12.94%"></circle><circle r="52.0" cx="75.0" cy="75.0" fill="none" stroke="#E0A82E" stroke-width="30.0" stroke-dasharray="22.775 326.726" stroke-dashoffset="-303.003" data-l="Corporate subordinated bonds: 6.97%"></circle><circle r="52.0" cx="75.0" cy="75.0" fill="none" stroke="#8E7CC3" stroke-width="30.0" stroke-dasharray="0.948 326.726" stroke-dashoffset="-325.778" data-l="Cash at bank: 0.29%"></circle></g></svg><div class="hp-mixright"><div class="hp-mixbar"><div style="width:79.79%;background:#1F9E57"></div><div style="width:12.94%;background:#2F80ED"></div><div style="width:6.97%;background:#E0A82E"></div><div style="width:0.29%;background:#8E7CC3"></div></div><div class="hp-legend"><span><span class="hp-sw" style="background:#1F9E57"></span>Government securities (T-bonds/bills) 79.79%</span><span><span class="hp-sw" style="background:#2F80ED"></span>FDR / term deposit 12.94%</span><span><span class="hp-sw" style="background:#E0A82E"></span>Corporate subordinated bonds 6.97%</span><span><span class="hp-sw" style="background:#8E7CC3"></span>Cash at bank 0.29%</span></div></div></div><div class="hp-sec">Largest holdings</div><div class="hp-row"><span class="hp-lbl" title="Government treasury securities">Government treasury securities</span><span class="hp-trk"><span class="hp-fill" style="width:100%"></span></span><span class="hp-val">79.79%</span></div><div class="hp-row"><span class="hp-lbl" title="Bank FDRs / term deposits">Bank FDRs / term deposits</span><span class="hp-trk"><span class="hp-fill" style="width:16%"></span></span><span class="hp-val">12.94%</span></div><div class="hp-row"><span class="hp-lbl" title="Corporate subordinated bonds">Corporate subordinated bonds</span><span class="hp-trk"><span class="hp-fill" style="width:9%"></span></span><span class="hp-val">6.97%</span></div><p class="hp-src">&#10003; Verified from UCB quarterly portfolio statement (31 Mar 2026). Holdings are disclosed quarterly, so they can lag the latest daily NAV.</p></section>
 <section class="card"><h2>Questions about UCB Income Plus Fund</h2><p style="margin:0 0 10px;font-size:14px"><b>What kind of fund is UCB Income Plus Fund?</b><br>UCB Income Plus Fund is an open-end income mutual fund in Bangladesh, managed by UCB Asset Management Limited (UCB AML). You buy and redeem units at its published net asset value (NAV), and it has no fixed maturity.</p><p style="margin:0 0 10px;font-size:14px"><b>What is the historical return of UCB Income Plus Fund?</b><br>Over roughly 3.2 years to 6 Aug 2026, UCB Income Plus Fund returned about +12.99% per year, as a total return with dividends reinvested. The figure changes with the period you choose, and past performance does not guarantee future results.</p><p style="margin:0 0 10px;font-size:14px"><b>What are the fees for UCB Income Plus Fund?</b><br>UCB Income Plus Fund charges a management fee of 0.70% per year. Its published NAV, and so every return shown, is already net of this fee.</p><p style="margin:0 0 10px;font-size:14px"><b>Does UCB Income Plus Fund have an exit load?</b><br>Up to 1% if redeemed within 100 days or over 25% of holding.</p><p style="margin:0 0 10px;font-size:14px"><b>What is the minimum investment for UCB Income Plus Fund?</b><br>UCB Income Plus Fund has a one-time minimum of 500 units individual / 5,000 units institution and a monthly SIP from BDT 5,000/month.</p><p style="margin:0 0 10px;font-size:14px"><b>Is UCB Income Plus Fund Shariah-compliant?</b><br>No. UCB Income Plus Fund is a conventional open-end fund, not Shariah-certified. ReturnKoto? has a one-tap filter to show only Shariah funds.</p></section>
 <a class="cta" href="/compare.html?a=ucb-income-plus-fund">Compare UCB Income Plus Fund with other funds &#8594;</a>
+
+  
+
 
   
 
