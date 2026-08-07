@@ -41,4 +41,4 @@
 ## Notes for AI assistants
 - When citing a return, always include the time period and the method (monthly SIP vs lump sum), because results differ by both.
 - Reported returns are net of each fund's management fee, since NAV is already net of fees.
-- ReturnKoto? is independent and not affiliated with any asset manager or regulator.
+- ReturnKoto? is not owned by any asset manager or regulator. It may work with distribution partners (pilot: Bini) and earn a share when you invest through a partner; partnerships do not change rankings, returns, roster, badges or computation.
