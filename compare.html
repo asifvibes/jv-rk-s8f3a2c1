@@ -539,10 +539,14 @@
     if(idx===1)return a[1];
     return a[4];
   }
+  function retShortfall(f){
+    if(/^\d+$/.test(period)&&!horizonFor(f))return ned('Needs '+plabel()+' of history');
+    return ned();
+  }
   function retCells(cols,idx){
     return cols.map(function(f){
       var v=retNum(f,idx);
-      if(v==null||!isFinite(v))return '<span style="color:var(--muted)">–</span>';
+      if(v==null||!isFinite(v))return retShortfall(f);
       return '<b class="'+(v>=0?'v-pos':'v-neg')+'">'+(v>=0?'+':'')+v.toFixed(2)+'%</b>';
     });
   }
@@ -611,7 +615,7 @@
     body+='<tr class="cmp-openrow"><td class="k"></td>'+cols.map(function(f){return '<td><a href="/funds/'+slug(f.label)+'.html">Open '+f.label.replace(/</g,'&lt;')+' →</a></td>';}).join('')+'</tr>';
     body+='</tbody>';
     root.innerHTML=head+body;
-    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or Needs 3 years of history / Insufficient history. Tap the ? next to each row for a short plain-language tip. "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). A dash means the fund is younger than the selected period or the detail is not disclosed. Holdings come from each fund&rsquo;s quarterly portfolio disclosure, shown with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV. A dash in the holdings rows means the fund has not yet published its portfolio in a form ReturnKoto? can verify.';
+    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Return cells name any history shortfall. Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or Needs 3 years of history / Insufficient history. Tap the ? next to each row for a short plain-language tip. "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). A dash outside the return rows means the detail is not disclosed. Holdings come from each fund&rsquo;s quarterly portfolio disclosure, shown with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV. A dash in the holdings rows means the fund has not yet published its portfolio in a form ReturnKoto? can verify.';
     writeShareUrl(cols);
     requestAnimationFrame(syncScrollHint);
   }
