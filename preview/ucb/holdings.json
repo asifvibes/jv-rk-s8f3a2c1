@@ -122,121 +122,168 @@
   "top5": 49.52
  },
  "ucb-taqwa-growth-fund": {
-  "asOf": "2026-03-31",
-  "asOfLabel": "31 Mar 2026",
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
   "basis": "by market value",
   "source": "UCB quarterly portfolio statement",
   "sourceUrl": "https://ucbasset.com/funds/ucb-taqwa-growth-fund",
   "topKind": "equity",
   "assetClass": [
    {
+    "k": "Government Sukuk",
+    "v": 55.14
+   },
+   {
     "k": "Listed equity",
-    "v": 38.49
-   },
-   {
-    "k": "Sukuk / Islamic securities",
-    "v": 39.25
-   },
-   {
-    "k": "FDR / term deposit",
-    "v": 20.85
+    "v": 24.5
    },
    {
     "k": "Cash at bank",
-    "v": 1.41
+    "v": 15.31
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 5.05
    }
   ],
   "sectors": [],
   "top": [
    {
-    "name": "5Y IRIDP-3 Social Impact Sukuk",
+    "name": "Government Sukuk (BDS092701051)",
     "code": null,
-    "sector": "Sukuk / Islamic securities",
-    "v": 21.38
+    "sector": "Government Sukuk",
+    "v": 20.81,
+    "cost": 40000000,
+    "mkt": 40000000
    },
    {
-    "name": "IRIDPNFL Socio-Economic Dev. Sukuk",
+    "name": "Government Sukuk (BDS093302072)",
     "code": null,
-    "sector": "Sukuk / Islamic securities",
-    "v": 17.87
-   },
-   {
-    "name": "Berger Paints Bangladesh",
-    "code": "BERGERPBL",
-    "sector": null,
-    "v": 9.76
+    "sector": "Government Sukuk",
+    "v": 17.17,
+    "cost": 33000000,
+    "mkt": 33000000
    },
    {
     "name": "Marico Bangladesh",
     "code": "MARICO",
     "sector": null,
-    "v": 8.86
+    "v": 9.75,
+    "q": 6765,
+    "cost": 18270000,
+    "mkt": 18750000
+   },
+   {
+    "name": "Government Sukuk (BDS093303072)",
+    "code": null,
+    "sector": "Government Sukuk",
+    "v": 9.36,
+    "cost": 18000000,
+    "mkt": 18000000
    },
    {
     "name": "Grameenphone",
     "code": "GP",
     "sector": "Telecommunication",
-    "v": 8.8
+    "v": 8.84,
+    "q": 65496,
+    "cost": 20680000,
+    "mkt": 17000000
+   },
+   {
+    "name": "Government Sukuk (BDS093104058)",
+    "code": null,
+    "sector": "Government Sukuk",
+    "v": 7.8,
+    "cost": 15000000,
+    "mkt": 15000000
    },
    {
     "name": "Renata",
     "code": "RENATA",
     "sector": "Pharmaceuticals & Chemicals",
-    "v": 5.82
+    "v": 5.91,
+    "q": 24923,
+    "cost": 20670000,
+    "mkt": 11360000
    },
    {
-    "name": "Robi Axiata",
-    "code": "ROBI",
-    "sector": "Telecommunication",
-    "v": 5.25
+    "name": "Mutual Trust Bank FDR",
+    "code": null,
+    "sector": "FDR / term deposit",
+    "v": 5.05,
+    "cost": 9700000,
+    "mkt": 9700000
    }
   ],
-  "top5": 66.67,
+  "top5": 65.93,
   "prev": {
-   "asOf": "2025-12-31",
-   "asOfLabel": "31 Dec 2025",
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
    "assetClass": [
     {
      "k": "Listed equity",
-     "v": 51.88
+     "v": 38.49
     },
     {
      "k": "Sukuk / Islamic securities",
-     "v": 22.16
+     "v": 39.25
     },
     {
      "k": "FDR / term deposit",
-     "v": 21.61
+     "v": 20.85
     },
     {
      "k": "Cash at bank",
-     "v": 4.35
+     "v": 1.41
     }
    ],
    "sectors": [],
    "top": [
     {
      "name": "5Y IRIDP-3 Social Impact Sukuk",
-     "v": 22.16
+     "code": null,
+     "sector": "Sukuk / Islamic securities",
+     "v": 21.38
     },
     {
-     "name": "Marico Bangladesh",
-     "v": 17.09
-    },
-    {
-     "name": "Grameenphone",
-     "v": 14.79
+     "name": "IRIDPNFL Socio-Economic Dev. Sukuk",
+     "code": null,
+     "sector": "Sukuk / Islamic securities",
+     "v": 17.87
     },
     {
      "name": "Berger Paints Bangladesh",
-     "v": 10.08
+     "code": "BERGERPBL",
+     "sector": null,
+     "v": 9.76
+    },
+    {
+     "name": "Marico Bangladesh",
+     "code": "MARICO",
+     "sector": null,
+     "v": 8.86
+    },
+    {
+     "name": "Grameenphone",
+     "code": "GP",
+     "sector": "Telecommunication",
+     "v": 8.8
     },
     {
      "name": "Renata",
-     "v": 9.92
+     "code": "RENATA",
+     "sector": "Pharmaceuticals & Chemicals",
+     "v": 5.82
+    },
+    {
+     "name": "Robi Axiata",
+     "code": "ROBI",
+     "sector": "Telecommunication",
+     "v": 5.25
     }
    ],
-   "top5": 74.04
+   "top5": 66.67
   }
  }
 }
