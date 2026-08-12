@@ -304,9 +304,10 @@
   function slug(l){return l.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');}
   var bySlug={},byId={}; funds.forEach(function(f){bySlug[slug(f.label)]=f;byId[String(f.id)]=f;});
   function tk(v){return TK+Math.round(v).toLocaleString('en-IN');}
-  function aumcr(f){return f.aum?TK+Math.round(f.aum/10).toLocaleString('en-IN')+' cr':'–';}
-  function since(s){var p=(s||'').split('-');return p.length===3?MONTHS[(+p[1])-1]+' '+p[2]:'–';}
-  function riskOf(f){var t=(f.type||'').toLowerCase();if(t==='growth')return 'Higher (equity-leaning)';if(t==='balanced')return 'Medium (mixed)';if(t==='income')return 'Lower (income)';return '–';}
+  function voidMsg(msg){return '<span style="color:var(--muted);font-size:13px;font-weight:600;line-height:1.35">'+esc(msg||'Not available')+'</span>';}
+  function aumcr(f){return f.aum?TK+Math.round(f.aum/10).toLocaleString('en-IN')+' cr':voidMsg('Fund size not disclosed');}
+  function since(s){var p=(s||'').split('-');return p.length===3?MONTHS[(+p[1])-1]+' '+p[2]:voidMsg('Start date unknown');}
+  function riskOf(f){var t=(f.type||'').toLowerCase();if(t==='growth')return 'Higher (equity-leaning)';if(t==='balanced')return 'Medium (mixed)';if(t==='income')return 'Lower (income)';return voidMsg('Type not stated');}
   function rateOf(f){return ratings[String(f.id)]||null;}
   function pathMetricsFromSeries(tr){
     var xs=(tr||[]).filter(function(x){return typeof x==='number'&&x>0;});
@@ -379,12 +380,12 @@
     return '<div style="font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.45">Fixed 3-year path risk needs 36 closed months. Younger funds show available-history figures (labeled), or &ldquo;Needs 3 years of history&rdquo; / &ldquo;Insufficient history&rdquo; when a measure still cannot be computed.</div>';
   }
   function feePeerNote(f){
-    var own=det(f,'fee'); if(own==='–')return '';
+    var own=detRaw(f,'fee'); if(!own)return '';
     var m=String(own).match(/(\d+(?:\.\d+)?)\s*%/); if(!m)return '';
     var ownN=parseFloat(m[1]), peers=[];
     funds.forEach(function(x){
       if(x.type!==f.type)return;
-      var raw=det(x,'fee'); if(raw==='–')return;
+      var raw=detRaw(x,'fee'); if(!raw)return;
       var mm=String(raw).match(/(\d+(?:\.\d+)?)\s*%/); if(mm)peers.push(parseFloat(mm[1]));
     });
     var distinct={}; peers.forEach(function(n){distinct[n.toFixed(2)]=1;});
@@ -392,30 +393,32 @@
     var lo=Math.min.apply(null,peers), hi=Math.max.apply(null,peers);
     return '<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">Peers ('+f.type+'): '+lo.toFixed(2)+'%–'+hi.toFixed(2)+'% stated headline. Management fee only, not full TER.</div>';
   }
-  function det(f,key){var d=details[String(f.id)];return d&&d[key]?d[key]:'–';}
+  function detRaw(f,key){var d=details[String(f.id)];return d&&d[key]?d[key]:'';}
+  function det(f,key){var v=detRaw(f,key);return v?v:voidMsg('Not stated in prospectus');}
   var HPAL=['#1F9E57','#2F80ED','#E0A82E','#8E7CC3','#59B8B3','#9AA3B2','#C2698D'];
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
-  function dash(){return '<span style="color:var(--muted)">–</span>';}
   function hld(f){return holdings[String(f.id)]||null;}
   function mixCell(f){
-    var h=hld(f),ac=h&&h.assetClass||[];
-    if(!ac.length)return dash();
+    var h=hld(f); if(!h)return voidMsg('Holdings not yet verified');
+    var ac=h.assetClass||[];
+    if(!ac.length)return voidMsg('Asset mix not disclosed');
     var segs=ac.map(function(it,i){return '<div style="width:'+it.v+'%;background:'+HPAL[i%HPAL.length]+'"></div>';}).join('');
     var leg=ac.map(function(it,i){return '<span><span class="cmix-sw" style="background:'+HPAL[i%HPAL.length]+'"></span>'+esc(it.k)+' '+it.v.toFixed(2)+'%</span>';}).join('');
     return '<div class="cmix-bar">'+segs+'</div><div class="cmix-leg">'+leg+'</div>';
   }
   function secCell(f){
-    var h=hld(f),s=h&&h.sectors;
-    if(!s||!s.length)return dash();
+    var h=hld(f); if(!h)return voidMsg('Holdings not yet verified');
+    var s=h.sectors;
+    if(!s||!s.length)return voidMsg('No sector labels in this statement');
     var maxv=s.reduce(function(m,it){return it.v>m?it.v:m;},0);
     return s.map(function(it){
       var w=maxv?Math.max(2,Math.round(it.v/maxv*100)):0;
       return '<div class="csec-row"><span class="csec-lbl" title="'+esc(it.k)+'">'+esc(it.k)+'</span><span class="csec-trk"><span class="csec-fill" style="width:'+w+'%"></span></span><span class="csec-val">'+it.v.toFixed(2)+'%</span></div>';
     }).join('');
   }
-  function topCell(f){var h=hld(f),t=h&&h.top;if(!t||!t.length)return dash();return '<b>'+esc(t[0].name)+'</b> '+t[0].v.toFixed(2)+'%';}
-  function concCell(f){var h=hld(f);if(!h||!h.top5)return dash();return '<b>'+h.top5.toFixed(2)+'%</b> of the fund';}
-  function hAsofCell(f){var h=hld(f);if(!h)return dash();return esc(h.asOfLabel)+'<span class="cmp-basis"> ('+esc(h.basis)+')</span>';}
+  function topCell(f){var h=hld(f);if(!h)return voidMsg('Holdings not yet verified');var t=h.top;if(!t||!t.length)return voidMsg('No named tops disclosed');return '<b>'+esc(t[0].name)+'</b> '+t[0].v.toFixed(2)+'%';}
+  function concCell(f){var h=hld(f);if(!h)return voidMsg('Holdings not yet verified');if(!h.top5)return voidMsg('Concentration not disclosed');return '<b>'+h.top5.toFixed(2)+'%</b> of the fund';}
+  function hAsofCell(f){var h=hld(f);if(!h)return voidMsg('Holdings not yet verified');return esc(h.asOfLabel)+'<span class="cmp-basis"> ('+esc(h.basis)+')</span>';}
   var SXINSTR=/sukuk|bond|treasur|t-bill|deposit|fdr|units|unit fund|mutual fund|preference|perpetual|brokerage|cash|\bIPO\b|SEML/i;
   var SXALIAS={"Marico":"Marico Bangladesh","Bangladesh Submarine Cable Company PLC":"Bangladesh Submarine Cables","The ACME Laboratories Limited":"The ACME Laboratories"};
   function stockMap(f){var h=hld(f),m={};if(!h)return m;(h.top||[]).forEach(function(t){if(SXINSTR.test(t.name))return;m[SXALIAS[t.name]||t.name]=t.v;});return m;}
@@ -514,8 +517,8 @@
     psel.addEventListener('change',function(){if(!this.value)return;shareReady=true;period=this.value;scheduleRender();});
   }
   function horizonFor(f){if(period==='max')return String(f.M);return (f.H&&f.H[period])?period:null;}
-  function typeCell(f){var s='';if(f.type)s+='<span class="ctag '+f.type.toLowerCase()+'">'+f.type+'</span>';if(f.sh)s+='<span class="ctag sh">Shariah</span>';return s||'–';}
-  function qualCell(f){if(f.amcVerified)return '<span class="ctag ok" title="'+String(f.amcVerified).replace(/"/g,'&quot;')+' and ReturnKoto? spoke through official channels, discussed this fund\u2019s figures in detail, and share an understanding of what appears on the site">✓ AMC-Verified</span>';if(f.conf==='estimated'||f.conf==='partial')return '<span class="ctag est">'+f.conf+'</span>';if(f.conf==='complete')return '<span class="ctag sc" title="Built and cross-checked from public records (BSEC prospectus, AMC portfolio statements and NAV history), not AMC-confirmed.">source-checked</span>';return '–';}
+  function typeCell(f){var s='';if(f.type)s+='<span class="ctag '+f.type.toLowerCase()+'">'+f.type+'</span>';if(f.sh)s+='<span class="ctag sh">Shariah</span>';return s||voidMsg('Type not stated');}
+  function qualCell(f){if(f.amcVerified)return '<span class="ctag ok" title="'+String(f.amcVerified).replace(/"/g,'&quot;')+' and ReturnKoto? spoke through official channels, discussed this fund\u2019s figures in detail, and share an understanding of what appears on the site">✓ AMC-Verified</span>';if(f.conf==='estimated'||f.conf==='partial')return '<span class="ctag est">'+f.conf+'</span>';if(f.conf==='complete')return '<span class="ctag sc" title="Built and cross-checked from public records (BSEC prospectus, AMC portfolio statements and NAV history), not AMC-confirmed.">source-checked</span>';return voidMsg('Quality not tagged');}
   function plabel(){for(var i=0;i<PERIODS.length;i++)if(PERIODS[i][0]===period)return PERIODS[i][1];return (+period%12===0)?(+period/12+' years'):(period+' months');}
   function tipBtn(key,text,aria){
     return '<button type="button" class="tipbtn" data-tipkey="'+key+'" data-tip="'+String(text).replace(/"/g,'&quot;')+'" aria-label="'+(aria||'What does this mean?')+'" aria-expanded="false">?</button>';
@@ -599,7 +602,7 @@
       if(_pn)rows.push(['__span','Window note',_pn]);
     }
     rows.push([lab('Management fee','cmp_fee','Annual fee the asset manager charges, already deducted from the published NAV, so every return figure is net of this fee. Peer line uses the first % in each prospectus fee sentence (stated headline), not a full expense ratio.','What does Management fee mean?'),cols.map(function(f){return det(f,'fee')+feePeerNote(f);})]);
-    rows.push([lab('Exit load','cmp_exit','Extra charge if you redeem early, from the fund\u2019s prospectus. A dash means none is stated there.','What does Exit load mean?'),cols.map(function(f){return det(f,'exit');})]);
+    rows.push([lab('Exit load','cmp_exit','Extra charge if you redeem early, from the fund\u2019s prospectus. If none is stated there, the cell says Not stated in prospectus.','What does Exit load mean?'),cols.map(function(f){return det(f,'exit');})]);
     rows.push([lab('Minimum (one-time)','cmp_min','Smallest lump-sum purchase the fund accepts, from its prospectus or asset manager.','What does Minimum (one-time) mean?'),cols.map(function(f){return det(f,'min').replace(/;?\s*SIP from[^;]*/i,'');})]);
     rows.push([lab('Minimum (SIP)','cmp_minsip','Smallest monthly instalment for a systematic investment plan, from the prospectus or asset manager.','What does Minimum (SIP) mean?'),cols.map(function(f){return det(f,'minSip');})]);
     rows.push([lab('Risk (by type)','cmp_risk','A rough guide from the fund type only (Growth usually riskier than Income). Not a formal risk rating or guarantee. For measured path risk, see Downside deviation and Worst drop above.','What does Risk mean?'),cols.map(function(f){return riskOf(f);})]);
@@ -622,7 +625,7 @@
     body+='<tr class="cmp-openrow"><td class="k"></td>'+cols.map(function(f){return '<td><a href="/funds/'+slug(f.label)+'.html">Open '+f.label.replace(/</g,'&lt;')+' →</a></td>';}).join('')+'</tr>';
     body+='</tbody>';
     root.innerHTML=head+body;
-    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Return cells name any history shortfall. Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or Needs 3 years of history / Insufficient history. Tap the ? next to each row for a short plain-language tip. "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). A dash outside the return rows means the detail is not disclosed. Holdings come from each fund&rsquo;s quarterly portfolio disclosure, shown with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV. A dash in the holdings rows means the fund has not yet published its portfolio in a form ReturnKoto? can verify.';
+    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. When a fund is younger than the selected period, return cells say Needs N years of history (or Insufficient history). Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or a clear shortfall label. Tap the ? next to each row or section for a short plain-language tip (it opens above the row). "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). Missing prospectus or holdings fields say why they are blank (for example Not stated in prospectus, or No sector labels in this statement). Holdings come from each fund&rsquo;s quarterly portfolio disclosure, with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV.';
     writeShareUrl(cols);
     requestAnimationFrame(syncScrollHint);
   }
@@ -675,7 +678,7 @@
       tipTr.innerHTML='<td colspan="'+cols+'"><span class="rktip" role="note" id="rktip'+(++n)+'"></span></td>';
       var p=tipTr.querySelector('.rktip');
       p.textContent=tipText;
-      tr.insertAdjacentElement('afterend',tipTr);
+      tr.insertAdjacentElement('beforebegin',tipTr);
       b.setAttribute('aria-expanded','true');
       b.setAttribute('aria-describedby',p.id);
     }else{

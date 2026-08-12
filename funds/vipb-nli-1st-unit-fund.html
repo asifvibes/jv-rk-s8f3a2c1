@@ -791,14 +791,16 @@ document.addEventListener('click',function(){closeTitleTips();closeXirrTips();})
     tipTr.innerHTML='<td colspan="'+tableColCount(tr)+'"><span class="rktip" role="note" id="rktip'+(++n)+'"></span></td>';
     var p=tipTr.querySelector('.rktip');
     p.textContent=tipText;
-    tr.insertAdjacentElement('afterend',tipTr);
+    tr.insertAdjacentElement('beforebegin',tipTr);
     b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby',p.id);
   }else{
     var p2=document.createElement('span');
     p2.className='rktip';p2.id='rktip'+(++n);p2.setAttribute('role','note');
     p2.textContent=tipText;
     var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('.hp-sec')||b.closest('h2')||b.closest('.tablewrap')||b.closest('.calc-layer-lbl')||b.closest('.calc-blabel')||b.closest('.asof')||b.closest('.tags')||b.closest('.fresh')||b;
-    host.insertAdjacentElement('afterend',p2);
+    // Sub-section tips (Asset mix, Sector allocation, …) open above the heading so they stay in view.
+    if(host.classList&&host.classList.contains('hp-sec')) host.insertAdjacentElement('beforebegin',p2);
+    else host.insertAdjacentElement('afterend',p2);
     b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby',p2.id);
   }
   try{if(window.gtag)gtag('event','badge_tooltip_open',{tag:b.getAttribute('data-tipkey')||'tip'});}catch(err){}
