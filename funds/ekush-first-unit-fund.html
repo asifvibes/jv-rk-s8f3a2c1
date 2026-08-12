@@ -179,6 +179,10 @@ table.ret tr:last-child td{border-bottom:none}
 table.ret td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 table.ret th.num{text-align:right}
 table.ret td.pos{color:var(--green-dark)}table.ret td.neg{color:#c0392b}
+tr.rk-tiprow td{padding:0 0 10px;border-bottom:1px solid var(--line)}
+tr.rk-tiprow .rktip{display:block;width:100%;max-width:none;box-sizing:border-box}
+[data-theme="dark"] tr.rk-tiprow td{border-bottom-color:#1E2735}
+
 /* Six-column rolling table: fixed columns so headers stay over values on phone + desktop */
 table.ret-roll{table-layout:fixed;min-width:520px;font-size:13px}
 table.ret-roll th,table.ret-roll td{padding:10px 6px;vertical-align:bottom}
@@ -758,8 +762,17 @@ document.addEventListener('click',function(){closeTitleTips();closeXirrTips();})
 <script>(function(){
  var n=0;
  function closeTips(){
+  document.querySelectorAll('tr.rk-tiprow').forEach(function(r){r.remove();});
   document.querySelectorAll('.rktip').forEach(function(p){p.remove();});
   document.querySelectorAll('[data-tip][aria-expanded="true"]').forEach(function(b){b.setAttribute('aria-expanded','false');b.removeAttribute('aria-describedby');});
+ }
+ function tableColCount(tr){
+  var table=tr.closest('table');
+  var head=table&&table.querySelector('thead tr');
+  var row=head||tr;
+  var n=0, cells=row.children;
+  for(var i=0;i<cells.length;i++) n+=parseInt(cells[i].getAttribute('colspan')||'1',10);
+  return Math.max(n,1);
  }
  document.addEventListener('click',function(e){
   var b=e.target.closest&&e.target.closest('[data-tip]');
@@ -767,14 +780,26 @@ document.addEventListener('click',function(){closeTitleTips();closeXirrTips();})
   var wasOpen=b.getAttribute('aria-expanded')==='true';
   closeTips();
   if(wasOpen)return;
-  var p=document.createElement('span');
-  p.className='rktip';p.id='rktip'+(++n);p.setAttribute('role','note');
-  p.textContent=b.getAttribute('data-tip');
-  // Prefer section-head wrappers so the full-width callout sits below flex rows
-  // (calc-head / hp-head), not between the title and a side control.
-  var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('.hp-sec')||b.closest('h2')||b.closest('.tablewrap')||b.closest('.calc-layer-lbl')||b.closest('.calc-blabel')||b.closest('.asof')||b.closest('.tags')||b.closest('.fresh')||b;
-  host.insertAdjacentElement('afterend',p);
-  b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby',p.id);
+  var tipText=b.getAttribute('data-tip');
+  if(!tipText)return;
+  // Tips inside tables (rolling headers, etc.): span the full table, never one column.
+  var tr=b.closest('tbody tr, thead tr');
+  if(tr && tr.closest('table') && !tr.classList.contains('rk-tiprow')){
+    var tipTr=document.createElement('tr');
+    tipTr.className='rk-tiprow';
+    tipTr.innerHTML='<td colspan="'+tableColCount(tr)+'"><span class="rktip" role="note" id="rktip'+(++n)+'"></span></td>';
+    var p=tipTr.querySelector('.rktip');
+    p.textContent=tipText;
+    tr.insertAdjacentElement('afterend',tipTr);
+    b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby',p.id);
+  }else{
+    var p2=document.createElement('span');
+    p2.className='rktip';p2.id='rktip'+(++n);p2.setAttribute('role','note');
+    p2.textContent=tipText;
+    var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('.hp-sec')||b.closest('h2')||b.closest('.tablewrap')||b.closest('.calc-layer-lbl')||b.closest('.calc-blabel')||b.closest('.asof')||b.closest('.tags')||b.closest('.fresh')||b;
+    host.insertAdjacentElement('afterend',p2);
+    b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby',p2.id);
+  }
   try{if(window.gtag)gtag('event','badge_tooltip_open',{tag:b.getAttribute('data-tipkey')||'tip'});}catch(err){}
  },false);
  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeTips();});

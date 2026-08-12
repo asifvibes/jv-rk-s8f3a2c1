@@ -89,6 +89,7 @@
   .lead + .rktip{margin:8px 0 14px}
   [data-theme="dark"] .rktip{border-color:#1E4A30;background:#12301E}
   tr.cmp-tiprow td{padding:0 13px 11px;border-bottom:1px solid var(--line);background:transparent}
+  tr.cmp-tiprow .rktip{display:block;width:100%;max-width:none;box-sizing:border-box}
   @media(max-width:560px){.tipbtn{width:13px;height:13px;font-size:8.5px;line-height:11px}.tipbtn::after{inset:-14px}}
   table.cmpt td b{font-weight:700}
   .cmp-howto{margin:0 0 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
@@ -649,6 +650,15 @@
     document.querySelectorAll('.rktip').forEach(function(p){p.remove();});
     document.querySelectorAll('[data-tip][aria-expanded="true"]').forEach(function(b){b.setAttribute('aria-expanded','false');b.removeAttribute('aria-describedby');});
   }
+  function tableColCount(tr){
+    // Section rows are a single <td colspan="N">; counting children alone collapses the tip to column 1.
+    var table=tr.closest('table');
+    var head=table&&table.querySelector('thead tr');
+    var row=head||tr;
+    var n=0, cells=row.children;
+    for(var i=0;i<cells.length;i++) n+=parseInt(cells[i].getAttribute('colspan')||'1',10);
+    return Math.max(n,1);
+  }
   document.addEventListener('click',function(e){
     var b=e.target.closest&&e.target.closest('[data-tip]');
     if(!b){if(!e.target.closest||!e.target.closest('.rktip'))closeTips();return;}
@@ -661,7 +671,7 @@
     if(tr && !tr.classList.contains('cmp-tiprow')){
       var tipTr=document.createElement('tr');
       tipTr.className='cmp-tiprow';
-      var cols=tr.children.length;
+      var cols=tableColCount(tr);
       tipTr.innerHTML='<td colspan="'+cols+'"><span class="rktip" role="note" id="rktip'+(++n)+'"></span></td>';
       var p=tipTr.querySelector('.rktip');
       p.textContent=tipText;
