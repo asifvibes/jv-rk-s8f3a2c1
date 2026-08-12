@@ -13,9 +13,9 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Compare Bangladeshi Mutual Funds Side by Side | ReturnKoto?</title>
-<meta name="description" content="Compare Bangladeshi open-end mutual funds side by side: historical returns, management fee, exit load, minimum investment, risk, fund size and what each fund holds, from verified data.">
+<meta name="description" content="Compare Bangladeshi open-end mutual funds side by side: historical and rolling returns, path risk, management fee, exit load, holdings overlap and more, from verified data.">
 <meta property="og:title" content="Compare Mutual Funds Side by Side | ReturnKoto?">
-<meta property="og:description" content="Pick two or three Bangladeshi open-end mutual funds and compare returns, fees, exit loads, holdings and more, side by side.">
+<meta property="og:description" content="Pick two or three Bangladeshi open-end mutual funds and compare returns, rolling windows, path risk, fees, exit loads and holdings, side by side.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://returnkoto.com/compare.html">
 <meta property="og:site_name" content="ReturnKoto?">
@@ -212,7 +212,7 @@
 <div class="wrap" role="main" id="main">
 
   <h1>Compare mutual funds</h1>
-  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical returns, fees, exit loads, minimum investment and more. Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
+  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical and rolling returns, path risk, fees, exit loads, minimum investment and holdings. Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
 
   <section class="cmp-seo" id="cmpSeo">
     <p>Every tracked fund is also in the <a href="/funds/">fund directory</a>. For BO account, KYC documents and SIP steps, see <a href="/guides/how-to-invest-in-mutual-funds-bangladesh.html">how to invest in mutual funds in Bangladesh</a>.</p>
@@ -280,6 +280,8 @@
     data=await res[0].json(); details=await res[1].json();
   }catch(e){ root.innerHTML='<tbody><tr><td>Could not load fund data. Please reload the page.</td></tr></tbody>'; return; }
   try{ holdings=await (await fetch('/holdings.json')).json(); }catch(e){ holdings={}; }
+  var ratings={};
+  try{ ratings=await (await fetch('/ratings.json')).json(); }catch(e){ ratings={}; }
   var funds=data.funds.slice().sort(function(a,b){return a.label.localeCompare(b.label);});
   if(data.asOf){var ap=data.asOf.split('-');var asofLabel=(+ap[2])+' '+MONTHS[(+ap[1])-1]+' '+ap[0];document.getElementById('cmpAsof').textContent=asofLabel;
     var tipEl=document.getElementById('cmpAsofTip');
@@ -301,6 +303,46 @@
   function aumcr(f){return f.aum?TK+Math.round(f.aum/10).toLocaleString('en-IN')+' cr':'–';}
   function since(s){var p=(s||'').split('-');return p.length===3?MONTHS[(+p[1])-1]+' '+p[2]:'–';}
   function riskOf(f){var t=(f.type||'').toLowerCase();if(t==='growth')return 'Higher (equity-leaning)';if(t==='balanced')return 'Medium (mixed)';if(t==='income')return 'Lower (income)';return '–';}
+  function rateOf(f){return ratings[String(f.id)]||null;}
+  function rollingBand(tr, months){
+    if(!tr||tr.length<=months)return null;
+    var vals=[],i,a,b;
+    for(i=months;i<tr.length;i++){
+      a=tr[i-months];b=tr[i];
+      if(typeof a==='number'&&typeof b==='number'&&a>0)vals.push((Math.pow(b/a,12/months)-1)*100);
+    }
+    if(!vals.length)return null;
+    var s=vals.slice().sort(function(x,y){return x-y;});
+    return {n:vals.length,latest:vals[vals.length-1],median:s[Math.floor(s.length/2)],best:s[s.length-1],worst:s[0]};
+  }
+  function rollCell(f, months){
+    var tr=(f.series&&f.series.tr)||[];
+    var b=rollingBand(tr, months);
+    if(!b)return dash();
+    var cls=b.latest>=0?'v-pos':'v-neg';
+    return '<b class="'+cls+'">'+(b.latest>=0?'+':'')+b.latest.toFixed(2)+'%</b>'
+      +'<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">median '+(b.median>=0?'+':'')+b.median.toFixed(1)
+      +'% · best '+(b.best>=0?'+':'')+b.best.toFixed(1)+'% · worst '+(b.worst>=0?'+':'')+b.worst.toFixed(1)
+      +'% · '+b.n+' windows</div>';
+  }
+  function pathCell(f, key, fmt){
+    var r=rateOf(f); if(!r||r[key]==null)return dash();
+    return fmt(r[key]);
+  }
+  function feePeerNote(f){
+    var own=det(f,'fee'); if(own==='–')return '';
+    var m=String(own).match(/(\d+(?:\.\d+)?)\s*%/); if(!m)return '';
+    var ownN=parseFloat(m[1]), peers=[];
+    funds.forEach(function(x){
+      if(x.type!==f.type)return;
+      var raw=det(x,'fee'); if(raw==='–')return;
+      var mm=String(raw).match(/(\d+(?:\.\d+)?)\s*%/); if(mm)peers.push(parseFloat(mm[1]));
+    });
+    var distinct={}; peers.forEach(function(n){distinct[n.toFixed(2)]=1;});
+    if(peers.length<2||Object.keys(distinct).length<2)return '';
+    var lo=Math.min.apply(null,peers), hi=Math.max.apply(null,peers);
+    return '<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">Peers ('+f.type+'): '+lo.toFixed(2)+'%–'+hi.toFixed(2)+'% stated headline. Management fee only, not full TER.</div>';
+  }
   function det(f,key){var d=details[String(f.id)];return d&&d[key]?d[key]:'–';}
   var HPAL=['#1F9E57','#2F80ED','#E0A82E','#8E7CC3','#59B8B3','#9AA3B2','#C2698D'];
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
@@ -487,11 +529,22 @@
     rows.push([lab('Total return ('+pl+')','cmp_total','Overall gain or loss on a one-time lump sum held for this period, with cash dividends reinvested into more units. This is the full period result, not a yearly rate.','What does Total return mean?'),totalCells]);
     rows.push([lab('Per year ('+pl+')','cmp_cagr','The steady yearly compound rate (CAGR) that would produce the same Total return over this period. Use it to compare periods of different lengths.','What does Per year mean?'),cagrCells]);
     rows.push([lab('Monthly SIP /yr ('+pl+')','cmp_sip','Annualized money-weighted return (IRR) if you invested the same amount every month through this period. Differs from Per year because cash goes in gradually, not all at the start.','What does Monthly SIP /yr mean?'),sipCells]);
-    rows.push([lab('Management fee','cmp_fee','Annual fee the asset manager charges, already deducted from the published NAV, so every return figure is net of this fee.','What does Management fee mean?'),cols.map(function(f){return det(f,'fee');})]);
+    if(cols.some(function(f){return !!rollingBand((f.series&&f.series.tr)||[],12)||!!rollingBand((f.series&&f.series.tr)||[],36);})){
+      rows.push(['__sect','Rolling returns (every closed window)']);
+      rows.push([lab('Rolling 1-year','cmp_roll1','Annualized total return for every closed 12-month window in the fund\u2019s history (dividends reinvested). Latest is the most recent window; median / best / worst summarize all of them.','What does Rolling 1-year mean?'),cols.map(function(f){return rollCell(f,12);})]);
+      rows.push([lab('Rolling 3-year','cmp_roll3','Annualized total return for every closed 36-month window. Needs at least three years of history. Useful when a single look-back start date flatters or punishes a fund.','What does Rolling 3-year mean?'),cols.map(function(f){return rollCell(f,36);})]);
+    }
+    if(cols.some(function(f){var r=rateOf(f);return r&&(r.ddev!=null||r.mdd!=null||r.consist!=null);})){
+      rows.push(['__sect','Path risk (fixed 3-year window)']);
+      rows.push([lab('Downside deviation','cmp_ddev','Annualized volatility of losing months only, over the same fixed 3-year window used for star ratings. Lower means milder down months.','What does Downside deviation mean?'),cols.map(function(f){return pathCell(f,'ddev',function(v){return '<b>'+v.toFixed(1)+'%</b>';});})]);
+      rows.push([lab('Worst drop','cmp_mdd','Deepest peak-to-trough fall inside that 3-year window. Not a guarantee of future drawdowns.','What does Worst drop mean?'),cols.map(function(f){return pathCell(f,'mdd',function(v){return '<b class="v-neg">'+v.toFixed(0)+'%</b>';});})]);
+      rows.push([lab('Positive 12-mo windows','cmp_consist','Share of rolling 12-month holds inside the 3-year window that finished positive. Consistency of path, not a promise.','What does Positive 12-mo windows mean?'),cols.map(function(f){return pathCell(f,'consist',function(v){return '<b>'+v+'%</b>';});})]);
+    }
+    rows.push([lab('Management fee','cmp_fee','Annual fee the asset manager charges, already deducted from the published NAV, so every return figure is net of this fee. Peer line uses the first % in each prospectus fee sentence (stated headline), not a full expense ratio.','What does Management fee mean?'),cols.map(function(f){return det(f,'fee')+feePeerNote(f);})]);
     rows.push([lab('Exit load','cmp_exit','Extra charge if you redeem early, from the fund\u2019s prospectus. A dash means none is stated there.','What does Exit load mean?'),cols.map(function(f){return det(f,'exit');})]);
     rows.push([lab('Minimum (one-time)','cmp_min','Smallest lump-sum purchase the fund accepts, from its prospectus or asset manager.','What does Minimum (one-time) mean?'),cols.map(function(f){return det(f,'min').replace(/;?\s*SIP from[^;]*/i,'');})]);
     rows.push([lab('Minimum (SIP)','cmp_minsip','Smallest monthly instalment for a systematic investment plan, from the prospectus or asset manager.','What does Minimum (SIP) mean?'),cols.map(function(f){return det(f,'minSip');})]);
-    rows.push([lab('Risk (by type)','cmp_risk','A rough guide from the fund type only (Growth usually riskier than Income). Not a formal risk rating or guarantee.','What does Risk mean?'),cols.map(function(f){return riskOf(f);})]);
+    rows.push([lab('Risk (by type)','cmp_risk','A rough guide from the fund type only (Growth usually riskier than Income). Not a formal risk rating or guarantee. For measured path risk, see Downside deviation and Worst drop above.','What does Risk mean?'),cols.map(function(f){return riskOf(f);})]);
     if(cols.some(function(f){return !!hld(f);})){
       rows.push(['__sect','What they hold']);
       rows.push([lab('Asset mix','cmp_mix','Share of the portfolio in broad buckets (equity, fixed income, cash and so on) from the fund\u2019s latest verified statement.','What does Asset mix mean?'),cols.map(mixCell)]);
@@ -511,7 +564,7 @@
     body+='<tr class="cmp-openrow"><td class="k"></td>'+cols.map(function(f){return '<td><a href="/funds/'+slug(f.label)+'.html">Open '+f.label.replace(/</g,'&lt;')+' →</a></td>';}).join('')+'</tr>';
     body+='</tbody>';
     root.innerHTML=head+body;
-    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Tap the ? next to each row for a short plain-language tip. "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk is a general guide based on the fund type, not a formal rating. A dash means the fund is younger than the selected period or the detail is not disclosed in its prospectus. Holdings come from each fund&rsquo;s quarterly portfolio disclosure, shown with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV. A dash in the holdings rows means the fund has not yet published its portfolio in a form ReturnKoto? can verify.';
+    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the same fixed 3-year window as the star rating when the fund is old enough. Tap the ? next to each row for a short plain-language tip. "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). A dash means the fund is younger than the selected period or the detail is not disclosed. Holdings come from each fund&rsquo;s quarterly portfolio disclosure, shown with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV. A dash in the holdings rows means the fund has not yet published its portfolio in a form ReturnKoto? can verify.';
     writeShareUrl(cols);
     requestAnimationFrame(syncScrollHint);
   }

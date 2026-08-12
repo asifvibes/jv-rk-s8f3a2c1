@@ -187,6 +187,9 @@ table.ret td.pos{color:var(--green-dark)}table.ret td.neg{color:#c0392b}
 .drow{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #f0f4f1;font-size:14px}
 .dk{color:var(--muted);flex-shrink:0}.dv{text-align:right;font-weight:600}
 .muted{color:var(--muted);font-size:14px;margin:0}
+.ret td.v-pos{color:var(--green,#1F9E57);font-variant-numeric:tabular-nums}
+.ret td.v-neg{color:#C0392B;font-variant-numeric:tabular-nums}
+.drow-peer .dv{font-size:13px;line-height:1.55;text-align:right;max-width:28em}
 .cta{display:block;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:15px;border-radius:14px;margin:6px 0 22px;font-size:15px;box-shadow:0 6px 18px rgba(31,158,87,.22)}
 .cta:hover{background:#1b8c4d}
 .foot{font-size:12px;color:var(--muted);text-align:center;line-height:1.7}
@@ -474,6 +477,18 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 </table>
 </div>
 <p class="asof">Figures as of <span class="asof-wrap">13 Aug 2026 <button type="button" class="tipbtn" data-tipkey="asof" data-tip="The NAV date these return figures run through for this fund. Homepage and fund-list comparisons use one shared date across all funds so rankings stay comparable. Holdings below use the portfolio statement date, which can lag." aria-label="Why this as-of date?" aria-expanded="false">!</button></span> Total return includes the fund&rsquo;s cash dividends (about 14%/yr), reinvested by default.</p>
+</section>
+<section class="card" id="pathCard">
+<h2>Rolling returns &amp; path risk <button type="button" class="tipbtn" data-tipkey="path_risk" data-tip="Rolling returns replay every closed 1-year or 3-year window in this fund&rsquo;s NAV history (dividends reinvested). Path risk uses the same fixed 3-year window as the star rating when the fund is old enough: downside deviation, worst peak-to-trough drop, and the share of rolling 12-month windows that finished positive." aria-label="What is Rolling returns and path risk?" aria-expanded="false">?</button></h2>
+<p class="sub">A single look-back can flatter or punish a start date. These figures walk the whole history.</p>
+<div class="tablewrap"><table class="ret"><thead><tr><th>Rolling window</th><th>Latest</th><th>Median</th><th>Best</th><th>Worst</th><th>Windows</th></tr></thead><tbody>
+<tr><td>1 year</td><td>+11.73%</td><td>+5.35%</td><td class="v-pos">+60.88%</td><td class="v-neg">-10.40%</td><td>60</td></tr>
+<tr><td>3 years</td><td>+9.07%</td><td>+4.38%</td><td class="v-pos">+16.59%</td><td class="v-neg">-3.43%</td><td>36</td></tr>
+</tbody></table></div>
+<p class="sub" style="margin-top:10px">Each window is annualized total return (dividends reinvested). Latest is the most recent closed window; median / best / worst summarize every overlapping window of that length.</p>
+<p class="sub" style="margin-top:16px">Path risk over the same fixed 3-year window as the rating:</p>
+<div class="stats"><div class="stat"><span class="sv">8.9%</span><span class="sl">Downside deviation</span></div><div class="stat"><span class="sv">-15%</span><span class="sl">Worst drop</span></div><div class="stat"><span class="sv">76%</span><span class="sl">Positive 12-mo windows</span></div><div class="stat"><span class="sv">14.5%</span><span class="sl">Volatility (ann.)</span></div></div>
+<p class="sub" style="margin-top:10px">Downside deviation only counts losing months. Worst drop is the deepest peak-to-trough fall inside the window. These are measured facts from the NAV series; the star composite that uses them stays experimental.</p>
 </section>
 <div class="fqbar" id="fqbar" aria-label="Quick controls: invest style and return period" hidden>
 
