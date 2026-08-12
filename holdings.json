@@ -3703,53 +3703,115 @@
   }
  },
  "ucb-income-plus-fund": {
-  "asOf": "2026-03-31",
-  "asOfLabel": "31 Mar 2026",
-  "basis": "as reported by the fund",
-  "source": "UCB quarterly portfolio statement",
-  "sourceUrl": "https://ucbasset.com/funds/ucb-income-plus-fund",
-  "topKind": "income",
-  "assetClass": [
-   {
-    "k": "Government securities (T-bonds/bills)",
-    "v": 79.79
-   },
-   {
-    "k": "FDR / term deposit",
-    "v": 12.94
-   },
-   {
-    "k": "Corporate subordinated bonds",
-    "v": 6.97
-   },
-   {
-    "k": "Cash at bank",
-    "v": 0.29
-   }
-  ],
-  "sectors": [],
-  "top": [
-   {
-    "name": "Government treasury securities",
-    "code": null,
-    "sector": "Government securities",
-    "v": 79.79
-   },
-   {
-    "name": "Bank FDRs / term deposits",
-    "code": null,
-    "sector": "FDR / term deposit",
-    "v": 12.94
-   },
-   {
-    "name": "Corporate subordinated bonds",
-    "code": null,
-    "sector": "Corporate bond",
-    "v": 6.97
-   }
-  ],
-  "top5": null
- },
+    "asOf": "2026-06-30",
+    "asOfLabel": "30 Jun 2026",
+    "basis": "by market value",
+    "source": "UCB quarterly portfolio statement",
+    "sourceUrl": "https://ucbasset.com/funds/ucb-income-plus-fund",
+    "topKind": "income",
+    "assetClass": [
+      {
+        "k": "Government securities (T-bonds/bills)",
+        "v": 59.07
+      },
+      {
+        "k": "Cash at bank",
+        "v": 17.85
+      },
+      {
+        "k": "Corporate subordinated bonds",
+        "v": 13.63
+      },
+      {
+        "k": "FDR / term deposit",
+        "v": 9.45
+      }
+    ],
+    "sectors": [],
+    "top": [
+      {
+        "name": "Government treasury securities",
+        "code": null,
+        "sector": "Government securities",
+        "v": 59.07
+      },
+      {
+        "name": "Bank FDRs / term deposits",
+        "code": null,
+        "sector": "FDR / term deposit",
+        "v": 9.45
+      },
+      {
+        "name": "Trust Bank Subordinated Bond VIII",
+        "code": null,
+        "sector": "Corporate bond",
+        "v": 6.92,
+        "cost": 278000000,
+        "mkt": 278000000
+      },
+      {
+        "name": "Jamuna Bank Subordinated Bond V",
+        "code": null,
+        "sector": "Corporate bond",
+        "v": 4.73,
+        "cost": 190000000,
+        "mkt": 190000000
+      },
+      {
+        "name": "BRAC Bank Social Subordinated Bond Esc.",
+        "code": null,
+        "sector": "Corporate bond",
+        "v": 1.99,
+        "cost": 80000000,
+        "mkt": 80000000
+      }
+    ],
+    "top5": 82.16,
+    "prev": {
+      "asOf": "2026-03-31",
+      "asOfLabel": "31 Mar 2026",
+      "assetClass": [
+        {
+          "k": "Government securities (T-bonds/bills)",
+          "v": 79.79
+        },
+        {
+          "k": "FDR / term deposit",
+          "v": 12.94
+        },
+        {
+          "k": "Corporate subordinated bonds",
+          "v": 6.97
+        },
+        {
+          "k": "Cash at bank",
+          "v": 0.29
+        }
+      ],
+      "sectors": [],
+      "top": [
+        {
+          "name": "Government treasury securities",
+          "code": null,
+          "sector": "Government securities",
+          "v": 79.79
+        },
+        {
+          "name": "Bank FDRs / term deposits",
+          "code": null,
+          "sector": "FDR / term deposit",
+          "v": 12.94
+        },
+        {
+          "name": "Corporate subordinated bonds",
+          "code": null,
+          "sector": "Corporate bond",
+          "v": 6.97
+        }
+      ],
+      "top5": null
+    }
+  },
  "vipb-sebl-1st-unit-fund": {
   "asOf": "2026-03-31",
   "asOfLabel": "31 Mar 2026",
@@ -5828,79 +5890,188 @@
   }
  },
  "ucb-aml-first-mutual-fund": {
-  "asOf": "2026-03-31",
-  "asOfLabel": "31 Mar 2026",
-  "basis": "by market value",
-  "source": "UCB quarterly portfolio statement",
-  "sourceUrl": "https://ucbasset.com/funds/ucb-aml-first-mutual-fund",
-  "topKind": "equity",
-  "assetClass": [
-   {
-    "k": "Listed equity",
-    "v": 65.58
-   },
-   {
-    "k": "Government securities (T-bonds)",
-    "v": 22.4
-   },
-   {
-    "k": "Cash at bank",
-    "v": 12.02
-   }
-  ],
-  "sectors": [],
-  "top": [
-   {
-    "name": "BRAC Bank",
-    "code": "BRACBANK",
-    "sector": "Bank",
-    "v": 16.12
-   },
-   {
-    "name": "Prime Bank",
-    "code": "PRIMEBANK",
-    "sector": "Bank",
-    "v": 10.06
-   },
-   {
-    "name": "Square Pharmaceuticals",
-    "code": "SQURPHARMA",
-    "sector": "Pharmaceuticals & Chemicals",
-    "v": 9.19
-   },
-   {
-    "name": "Marico Bangladesh",
-    "code": "MARICO",
-    "sector": null,
-    "v": 7.44
-   },
-   {
-    "name": "Grameenphone",
-    "code": "GP",
-    "sector": "Telecommunication",
-    "v": 6.71
-   },
-   {
-    "name": "Eastern Bank",
-    "code": "EBL",
-    "sector": "Bank",
-    "v": 6.03
-   },
-   {
-    "name": "Berger Paints Bangladesh",
-    "code": "BERGERPBL",
-    "sector": null,
-    "v": 5.82
-   },
-   {
-    "name": "Renata",
-    "code": "RENATA",
-    "sector": "Pharmaceuticals & Chemicals",
-    "v": 4.22
-   }
-  ],
-  "top5": 49.52
- },
+    "asOf": "2026-06-30",
+    "asOfLabel": "30 Jun 2026",
+    "basis": "by market value",
+    "source": "UCB quarterly portfolio statement",
+    "sourceUrl": "https://ucbasset.com/funds/ucb-aml-first-mutual-fund",
+    "topKind": "equity",
+    "assetClass": [
+      {
+        "k": "Listed equity",
+        "v": 68.94
+      },
+      {
+        "k": "Government securities (T-bonds)",
+        "v": 20.33
+      },
+      {
+        "k": "Cash at bank",
+        "v": 10.73
+      }
+    ],
+    "sectors": [],
+    "top": [
+      {
+        "name": "BRAC Bank",
+        "code": "BRACBANK",
+        "sector": "Bank",
+        "v": 17.83,
+        "q": 619000,
+        "cost": 22000000,
+        "mkt": 40540000
+      },
+      {
+        "name": "Government treasury securities (BD0935191108)",
+        "code": null,
+        "sector": "Government securities",
+        "v": 13.25,
+        "cost": 30110000,
+        "mkt": 30110000
+      },
+      {
+        "name": "Prime Bank",
+        "code": "PRIMEBANK",
+        "sector": "Bank",
+        "v": 11.05,
+        "q": 837000,
+        "cost": 21990000,
+        "mkt": 25110000
+      },
+      {
+        "name": "Square Pharmaceuticals",
+        "code": "SQURPHARMA",
+        "sector": "Pharmaceuticals & Chemicals",
+        "v": 9.85,
+        "q": 100000,
+        "cost": 21340000,
+        "mkt": 22400000
+      },
+      {
+        "name": "Marico Bangladesh",
+        "code": "MARICO",
+        "sector": null,
+        "v": 9.81,
+        "q": 8050,
+        "cost": 21890000,
+        "mkt": 22310000
+      },
+      {
+        "name": "Eastern Bank",
+        "code": "EBL",
+        "sector": "Bank",
+        "v": 9.55,
+        "q": 871400,
+        "cost": 22000000,
+        "mkt": 21700000
+      },
+      {
+        "name": "Grameenphone",
+        "code": "GP",
+        "sector": "Telecommunication",
+        "v": 6.63,
+        "q": 58000,
+        "cost": 19750000,
+        "mkt": 15060000
+      },
+      {
+        "name": "Government treasury securities (BD0937901157)",
+        "code": null,
+        "sector": "Government securities",
+        "v": 4.49,
+        "cost": 10200000,
+        "mkt": 10200000
+      },
+      {
+        "name": "Renata",
+        "code": "RENATA",
+        "sector": "Pharmaceuticals & Chemicals",
+        "v": 4.21,
+        "q": 21019,
+        "cost": 19500000,
+        "mkt": 9580000
+      },
+      {
+        "name": "Government treasury securities (BD0936437278)",
+        "code": null,
+        "sector": "Government securities",
+        "v": 2.59,
+        "cost": 5890000,
+        "mkt": 5890000
+      }
+    ],
+    "top5": 61.79,
+    "prev": {
+      "asOf": "2026-03-31",
+      "asOfLabel": "31 Mar 2026",
+      "assetClass": [
+        {
+          "k": "Listed equity",
+          "v": 65.58
+        },
+        {
+          "k": "Government securities (T-bonds)",
+          "v": 22.4
+        },
+        {
+          "k": "Cash at bank",
+          "v": 12.02
+        }
+      ],
+      "sectors": [],
+      "top": [
+        {
+          "name": "BRAC Bank",
+          "code": "BRACBANK",
+          "sector": "Bank",
+          "v": 16.12
+        },
+        {
+          "name": "Prime Bank",
+          "code": "PRIMEBANK",
+          "sector": "Bank",
+          "v": 10.06
+        },
+        {
+          "name": "Square Pharmaceuticals",
+          "code": "SQURPHARMA",
+          "sector": "Pharmaceuticals & Chemicals",
+          "v": 9.19
+        },
+        {
+          "name": "Marico Bangladesh",
+          "code": "MARICO",
+          "sector": null,
+          "v": 7.44
+        },
+        {
+          "name": "Grameenphone",
+          "code": "GP",
+          "sector": "Telecommunication",
+          "v": 6.71
+        },
+        {
+          "name": "Eastern Bank",
+          "code": "EBL",
+          "sector": "Bank",
+          "v": 6.03
+        },
+        {
+          "name": "Berger Paints Bangladesh",
+          "code": "BERGERPBL",
+          "sector": null,
+          "v": 5.82
+        },
+        {
+          "name": "Renata",
+          "code": "RENATA",
+          "sector": "Pharmaceuticals & Chemicals",
+          "v": 4.22
+        }
+      ],
+      "top5": 49.52
+    }
+  },
  "ucb-taqwa-growth-fund": {
   "asOf": "2026-06-30",
   "asOfLabel": "30 Jun 2026",
