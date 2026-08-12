@@ -117,6 +117,9 @@
   .ctag.sc{background:#eef1f4;color:#556170}
   .cmp-openrow a{color:var(--green-dark);font-weight:700;text-decoration:none;font-size:13px}
   tr.cmp-sect td{background:var(--green-soft);color:var(--text);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:8px 13px}
+  tr.cmp-sect .tipbtn{text-transform:none;letter-spacing:0;opacity:.9;border-color:currentColor;color:inherit;vertical-align:middle}
+  tr.cmp-sect .tipbtn:hover,tr.cmp-sect .tipbtn:focus{border-color:var(--green-dark);color:var(--green-dark)}
+  tr.cmp-sect .k-lab,tr.cmp-sect .k-end{font-weight:800}
   .cmix-bar{display:flex;height:12px;border-radius:6px;overflow:hidden;min-width:130px;margin:2px 0 7px}
   .cmix-leg{font-size:11.5px;color:var(--muted);line-height:1.55}
   .cmix-leg span{display:block;white-space:nowrap}
@@ -532,6 +535,9 @@
     var lead=parts.length?parts.join(' ')+' ':'';
     return '<span class="k-lab">'+lead+'<span class="k-end">'+last+tip+'</span></span>';
   }
+  function sect(label,key,text,aria){
+    return lab(label,key,text,aria||('What is '+label+'?'));
+  }
   function retNum(f,idx){
     var h=horizonFor(f);if(!h||!f.H||!f.H[h])return null;
     var a=f.H[h];
@@ -579,12 +585,12 @@
     rows.push([lab('Per year ('+pl+')','cmp_cagr','The steady yearly compound rate (CAGR) that would produce the same Total return over this period. Use it to compare periods of different lengths.','What does Per year mean?'),cagrCells]);
     rows.push([lab('Monthly SIP /yr ('+pl+')','cmp_sip','Annualized money-weighted return (IRR) if you invested the same amount every month through this period. Differs from Per year because cash goes in gradually, not all at the start.','What does Monthly SIP /yr mean?'),sipCells]);
     if(cols.some(function(f){return !!rollingBand((f.series&&f.series.tr)||[],12)||!!rollingBand((f.series&&f.series.tr)||[],36);})){
-      rows.push(['__sect','Rolling returns (every closed window)']);
+      rows.push(['__sect',sect('Rolling returns (every closed window)','cmp_sect_roll','Replays every closed 1-year or 3-year stretch in each fund\u2019s NAV history (dividends reinvested). Latest, median, best and worst summarize those windows, so a single start date cannot flatter or punish the comparison.','What is Rolling returns?')]);
       rows.push([lab('Rolling 1-year','cmp_roll1','Annualized total return for every closed 12-month window in the fund\u2019s history (dividends reinvested). Latest is the most recent window; median / best / worst summarize all of them.','What does Rolling 1-year mean?'),cols.map(function(f){return rollCell(f,12);})]);
       rows.push([lab('Rolling 3-year','cmp_roll3','Annualized total return for every closed 36-month window. Needs at least three years of history. Useful when a single look-back start date flatters or punishes a fund.','What does Rolling 3-year mean?'),cols.map(function(f){return rollCell(f,36);})]);
     }
     if(cols.some(function(f){var p=pathOf(f);return !!p;})||cols.some(function(f){var tr=(f.series&&f.series.tr)||[];return tr.length>1;})){
-      rows.push(['__sect','Path risk']);
+      rows.push(['__sect',sect('Path risk','cmp_sect_path','How bumpy the ride was: downside deviation, worst peak-to-trough drop, and how often rolling 12-month holds finished positive. Uses the fixed 3-year rating window when the fund is old enough; shorter track records show available history or a clear shortfall label.','What is Path risk?')]);
       rows.push([lab('Downside deviation','cmp_ddev','Annualized volatility of losing months only. Uses the fixed 3-year rating window when the fund is old enough; otherwise available history (labeled). Lower means milder down months.','What does Downside deviation mean?'),cols.map(function(f){return pathCell(f,'ddev',function(v){return '<b>'+v.toFixed(1)+'%</b>';});})]);
       rows.push([lab('Worst drop','cmp_mdd','Deepest peak-to-trough fall inside that window. Not a guarantee of future drawdowns.','What does Worst drop mean?'),cols.map(function(f){return pathCell(f,'mdd',function(v){return '<b class="v-neg">'+v.toFixed(0)+'%</b>';});})]);
       rows.push([lab('Positive 12-mo windows','cmp_consist','Share of rolling 12-month holds inside the window that finished positive. Needs at least a year of history.','What does Positive 12-mo windows mean?'),cols.map(function(f){return pathCell(f,'consist',function(v){return '<b>'+v+'%</b>';});})]);
@@ -597,7 +603,7 @@
     rows.push([lab('Minimum (SIP)','cmp_minsip','Smallest monthly instalment for a systematic investment plan, from the prospectus or asset manager.','What does Minimum (SIP) mean?'),cols.map(function(f){return det(f,'minSip');})]);
     rows.push([lab('Risk (by type)','cmp_risk','A rough guide from the fund type only (Growth usually riskier than Income). Not a formal risk rating or guarantee. For measured path risk, see Downside deviation and Worst drop above.','What does Risk mean?'),cols.map(function(f){return riskOf(f);})]);
     if(cols.some(function(f){return !!hld(f);})){
-      rows.push(['__sect','What they hold']);
+      rows.push(['__sect',sect('What they hold','cmp_sect_hold','Portfolio snapshot from each fund\u2019s latest verified statement: asset mix, sectors when labeled, largest named holdings, concentration and shared stocks. Statements are usually quarterly, so they can lag the daily NAV.','What is What they hold?')]);
       rows.push([lab('Asset mix','cmp_mix','Share of the portfolio in broad buckets (equity, fixed income, cash and so on) from the fund\u2019s latest verified statement.','What does Asset mix mean?'),cols.map(mixCell)]);
       if(cols.some(function(f){var h=hld(f);return h&&h.sectors&&h.sectors.length;}))rows.push([lab('Sector allocation','cmp_sector','How the equity sleeve splits across industries, when the statement labels sectors.','What does Sector allocation mean?'),cols.map(secCell)]);
       if(cols.some(function(f){var h=hld(f);return h&&h.top&&h.top.length;}))rows.push([lab('Top holding','cmp_top','The single largest named position in the disclosed holdings, with its weight.','What does Top holding mean?'),cols.map(topCell)]);
