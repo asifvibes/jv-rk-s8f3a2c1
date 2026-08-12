@@ -177,7 +177,20 @@ table.ret th:first-child{text-align:left}
 table.ret td{padding:10px 0;border-bottom:1px solid #f0f4f1}
 table.ret tr:last-child td{border-bottom:none}
 table.ret td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+table.ret th.num{text-align:right}
 table.ret td.pos{color:var(--green-dark)}table.ret td.neg{color:#c0392b}
+/* Six-column rolling table: fixed columns so headers stay over values on phone + desktop */
+table.ret-roll{table-layout:fixed;min-width:520px;font-size:13px}
+table.ret-roll th,table.ret-roll td{padding:10px 6px;vertical-align:bottom}
+table.ret-roll th:first-child,table.ret-roll td:first-child{width:22%;padding-left:0;text-align:left}
+table.ret-roll th.num,table.ret-roll td.num{width:15.6%;padding-right:0}
+table.ret-roll th .tipbtn-th{margin-left:3px;width:14px;height:14px;font-size:9px;vertical-align:text-top}
+table.ret td.ned{text-align:right;font-weight:600;color:var(--muted);font-size:12.5px;white-space:normal}
+@media(max-width:560px){
+  table.ret-roll{font-size:12px;min-width:520px}
+  table.ret-roll th,table.ret-roll td{padding:9px 4px}
+  table.ret-roll th .tipbtn-th{margin-left:2px}
+}
 .asof{font-size:12px;color:var(--muted);margin:13px 0 0}
 .asof-wrap{white-space:nowrap}
 .navchart{width:100%;height:auto;display:block;border-radius:10px;background:linear-gradient(180deg,#fbfdfc,#f3f8f5)}
@@ -189,6 +202,7 @@ table.ret td.pos{color:var(--green-dark)}table.ret td.neg{color:#c0392b}
 .muted{color:var(--muted);font-size:14px;margin:0}
 .ret td.v-pos{color:var(--green,#1F9E57);font-variant-numeric:tabular-nums}
 .ret td.v-neg{color:#C0392B;font-variant-numeric:tabular-nums}
+[data-theme="dark"] table.ret td.neg,[data-theme="dark"] .ret td.v-neg{color:#f87171}
 .drow-peer .dv{font-size:13px;line-height:1.55;text-align:right;max-width:28em}
 .cta{display:block;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:15px;border-radius:14px;margin:6px 0 22px;font-size:15px;box-shadow:0 6px 18px rgba(31,158,87,.22)}
 .cta:hover{background:#1b8c4d}
@@ -479,14 +493,14 @@ i.hp-chg-now,span.hp-chg-now{background:var(--green)}
 <p class="asof">Figures as of <span class="asof-wrap">12 Aug 2026 <button type="button" class="tipbtn" data-tipkey="asof" data-tip="The NAV date these return figures run through for this fund. Homepage and fund-list comparisons use one shared date across all funds so rankings stay comparable. Holdings below use the portfolio statement date, which can lag." aria-label="Why this as-of date?" aria-expanded="false">!</button></span> Total return includes the fund&rsquo;s cash dividends (about 5.8%/yr), reinvested by default.</p>
 </section>
 <section class="card" id="pathCard">
-<h2>Rolling returns &amp; path risk <button type="button" class="tipbtn" data-tipkey="path_risk" data-tip="Rolling returns replay every closed 1-year or 3-year window in this fund&rsquo;s NAV history (dividends reinvested). Path risk uses the same fixed 3-year window as the star rating when the fund is old enough: downside deviation, worst peak-to-trough drop, and the share of rolling 12-month windows that finished positive." aria-label="What is Rolling returns and path risk?" aria-expanded="false">?</button></h2>
+<h2>Rolling returns &amp; path risk <button type="button" class="tipbtn" data-tipkey="path_risk" data-tip="Rolling returns replay every closed 1-year or 3-year window in this fund&rsquo;s NAV history (dividends reinvested). Path risk uses the same fixed 3-year window as the star rating when the fund is old enough. If the track record is shorter, ReturnKoto? shows the same measures over available history, or marks the cell as needing more history." aria-label="What is Rolling returns and path risk?" aria-expanded="false">?</button></h2>
 <p class="sub">A single look-back can flatter or punish a start date. These figures walk the whole history.</p>
-<div class="tablewrap"><table class="ret"><thead><tr><th>Rolling window</th><th>Latest</th><th>Median</th><th>Best</th><th>Worst</th><th>Windows</th></tr></thead><tbody>
-<tr><td>1 year</td><td>+14.85%</td><td>+12.48%</td><td class="v-pos">+52.12%</td><td class="v-neg">-18.80%</td><td>70</td></tr>
-<tr><td>3 years</td><td>+12.66%</td><td>+8.91%</td><td class="v-pos">+16.15%</td><td class="v-neg">-3.23%</td><td>46</td></tr>
+<div class="tablewrap"><table class="ret ret-roll"><thead><tr><th scope="col">Rolling window <button type="button" class="tipbtn tipbtn-th" data-tipkey="roll_window" data-tip="The length of each closed look-back ReturnKoto? replays through this fund&rsquo;s NAV history (dividends reinvested)." aria-label="What does Rolling window mean?" aria-expanded="false">?</button></th><th scope="col" class="num">Latest <button type="button" class="tipbtn tipbtn-th" data-tipkey="roll_latest" data-tip="The most recent closed window of that length, ending at the fund&rsquo;s latest NAV month." aria-label="What does Latest mean?" aria-expanded="false">?</button></th><th scope="col" class="num">Median <button type="button" class="tipbtn tipbtn-th" data-tipkey="roll_median" data-tip="The middle result when every overlapping window of that length is lined up from lowest to highest." aria-label="What does Median mean?" aria-expanded="false">?</button></th><th scope="col" class="num">Best <button type="button" class="tipbtn tipbtn-th" data-tipkey="roll_best" data-tip="The highest annualized total return among all closed windows of that length." aria-label="What does Best mean?" aria-expanded="false">?</button></th><th scope="col" class="num">Worst <button type="button" class="tipbtn tipbtn-th" data-tipkey="roll_worst" data-tip="The lowest annualized total return among all closed windows of that length." aria-label="What does Worst mean?" aria-expanded="false">?</button></th><th scope="col" class="num">Windows <button type="button" class="tipbtn tipbtn-th" data-tipkey="roll_windows" data-tip="How many closed windows of that length were measured in this fund&rsquo;s history." aria-label="What does Windows mean?" aria-expanded="false">?</button></th></tr></thead><tbody>
+<tr><td>1 year</td><td class="num pos">+14.85%</td><td class="num pos">+12.48%</td><td class="num pos">+52.12%</td><td class="num neg">-18.80%</td><td class="num">70</td></tr>
+<tr><td>3 years</td><td class="num pos">+12.66%</td><td class="num pos">+8.91%</td><td class="num pos">+16.15%</td><td class="num neg">-3.23%</td><td class="num">46</td></tr>
 </tbody></table></div>
-<p class="sub" style="margin-top:10px">Each window is annualized total return (dividends reinvested). Latest is the most recent closed window; median / best / worst summarize every overlapping window of that length.</p>
-<p class="sub" style="margin-top:16px">Path risk over the same fixed 3-year window as the rating:</p>
+<p class="sub" style="margin-top:10px">Each window is annualized total return (dividends reinvested). Latest is the most recent closed window; median / best / worst summarize every overlapping window of that length. Tap ? on a column header for a short tip.</p>
+<p class="sub" style="margin-top:16px">Path risk over the <b>same fixed 3-year window</b> as the rating:</p>
 <div class="stats"><div class="stat"><span class="sv">6.5%</span><span class="sl">Downside deviation</span></div><div class="stat"><span class="sv">-10%</span><span class="sl">Worst drop</span></div><div class="stat"><span class="sv">96%</span><span class="sl">Positive 12-mo windows</span></div><div class="stat"><span class="sv">12.5%</span><span class="sl">Volatility (ann.)</span></div></div>
 <p class="sub" style="margin-top:10px">Downside deviation only counts losing months. Worst drop is the deepest peak-to-trough fall inside the window. These are measured facts from the NAV series; the star composite that uses them stays experimental.</p>
 </section>
@@ -756,7 +770,7 @@ document.addEventListener('click',function(){closeTitleTips();closeXirrTips();})
   p.textContent=b.getAttribute('data-tip');
   // Prefer section-head wrappers so the full-width callout sits below flex rows
   // (calc-head / hp-head), not between the title and a side control.
-  var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('h2')||b.closest('.calc-layer-lbl')||b.closest('.calc-blabel')||b.closest('.asof')||b.closest('.tags')||b.closest('.fresh')||b;
+  var host=b.closest('.calc-head')||b.closest('.hp-head')||b.closest('h2')||b.closest('.tablewrap')||b.closest('.calc-layer-lbl')||b.closest('.calc-blabel')||b.closest('.asof')||b.closest('.tags')||b.closest('.fresh')||b;
   host.insertAdjacentElement('afterend',p);
   b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby',p.id);
   try{if(window.gtag)gtag('event','badge_tooltip_open',{tag:b.getAttribute('data-tipkey')||'tip'});}catch(err){}

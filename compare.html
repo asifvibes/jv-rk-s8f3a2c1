@@ -304,6 +304,31 @@
   function since(s){var p=(s||'').split('-');return p.length===3?MONTHS[(+p[1])-1]+' '+p[2]:'–';}
   function riskOf(f){var t=(f.type||'').toLowerCase();if(t==='growth')return 'Higher (equity-leaning)';if(t==='balanced')return 'Medium (mixed)';if(t==='income')return 'Lower (income)';return '–';}
   function rateOf(f){return ratings[String(f.id)]||null;}
+  function pathMetricsFromSeries(tr){
+    var xs=(tr||[]).filter(function(x){return typeof x==='number'&&x>0;});
+    if(xs.length<2)return null;
+    var rets=[],i;
+    for(i=1;i<xs.length;i++)rets.push(xs[i]/xs[i-1]-1);
+    var mean=rets.reduce(function(a,b){return a+b;},0)/rets.length;
+    var vol=Math.sqrt(rets.reduce(function(a,r){return a+(r-mean)*(r-mean);},0)/rets.length)*Math.sqrt(12)*100;
+    var ddev=Math.sqrt(rets.reduce(function(a,r){return a+(r<0?r*r:0);},0)/rets.length)*Math.sqrt(12)*100;
+    var peak=xs[0],mdd=0;
+    for(i=0;i<xs.length;i++){peak=Math.max(peak,xs[i]);mdd=Math.min(mdd,(xs[i]/peak-1)*100);}
+    var consist=null;
+    if(xs.length>12){
+      var wins=0,n=0;
+      for(i=12;i<xs.length;i++){n++;if(xs[i]/xs[i-12]-1>0)wins++;}
+      consist=n?Math.round(wins/n*100):null;
+    }
+    return {vol:Math.round(vol*10)/10,ddev:Math.round(ddev*10)/10,mdd:Math.round(mdd*10)/10,consist:consist,months:xs.length-1,fixed3y:xs.length>=37};
+  }
+  function pathOf(f){
+    var r=rateOf(f);
+    if(r&&(r.ddev!=null||r.mdd!=null||r.consist!=null||r.vol!=null)){
+      return {ddev:r.ddev,mdd:r.mdd,consist:r.consist,vol:r.vol,fixed3y:!!r.rated,months:null};
+    }
+    return pathMetricsFromSeries((f.series&&f.series.tr)||[]);
+  }
   function rollingBand(tr, months){
     if(!tr||tr.length<=months)return null;
     var vals=[],i,a,b;
@@ -318,16 +343,36 @@
   function rollCell(f, months){
     var tr=(f.series&&f.series.tr)||[];
     var b=rollingBand(tr, months);
-    if(!b)return dash();
+    if(!b){
+      if(months>=36)return '<span style="color:var(--muted);font-size:13px;font-weight:600">Needs 3 years of history</span>';
+      if(months>=12)return '<span style="color:var(--muted);font-size:13px;font-weight:600">Needs 1 year of history</span>';
+      return '<span style="color:var(--muted);font-size:13px;font-weight:600">Insufficient history</span>';
+    }
     var cls=b.latest>=0?'v-pos':'v-neg';
     return '<b class="'+cls+'">'+(b.latest>=0?'+':'')+b.latest.toFixed(2)+'%</b>'
       +'<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">median '+(b.median>=0?'+':'')+b.median.toFixed(1)
       +'% · best '+(b.best>=0?'+':'')+b.best.toFixed(1)+'% · worst '+(b.worst>=0?'+':'')+b.worst.toFixed(1)
       +'% · '+b.n+' windows</div>';
   }
+  function ned(msg){return '<span style="color:var(--muted);font-size:13px;font-weight:600">'+(msg||'Insufficient history')+'</span>';}
   function pathCell(f, key, fmt){
-    var r=rateOf(f); if(!r||r[key]==null)return dash();
-    return fmt(r[key]);
+    var p=pathOf(f);
+    if(!p)return ned('Track record too short');
+    if(p[key]==null){
+      if(key==='consist')return ned('Insufficient history');
+      return ned(p.fixed3y?'Insufficient history':'Needs 3 years of history');
+    }
+    var html=fmt(p[key]);
+    if(!p.fixed3y&&p.months!=null){
+      html+='<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">Available history (~'+(p.months/12).toFixed(1)+'y) · fixed 3-year window after 3 years</div>';
+    }
+    return html;
+  }
+  function pathWindowNote(cols){
+    var anyAvail=cols.some(function(f){var p=pathOf(f);return p&&!p.fixed3y;});
+    var anyMissing=cols.some(function(f){return !pathOf(f);});
+    if(!anyAvail&&!anyMissing)return '';
+    return '<div style="font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.45">Fixed 3-year path risk needs 36 closed months. Younger funds show available-history figures (labeled), or &ldquo;Needs 3 years of history&rdquo; / &ldquo;Insufficient history&rdquo; when a measure still cannot be computed.</div>';
   }
   function feePeerNote(f){
     var own=det(f,'fee'); if(own==='–')return '';
@@ -534,11 +579,13 @@
       rows.push([lab('Rolling 1-year','cmp_roll1','Annualized total return for every closed 12-month window in the fund\u2019s history (dividends reinvested). Latest is the most recent window; median / best / worst summarize all of them.','What does Rolling 1-year mean?'),cols.map(function(f){return rollCell(f,12);})]);
       rows.push([lab('Rolling 3-year','cmp_roll3','Annualized total return for every closed 36-month window. Needs at least three years of history. Useful when a single look-back start date flatters or punishes a fund.','What does Rolling 3-year mean?'),cols.map(function(f){return rollCell(f,36);})]);
     }
-    if(cols.some(function(f){var r=rateOf(f);return r&&(r.ddev!=null||r.mdd!=null||r.consist!=null);})){
-      rows.push(['__sect','Path risk (fixed 3-year window)']);
-      rows.push([lab('Downside deviation','cmp_ddev','Annualized volatility of losing months only, over the same fixed 3-year window used for star ratings. Lower means milder down months.','What does Downside deviation mean?'),cols.map(function(f){return pathCell(f,'ddev',function(v){return '<b>'+v.toFixed(1)+'%</b>';});})]);
-      rows.push([lab('Worst drop','cmp_mdd','Deepest peak-to-trough fall inside that 3-year window. Not a guarantee of future drawdowns.','What does Worst drop mean?'),cols.map(function(f){return pathCell(f,'mdd',function(v){return '<b class="v-neg">'+v.toFixed(0)+'%</b>';});})]);
-      rows.push([lab('Positive 12-mo windows','cmp_consist','Share of rolling 12-month holds inside the 3-year window that finished positive. Consistency of path, not a promise.','What does Positive 12-mo windows mean?'),cols.map(function(f){return pathCell(f,'consist',function(v){return '<b>'+v+'%</b>';});})]);
+    if(cols.some(function(f){var p=pathOf(f);return !!p;})||cols.some(function(f){var tr=(f.series&&f.series.tr)||[];return tr.length>1;})){
+      rows.push(['__sect','Path risk']);
+      rows.push([lab('Downside deviation','cmp_ddev','Annualized volatility of losing months only. Uses the fixed 3-year rating window when the fund is old enough; otherwise available history (labeled). Lower means milder down months.','What does Downside deviation mean?'),cols.map(function(f){return pathCell(f,'ddev',function(v){return '<b>'+v.toFixed(1)+'%</b>';});})]);
+      rows.push([lab('Worst drop','cmp_mdd','Deepest peak-to-trough fall inside that window. Not a guarantee of future drawdowns.','What does Worst drop mean?'),cols.map(function(f){return pathCell(f,'mdd',function(v){return '<b class="v-neg">'+v.toFixed(0)+'%</b>';});})]);
+      rows.push([lab('Positive 12-mo windows','cmp_consist','Share of rolling 12-month holds inside the window that finished positive. Needs at least a year of history.','What does Positive 12-mo windows mean?'),cols.map(function(f){return pathCell(f,'consist',function(v){return '<b>'+v+'%</b>';});})]);
+      var _pn=pathWindowNote(cols);
+      if(_pn)rows.push(['__span','Window note',_pn]);
     }
     rows.push([lab('Management fee','cmp_fee','Annual fee the asset manager charges, already deducted from the published NAV, so every return figure is net of this fee. Peer line uses the first % in each prospectus fee sentence (stated headline), not a full expense ratio.','What does Management fee mean?'),cols.map(function(f){return det(f,'fee')+feePeerNote(f);})]);
     rows.push([lab('Exit load','cmp_exit','Extra charge if you redeem early, from the fund\u2019s prospectus. A dash means none is stated there.','What does Exit load mean?'),cols.map(function(f){return det(f,'exit');})]);
@@ -564,7 +611,7 @@
     body+='<tr class="cmp-openrow"><td class="k"></td>'+cols.map(function(f){return '<td><a href="/funds/'+slug(f.label)+'.html">Open '+f.label.replace(/</g,'&lt;')+' →</a></td>';}).join('')+'</tr>';
     body+='</tbody>';
     root.innerHTML=head+body;
-    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the same fixed 3-year window as the star rating when the fund is old enough. Tap the ? next to each row for a short plain-language tip. "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). A dash means the fund is younger than the selected period or the detail is not disclosed. Holdings come from each fund&rsquo;s quarterly portfolio disclosure, shown with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV. A dash in the holdings rows means the fund has not yet published its portfolio in a form ReturnKoto? can verify.';
+    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or Needs 3 years of history / Insufficient history. Tap the ? next to each row for a short plain-language tip. "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). A dash means the fund is younger than the selected period or the detail is not disclosed. Holdings come from each fund&rsquo;s quarterly portfolio disclosure, shown with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV. A dash in the holdings rows means the fund has not yet published its portfolio in a form ReturnKoto? can verify.';
     writeShareUrl(cols);
     requestAnimationFrame(syncScrollHint);
   }
