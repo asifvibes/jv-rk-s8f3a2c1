@@ -9,45 +9,45 @@
   "assetClass": [
    {
     "k": "Listed equity",
-    "v": 74.37
+    "v": 76.5
    },
    {
     "k": "Cash at bank",
-    "v": 20.65
+    "v": 18.94
    },
    {
-    "k": "Corporate subordinated bonds",
-    "v": 3.01
+    "k": "Corporate bond / Sukuk",
+    "v": 2.77
    },
    {
     "k": "Government treasury bond",
-    "v": 1.33
+    "v": 1.22
    },
    {
     "k": "Non-listed mutual fund unit",
-    "v": 0.63
+    "v": 0.57
    }
   ],
   "sectors": [
    {
     "k": "Bank",
-    "v": 29.58
+    "v": 27.13
    },
    {
     "k": "Engineering",
-    "v": 22.22
+    "v": 20.39
    },
    {
     "k": "Pharmaceuticals & Chemicals",
-    "v": 9.94
+    "v": 17.37
    },
    {
     "k": "Telecommunication",
-    "v": 9.48
+    "v": 8.7
    },
    {
     "k": "Services & Real Estate",
-    "v": 3.16
+    "v": 2.9
    }
   ],
   "top": [
@@ -55,121 +55,129 @@
     "name": "BRAC Bank",
     "code": "BRACBANK",
     "sector": "Bank",
-    "v": 12.66,
+    "v": 11.61,
     "q": 132000,
     "cost": 4630000,
-    "mkt": 8650000
+    "mkt": 8646000
    },
    {
     "name": "BSRM Steels",
     "code": "BSRMSTEEL",
     "sector": "Engineering",
-    "v": 11.4,
+    "v": 10.46,
     "q": 90000,
     "cost": 6110000,
-    "mkt": 7790000
+    "mkt": 7794000
    },
    {
     "name": "BSRM Limited",
     "code": "BSRMLTD",
     "sector": "Engineering",
-    "v": 10.82,
+    "v": 9.92,
     "q": 70000,
     "cost": 6180000,
-    "mkt": 7390000
+    "mkt": 7392000
    },
    {
     "name": "Prime Bank",
     "code": "PRIMEBANK",
     "sector": "Bank",
-    "v": 10.35,
+    "v": 9.5,
     "q": 235800,
     "cost": 5280000,
-    "mkt": 7070000
+    "mkt": 7074000
    },
    {
     "name": "Marico Bangladesh",
     "code": "MARICO",
     "sector": "Pharmaceuticals & Chemicals",
-    "v": 9.94,
+    "v": 9.12,
     "q": 2450,
     "cost": 5960000,
-    "mkt": 6790000
+    "mkt": 6789440
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": "SQURPHARMA",
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 8.26,
+    "q": 27460,
+    "mkt": 6151040
    },
    {
     "name": "Pubali Bank",
     "code": "PUBALIBANK",
     "sector": "Bank",
-    "v": 5.34,
+    "v": 4.89,
     "q": 98800,
     "cost": 2650000,
-    "mkt": 3650000
+    "mkt": 3645720
    },
    {
     "name": "BSCPLC",
     "code": "BSCPLC",
     "sector": "Telecommunication",
-    "v": 4.9,
+    "v": 4.5,
     "q": 21291,
     "cost": 3060000,
-    "mkt": 3350000
+    "mkt": 3353333
    },
    {
     "name": "Robi Axiata",
     "code": "ROBI",
     "sector": "Telecommunication",
-    "v": 4.58,
+    "v": 4.2,
     "q": 96000,
     "cost": 3030000,
-    "mkt": 3130000
+    "mkt": 3129600
    },
    {
     "name": "Eastern Housing",
     "code": "EHL",
     "sector": "Services & Real Estate",
-    "v": 3.16,
+    "v": 2.9,
     "q": 23500,
     "cost": 2170000,
-    "mkt": 2160000
+    "mkt": 2159650
    },
    {
     "name": "Beximco Green Sukuk",
     "code": "BEXGSUKUK",
     "sector": "Corporate Bond",
-    "v": 3.01,
+    "v": 2.77,
     "q": 27533,
     "cost": 2000000,
-    "mkt": 2060000
+    "mkt": 2064975
    },
    {
     "name": "TB2Y1126",
     "code": "TB2Y1126",
     "sector": "Govt. Bond",
-    "v": 1.33,
+    "v": 1.22,
     "q": 9000,
     "cost": 900000,
-    "mkt": 910000
+    "mkt": 906750
    },
    {
     "name": "Dutch-Bangla Bank",
     "code": "DUTCHBANGL",
     "sector": "Bank",
-    "v": 1.23,
+    "v": 1.13,
     "q": 19000,
     "cost": 820000,
-    "mkt": 840000
+    "mkt": 843600
    },
    {
     "name": "VAML Growth Fund",
     "code": "VAMLGF",
     "sector": "Mutual Fund",
-    "v": 0.63,
+    "v": 0.57,
     "q": 42043,
     "cost": 540000,
-    "mkt": 430000
+    "mkt": 425475
    }
   ],
-  "top5": 55.17,
+  "top5": 50.61,
   "prev": {
    "asOf": "2026-03-31",
    "asOfLabel": "31 Mar 2026",
