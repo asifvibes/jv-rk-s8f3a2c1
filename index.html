@@ -706,6 +706,8 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
     body.rk-home:not(.rk-answered) #calcpanel .amount input,
     body.rk-home.rk-answered #answerzone{animation:none!important;opacity:1;transform:none}
   }
+
+.nm a,.ba-nm,.hs-fund{overflow-wrap:anywhere}.fund-short{white-space:nowrap}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"ReturnKoto?","alternateName":"ReturnKoto?","url":"https://returnkoto.com/","description":"Historical return calculator for Bangladeshi open-end mutual funds. See what a SIP or lump-sum investment would actually have earned, with dividends reinvested by default or taken as cash, and verified fund fees and details.","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"BDT"},"featureList":["Historical SIP and lump-sum returns","Total return with dividends reinvested by default or taken as cash","Verified management fees, trustee and custodian for each fund","Dedicated Shariah funds section","Comparison with Sanchayapatra, DPS, FDR, gold and inflation"],"areaServed":{"@type":"Country","name":"Bangladesh"}}
@@ -941,6 +943,8 @@ let sortBy="return";
 let shOnly=false;
 const SIP_BASE=5000;
 const SHORT={"edge-amc-growth-fund":"EDGE Growth","edge-high-quality-income-fund":"EDGE HQ Income","ucb-income-plus-fund":"UCB Income Plus","shanta-fixed-income-fund":"Shanta Fixed Inc.","idlc-income-fund":"IDLC Income","idlc-growth-fund":"IDLC Growth","vipb-fixed-income-fund":"VIPB Fixed Inc.","ekush-stable-return-fund":"Ekush Stable","shanta-amanah-shariah-fund":"Shanta Amanah","idlc-aml-shariah-fund":"IDLC Shariah","edge-al-amin-shariah-consumer-fund":"EDGE Al-Amin","shanta-first-income-unit-fund":"Shanta First Inc.","edge-bangladesh-mutual-fund":"EDGE Bangladesh","vipb-accelerated-income-unit-fund":"VIPB Accelerated","vipb-growth-fund":"VIPB Growth","vipb-balanced-fund":"VIPB Balanced","vipb-sebl-1st-unit-fund":"VIPB SEBL 1st","vipb-nli-1st-unit-fund":"VIPB NLI 1st","lankabangla-al-arafah-shariah-unit-fund":"LB Al-Arafah","bcb-icl-growth-fund":"BCB ICL Growth","esquire-icl-apparel-fund":"Esquire Apparel","icl-balanced-fund":"ICL Balanced","icl-inctl-shariah-fund":"ICL INCTL Shariah","ekush-first-unit-fund":"Ekush First","ekush-growth-fund":"Ekush Growth","ucb-aml-first-mutual-fund":"UCB AML First","ucb-taqwa-growth-fund":"UCB Taqwa","cwt-sadharan-bima-growth-fund":"CWT Sadharan","cwt-opportunities-fund":"CWT Opportunities","cwt-community-bank-shariah-fund":"CWT Community","cwt-emerging-bangladesh-first-growth-fund":"CWT Emerging","lankabangla-1st-balanced-unit-fund":"LB 1st Balanced","lb-gratuity-opportunities-fund":"LB Gratuity Opp.","lb-gratuity-wealth-builder-fund":"LB Gratuity Wealth"};
+const fundDisp=f=>f&&f.short?(f.label+" ("+f.short+")"):(f?f.label:"");const fundDispHtml=f=>f&&f.short?(f.label+' <span class="fund-short">('+f.short+')</span>'):(f?f.label:"");
+
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 let method="sip", horizon="36", chartMetric="annual", showAllBars=false, showAllLines=false, listLimit=7;
 let rkPath=null;try{rkPath=localStorage.getItem("rk_path");}catch(e){}
@@ -1030,7 +1034,7 @@ function render(){
     if(horizon==="max"){const yv=Math.round(b0.monthsUsed/12*10)/10;periodTxt=yv+(yv===1?" year":" years");}
     else{periodTxt=periodWords(horizon);}
     const bsl=b0.f.label.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
-    hs='<div class="herostat"><div class="hs-main">'+fmt(b0.invested)+' <span class="hs-op">'+(pp?'grew to':'became')+'</span> <b>'+fmt(b0.final)+'</b></div><div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+(b0.annual>=0?'+':'')+tn(b0.annual)+'%/yr)</span> \u00b7 <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(b0.gain))+'</span> \u00b7 best: <a class="fundlink hs-fund" href="/funds/'+bsl+'.html">'+b0.f.label+'</a></div></div>';
+    hs='<div class="herostat"><div class="hs-main">'+fmt(b0.invested)+' <span class="hs-op">'+(pp?'grew to':'became')+'</span> <b>'+fmt(b0.final)+'</b></div><div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+(b0.annual>=0?'+':'')+tn(b0.annual)+'%/yr)</span> \u00b7 <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(b0.gain))+'</span> \u00b7 best: <a class="fundlink hs-fund" href="/funds/'+bsl+'.html">'+fundDispHtml(b0.f)+'</a></div></div>';
     // Scannable context: fund count + spread only (period + dates live in the card header)
     if(rows.length>2){
       const mid=rows[Math.floor((rows.length-1)/2)], low=rows[rows.length-1];
@@ -1326,7 +1330,7 @@ function renderList(rows){
       div.innerHTML=`
         <div class="rank">${rankCell}</div>
         <div class="fund">
-          <div class="nm"><a class="fundlink" href="/funds/${sl}.html">${f.label}</a></div>
+          <div class="nm"><a class="fundlink" href="/funds/${sl}.html">${fundDispHtml(f)}</a></div>
           <div class="tags">${bestBadge}${f.type?`<button type="button" class="tag ${f.type.toLowerCase()}" data-tipkey="type_${f.type.toLowerCase()}" data-tip="${TYTIP[f.type]||''}">${f.type}</button>`:""}${f.sh?`<button type="button" class="tag sh" data-tipkey="shariah" data-tip="Certified by a Shariah supervisory board to follow Islamic investing rules. The Shariah filter in All options shows only these funds.">${t("shariahTag")}</button>`:""}${dvtag}${cflag}${wtag}${vtag}</div>
           <div class="sub">${sub}${aumStr}</div>
           ${why}
@@ -1481,7 +1485,7 @@ el.innerHTML=["Growth","Balanced","Income","Shariah"].map(function(ty){
   }
   var f=r.f;var sl=f.label.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
   var v=+r.annual;var rs=(isFinite(v)&&v>-900)?((v>=0?"+":"")+tn(v)+"%/yr"):"";
-  return '<a class="ba-link" href="/funds/'+sl+'.html" data-nav="fundpage"><span style="margin-bottom:6px"><span class="tag batag '+tyCls+'">'+lab+'</span></span><span class="ba-nm">'+f.label+'</span><span class="ba-ret">'+rs+'</span></a>';
+  return '<a class="ba-link" href="/funds/'+sl+'.html" data-nav="fundpage"><span style="margin-bottom:6px"><span class="tag batag '+tyCls+'">'+lab+'</span></span><span class="ba-nm">'+fundDispHtml(f)+'</span><span class="ba-ret">'+rs+'</span></a>';
 }).join("");
 var tt=document.getElementById("tpTitle");
 if(tt)tt.textContent = horizon==="max" ? "Top performers \u00b7 annualized since launch" : "Top performers \u00b7 "+periodAdj(horizon)+" annualized returns";

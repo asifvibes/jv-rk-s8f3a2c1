@@ -201,6 +201,8 @@
   [data-theme="dark"] .rk-social a{background:#182130;border-color:#2B3648;color:#AEB9CC}
   [data-theme="dark"] .rk-social a:hover{color:#3DD98A;border-color:#3DD98A}
 @media(max-width:560px){.rk-links a.rk-sm-hide{display:none}}
+
+.fund-short{white-space:nowrap}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "ReturnKoto? Fund Comparison", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "url": "https://returnkoto.com/compare.html", "description": "Compare Bangladeshi open-end mutual funds side by side: historical returns, fees, exit loads, minimum investment, risk and what each fund holds.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BDT"}, "dateModified": "2026-08-03", "isAccessibleForFree": true, "inLanguage": "en", "publisher": {"@id": "https://returnkoto.com/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://returnkoto.com/compare.html"}]}]}
@@ -301,7 +303,9 @@
       tipEl.setAttribute('data-tip',base);
     }
   }
-  function slug(l){return l.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');}
+  function fundDisp(f){return f&&f.short?(f.label+" ("+f.short+")"):(f?f.label:"");}
+function fundDispHtml(f){return f&&f.short?(f.label+' <span class="fund-short">('+f.short+')</span>'):(f?f.label:"");}
+function slug(l){return l.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');}
   var bySlug={},byId={}; funds.forEach(function(f){bySlug[slug(f.label)]=f;byId[String(f.id)]=f;});
   function tk(v){return TK+Math.round(v).toLocaleString('en-IN');}
   function voidMsg(msg){return '<span style="color:var(--muted);font-size:13px;font-weight:600;line-height:1.35">'+esc(msg||'Not available')+'</span>';}
@@ -487,7 +491,7 @@
   function opts(selectedId,allowNone){
     var s=allowNone?'<option value="">– none –</option>':'';
     var list=shOnly?funds.filter(function(f){return f.sh;}):funds;
-    list.forEach(function(f){s+='<option value="'+f.id+'"'+(String(f.id)===String(selectedId)?' selected':'')+'>'+f.label.replace(/</g,'&lt;')+'</option>';});
+    list.forEach(function(f){s+='<option value="'+f.id+'"'+(String(f.id)===String(selectedId)?' selected':'')+'>'+fundDisp(f).replace(/</g,'&lt;')+'</option>';});
     return s;
   }
   var pk=[document.getElementById('pk0'),document.getElementById('pk1'),document.getElementById('pk2')];
@@ -616,13 +620,13 @@
       var _sc=sharedCell(cols);
       if(_sc!==null)rows.push(['__span',lab('Shared stocks','cmp_shared','Named stocks that appear in more than one of these funds\u2019 disclosed top holdings. Weights are from those statements, not live market prices.','What does Shared stocks mean?'),_sc]);
     }
-    var head='<thead><tr><th class="k"></th>'+cols.map(function(f){return '<th>'+f.label.replace(/</g,'&lt;')+'</th>';}).join('')+'</tr></thead>';
+    var head='<thead><tr><th class="k"></th>'+cols.map(function(f){return '<th>'+fundDispHtml(f)+'</th>';}).join('')+'</tr></thead>';
     var body='<tbody>';
     rows.forEach(function(r){
       if(r[0]==='__sect'){body+='<tr class="cmp-sect"><td colspan="'+(cols.length+1)+'">'+r[1]+'</td></tr>';return;}
       if(r[0]==='__span'){body+='<tr><td class="k">'+r[1]+'</td><td colspan="'+cols.length+'" style="font-size:13px;line-height:1.6">'+r[2]+'</td></tr>';return;}
       body+='<tr><td class="k">'+r[0]+'</td>'+r[1].map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>';});
-    body+='<tr class="cmp-openrow"><td class="k"></td>'+cols.map(function(f){return '<td><a href="/funds/'+slug(f.label)+'.html">Open '+f.label.replace(/</g,'&lt;')+' →</a></td>';}).join('')+'</tr>';
+    body+='<tr class="cmp-openrow"><td class="k"></td>'+cols.map(function(f){return '<td><a href="/funds/'+slug(f.label)+'.html">Open '+fundDisp(f).replace(/</g,'&lt;')+' →</a></td>';}).join('')+'</tr>';
     body+='</tbody>';
     root.innerHTML=head+body;
     document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. When a fund is younger than the selected period, return cells say Needs N years of history (or Insufficient history). Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or a clear shortfall label. Tap the ? next to each row or section for a short plain-language tip (it opens above the row). "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). Missing prospectus or holdings fields say why they are blank (for example Not stated in prospectus, or No sector labels in this statement). Holdings come from each fund&rsquo;s quarterly portfolio disclosure, with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV.';
