@@ -530,8 +530,12 @@
     if(sectorOw!=null)bits.push('<b>&asymp;'+sectorOw.toFixed(0)+'% same sectors</b>');
     else bits.push('Sector overlap not available');
     var move=movePhrase(r);
-    if(move)bits.push(move+(corr?' <span style="color:var(--muted);font-weight:600">(r='+r.toFixed(2)+', '+corr.months+' mo)</span>':''));
-    else bits.push('Co-movement needs more shared history');
+    if(move){
+      var rTip=tipBtn('cmp_corr_r',
+        'r is how together the two funds\u2019 monthly total returns moved over the shared history, on a scale from \u22121 to +1. Near +1 means they usually rose and fell together; near 0 means little month-to-month link; negative means they often moved opposite ways. The months figure is how many shared months went into that number. The plain words before it (Usually move differently, Mixed co-movement, and so on) are the same idea in everyday language.',
+        'What does r mean?');
+      bits.push(move+(corr?' <span style="color:var(--muted);font-weight:600">(r='+r.toFixed(2)+', '+corr.months+' mo)'+rTip+'</span>':''));
+    }else bits.push('Co-movement needs more shared history');
     var verd=diversifyVerdict(stockOw,sectorOw,r);
     var line=bits.join(' <span style="color:var(--muted);font-weight:500">|</span> ')+' <span style="color:var(--muted);font-weight:500">&rarr;</span> <span class="'+verd.cls+'">'+verd.t+'</span>';
     var sub='Shared stock weight uses disclosed named equity tops (sum of the smaller weight in each shared name). Sector weight uses the same idea when both statements label sectors (close labels are normalized). Co-movement is the correlation of monthly total returns over the shared recent history. Holdings are quarterly; past co-movement is not a promise of future risk reduction. Growth vs Income pairs often look diversified because their mandates differ.';
