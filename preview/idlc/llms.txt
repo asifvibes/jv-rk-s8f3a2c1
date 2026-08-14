@@ -26,9 +26,9 @@
 - [Roadmap](https://returnkoto.com/roadmap/): what is shipping next on ReturnKoto?.
 
 ## Funds tracked
-- [IDLC Income Fund](https://returnkoto.com/funds/idlc-income-fund.html)
-- [IDLC Growth Fund](https://returnkoto.com/funds/idlc-growth-fund.html)
-- [IDLC AML Shariah Fund](https://returnkoto.com/funds/idlc-aml-shariah-fund.html)
+- [IDLC Income Fund (IIF)](https://returnkoto.com/funds/idlc-income-fund.html)
+- [IDLC Growth Fund (IGF)](https://returnkoto.com/funds/idlc-growth-fund.html)
+- [IDLC AML Shariah Fund (IAMLSF)](https://returnkoto.com/funds/idlc-aml-shariah-fund.html)
 
 ## Guides
 - [How to invest in mutual funds in Bangladesh](https://returnkoto.com/guides/how-to-invest-in-mutual-funds-bangladesh.html)

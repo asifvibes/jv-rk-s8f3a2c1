@@ -1,12 +1,13 @@
 {
  "asOf": "2026-08-12",
- "generated": "2026-08-13",
+ "generated": "2026-08-14",
  "preview": "idlc",
  "funds": [
   {
    "id": "idlc-income-fund",
    "type": "Income",
    "label": "IDLC Income Fund",
+   "short": "IIF",
    "sh": 0,
    "since": "30-06-2021",
    "M": 63,
@@ -273,6 +274,7 @@
    "id": "idlc-growth-fund",
    "type": "Growth",
    "label": "IDLC Growth Fund",
+   "short": "IGF",
    "sh": 0,
    "since": "04-07-2019",
    "M": 86,
@@ -613,6 +615,7 @@
    "id": "idlc-aml-shariah-fund",
    "type": "Growth",
    "label": "IDLC AML Shariah Fund",
+   "short": "IAMLSF",
    "sh": 1,
    "since": "26-12-2019",
    "M": 81,

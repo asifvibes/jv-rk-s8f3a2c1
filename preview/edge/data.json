@@ -1,12 +1,13 @@
 {
  "asOf": "2026-08-13",
- "generated": "2026-08-13",
+ "generated": "2026-08-14",
  "preview": "edge",
  "funds": [
   {
    "id": "edge-amc-growth-fund",
    "type": "Growth",
    "label": "EDGE AMC Growth Fund",
+   "short": "EDGEAMCGF",
    "sh": 0,
    "since": "26-09-2019",
    "M": 84,
@@ -326,7 +327,7 @@
    "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1,
    "edgeCagr": 10.79,
-   "edgeCagrAsOf": "2026-08-13",
+   "edgeCagrAsOf": "2026-08-14",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -467,6 +468,7 @@
    "id": "edge-bangladesh-mutual-fund",
    "type": "Growth",
    "label": "EDGE Bangladesh Mutual Fund",
+   "short": "EDGEBDMF",
    "sh": 0,
    "since": "30-08-2018",
    "M": 97,
@@ -840,7 +842,7 @@
    "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.78,
-   "edgeCagrAsOf": "2026-08-13",
+   "edgeCagrAsOf": "2026-08-14",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -1009,6 +1011,7 @@
    "id": "edge-high-quality-income-fund",
    "type": "Income",
    "label": "EDGE High Quality Income Fund",
+   "short": "EDGEHQIF",
    "sh": 0,
    "since": "24-02-2022",
    "M": 55,
@@ -1242,7 +1245,7 @@
    "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.83,
-   "edgeCagrAsOf": "2026-08-13",
+   "edgeCagrAsOf": "2026-08-14",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -1355,6 +1358,7 @@
    "id": "edge-al-amin-shariah-consumer-fund",
    "type": "Balanced",
    "label": "EDGE Al-Amin Shariah Consumer Fund",
+   "short": "EDGEALAMIN",
    "sh": 1,
    "since": "29-09-2022",
    "M": 48,
@@ -1560,7 +1564,7 @@
    "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1,
    "edgeCagr": 4.91,
-   "edgeCagrAsOf": "2026-08-13",
+   "edgeCagrAsOf": "2026-08-14",
    "dividendsDated": 1,
    "Hamc": {
     "6": [

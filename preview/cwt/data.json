@@ -1,12 +1,13 @@
 {
  "asOf": "2026-08-16",
- "generated": "2026-08-13",
+ "generated": "2026-08-14",
  "preview": "cwt",
  "funds": [
   {
    "id": "cwt-sadharan-bima-growth-fund",
    "type": "Growth",
    "label": "CWT Sadharan Bima Growth Fund",
+   "short": "CWTSBGF",
    "sh": 0,
    "since": "27-09-2020",
    "M": 72,
@@ -292,6 +293,7 @@
    "id": "cwt-opportunities-fund",
    "type": "Growth",
    "label": "CWT Opportunities Fund",
+   "short": "CWTOF",
    "sh": 0,
    "since": "27-06-2021",
    "M": 63,
@@ -559,6 +561,7 @@
    "id": "cwt-community-bank-shariah-fund",
    "type": "Growth",
    "label": "CWT Community Bank Shariah Fund",
+   "short": "CWTCBSF",
    "sh": 1,
    "since": "29-10-2023",
    "M": 35,
@@ -728,6 +731,7 @@
    "id": "cwt-emerging-bangladesh-first-growth-fund",
    "type": "Growth",
    "label": "CWT Emerging Bangladesh First Growth Fund",
+   "short": "CWTEBFGF",
    "sh": 0,
    "since": "22-12-2019",
    "M": 81,

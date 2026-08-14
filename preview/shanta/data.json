@@ -1,18 +1,19 @@
 {
- "asOf": "2026-08-13",
- "generated": "2026-08-13",
+ "asOf": "2026-08-15",
+ "generated": "2026-08-14",
  "preview": "shanta",
  "funds": [
   {
    "id": "shanta-fixed-income-fund",
    "type": "Income",
    "label": "Shanta Fixed Income Fund",
+   "short": "SFIF",
    "sh": 0,
    "since": "31-08-2021",
    "M": 61,
-   "aum": 3020,
+   "aum": 3021,
    "nav": 12.235,
-   "navAsOf": "2026-08-13",
+   "navAsOf": "2026-08-15",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
    "div": 8,
    "conf": "complete",
@@ -263,7 +264,7 @@
     ]
    },
    "ytdM": 8,
-   "amcAsOf": "2026-08-13",
+   "amcAsOf": "2026-08-15",
    "fundLaunched": "19-08-2021",
    "fullPublishedHistory": 1
   },
@@ -271,12 +272,13 @@
    "id": "shanta-amanah-shariah-fund",
    "type": "Growth",
    "label": "Shanta Amanah Shariah Fund",
+   "short": "SASF",
    "sh": 1,
    "since": "28-02-2019",
    "M": 91,
-   "aum": 631,
+   "aum": 632,
    "nav": 10.852,
-   "navAsOf": "2026-08-13",
+   "navAsOf": "2026-08-15",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
    "div": 4.5,
    "conf": "complete",
@@ -615,7 +617,7 @@
     ]
    },
    "ytdM": 8,
-   "amcAsOf": "2026-08-13",
+   "amcAsOf": "2026-08-15",
    "fundLaunched": "04-02-2019",
    "fullPublishedHistory": 1
   },
@@ -623,12 +625,13 @@
    "id": "shanta-first-income-unit-fund",
    "type": "Growth",
    "label": "Shanta First Income Unit Fund",
+   "short": "SFIUF",
    "sh": 0,
    "since": "31-03-2018",
    "M": 102,
-   "aum": 820,
+   "aum": 821,
    "nav": 12.194,
-   "navAsOf": "2026-08-13",
+   "navAsOf": "2026-08-15",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
    "div": 6,
    "conf": "complete",
@@ -1003,7 +1006,7 @@
     ]
    },
    "ytdM": 8,
-   "amcAsOf": "2026-08-13",
+   "amcAsOf": "2026-08-15",
    "fundLaunched": "08-03-2018",
    "fullPublishedHistory": 1
   }

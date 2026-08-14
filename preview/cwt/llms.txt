@@ -26,10 +26,10 @@
 - [Roadmap](https://returnkoto.com/roadmap/): what is shipping next on ReturnKoto?.
 
 ## Funds tracked
-- [CWT Sadharan Bima Growth Fund](https://returnkoto.com/funds/cwt-sadharan-bima-growth-fund.html)
-- [CWT Opportunities Fund](https://returnkoto.com/funds/cwt-opportunities-fund.html)
-- [CWT Community Bank Shariah Fund](https://returnkoto.com/funds/cwt-community-bank-shariah-fund.html)
-- [CWT Emerging Bangladesh First Growth Fund](https://returnkoto.com/funds/cwt-emerging-bangladesh-first-growth-fund.html)
+- [CWT Sadharan Bima Growth Fund (CWTSBGF)](https://returnkoto.com/funds/cwt-sadharan-bima-growth-fund.html)
+- [CWT Opportunities Fund (CWTOF)](https://returnkoto.com/funds/cwt-opportunities-fund.html)
+- [CWT Community Bank Shariah Fund (CWTCBSF)](https://returnkoto.com/funds/cwt-community-bank-shariah-fund.html)
+- [CWT Emerging Bangladesh First Growth Fund (CWTEBFGF)](https://returnkoto.com/funds/cwt-emerging-bangladesh-first-growth-fund.html)
 
 ## Guides
 - [How to invest in mutual funds in Bangladesh](https://returnkoto.com/guides/how-to-invest-in-mutual-funds-bangladesh.html)

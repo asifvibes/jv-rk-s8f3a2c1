@@ -26,9 +26,9 @@
 - [Roadmap](https://returnkoto.com/roadmap/): what is shipping next on ReturnKoto?.
 
 ## Funds tracked
-- [Ekush Stable Return Fund](https://returnkoto.com/funds/ekush-stable-return-fund.html)
-- [Ekush First Unit Fund](https://returnkoto.com/funds/ekush-first-unit-fund.html)
-- [Ekush Growth Fund](https://returnkoto.com/funds/ekush-growth-fund.html)
+- [Ekush Stable Return Fund (ESRF)](https://returnkoto.com/funds/ekush-stable-return-fund.html)
+- [Ekush First Unit Fund (EFUF)](https://returnkoto.com/funds/ekush-first-unit-fund.html)
+- [Ekush Growth Fund (EGF)](https://returnkoto.com/funds/ekush-growth-fund.html)
 
 ## Guides
 - [How to invest in mutual funds in Bangladesh](https://returnkoto.com/guides/how-to-invest-in-mutual-funds-bangladesh.html)

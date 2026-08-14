@@ -26,10 +26,10 @@
 - [Roadmap](https://returnkoto.com/roadmap/): what is shipping next on ReturnKoto?.
 
 ## Funds tracked
-- [EDGE AMC Growth Fund](https://returnkoto.com/funds/edge-amc-growth-fund.html)
-- [EDGE Bangladesh Mutual Fund](https://returnkoto.com/funds/edge-bangladesh-mutual-fund.html)
-- [EDGE High Quality Income Fund](https://returnkoto.com/funds/edge-high-quality-income-fund.html)
-- [EDGE Al-Amin Shariah Consumer Fund](https://returnkoto.com/funds/edge-al-amin-shariah-consumer-fund.html)
+- [EDGE AMC Growth Fund (EDGEAMCGF)](https://returnkoto.com/funds/edge-amc-growth-fund.html)
+- [EDGE Bangladesh Mutual Fund (EDGEBDMF)](https://returnkoto.com/funds/edge-bangladesh-mutual-fund.html)
+- [EDGE High Quality Income Fund (EDGEHQIF)](https://returnkoto.com/funds/edge-high-quality-income-fund.html)
+- [EDGE Al-Amin Shariah Consumer Fund (EDGEALAMIN)](https://returnkoto.com/funds/edge-al-amin-shariah-consumer-fund.html)
 
 ## Guides
 - [How to invest in mutual funds in Bangladesh](https://returnkoto.com/guides/how-to-invest-in-mutual-funds-bangladesh.html)

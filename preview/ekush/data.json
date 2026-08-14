@@ -1,12 +1,13 @@
 {
  "asOf": "2026-08-13",
- "generated": "2026-08-13",
+ "generated": "2026-08-14",
  "preview": "ekush",
  "funds": [
   {
    "id": "ekush-stable-return-fund",
    "type": "Income",
    "label": "Ekush Stable Return Fund",
+   "short": "ESRF",
    "sh": 0,
    "since": "06-09-2022",
    "M": 48,
@@ -216,6 +217,7 @@
    "id": "ekush-first-unit-fund",
    "type": "Balanced",
    "label": "Ekush First Unit Fund",
+   "short": "EFUF",
    "sh": 0,
    "since": "25-11-2019",
    "M": 82,
@@ -535,6 +537,7 @@
    "id": "ekush-growth-fund",
    "type": "Growth",
    "label": "Ekush Growth Fund",
+   "short": "EGF",
    "sh": 0,
    "since": "17-10-2021",
    "M": 59,

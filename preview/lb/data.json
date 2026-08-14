@@ -1,12 +1,13 @@
 {
  "asOf": "2026-08-13",
- "generated": "2026-08-13",
+ "generated": "2026-08-14",
  "preview": "lb",
  "funds": [
   {
    "id": "lankabangla-al-arafah-shariah-unit-fund",
    "type": "Balanced",
    "label": "LankaBangla Al-Arafah Shariah Unit Fund",
+   "short": "LBASUF",
    "sh": 1,
    "since": "26-04-2018",
    "M": 101,
@@ -392,6 +393,7 @@
    "id": "lankabangla-1st-balanced-unit-fund",
    "type": "Balanced",
    "label": "LankaBangla 1st Balanced Unit Fund",
+   "short": "LB1stBUF",
    "sh": 0,
    "since": "24-11-2016",
    "M": 118,
@@ -825,6 +827,7 @@
    "id": "lb-gratuity-opportunities-fund",
    "type": "Balanced",
    "label": "LB Gratuity Opportunities Fund",
+   "short": "LBGOF",
    "sh": 0,
    "since": "31-12-2020",
    "M": 69,
@@ -1104,6 +1107,7 @@
    "id": "lb-gratuity-wealth-builder-fund",
    "type": "Balanced",
    "label": "LB Gratuity Wealth Builder Fund",
+   "short": "LBGWBF",
    "sh": 0,
    "since": "26-08-2021",
    "M": 61,

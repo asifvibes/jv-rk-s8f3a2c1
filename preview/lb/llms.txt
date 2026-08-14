@@ -26,10 +26,10 @@
 - [Roadmap](https://returnkoto.com/roadmap/): what is shipping next on ReturnKoto?.
 
 ## Funds tracked
-- [LankaBangla Al-Arafah Shariah Unit Fund](https://returnkoto.com/funds/lankabangla-al-arafah-shariah-unit-fund.html)
-- [LankaBangla 1st Balanced Unit Fund](https://returnkoto.com/funds/lankabangla-1st-balanced-unit-fund.html)
-- [LB Gratuity Opportunities Fund](https://returnkoto.com/funds/lb-gratuity-opportunities-fund.html)
-- [LB Gratuity Wealth Builder Fund](https://returnkoto.com/funds/lb-gratuity-wealth-builder-fund.html)
+- [LankaBangla Al-Arafah Shariah Unit Fund (LBASUF)](https://returnkoto.com/funds/lankabangla-al-arafah-shariah-unit-fund.html)
+- [LankaBangla 1st Balanced Unit Fund (LB1stBUF)](https://returnkoto.com/funds/lankabangla-1st-balanced-unit-fund.html)
+- [LB Gratuity Opportunities Fund (LBGOF)](https://returnkoto.com/funds/lb-gratuity-opportunities-fund.html)
+- [LB Gratuity Wealth Builder Fund (LBGWBF)](https://returnkoto.com/funds/lb-gratuity-wealth-builder-fund.html)
 
 ## Guides
 - [How to invest in mutual funds in Bangladesh](https://returnkoto.com/guides/how-to-invest-in-mutual-funds-bangladesh.html)

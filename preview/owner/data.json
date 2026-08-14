@@ -1,12 +1,13 @@
 {
  "asOf": "2026-08-12",
- "generated": "2026-08-13",
+ "generated": "2026-08-14",
  "preview": "owner",
  "funds": [
   {
    "id": "idlc-income-fund",
    "type": "Income",
    "label": "IDLC Income Fund",
+   "short": "IIF",
    "sh": 0,
    "since": "30-06-2021",
    "M": 63,
@@ -273,12 +274,13 @@
    "id": "shanta-fixed-income-fund",
    "type": "Income",
    "label": "Shanta Fixed Income Fund",
+   "short": "SFIF",
    "sh": 0,
    "since": "31-08-2021",
    "M": 61,
-   "aum": 3020,
+   "aum": 3021,
    "nav": 12.235,
-   "navAsOf": "2026-08-13",
+   "navAsOf": "2026-08-15",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
    "div": 8,
    "conf": "complete",
@@ -529,7 +531,7 @@
     ]
    },
    "ytdM": 8,
-   "amcAsOf": "2026-08-13",
+   "amcAsOf": "2026-08-15",
    "fundLaunched": "19-08-2021",
    "fullPublishedHistory": 1
   },
@@ -537,12 +539,13 @@
    "id": "shanta-amanah-shariah-fund",
    "type": "Growth",
    "label": "Shanta Amanah Shariah Fund",
+   "short": "SASF",
    "sh": 1,
    "since": "28-02-2019",
    "M": 91,
-   "aum": 631,
+   "aum": 632,
    "nav": 10.852,
-   "navAsOf": "2026-08-13",
+   "navAsOf": "2026-08-15",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
    "div": 4.5,
    "conf": "complete",
@@ -881,7 +884,7 @@
     ]
    },
    "ytdM": 8,
-   "amcAsOf": "2026-08-13",
+   "amcAsOf": "2026-08-15",
    "fundLaunched": "04-02-2019",
    "fullPublishedHistory": 1
   },
@@ -889,12 +892,13 @@
    "id": "shanta-first-income-unit-fund",
    "type": "Growth",
    "label": "Shanta First Income Unit Fund",
+   "short": "SFIUF",
    "sh": 0,
    "since": "31-03-2018",
    "M": 102,
-   "aum": 820,
+   "aum": 821,
    "nav": 12.194,
-   "navAsOf": "2026-08-13",
+   "navAsOf": "2026-08-15",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
    "div": 6,
    "conf": "complete",
@@ -1269,7 +1273,7 @@
     ]
    },
    "ytdM": 8,
-   "amcAsOf": "2026-08-13",
+   "amcAsOf": "2026-08-15",
    "fundLaunched": "08-03-2018",
    "fullPublishedHistory": 1
   },
@@ -1277,6 +1281,7 @@
    "id": "edge-amc-growth-fund",
    "type": "Growth",
    "label": "EDGE AMC Growth Fund",
+   "short": "EDGEAMCGF",
    "sh": 0,
    "since": "26-09-2019",
    "M": 84,
@@ -1596,7 +1601,7 @@
    "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1,
    "edgeCagr": 10.79,
-   "edgeCagrAsOf": "2026-08-13",
+   "edgeCagrAsOf": "2026-08-14",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -1737,6 +1742,7 @@
    "id": "edge-bangladesh-mutual-fund",
    "type": "Growth",
    "label": "EDGE Bangladesh Mutual Fund",
+   "short": "EDGEBDMF",
    "sh": 0,
    "since": "30-08-2018",
    "M": 97,
@@ -2110,7 +2116,7 @@
    "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.78,
-   "edgeCagrAsOf": "2026-08-13",
+   "edgeCagrAsOf": "2026-08-14",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -2279,6 +2285,7 @@
    "id": "edge-high-quality-income-fund",
    "type": "Income",
    "label": "EDGE High Quality Income Fund",
+   "short": "EDGEHQIF",
    "sh": 0,
    "since": "24-02-2022",
    "M": 55,
@@ -2512,7 +2519,7 @@
    "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.83,
-   "edgeCagrAsOf": "2026-08-13",
+   "edgeCagrAsOf": "2026-08-14",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -2625,6 +2632,7 @@
    "id": "edge-al-amin-shariah-consumer-fund",
    "type": "Balanced",
    "label": "EDGE Al-Amin Shariah Consumer Fund",
+   "short": "EDGEALAMIN",
    "sh": 1,
    "since": "29-09-2022",
    "M": 48,
@@ -2830,7 +2838,7 @@
    "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1,
    "edgeCagr": 4.91,
-   "edgeCagrAsOf": "2026-08-13",
+   "edgeCagrAsOf": "2026-08-14",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -2929,6 +2937,7 @@
    "id": "ekush-stable-return-fund",
    "type": "Income",
    "label": "Ekush Stable Return Fund",
+   "short": "ESRF",
    "sh": 0,
    "since": "06-09-2022",
    "M": 48,
@@ -3142,98 +3151,98 @@
    "since": "27-07-2023",
    "M": 38,
    "aum": 3774,
-   "nav": 14.7,
-   "navAsOf": "2026-08-12",
+   "nav": 14.71,
+   "navAsOf": "2026-08-13",
    "navSrc": "UCB Asset Management Limited (UCB AML)'s website",
    "div": 0,
    "conf": "complete",
    "note": "",
    "H": {
     "6": [
-     1.0568,
-     11.68,
-     31231,
-     4.1,
-     14.7
+     1.0575,
+     11.83,
+     31252,
+     4.17,
+     14.97
     ],
     "12": [
-     1.117,
-     11.7,
-     63904,
-     6.51,
-     12.23
+     1.1178,
+     11.78,
+     63948,
+     6.58,
+     12.37
     ],
     "24": [
-     1.3315,
-     15.39,
-     139179,
-     15.98,
-     14.94
+     1.3324,
+     15.43,
+     139274,
+     16.06,
+     15.01
     ],
     "36": [
-     1.454,
-     13.29,
-     223272,
-     24.04,
-     14.49
+     1.455,
+     13.31,
+     223424,
+     24.12,
+     14.54
     ],
     "38": [
-     1.4641,
-     13.16,
-     235593,
-     24,
-     13.67
+     1.4651,
+     13.19,
+     235750,
+     24.08,
+     13.72
     ],
     "ytd": [
-     1.0929,
-     14.26,
-     42045,
-     5.11,
-     14.12
+     1.0937,
+     14.38,
+     42073,
+     5.18,
+     14.33
     ]
    },
    "Hco": {
     "6": [
-     1.0568,
-     11.68,
-     31231,
-     4.1,
-     14.7
+     1.0575,
+     11.83,
+     31252,
+     4.17,
+     14.97
     ],
     "12": [
-     1.117,
-     11.7,
-     63904,
-     6.51,
-     12.23
+     1.1178,
+     11.78,
+     63948,
+     6.58,
+     12.37
     ],
     "24": [
-     1.3315,
-     15.39,
-     139179,
-     15.98,
-     14.94
+     1.3324,
+     15.43,
+     139274,
+     16.06,
+     15.01
     ],
     "36": [
-     1.454,
-     13.29,
-     223272,
-     24.04,
-     14.49
+     1.455,
+     13.31,
+     223424,
+     24.12,
+     14.54
     ],
     "38": [
-     1.4641,
-     13.16,
-     235593,
-     24,
-     13.67
+     1.4651,
+     13.19,
+     235750,
+     24.08,
+     13.72
     ],
     "ytd": [
-     1.0929,
-     14.26,
-     42045,
-     5.11,
-     14.12
+     1.0937,
+     14.38,
+     42073,
+     5.18,
+     14.33
     ]
    },
    "series": {
@@ -3276,7 +3285,7 @@
      139.3,
      142.9,
      144.7,
-     146.4
+     146.5
     ],
     "co": [
      100,
@@ -3316,11 +3325,11 @@
      139.3,
      142.9,
      144.7,
-     146.4
+     146.5
     ]
    },
    "ytdM": 8,
-   "amcAsOf": "2026-08-12",
+   "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1
   },
   {
@@ -5883,6 +5892,7 @@
    "id": "idlc-growth-fund",
    "type": "Growth",
    "label": "IDLC Growth Fund",
+   "short": "IGF",
    "sh": 0,
    "since": "04-07-2019",
    "M": 86,
@@ -6223,6 +6233,7 @@
    "id": "idlc-aml-shariah-fund",
    "type": "Growth",
    "label": "IDLC AML Shariah Fund",
+   "short": "IAMLSF",
    "sh": 1,
    "since": "26-12-2019",
    "M": 81,
@@ -6539,6 +6550,7 @@
    "id": "lankabangla-al-arafah-shariah-unit-fund",
    "type": "Balanced",
    "label": "LankaBangla Al-Arafah Shariah Unit Fund",
+   "short": "LBASUF",
    "sh": 1,
    "since": "26-04-2018",
    "M": 101,
@@ -6924,6 +6936,7 @@
    "id": "ekush-first-unit-fund",
    "type": "Balanced",
    "label": "Ekush First Unit Fund",
+   "short": "EFUF",
    "sh": 0,
    "since": "25-11-2019",
    "M": 82,
@@ -7243,6 +7256,7 @@
    "id": "ekush-growth-fund",
    "type": "Growth",
    "label": "Ekush Growth Fund",
+   "short": "EGF",
    "sh": 0,
    "since": "17-10-2021",
    "M": 59,
@@ -7493,7 +7507,7 @@
    "M": 65,
    "aum": 221,
    "nav": 10.56,
-   "navAsOf": "2026-08-12",
+   "navAsOf": "2026-08-14",
    "navSrc": "UCB Asset Management Limited (UCB AML)'s website",
    "div": 3.5,
    "conf": "complete",
@@ -7752,7 +7766,7 @@
     ]
    },
    "ytdM": 8,
-   "amcAsOf": "2026-08-12",
+   "amcAsOf": "2026-08-14",
    "fullPublishedHistory": 1
   },
   {
@@ -7763,112 +7777,112 @@
    "since": "28-04-2022",
    "M": 53,
    "aum": 166,
-   "nav": 10.04,
-   "navAsOf": "2026-08-12",
+   "nav": 10.06,
+   "navAsOf": "2026-08-13",
    "navSrc": "UCB Asset Management Limited (UCB AML)'s website",
    "div": 7,
    "conf": "complete",
    "note": "Shariah growth fund that distributes income as cash dividends, so its NAV stays near face value. Dividends verified from UCB declarations; none declared for the year to June 2024.",
    "H": {
     "6": [
-     1.005,
-     1,
-     30350,
-     1.17,
-     4.05
+     1.007,
+     1.41,
+     30411,
+     1.37,
+     4.76
     ],
     "12": [
-     1.0488,
-     4.88,
-     61762,
-     2.94,
-     5.47
+     1.0509,
+     5.09,
+     61885,
+     3.14,
+     5.85
     ],
     "24": [
-     1.0258,
-     1.28,
-     123700,
-     3.08,
-     2.94
+     1.0279,
+     1.38,
+     123946,
+     3.29,
+     3.14
     ],
     "36": [
-     1.0917,
-     2.97,
-     188680,
-     4.82,
-     3.08
+     1.0939,
+     3.04,
+     189056,
+     5.03,
+     3.21
     ],
     "48": [
-     1.0993,
-     2.4,
-     254045,
-     5.85,
-     2.8
+     1.1015,
+     2.45,
+     254551,
+     6.06,
+     2.9
     ],
     "53": [
-     1.1004,
-     2.23,
-     281103,
-     6.08,
-     2.63
+     1.1026,
+     2.28,
+     281653,
+     6.28,
+     2.72
     ],
     "ytd": [
-     1.0415,
-     6.29,
-     40649,
-     1.62,
-     4.37
+     1.0436,
+     6.61,
+     40730,
+     1.82,
+     4.93
     ]
    },
    "Hco": {
     "6": [
-     1.005,
-     1,
-     30350,
-     1.17,
-     4.05
+     1.007,
+     1.41,
+     30411,
+     1.37,
+     4.76
     ],
     "12": [
-     1.0478,
-     4.78,
-     61746,
-     2.91,
-     5.42
+     1.0498,
+     4.98,
+     61867,
+     3.11,
+     5.8
     ],
     "24": [
-     1.0248,
-     1.23,
-     123623,
-     3.02,
-     2.88
+     1.0267,
+     1.33,
+     123859,
+     3.22,
+     3.07
     ],
     "36": [
-     1.0892,
-     2.89,
-     188518,
-     4.73,
-     3.02
+     1.0912,
+     2.95,
+     188874,
+     4.93,
+     3.15
     ],
     "48": [
-     1.0968,
-     2.34,
-     253734,
-     5.72,
-     2.74
+     1.0988,
+     2.38,
+     254209,
+     5.92,
+     2.83
     ],
     "53": [
-     1.0979,
-     2.18,
-     280741,
-     5.94,
-     2.57
+     1.0999,
+     2.22,
+     281256,
+     6.13,
+     2.66
     ],
     "ytd": [
-     1.0415,
-     6.29,
-     40649,
-     1.62,
-     4.37
+     1.0436,
+     6.61,
+     40730,
+     1.82,
+     4.93
     ]
    },
    "series": {
@@ -7926,7 +7940,7 @@
      107.8,
      109.7,
      110,
-     110
+     110.3
     ],
     "co": [
      100,
@@ -7981,11 +7995,11 @@
      107.8,
      109.5,
      109.8,
-     109.8
+     110
     ]
    },
    "ytdM": 8,
-   "amcAsOf": "2026-08-12",
+   "amcAsOf": "2026-08-13",
    "fullPublishedHistory": 1
   },
   {
@@ -9362,6 +9376,7 @@
    "id": "cwt-sadharan-bima-growth-fund",
    "type": "Growth",
    "label": "CWT Sadharan Bima Growth Fund",
+   "short": "CWTSBGF",
    "sh": 0,
    "since": "27-09-2020",
    "M": 72,
@@ -9647,6 +9662,7 @@
    "id": "cwt-opportunities-fund",
    "type": "Growth",
    "label": "CWT Opportunities Fund",
+   "short": "CWTOF",
    "sh": 0,
    "since": "27-06-2021",
    "M": 63,
@@ -9914,6 +9930,7 @@
    "id": "cwt-community-bank-shariah-fund",
    "type": "Growth",
    "label": "CWT Community Bank Shariah Fund",
+   "short": "CWTCBSF",
    "sh": 1,
    "since": "29-10-2023",
    "M": 35,
@@ -10083,6 +10100,7 @@
    "id": "cwt-emerging-bangladesh-first-growth-fund",
    "type": "Growth",
    "label": "CWT Emerging Bangladesh First Growth Fund",
+   "short": "CWTEBFGF",
    "sh": 0,
    "since": "22-12-2019",
    "M": 81,
@@ -10400,6 +10418,7 @@
    "id": "lankabangla-1st-balanced-unit-fund",
    "type": "Balanced",
    "label": "LankaBangla 1st Balanced Unit Fund",
+   "short": "LB1stBUF",
    "sh": 0,
    "since": "24-11-2016",
    "M": 118,
@@ -10833,6 +10852,7 @@
    "id": "lb-gratuity-opportunities-fund",
    "type": "Balanced",
    "label": "LB Gratuity Opportunities Fund",
+   "short": "LBGOF",
    "sh": 0,
    "since": "31-12-2020",
    "M": 69,
@@ -11112,6 +11132,7 @@
    "id": "lb-gratuity-wealth-builder-fund",
    "type": "Balanced",
    "label": "LB Gratuity Wealth Builder Fund",
+   "short": "LBGWBF",
    "sh": 0,
    "since": "26-08-2021",
    "M": 61,
