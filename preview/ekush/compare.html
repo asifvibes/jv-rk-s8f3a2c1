@@ -47,7 +47,7 @@
   .wrap{max-width:820px;margin:0 auto;padding:24px 18px 64px}
   h1{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:22px 0 6px;line-height:1.25}
   .lead{font-size:15px;color:var(--muted);margin-bottom:12px}
-  .cmp-seo{font-size:14px;color:var(--muted);margin:0 0 16px;line-height:1.55}
+  .cmp-seo{font-size:14px;color:var(--muted);margin:14px 0 0;line-height:1.55}
   .cmp-seo a{color:var(--green-dark);font-weight:600}
   .lead a{color:var(--green-dark);font-weight:600}
   .pickers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 0 14px}
@@ -55,27 +55,31 @@
   .pk label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;margin:0 0 4px}
   .pk select{width:100%;font:inherit;font-size:14px;font-weight:600;color:var(--text);background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:11px 12px;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2712%27%20height%3D%278%27%20viewBox%3D%270%200%2012%208%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cpath%20d%3D%27M1%201l5%205%205-5%27%20stroke%3D%27%236B7280%27%20stroke-width%3D%271.6%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 12px center}
   .pk select:focus{outline:none;border-color:var(--green-dark)}
-  .cqbar{position:sticky;top:47px;z-index:55;display:flex;gap:7px;align-items:stretch;margin:0 0 16px;padding:5px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+  .cqbar{position:sticky;top:var(--cmp-nav,47px);z-index:55;display:flex;gap:7px;align-items:stretch;margin:0 0 16px;padding:5px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
   .cqbar .qsel2{flex:1;min-width:0;border:1px solid var(--border);background:var(--card);color:var(--text);font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;padding:8px 26px 8px 12px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%236B7280' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:12px 8px}
   .cqbar .qsh{flex:none;font-family:inherit;font-size:12px;font-weight:700;color:var(--muted);background:var(--card);border:1.5px solid var(--border);border-radius:999px;padding:8px 13px;cursor:pointer;min-height:34px;transition:color .12s,background .12s,border-color .12s;display:inline-flex;align-items:center}
   .cqbar .qsh::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#6366F1;opacity:.5;margin-right:6px;vertical-align:1px;transition:opacity .12s,background .12s}
   .cqbar .qsh.on{color:#fff;background:#4F46E5;border-color:#4F46E5}
   .cqbar .qsh.on::before{background:#fff;opacity:1}
-  @media(max-width:560px){.cqbar{top:38px;margin-left:-18px;margin-right:-18px;border-radius:0;border-left:0;border-right:0;gap:6px;padding:4px 10px}.cqbar .qsel2,.cqbar .qsh{min-height:44px}}
+  @media(max-width:560px){.cqbar{margin-left:-18px;margin-right:-18px;border-radius:0;border-left:0;border-right:0;gap:6px;padding:4px 10px}.cqbar .qsel2,.cqbar .qsh{min-height:44px}}
   [data-theme="dark"] .cqbar{background:rgba(14,20,31,.95);border-color:#1E2735}
   [data-theme="dark"] .cqbar .qsel2{background-color:#141C28;color:var(--text);border-color:var(--border)}
   [data-theme="dark"] .cqbar .qsh{background:#141C28}
   [data-theme="dark"] .cqbar .qsh.on{background:#4F46E5;color:#fff}
-  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:14px;background:var(--card);position:relative}
-  .cmp-scrollhint{display:none;font-size:12px;font-weight:600;color:var(--muted);margin:8px 2px 0;line-height:1.4}
-  @media(max-width:640px){.cmp-scrollhint.is-on{display:block}}
-  table.cmpt{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
-  table.cmpt th,table.cmpt td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  /* No overflow on the wrapper: a scrolling ancestor would anchor the sticky
+     fund-name header to the wrapper instead of the viewport. Fixed layout keeps
+     every column inside the screen, so the table never needs sideways scrolling. */
+  .tablewrap{border:1px solid var(--line);border-radius:14px;background:var(--card);position:relative}
+  table.cmpt{width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px}
+  table.cmpt th,table.cmpt td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:break-word}
   table.cmpt tr:last-child td{border-bottom:none}
-  table.cmpt thead th{font-size:14.5px;font-weight:800;color:var(--text);background:var(--green-soft)}
-  table.cmpt thead th:first-child{background:var(--card)}
-  table.cmpt td.k,table.cmpt th.k{color:var(--muted);font-weight:600;font-size:12.5px;width:150px;min-width:132px;max-width:168px;white-space:normal;position:sticky;left:0;z-index:2;background:var(--card);box-shadow:6px 0 10px -8px rgba(15,27,20,.28)}
-  table.cmpt thead th.k{z-index:3;background:var(--card)}
+  table.cmpt thead th{position:sticky;top:var(--cmp-stick,92px);z-index:4;font-size:14.5px;font-weight:800;line-height:1.3;color:var(--text);background:var(--green-soft);box-shadow:inset 0 -1px 0 var(--line),0 10px 12px -12px rgba(15,27,20,.45)}
+  table.cmpt thead th:first-child{border-top-left-radius:13px}
+  table.cmpt thead th:last-child{border-top-right-radius:13px}
+  table.cmpt tbody tr:last-child td:first-child{border-bottom-left-radius:13px}
+  table.cmpt tbody tr:last-child td:last-child{border-bottom-right-radius:13px}
+  table.cmpt td.k,table.cmpt th.k{color:var(--muted);font-weight:600;font-size:12.5px;width:150px;white-space:normal;position:sticky;left:0;z-index:2;background:var(--card);box-shadow:6px 0 10px -8px rgba(15,27,20,.28)}
+  table.cmpt thead th.k{z-index:5;background:var(--card);box-shadow:6px 0 10px -8px rgba(15,27,20,.28),inset 0 -1px 0 var(--line)}
   table.cmpt td.k .k-lab{display:inline;line-height:1.35}
   table.cmpt td.k .k-end{white-space:nowrap}
   .asof-wrap{white-space:nowrap}
@@ -99,6 +103,8 @@
   .cmp-howto-body{padding:0 14px 13px;font-size:13px;color:var(--muted);line-height:1.55}
   .cmp-howto-body p{margin:0 0 8px}
   .cmp-howto-body p:last-child{margin:0}
+  .cmp-howto-body a{color:var(--green-dark);font-weight:600}
+  .cmp-period-chip[hidden]{display:none}
   .cmp-period-chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--green-dark);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:999px;padding:4px 10px;margin:0}
   .cmp-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px;min-height:0}
   .cmp-meta:empty{display:none}
@@ -122,7 +128,7 @@
   tr.cmp-sect .k-lab,tr.cmp-sect .k-end{font-weight:800}
   .cmix-bar{display:flex;height:12px;border-radius:6px;overflow:hidden;min-width:130px;margin:2px 0 7px}
   .cmix-leg{font-size:11.5px;color:var(--muted);line-height:1.55}
-  .cmix-leg span{display:block;white-space:nowrap}
+  .cmix-leg span{display:block}
   .cmix-sw{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px}
   .cmp-basis{color:var(--muted);font-size:12px;font-weight:500}
   .csec-row{display:flex;align-items:center;gap:6px;margin:0 0 4px;min-width:150px}
@@ -138,6 +144,30 @@
   .cmp-div-bad{color:#b42318}
   .cmp-div-sub{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500;line-height:1.5}
   .cmp-note{font-size:12.5px;color:var(--muted);margin:14px 2px 0;line-height:1.6}
+  /* Phone density. Kept after the base table + holdings rules so these actually win. */
+  @media(max-width:640px){
+    table.cmpt{font-size:13px}
+    table.cmpt th,table.cmpt td{padding:9px 8px}
+    table.cmpt thead th{font-size:12px}
+    table.cmpt td.k,table.cmpt th.k{width:94px;font-size:11px;box-shadow:none}
+    table.cmpt thead th.k{box-shadow:inset 0 -1px 0 var(--line)}
+    tr.cmp-sect td{padding:7px 8px}
+    tr.cmp-tiprow td{padding:0 8px 9px}
+    .cmix-bar{min-width:0;height:10px}
+    .csec-row{flex-wrap:wrap;min-width:0;gap:1px 5px;margin:0 0 7px}
+    .csec-lbl{flex:1 1 100%;max-width:none;min-width:0;font-size:11px;overflow-wrap:anywhere}
+    .csec-trk{flex:1 1 auto}
+    .fund-short{white-space:normal}
+  }
+  @media(max-width:560px){
+    .tablewrap{margin-left:-18px;margin-right:-18px;border-radius:0;border-left:0;border-right:0}
+    table.cmpt thead th:first-child,table.cmpt thead th:last-child,table.cmpt tbody tr:last-child td:first-child,table.cmpt tbody tr:last-child td:last-child{border-radius:0}
+  }
+  @media(max-width:400px){
+    table.cmpt th,table.cmpt td{padding:8px 6px}
+    table.cmpt thead th{font-size:11.5px;padding:7px 6px}
+    table.cmpt td.k,table.cmpt th.k{width:80px;font-size:10.5px}
+  }
   .cta{display:inline-block;margin-top:20px;background:var(--green-dark);color:#fff;font-weight:800;font-size:15px;padding:12px 24px;border-radius:999px;text-decoration:none}
   .cta:hover{background:#1f9853}
 .rk-nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #eef1ef}
@@ -181,7 +211,7 @@
   [data-theme="dark"] .rk-logo{color:#EAF0F8}
   [data-theme="dark"] .rk-links a{color:#AEB9CC}
   [data-theme="dark"] .rk-links a:hover,[data-theme="dark"] .rk-links a.active{color:#3DD98A}
-  [data-theme="dark"] .lead a{color:#3DD98A}
+  [data-theme="dark"] .lead a,[data-theme="dark"] .cmp-howto-body a{color:#3DD98A}
   [data-theme="dark"] .pk select{background-color:#141C28}
   [data-theme="dark"] table.cmpt thead th{background:#12301E;color:#E6EAF2}
   [data-theme="dark"] table.cmpt thead th:first-child,[data-theme="dark"] table.cmpt td.k,[data-theme="dark"] table.cmpt thead th.k{background:#182130}
@@ -228,11 +258,8 @@
 <div class="wrap" role="main" id="main">
 
   <h1>Compare mutual funds</h1>
-  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical and rolling returns, path risk, fees, exit loads, minimum investment and holdings. Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
+  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical and rolling returns, path risk, fees, exit loads, minimum investment and holdings. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
 
-  <section class="cmp-seo" id="cmpSeo">
-    <p>Every tracked fund is also in the <a href="/funds/">fund directory</a>. For BO account, KYC documents and SIP steps, see <a href="/guides/how-to-invest-in-mutual-funds-bangladesh.html">how to invest in mutual funds in Bangladesh</a>.</p>
-  </section>
   <noscript>
     <p>JavaScript is required to load live fund figures into the comparison table. Without it, use the <a href="/funds/">fund directory</a> and individual fund pages for returns, fees and details, or the <a href="/">homepage calculator</a>.</p>
   </noscript>
@@ -240,10 +267,11 @@
   <details class="cmp-howto">
     <summary>How to read this table</summary>
     <div class="cmp-howto-body">
+      <p>Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>.</p>
       <p><b>Total return</b> is the overall gain or loss on a one-time investment over the period you pick (dividends reinvested). It is not a yearly rate.</p>
       <p><b>Per year</b> turns that same lump-sum result into a steady annual rate (CAGR), so different period lengths stay comparable.</p>
       <p><b>Monthly SIP /yr</b> is the annualized return if you invested the same amount every month. It differs from Per year because money goes in gradually.</p>
-      <p>Tap the <b>?</b> beside any row label for a short tip. On phones, swipe the table sideways to see every fund while the metric names stay pinned. Use <b>Copy link</b> to share this exact comparison.</p>
+      <p>Tap the <b>?</b> beside any row label for a short tip. The fund names stay pinned to the top of the screen as you scroll, so you always know which column you are reading. Use <b>Copy link</b> to share this exact comparison.</p>
     </div>
   </details>
 
@@ -266,8 +294,11 @@
   <div class="tablewrap" id="cmpTableWrap">
     <table class="cmpt" id="cmpTable"><tbody><tr><td>Loading fund data&hellip;</td></tr></tbody></table>
   </div>
-  <p class="cmp-scrollhint" id="cmpScrollHint" aria-hidden="true">Swipe sideways to see every fund</p>
   <p class="cmp-note" id="cmpNote"></p>
+
+  <section class="cmp-seo" id="cmpSeo">
+    <p>Every tracked fund is also in the <a href="/funds/">fund directory</a>. For BO account, KYC documents and SIP steps, see <a href="/guides/how-to-invest-in-mutual-funds-bangladesh.html">how to invest in mutual funds in Bangladesh</a>.</p>
+  </section>
 
   <p><a class="cta" href="/">Run the full calculator &#8594;</a></p>
 
@@ -670,20 +701,12 @@
       return '<b class="'+(v>=0?'v-pos':'v-neg')+'">'+(v>=0?'+':'')+v.toFixed(2)+'%</b>';
     });
   }
-  function syncScrollHint(){
-    var wrap=document.getElementById('cmpTableWrap');
-    var hint=document.getElementById('cmpScrollHint');
-    if(!wrap||!hint)return;
-    var need=wrap.scrollWidth>wrap.clientWidth+8;
-    hint.classList.toggle('is-on',need);
-    hint.setAttribute('aria-hidden',need?'false':'true');
-  }
   var _rrT;function scheduleRender(d){clearTimeout(_rrT);_rrT=setTimeout(render,d||0);}
   function render(){
     fillSelects();
     var cols=cmpCols();
     var copyBtn=document.getElementById('cmpCopyLink');
-    if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;syncScrollHint();return;}
+    if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;return;}
     var pl=plabel();
     var chip=document.getElementById('cmpPeriodChip');
     if(chip){chip.hidden=false;chip.textContent='Comparing over '+pl+(period==='max'?' (each fund\u2019s full tracked history)':'');}
@@ -744,11 +767,7 @@
     root.innerHTML=head+body;
     document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. When a fund is younger than the selected period, return cells say Needs N years of history (or Insufficient history). Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or a clear shortfall label. For two funds, Diversification snapshot combines shared stock weight, shared sector weight (when both statements label sectors), and monthly-return co-movement into one plain-language line. Tap the ? next to each row or section for a short tip (it opens above the row). "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). Missing prospectus or holdings fields say why they are blank (for example Not stated in prospectus, or No sector labels in this statement). Holdings come from each fund&rsquo;s quarterly portfolio disclosure, with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV.';
     writeShareUrl(cols);
-    requestAnimationFrame(syncScrollHint);
   }
-  var wrapEl=document.getElementById('cmpTableWrap');
-  if(wrapEl){wrapEl.addEventListener('scroll',function(){/* hint stays; no-op */},{passive:true});}
-  window.addEventListener('resize',syncScrollHint);
   var copyBtnInit=document.getElementById('cmpCopyLink');
   if(copyBtnInit){
     copyBtnInit.addEventListener('click',function(){
@@ -761,6 +780,22 @@
     });
   }
   scheduleRender();
+})();
+/* Pin the fund-name header just below the nav and the quick bar. Measured rather than
+   hardcoded: both change height across breakpoints and again once Inter finishes loading. */
+(function(){
+  var nav=document.querySelector('.rk-nav'),bar=document.getElementById('cqbar');
+  function sync(){
+    var navH=nav?nav.offsetHeight:0;
+    var st=document.documentElement.style;
+    st.setProperty('--cmp-nav',navH+'px');
+    st.setProperty('--cmp-stick',(navH+(bar?bar.offsetHeight:0))+'px');
+  }
+  sync();
+  window.addEventListener('resize',sync);
+  window.addEventListener('orientationchange',sync);
+  window.addEventListener('load',sync);
+  try{if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sync);}catch(e){}
 })();
 /* Tap tips: table-row callouts + lead/as-of inline callout (mobile-first). */
 (function(){
