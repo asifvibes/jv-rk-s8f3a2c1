@@ -1734,7 +1734,8 @@
    },
    "hasAmcMethod": 1,
    "amcMethodName": "EDGE Composite MoM SIP (XIRR) + Composite lump CAGR",
-   "amcMethodScope": "SIP + lump overlay"
+   "amcMethodScope": "SIP + lump overlay",
+   "amcVerified": "EDGE AMC Limited (EDGE)"
   },
   {
    "id": "edge-bangladesh-mutual-fund",
@@ -2276,7 +2277,8 @@
    },
    "hasAmcMethod": 1,
    "amcMethodName": "EDGE Composite MoM SIP (XIRR) + Composite lump CAGR",
-   "amcMethodScope": "SIP + lump overlay"
+   "amcMethodScope": "SIP + lump overlay",
+   "amcVerified": "EDGE AMC Limited (EDGE)"
   },
   {
    "id": "edge-high-quality-income-fund",
@@ -2622,7 +2624,8 @@
    },
    "hasAmcMethod": 1,
    "amcMethodName": "EDGE Composite MoM SIP (XIRR) + Composite lump CAGR",
-   "amcMethodScope": "SIP + lump overlay"
+   "amcMethodScope": "SIP + lump overlay",
+   "amcVerified": "EDGE AMC Limited (EDGE)"
   },
   {
    "id": "edge-al-amin-shariah-consumer-fund",
@@ -2926,7 +2929,8 @@
    },
    "hasAmcMethod": 1,
    "amcMethodName": "EDGE Composite MoM SIP (XIRR) + Composite lump CAGR",
-   "amcMethodScope": "SIP + lump overlay"
+   "amcMethodScope": "SIP + lump overlay",
+   "amcVerified": "EDGE AMC Limited (EDGE)"
   },
   {
    "id": "ekush-stable-return-fund",
