@@ -108,7 +108,7 @@
   .sw input:checked + .sl:before{transform:translateX(20px)}
   .headline{margin-top:22px;font-size:15px;color:var(--text);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:12px;padding:14px 16px}
   .headline b{font-weight:700}
-  .row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--card);margin-top:10px}
+  .row{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--card);margin-top:10px}
   .row.best{border-color:var(--green)}
   .row.best .rank{width:auto;overflow:visible}
   .bestbadge{display:inline-flex;align-items:center;font-size:11px;font-weight:800;color:var(--green-dark);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:999px;padding:2px 9px;letter-spacing:.02em}
@@ -145,12 +145,12 @@
   .why.caveat b{color:#334155}
   .fund .sub{font-size:12px;color:var(--muted);margin-top:3px}
   .fsz{font-weight:600;color:#374151;white-space:nowrap}
-  .nums{text-align:right;flex:none}
-  .nums .fv{font-weight:800;font-size:18px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-  .sparkwrap{flex:none;width:64px;align-self:center}
-  .sparkwrap .spark{display:block;width:64px;height:24px;color:var(--green-dark)}
+  .nums{text-align:right;flex:none;min-width:7.2em}
+  .nums .fv{font-weight:800;font-size:16px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .sparkwrap{width:72px;margin:0 0 6px auto}
+  .sparkwrap .spark{display:block;width:72px;height:22px;color:var(--green-dark)}
   .sparkwrap .spark.neg{color:var(--red)}
-  @media(max-width:380px){.sparkwrap{width:52px}.sparkwrap .spark{width:52px}}
+  @media(min-width:561px){.nums .fv{font-size:18px}}
   .nums .gn{font-size:12.5px;font-weight:600;margin-top:2px}
   .nums .gn.pos{color:#15803d}
   .nums .gn.neg{color:var(--red)}
@@ -165,10 +165,6 @@
   .hs-spark{margin:10px 0 2px}
   .hs-spark .spark{display:block;width:100%;height:36px;color:var(--green-dark)}
   .hs-spark .spark.neg{color:var(--red)}
-  .hs-share{display:inline-flex;align-items:center;justify-content:center;margin-top:12px;font-family:inherit;font-size:13.5px;font-weight:700;color:var(--green-dark);background:transparent;border:1.5px solid #CDEEDB;border-radius:10px;padding:10px 14px;min-height:44px;cursor:pointer}
-  .hs-share:hover,.hs-share:focus{background:var(--green-soft)}
-  [data-theme="dark"] .hs-share{border-color:#1E4A30;color:#3DD98A}
-  [data-theme="dark"] .hs-share:hover,[data-theme="dark"] .hs-share:focus{background:#12301E}
   .hs-op{font-weight:400;color:var(--muted)}
   .hs-sub{font-size:13.5px;font-weight:600;margin-top:3px;color:var(--muted)}
   .hs-ann{font-weight:700;color:var(--green-dark)}
@@ -672,7 +668,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   [data-theme="dark"] .lccap b[data-bn="Inflation"]{color:#F87171!important}
   [data-theme="dark"] .lccap b[data-bn="Gold"]{color:#FBBF24!important}
   /* headline skeleton: no layout jump while data.json loads */
-  .headline{min-height:168px}
+  .headline{min-height:148px}
   .hl-loading{font-size:13.5px;color:var(--muted);padding:24px 0;text-align:center}
   /* comparison split + rate editing disclosures */
   details.morecmp{display:inline-flex;align-items:center;flex-wrap:wrap;gap:7px 8px}
@@ -729,6 +725,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://returnkoto.com/#org", "name": "ReturnKoto?", "url": "https://returnkoto.com/", "email": "hello@returnkoto.com", "logo": "https://returnkoto.com/apple-touch-icon.png", "sameAs": ["https://www.facebook.com/ReturnKoto", "https://www.instagram.com/returnkoto/", "https://www.youtube.com/@ReturnKoto", "https://www.tiktok.com/@returnkoto", "https://www.reddit.com/r/returnkoto/", "https://www.linkedin.com/company/returnkoto"], "description": "Independent, free resource for the real historical returns of Bangladeshi open-end mutual funds, with verified fees and details from official BSEC prospectuses.", "areaServed": {"@type": "Country", "name": "Bangladesh"}, "knowsAbout": ["Bangladeshi open-end mutual funds", "mutual fund NAV", "SIP investing", "total return", "Shariah-compliant mutual funds", "Sanchayapatra", "DPS", "fixed deposit rates"]}, {"@type": "WebSite", "@id": "https://returnkoto.com/#website", "name": "ReturnKoto?", "url": "https://returnkoto.com/", "inLanguage": "en", "publisher": {"@id": "https://returnkoto.com/#org"}, "description": "What your money would actually have made in Bangladeshi open-end mutual funds, with dividends reinvested by default or taken as cash, and verified fund fees."}, {"@type": "Dataset", "@id": "https://returnkoto.com/#dataset", "name": "Bangladeshi Open-End Mutual Fund Returns", "description": "Historical total returns for Bangladeshi open-end mutual funds, computed from each fund's real published NAV history with cash dividends reinvested by default or taken as cash. Includes lump-sum and monthly-SIP returns over multiple periods, annualized as CAGR for lump sum and money-weighted IRR for SIP, plus each fund's verified management fee, trustee, custodian, sponsor and minimum investment from its official BSEC prospectus.", "creator": {"@id": "https://returnkoto.com/#org"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "isAccessibleForFree": true, "inLanguage": "en", "spatialCoverage": {"@type": "Place", "name": "Bangladesh"}, "keywords": ["Bangladesh mutual funds", "open-end mutual fund", "NAV", "total return", "SIP", "CAGR", "IRR", "Shariah fund", "Sanchayapatra"], "variableMeasured": ["Net asset value (NAV)", "Total return", "Compound annual growth rate (CAGR)", "Money-weighted IRR", "Management fee", "Assets under management"], "creativeWorkStatus": "Updated daily", "license": "https://returnkoto.com/terms.html", "dateModified": "2026-08-03", "temporalCoverage": "2013/..", "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://returnkoto.com/data.json"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://returnkoto.com/holdings.json"}]}]}
 </script>
+<link rel="stylesheet" href="/rk-ui.css?v=1">
 </head>
 <body class="rk-home">
 <div id="rk-preview-banner" style="background:#FEF3C7;color:#92400E;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;border-bottom:1px solid #FDE68A;line-height:1.45">
@@ -1019,7 +1016,10 @@ function sparkSvg(vals,w,h,area){
   }
   var cls="spark"+(neg?" neg":"");
   var fill=area?('<polygon fill="currentColor" fill-opacity="0.14" points="0,'+h+' '+pts+' '+w+','+h+'"/>'):"";
-  return '<svg class="'+cls+'" viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" aria-hidden="true">'+fill+'<polyline fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" points="'+pts+'"/></svg>';
+  // preserveAspectRatio="none" lets CSS size the sparkline to any box instead of
+  // letterboxing it into a centred fragment; non-scaling-stroke keeps the line
+  // at a constant 1.6px however far it is stretched.
+  return '<svg class="'+cls+'" viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" preserveAspectRatio="none" aria-hidden="true">'+fill+'<polyline fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" points="'+pts+'"/></svg>';
 }
 var _hsCount=0,_hsFrom=null;
 function countTaka(el,to,fromHint){
@@ -1038,77 +1038,6 @@ function countTaka(el,to,fromHint){
     else el.textContent=fmt(to);
   }
   requestAnimationFrame(step);
-}
-function rkShareImage(){
-  var s=window._rkShare; if(!s)return;
-  var W=1080,H=1080,c=document.createElement("canvas");
-  c.width=W;c.height=H;
-  var ctx=c.getContext("2d");
-  ctx.fillStyle="#0E141F";ctx.fillRect(0,0,W,H);
-  ctx.fillStyle="#157A43";
-  roundRect(ctx,72,72,56,56,16);ctx.fill();
-  ctx.strokeStyle="#fff";ctx.lineWidth=5;ctx.lineCap="round";ctx.lineJoin="round";
-  ctx.beginPath();ctx.moveTo(84,110);ctx.lineTo(96,98);ctx.lineTo(104,104);ctx.lineTo(116,86);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(107,86);ctx.lineTo(116,86);ctx.lineTo(116,95);ctx.stroke();
-  ctx.fillStyle="#E6EAF2";ctx.font="800 42px Inter, system-ui, sans-serif";
-  ctx.fillText("ReturnKoto?",148,112);
-  ctx.fillStyle="#9BA7BB";ctx.font="600 28px Inter, system-ui, sans-serif";
-  wrapCanvas(ctx,s.kicker,72,190,936,38);
-  ctx.fillStyle=s.pos?"#3DD98A":"#F87171";
-  ctx.font="800 92px Inter, system-ui, sans-serif";
-  fitCanvasText(ctx,s.big,72,430,936,92);
-  ctx.fillStyle="#E6EAF2";ctx.font="700 32px Inter, system-ui, sans-serif";
-  wrapCanvas(ctx,s.sub,72,500,936,40);
-  if(s.spark&&s.spark.length>1){
-    var vals=s.spark,lo=vals[0],hi=vals[0],i;
-    for(i=1;i<vals.length;i++){if(vals[i]<lo)lo=vals[i];if(vals[i]>hi)hi=vals[i];}
-    var span=(hi-lo)||1, x0=72,y0=620,ww=936,hh=160;
-    ctx.beginPath();
-    for(i=0;i<vals.length;i++){
-      var x=x0+i/(vals.length-1)*ww;
-      var y=y0+hh-((vals[i]-lo)/span)*hh;
-      if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);
-    }
-    ctx.strokeStyle=s.pos?"#3DD98A":"#F87171";ctx.lineWidth=5;ctx.lineJoin="round";ctx.stroke();
-  }
-  ctx.fillStyle="#9BA7BB";ctx.font="500 24px Inter, system-ui, sans-serif";
-  ctx.fillText(s.note,72,860);
-  ctx.fillStyle="#3DD98A";ctx.font="700 28px Inter, system-ui, sans-serif";
-  ctx.fillText("returnkoto.com",72,980);
-  function blobReady(blob){
-    if(!blob)return;
-    var file=new File([blob],"returnkoto.png",{type:"image/png"});
-    var shareObj={files:[file],title:"ReturnKoto?",text:s.kicker};
-    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
-      navigator.share(shareObj).catch(function(){dl(blob);});
-    }else dl(blob);
-    try{if(window.gtag)gtag("event","share_image",{place:"home"});}catch(e){}
-  }
-  if(c.toBlob)c.toBlob(blobReady,"image/png");
-  else{
-    var a=document.createElement("a");a.href=c.toDataURL("image/png");a.download="returnkoto.png";a.click();
-  }
-  function dl(blob){
-    var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="returnkoto.png";a.click();
-    setTimeout(function(){URL.revokeObjectURL(a.href);},2500);
-  }
-}
-function roundRect(ctx,x,y,w,h,r){
-  ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();
-}
-function wrapCanvas(ctx,text,x,y,maxW,lh){
-  var words=String(text).split(" "),line="",yy=y,i;
-  for(i=0;i<words.length;i++){
-    var test=line?line+" "+words[i]:words[i];
-    if(ctx.measureText(test).width>maxW&&line){ctx.fillText(line,x,yy);yy+=lh;line=words[i];}
-    else line=test;
-  }
-  if(line)ctx.fillText(line,x,yy);
-}
-function fitCanvasText(ctx,text,x,y,maxW,size){
-  ctx.font="800 "+size+"px Inter, system-ui, sans-serif";
-  while(size>42&&ctx.measureText(text).width>maxW){size-=4;ctx.font="800 "+size+"px Inter, system-ui, sans-serif";}
-  ctx.fillText(text,x,y);
 }
 const getAmt=()=>{const e=document.getElementById("amt");return Math.max(0,parseInt(String(e.value).replace(/[^0-9]/g,""),10)||0);};
 const setAmt=v=>{document.getElementById("amt").value=v?(+v).toLocaleString("en-IN"):"";};
@@ -1154,27 +1083,15 @@ function render(){
   let banner, hs="";
   if(!rows.length){
     banner=`No fund has enough history for this return period yet. Try a shorter period or "Since launch".`;
-    window._rkShare=null;
   }else{
     const b0=rows[0], pp=b0.gain>=0;
     const pct=Math.round(b0.gain/b0.invested*10000)/100;
-    let periodTxt;
-    if(horizon==="max"){const yv=Math.round(b0.monthsUsed/12*10)/10;periodTxt=yv+(yv===1?" year":" years");}
-    else{periodTxt=periodWords(horizon);}
     const bsl=b0.f.label.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
     const ser=(divBasis==="cash"&&b0.f.series&&b0.f.series.co&&b0.f.series.co.length)?b0.f.series.co:((b0.f.series&&b0.f.series.tr)||[]);
     const sparkVals=sparkSlice(ser, b0.monthsUsed);
     const sparkHtml=sparkVals?('<div class="hs-spark">'+sparkSvg(sparkVals,280,36,true)+'</div>'):'';
     const kicker=fmt(b0.invested)+' <span class="hs-op">'+(pp?'grew to':'became')+'</span>';
-    hs='<div class="herostat"><div class="hs-kicker">'+kicker+'</div><div class="hs-main"><b class="hs-final" data-to="'+Math.round(b0.final)+'">'+fmt(b0.final)+'</b></div>'+sparkHtml+'<div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+(b0.annual>=0?'+':'')+tn(b0.annual)+'%/yr)</span> \u00b7 <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(b0.gain))+'</span> \u00b7 best: <a class="fundlink hs-fund" href="/funds/'+bsl+'.html">'+fundDispHtml(b0.f)+'</a></div><button type="button" class="hs-share">Share image</button></div>';
-    window._rkShare={
-      kicker: fmt(b0.invested)+(method==="sip"?" every month":" once")+" · "+periodTxt,
-      big: fmt(b0.final),
-      sub: (pp?"+":"-")+Math.abs(pct).toFixed(2)+"%  ("+(b0.annual>=0?"+":"")+tn(b0.annual)+"%/yr)  ·  "+(b0.f.short||b0.f.label),
-      note: "Historical total return. Past performance does not predict the future.",
-      spark: sparkVals||[],
-      pos: pp
-    };
+    hs='<div class="herostat"><div class="hs-kicker">'+kicker+'</div><div class="hs-main"><b class="hs-final" data-to="'+Math.round(b0.final)+'">'+fmt(b0.final)+'</b></div>'+sparkHtml+'<div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+(b0.annual>=0?'+':'')+tn(b0.annual)+'%/yr)</span> \u00b7 <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(b0.gain))+'</span> \u00b7 best: <a class="fundlink hs-fund" href="/funds/'+bsl+'.html">'+fundDispHtml(b0.f)+'</a></div></div>';
     // Scannable context: fund count + spread only (period + dates live in the card header)
     if(rows.length>2){
       const mid=rows[Math.floor((rows.length-1)/2)], low=rows[rows.length-1];
@@ -1486,8 +1403,8 @@ function renderList(rows){
           ${why}
           ${detToggle}
         </div>
-        ${sparkCell}
         <div class="nums">
+          ${sparkCell}
           <div class="fv">${fmt(r.final)}</div>
           <div class="gn ${gpos?"pos":"neg"}">${gpos?"+":""}${fmt(r.gain)}</div>
           <div class="ann">${r.annual>=0?"+":""}${tn(r.annual)}%${t("peryr")}</div>
@@ -1676,8 +1593,6 @@ var btn=document.getElementById("browseallbtn");if(btn)btn.textContent="Browse a
     var hl=document.getElementById("headline");
     if(hl&&hl.scrollIntoView)setTimeout(function(){hl.scrollIntoView({behavior:REDUCED_MOTION?"auto":"smooth",block:"center"});},140);
   });
-  var hlHost=document.getElementById("headline");
-  if(hlHost)hlHost.addEventListener("click",function(e){if(e.target.closest&&e.target.closest(".hs-share"))rkShareImage();});
   var amtEl=document.getElementById("amt");
   if(amtEl)amtEl.addEventListener("keydown",function(e){if(e.key==="Enter"&&az&&az.hidden&&rb){e.preventDefault();rb.click();}});
   // Layer 3: the cockpit implies the answer zone

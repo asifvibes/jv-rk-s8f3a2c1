@@ -1,0 +1,861 @@
+/* ============================================================================
+   ReturnKoto? UI polish layer
+   Version 1, 20 Aug 2026
+
+   Additive only. Loads AFTER each page's inline <style> block and overrides it.
+   Nothing here changes markup, copy, data or behaviour. Remove the one <link>
+   tag on a page and that page returns exactly to its previous appearance.
+
+   Design intent:
+     1. Give desktop a real layout instead of a 760px mobile column.
+     2. Give surfaces depth, so cards read as objects rather than outlines.
+     3. Make the numbers the loudest thing on every screen.
+     4. Keep every change safe at 390px, AA contrast, and 44px tap targets.
+
+   House rules honoured: no em dashes, no en dashes, mobile verified first,
+   all motion behind prefers-reduced-motion.
+   ========================================================================== */
+
+
+/* ---------------------------------------------------------------------------
+   1. TOKENS
+   New tokens only. The existing --green, --text, --card and friends are left
+   untouched so nothing that already reads them changes meaning.
+   ------------------------------------------------------------------------ */
+
+:root{
+  /* radius scale */
+  --r-sm:9px;
+  --r-md:14px;
+  --r-lg:18px;
+  --r-xl:24px;
+  --r-pill:999px;
+
+  /* elevation, tinted rather than pure black so it sits on the green brand */
+  --el-1:0 1px 2px rgba(16,32,24,.05), 0 1px 3px rgba(16,32,24,.05);
+  --el-2:0 2px 4px rgba(16,32,24,.05), 0 8px 20px rgba(16,32,24,.07);
+  --el-3:0 4px 8px rgba(16,32,24,.06), 0 18px 40px rgba(16,32,24,.10);
+  --el-green:0 10px 30px rgba(31,158,87,.16);
+
+  /* top edge highlight, the thing that makes a card look lit */
+  --edge:inset 0 1px 0 rgba(255,255,255,.9);
+
+  /* surface wash applied over --card */
+  --wash:linear-gradient(180deg, rgba(31,158,87,.030), rgba(31,158,87,0) 120px);
+
+  /* accents beyond the single green */
+  --accent-ink:#0F3D28;
+  --accent-2:#0EA5E9;
+  --accent-3:#6366F1;
+  --accent-4:#D97706;
+
+  /* ambient glow behind the hero, near invisible in light mode */
+  --aura-a:rgba(46,204,113,.10);
+  --aura-b:rgba(14,165,233,.06);
+
+  /* layout */
+  --measure:64ch;
+  --wrap-wide:1080px;
+  --wrap-xwide:1180px;
+}
+
+[data-theme="dark"]{
+  --el-1:0 1px 2px rgba(0,0,0,.40), 0 1px 3px rgba(0,0,0,.35);
+  --el-2:0 2px 6px rgba(0,0,0,.45), 0 10px 26px rgba(0,0,0,.45);
+  --el-3:0 6px 14px rgba(0,0,0,.50), 0 24px 56px rgba(0,0,0,.55);
+  --el-green:0 12px 36px rgba(61,217,138,.18);
+  --edge:inset 0 1px 0 rgba(255,255,255,.055);
+  --wash:linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,0) 140px);
+  --accent-ink:#CFEFDD;
+  --accent-2:#38BDF8;
+  --accent-3:#818CF8;
+  --accent-4:#F0B24A;
+  --aura-a:rgba(46,204,113,.16);
+  --aura-b:rgba(56,189,248,.09);
+}
+
+
+/* ---------------------------------------------------------------------------
+   2. FOUNDATIONS
+   ------------------------------------------------------------------------ */
+
+/* Every figure on the site should line up in columns. */
+.hs-main,.hs-sub,.hs-pct,.hs-ann,.hs-gain,
+.cbar-num,.cbar-dur,.ba-link,.typehead-n,
+.fund-n,.st-u,.asof,.rate input,.rateval,
+table td,table th{
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;
+}
+
+/* Long prose lines are the quickest way to look unconsidered on a wide screen. */
+header p,
+.hl-note,
+.bcard p,
+.browseall p,
+.typehead + p,
+.sub, .subtle{
+  max-width:var(--measure);
+}
+
+/* One focus ring for the whole site, visible on both themes. */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible{
+  outline:2px solid var(--green);
+  outline-offset:2px;
+  border-radius:6px;
+}
+
+/* Headings sit tighter as they get bigger. */
+h1{letter-spacing:-.028em}
+h2{letter-spacing:-.02em}
+
+/* The all caps micro labels were low contrast and too tightly tracked. */
+label.fld,
+.fld,
+.rateshead,
+.ba-title{
+  letter-spacing:.07em;
+}
+label.fld,.fld{
+  font-size:11.5px;
+  color:#4A5568;
+}
+[data-theme="dark"] label.fld,
+[data-theme="dark"] .fld{color:#A9B6C9}
+
+/* Selection picks up the brand instead of the browser default. */
+::selection{background:rgba(46,204,113,.28)}
+
+
+/* ---------------------------------------------------------------------------
+   3. SURFACES
+   Panels become objects: a wash, a lit top edge, a tinted shadow.
+   ------------------------------------------------------------------------ */
+
+.panel,
+.bcard,
+.ba-link,
+.qbar{
+  border-radius:var(--r-lg);
+  background-image:var(--wash);
+  box-shadow:var(--el-2), var(--edge);
+  transition:box-shadow .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+[data-theme="dark"] .panel,
+[data-theme="dark"] .bcard,
+[data-theme="dark"] .ba-link{
+  border-color:#2F3B4F;
+}
+
+/* Interactive cards lift. Static panels do not, so the difference means something. */
+.ba-link:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--el-3), var(--edge);
+  border-color:var(--green);
+}
+
+/* The chart panels are surfaces for data, so give the plot area its own ground. */
+.chartpanel{
+  border-radius:var(--r-lg);
+  padding:20px;
+}
+@media(max-width:560px){
+  .chartpanel{padding:15px 13px}
+}
+
+
+/* ---------------------------------------------------------------------------
+   4. NAVIGATION
+   ------------------------------------------------------------------------ */
+
+.rk-nav{
+  padding:14px 22px;
+  border-bottom:1px solid rgba(16,32,24,.07);
+  background:rgba(255,255,255,.80);
+  backdrop-filter:blur(14px) saturate(1.5);
+  -webkit-backdrop-filter:blur(14px) saturate(1.5);
+}
+[data-theme="dark"] .rk-nav{
+  background:rgba(14,20,31,.78);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.rk-links{gap:6px}
+.rk-links a{
+  padding:9px 11px;
+  border-radius:var(--r-sm);
+  color:#33463C;
+  transition:color .14s, background .14s;
+}
+[data-theme="dark"] .rk-links a{color:#B9C6D6}
+.rk-links a:hover{
+  background:rgba(46,204,113,.10);
+  color:var(--green-dark);
+}
+[data-theme="dark"] .rk-links a:hover{color:#5FE3A2}
+
+.themetog{
+  min-width:40px;min-height:40px;
+  border-radius:var(--r-pill);
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:background .14s, transform .2s;
+}
+.themetog:hover{background:rgba(46,204,113,.12);transform:rotate(-12deg)}
+
+.rk-logo svg{
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(31,158,87,.30);
+}
+
+/* Nav was cramped at 390px. Give every item a 44px tap target without letting
+   the row overflow: the logo may shrink, the links own the remaining space. */
+@media(max-width:560px){
+  .rk-nav{padding:8px 8px;gap:4px}
+  .rk-logo{min-width:0;flex:0 1 auto;overflow:hidden}
+  .rk-links{gap:0;flex:0 0 auto;min-width:0}
+  .rk-links a{
+    padding:10px 5px;
+    font-size:12px;
+    min-height:44px;
+    display:flex;align-items:center;
+  }
+  .themetog{min-width:40px;min-height:44px}
+}
+@media(max-width:400px){
+  .rk-links a{padding:10px 4px;font-size:11.5px}
+  .themetog{min-width:34px}
+}
+
+
+/* ---------------------------------------------------------------------------
+   5. THE FOLD
+   On desktop this becomes a proper hero split: the promise on the left,
+   the calculator on the right, both vertically centred. No markup change,
+   the grid is applied to .rk-fold and its two real children.
+   ------------------------------------------------------------------------ */
+
+/* Ambient light behind the hero. Sits under everything, ignores pointer events. */
+.rk-fold{position:relative}
+.rk-fold::before{
+  content:"";
+  position:absolute;
+  inset:-14% -30% auto -30%;
+  height:520px;
+  pointer-events:none;
+  z-index:0;
+  background:
+    radial-gradient(46% 60% at 22% 30%, var(--aura-a), transparent 70%),
+    radial-gradient(40% 55% at 82% 18%, var(--aura-b), transparent 72%);
+  filter:blur(12px);
+}
+/* Only the two real children get lifted above the aura. The screen reader
+   heading must keep its own position:absolute or it becomes a grid track. */
+.rk-fold > header,
+.rk-fold > .panel{position:relative;z-index:1}
+
+header h1{
+  font-size:clamp(27px, 5.4vw, 46px);
+  line-height:1.08;
+}
+header p{
+  font-size:clamp(14.5px, 1.6vw, 17px);
+  line-height:1.55;
+}
+.hero-stat{margin-top:12px}
+
+@media(min-width:1024px){
+  body.rk-home:not(.rk-answered) .rk-fold,
+  body.rk-home.rk-answered .rk-fold,
+  .rk-fold{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:46px;
+    min-height:auto;
+    padding-bottom:24px;
+  }
+  .rk-fold > header{grid-row:1;grid-column:1;margin:0}
+  .rk-fold > #calcpanel{grid-row:1;grid-column:2;margin-top:0}
+  body.rk-home:not(.rk-answered) .rk-fold{min-height:calc(78vh - var(--rk-chrome,56px))}
+}
+
+@media(min-width:1024px) and (max-width:1200px){
+  .rk-fold{gap:32px}
+}
+
+
+/* ---------------------------------------------------------------------------
+   6. THE RESULT
+   This is the payoff of the whole product and it was styled like a notice box.
+   ------------------------------------------------------------------------ */
+
+.headline{
+  position:relative;
+  overflow:hidden;
+  margin-top:24px;
+  padding:22px 22px 20px;
+  border-radius:var(--r-xl);
+  border:1px solid rgba(31,158,87,.28);
+  box-shadow:var(--el-3), var(--edge);
+  background:
+    radial-gradient(120% 140% at 8% 0%, rgba(46,204,113,.13), transparent 58%),
+    var(--green-soft);
+}
+[data-theme="dark"] .headline{
+  border-color:rgba(61,217,138,.24);
+  background:
+    radial-gradient(120% 140% at 8% 0%, rgba(61,217,138,.16), transparent 58%),
+    #14261D;
+}
+
+/* A hairline of brand colour along the top edge of the result. */
+.headline::after{
+  content:"";
+  position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg, transparent, var(--green), transparent);
+  opacity:.75;
+}
+
+.hs-main{
+  font-size:clamp(38px, 9.5vw, 68px);
+  letter-spacing:-.035em;
+  line-height:1;
+  margin-top:2px;
+}
+@media(min-width:1024px){
+  .hs-main{font-size:clamp(46px, 4.4vw, 68px)}
+}
+
+/* "৳1,80,000 grew to" is a sentence, not a label, so it stays sentence case. */
+.hs-kicker{
+  font-size:13.5px;
+  letter-spacing:0;
+  text-transform:none;
+}
+
+/* "Historical result" above it is the label, and gets the label treatment. */
+.hl-kicker{
+  font-size:11.5px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+
+/* The sparkline used to letterbox: its viewBox had the default
+   preserveAspectRatio, so at full card width it drew a short centred fragment
+   with dead space either side. sparkSvg() now emits preserveAspectRatio="none"
+   with a non-scaling stroke, so CSS can simply give it a box to fill. */
+.hs-spark{margin:14px 0 4px}
+.hs-spark .spark{
+  display:block;
+  width:100%;
+  height:74px;
+  filter:drop-shadow(0 3px 10px rgba(31,158,87,.30));
+}
+@media(max-width:560px){
+  .hs-spark .spark{height:52px}
+}
+[data-theme="dark"] .hs-spark .spark{
+  filter:drop-shadow(0 3px 12px rgba(61,217,138,.30));
+}
+
+.hs-sub{font-size:14px;line-height:1.6}
+.hs-period-sel{
+  min-height:44px;
+  box-shadow:0 3px 10px rgba(31,158,87,.28);
+}
+
+/* Freshness and disclaimer read as one quiet footnote block, centred under
+   the result rather than competing with it. */
+.hl-note,.fresh-under{font-size:12.5px}
+
+
+/* ---------------------------------------------------------------------------
+   7. CONTROLS
+   ------------------------------------------------------------------------ */
+
+/* Segmented controls: real track, real thumb, clear inactive affordance. */
+.seg{
+  border-radius:var(--r-md);
+  padding:4px;
+  background:#EDF1F4;
+  box-shadow:inset 0 1px 2px rgba(16,32,24,.06);
+}
+[data-theme="dark"] .seg{
+  background:#101825;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.45);
+}
+.seg button{
+  border-radius:var(--r-sm);
+  transition:background .16s, color .16s, box-shadow .16s;
+}
+.seg button:hover:not(.on){
+  background:rgba(46,204,113,.10);
+  color:var(--green-dark);
+}
+.seg button.on{
+  box-shadow:0 1px 2px rgba(16,32,24,.10), 0 2px 6px rgba(16,32,24,.06);
+}
+[data-theme="dark"] .seg button.on{
+  background:#233246;
+  box-shadow:0 1px 2px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+#horizon button.on{
+  background:linear-gradient(135deg,#1FA85C,#157A43);
+  box-shadow:0 2px 8px rgba(31,158,87,.35);
+}
+
+/* The amount field is the single most important input on the site. */
+.amount input{
+  font-size:22px;
+  padding:16px 16px 16px 34px;
+  border-radius:var(--r-md);
+  border-width:1.5px;
+  transition:border-color .16s, box-shadow .16s, background .16s;
+}
+.amount input:focus{
+  box-shadow:0 0 0 4px rgba(46,204,113,.16);
+}
+.amount span{font-size:19px}
+
+/* Native selects were the most obviously unstyled elements on the site.
+   One consistent treatment with a drawn chevron. */
+select:not(.hs-period-sel){
+  appearance:none;
+  -webkit-appearance:none;
+  font-family:inherit;
+  font-weight:600;
+  color:var(--text);
+  background-color:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--r-md);
+  padding:12px 38px 12px 14px;
+  min-height:46px;
+  cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%236B7280' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  background-size:11px 7px;
+  transition:border-color .16s, box-shadow .16s;
+}
+select:not(.hs-period-sel):hover{border-color:var(--green)}
+select:not(.hs-period-sel):focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 4px rgba(46,204,113,.14);
+}
+[data-theme="dark"] select:not(.hs-period-sel){
+  background-color:#141C28;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%239BA7BB' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* Primary call to action. */
+.reveal,
+.door-x{
+  border-radius:var(--r-md);
+  box-shadow:var(--el-green);
+  letter-spacing:.005em;
+}
+.reveal:hover,
+.door-x:hover{
+  box-shadow:0 8px 24px rgba(31,158,87,.42);
+}
+
+/* Secondary call to action reads as quiet, not as broken. */
+.door-b{
+  border-width:1.5px;
+  border-radius:var(--r-md);
+  background-image:var(--wash);
+  transition:background .16s, border-color .16s, transform .16s;
+}
+.door-b:hover{
+  background-color:rgba(46,204,113,.08);
+  transform:translateY(-1px);
+}
+
+/* Disclosure summaries get a target and a hover state. */
+summary{
+  border-radius:var(--r-sm);
+  transition:background .14s;
+}
+summary:hover{background:rgba(46,204,113,.08)}
+
+
+/* ---------------------------------------------------------------------------
+   8. DATA DISPLAY
+   ------------------------------------------------------------------------ */
+
+/* Comparison bars: gradient, rounded, with a shine so they read as objects.
+   Rows were ragged because long fund names wrapped to two lines. */
+.cbar-row{
+  min-height:38px;
+  padding:1px 0;
+  border-radius:var(--r-sm);
+  transition:background .14s;
+}
+.cbar-row:hover{background:rgba(46,204,113,.07)}
+.cbar-name{
+  font-size:12.5px;
+  line-height:1.2;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.cbar-fill{
+  border-radius:var(--r-pill);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25);
+}
+.cbar-fill.pos{
+  background:linear-gradient(90deg,#1FA85C,#2ECC71);
+}
+.cbar-row.best .cbar-fill.pos{
+  background:linear-gradient(90deg,#157A43,#2ECC71);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3), 0 2px 10px rgba(31,158,87,.32);
+}
+[data-theme="dark"] .cbar-fill.pos{
+  background:linear-gradient(90deg,#22A05F,#3DD98A);
+}
+
+/* Stat tiles on fund pages and the safe options row. */
+.rt-mt,
+.ba-link{
+  border-radius:var(--r-md);
+}
+
+/* Type group headings get their category colour as a soft backing bar. */
+.typehead{
+  margin:36px 0 12px;
+  font-size:18px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.typehead::before{
+  width:13px;height:13px;border-radius:4px;
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--tycol,#6B7280) 16%, transparent);
+}
+
+/* Badges and tags. */
+.tag{
+  padding:3px 9px;
+  border-radius:var(--r-pill);
+  letter-spacing:.01em;
+  font-size:11px;
+}
+
+/* ---------------------------------------------------------------------------
+   8b. FUND ROWS ON MOBILE
+
+   The problem: .row is a three column flex (rank, fund, nums). At 390px the
+   name column is left with about 194px, so every fund name wraps to two or
+   three lines while the numbers float in a narrow right column with a 64px
+   sparkline sitting above them, aligned to nothing. The card ran about 480px
+   tall to show five facts.
+
+   The fix: .fund becomes display:contents on small screens, which promotes its
+   children to grid items of .row. That lets the name take the full width and
+   lets the money block sit directly under it, above the metadata, without any
+   change to the markup or to the JavaScript that builds it.
+   ------------------------------------------------------------------------ */
+
+@media(max-width:560px){
+
+  .row{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    grid-template-areas:
+      "rank name"
+      "tags tags"
+      "nums nums"
+      "sub  sub"
+      "why  why"
+      "tog  tog"
+      "det  det";
+    align-items:start;
+    column-gap:9px;
+    row-gap:0;
+    padding:15px 14px 13px;
+    border-radius:var(--r-lg);
+  }
+
+  .row > .fund{display:contents}
+  .row > .rank{grid-area:rank}
+  .row .nm{grid-area:name}
+  .row .tags{grid-area:tags}
+  .row .sub{grid-area:sub}
+  .row .why{grid-area:why}
+  .row .fdtog{grid-area:tog}
+  .row > .nums{grid-area:nums}
+  .row > .fdet{grid-area:det}
+
+  /* Rank becomes a marker instead of a floating digit. The .best variant is
+     listed too because the base sheet resets its width on the winning row. */
+  .row > .rank,
+  .row.best > .rank{
+    width:22px;height:22px;
+    display:inline-flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:color-mix(in srgb, var(--muted) 15%, transparent);
+    font-size:11.5px;
+    margin-top:2px;
+  }
+
+  /* The name now owns the full width, so it stops breaking mid phrase. */
+  .row .nm{
+    font-size:16px;
+    line-height:1.3;
+    align-items:baseline;
+  }
+
+  /* The winner label was a two line pill that outweighed the fund name. */
+  .row .bestbadge{
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:3px 8px;
+  }
+  .row .tags{margin-top:7px;gap:5px}
+
+  /* The money block: value and annual rate share one baseline, gain sits
+     under the value, and the sparkline runs the full width beneath both. */
+  .row > .nums{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:baseline;
+    gap:2px 12px;
+    text-align:left;
+    margin-top:13px;
+    padding-top:13px;
+    border-top:1px solid var(--border);
+  }
+  .row .nums .fv{
+    grid-column:1;grid-row:1;
+    font-size:27px;
+    line-height:1.05;
+    letter-spacing:-.025em;
+  }
+  .row .nums .ann{
+    grid-column:2;grid-row:1;
+    justify-self:end;
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--text);
+    margin-top:0;
+  }
+  .row .nums .gn{
+    grid-column:1;grid-row:2;
+    font-size:13px;
+  }
+  .row .nums .sparkwrap{
+    grid-column:1 / -1;grid-row:3;
+    width:100%;
+    margin-top:11px;
+    align-self:stretch;
+  }
+  .row .nums .sparkwrap .spark{
+    display:block;
+    width:100%;
+    height:44px;
+  }
+
+  .row .sub{
+    margin-top:12px;
+    font-size:12.5px;
+    line-height:1.5;
+  }
+
+  /* "How we got this number" was a filled grey box roughly 60px tall holding
+     nothing until it is opened, sitting between the data and the actions. It
+     collapses to a plain text row and only becomes a box once it is open. */
+  .row .why{
+    margin-top:4px;
+    padding:0;
+    background:transparent;
+    border-radius:0;
+  }
+  .row .why summary{
+    display:flex;
+    align-items:center;
+    min-height:44px;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+  .row .why[open]{
+    margin-top:8px;
+    padding:0 11px 10px;
+    background:color-mix(in srgb, var(--muted) 9%, transparent);
+    border-radius:var(--r-sm);
+  }
+
+  /* Fund details was a filled box the size of the fund name. It is a
+     disclosure, so it gets link weight with a 44px target. */
+  .row .fdtog,
+  [data-theme="dark"] .row .fdtog{
+    margin-top:4px;
+    padding:0;
+    min-height:44px;
+    background:transparent;
+    border:0;
+    border-radius:0;
+    justify-self:start;
+    font-size:13px;
+  }
+  .row .fdtog:hover,
+  [data-theme="dark"] .row .fdtog:hover{
+    background:transparent;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+}
+
+/* The fund size tooltip affordance read as a spellcheck squiggle. */
+.fsz{
+  text-underline-offset:3px;
+  text-decoration-color:color-mix(in srgb, currentColor 40%, transparent);
+}
+
+/* Fund page provenance lines were three centred sentences with no styling,
+   the only centred text on an otherwise left aligned page. Turn them into one
+   quiet meta block that reads as metadata rather than as body copy. */
+.fresh-lines{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px 14px;
+  justify-content:flex-start;
+  text-align:left;
+  font-size:12.5px;
+  line-height:1.5;
+  padding:11px 13px;
+  border-radius:var(--r-md);
+  border:1px solid var(--border);
+  background:color-mix(in srgb, var(--card) 70%, transparent);
+}
+.fresh-lines > span{display:inline-block;text-align:left}
+
+/* The fund page returns table carries min-width:340px and lives in a scroll
+   container, so on a 390px phone the last column sat under the edge with no
+   sign that it scrolled. Dropping the floor lets all four columns fit instead. */
+@media(max-width:430px){
+  table.ret{
+    min-width:0;
+    font-size:12.5px;
+  }
+  table.ret th,
+  table.ret td{
+    padding-left:3px;
+    padding-right:3px;
+  }
+}
+
+/* Sticky quick bar was overlapping content underneath it. */
+.qbar{
+  border-radius:var(--r-md);
+  box-shadow:var(--el-2), var(--edge);
+  background:rgba(255,255,255,.90);
+}
+[data-theme="dark"] .qbar{background:rgba(20,28,40,.92)}
+
+
+/* ---------------------------------------------------------------------------
+   9. LAYOUT
+   The 760px cap was the single biggest reason the site looked unfinished on a
+   laptop. Widen progressively and let the grids inside actually use it.
+   ------------------------------------------------------------------------ */
+
+@media(min-width:1024px){
+  .wrap{
+    max-width:var(--wrap-wide);
+    padding:34px 28px 76px;
+  }
+}
+@media(min-width:1400px){
+  .wrap{max-width:var(--wrap-xwide)}
+}
+
+/* Two column fund lists once there is room for them. */
+@media(min-width:1024px){
+  .fdgrid,
+  #browseall.ba-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+/* Charts get taller on a big screen instead of staying phone sized. */
+@media(min-width:1024px){
+  .chartpanel canvas{min-height:340px}
+}
+
+/* Doors sit side by side rather than stacking full width. */
+@media(min-width:900px){
+  .doors{gap:14px}
+  .door{flex:1 1 260px}
+}
+
+
+/* ---------------------------------------------------------------------------
+   10. MOTION
+   Everything below is optional decoration and is disabled wholesale for
+   anyone who has asked for reduced motion.
+   ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference){
+
+  /* Cards fade up as the page settles. Above the fold only, so nothing
+     depends on scroll position or JavaScript. */
+  @keyframes rkRise{
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:none}
+  }
+  .headline{animation:rkRise .5s cubic-bezier(.2,.85,.3,1) both}
+  #topperf{animation:rkRise .5s cubic-bezier(.2,.85,.3,1) .08s both}
+
+  /* A single slow sweep of light across the result number after it lands.
+     Runs twice, then stops. */
+  @keyframes rkSheen{
+    from{background-position:-140% 0}
+    to{background-position:240% 0}
+  }
+  .headline .hs-main b{
+    background-image:linear-gradient(100deg,
+      currentColor 0%, currentColor 38%,
+      color-mix(in srgb, currentColor 55%, #FFFFFF) 50%,
+      currentColor 62%, currentColor 100%);
+    background-size:220% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    animation:rkSheen 2.6s ease-in-out 1.1s 2;
+  }
+
+  .panel,.bcard{transition:box-shadow .18s ease, border-color .18s ease}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .headline,#topperf{animation:none}
+  .headline .hs-main b{animation:none;background-image:none}
+  .themetog:hover{transform:none}
+}
+
+
+/* ---------------------------------------------------------------------------
+   11. PRINT
+   People do print fund pages to send to family. Make it survivable.
+   ------------------------------------------------------------------------ */
+
+@media print{
+  .rk-nav,.qbar,.doors,.themetog,.rk-foot,#beta-notice{display:none !important}
+  .panel,.bcard,.headline{
+    box-shadow:none;
+    border:1px solid #CBD5E1;
+    background:#fff;
+    break-inside:avoid;
+  }
+  .rk-fold::before{display:none}
+  .wrap{max-width:none;padding:0}
+}

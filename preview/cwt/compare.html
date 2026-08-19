@@ -274,6 +274,7 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "ReturnKoto? Fund Comparison", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "url": "https://returnkoto.com/compare.html", "description": "Compare Bangladeshi open-end mutual funds side by side: historical returns, fees, exit loads, minimum investment, risk and what each fund holds.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BDT"}, "dateModified": "2026-08-03", "isAccessibleForFree": true, "inLanguage": "en", "publisher": {"@id": "https://returnkoto.com/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://returnkoto.com/compare.html"}]}]}
 </script>
+<link rel="stylesheet" href="/rk-ui.css?v=1">
 </head>
 <body>
 <div id="rk-preview-banner" style="background:#FEF3C7;color:#92400E;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;border-bottom:1px solid #FDE68A;line-height:1.45">
@@ -303,7 +304,7 @@
       <p><b>Total return</b> is the overall gain or loss on a one-time investment over the period you pick (dividends reinvested). It is not a yearly rate.</p>
       <p><b>Per year</b> turns that same lump-sum result into a steady annual rate (CAGR), so different period lengths stay comparable.</p>
       <p><b>Monthly SIP /yr</b> is the annualized return if you invested the same amount every month. It differs from Per year because money goes in gradually.</p>
-      <p>Tap the <b>?</b> beside any row label for a short tip. The fund names stay pinned to the top of the screen as you scroll, so you always know which column you are reading. Use <b>Copy link</b> or <b>Share image</b> to send this comparison.</p>
+      <p>Tap the <b>?</b> beside any row label for a short tip. The fund names stay pinned to the top of the screen as you scroll, so you always know which column you are reading. Use <b>Copy link</b> to share this exact comparison.</p>
     </div>
   </details>
 
@@ -321,7 +322,6 @@
   <div class="cmp-meta" id="cmpMeta">
     <div id="cmpPeriodChip" class="cmp-period-chip" hidden></div>
     <button type="button" class="cmp-copy" id="cmpCopyLink" hidden>Copy link</button>
-    <button type="button" class="cmp-copy" id="cmpShareImg" hidden>Share image</button>
   </div>
 
   <div class="tablewrap" id="cmpTableWrap">
@@ -810,14 +810,12 @@
     fillSelects();
     var cols=cmpCols();
     var copyBtn=document.getElementById('cmpCopyLink');
-    var shareBtn=document.getElementById('cmpShareImg');
-    if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;if(shareBtn)shareBtn.hidden=true;return;}
+    if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;return;}
     var pl=plabel();
     var chip=document.getElementById('cmpPeriodChip');
     if(chip){chip.hidden=false;chip.textContent='Comparing over '+pl+(period==='max'?' (each fund\u2019s full tracked history)':'');}
     if(psel&&psel.value!==period)psel.value=period;
     if(copyBtn){copyBtn.hidden=false;copyBtn.classList.remove('is-ok');copyBtn.textContent='Copy link';}
-    if(shareBtn)shareBtn.hidden=false;
     var rows=[];
     rows.push([lab('Type','cmp_type','The fund\u2019s stated mandate: Growth leans to equities, Income to bonds and deposits, Balanced mixes both. Shariah means a board certifies Islamic investing rules.','What does Type mean?'),cols.map(typeCell)]);
     rows.push([lab('Data quality','cmp_quality','AMC-Verified means the asset manager and ReturnKoto? spoke through official channels, discussed this fund\u2019s figures in detail, and share an understanding of what appears on the site\u2019s data. Source-checked means we built the figures from public records (prospectus, portfolio statements, NAV history) without that AMC confirmation. Estimated or partial means some dividend detail is incomplete.','What does Data quality mean?'),cols.map(qualCell)]);
@@ -837,10 +835,6 @@
       });
     })()]);
     var totalCells=retCells(cols,0), cagrCells=retCells(cols,1), sipCells=retCells(cols,2);
-    window._rkCmpShare={
-      period: pl+(period==='max'?' (each fund\'s full history)':''),
-      rows: cols.map(function(f){return {name:fundDisp(f), tot:retNum(f,0), cagr:retNum(f,1)};})
-    };
     rows.push([lab('Total return ('+pl+')','cmp_total','Overall gain or loss on a one-time lump sum held for this period, with cash dividends reinvested into more units. This is the full period result, not a yearly rate. The bar is relative to the highest Total return among these funds, not a 0 to 100% scale. A shorter bar can still be a real gain.','What does Total return mean?'),totalCells]);
     rows.push([lab('Per year ('+pl+')','cmp_cagr','The steady yearly compound rate (CAGR) that would produce the same Total return over this period. Use it to compare periods of different lengths. The bar is relative to the highest Per year figure among these funds, not a 0 to 100% scale.','What does Per year mean?'),cagrCells]);
     rows.push([lab('Monthly SIP /yr ('+pl+')','cmp_sip','Annualized money-weighted return (IRR) if you invested the same amount every month through this period. Differs from Per year because cash goes in gradually, not all at the start. The bar is relative to the highest SIP figure among these funds, not a 0 to 100% scale.','What does Monthly SIP /yr mean?'),sipCells]);
@@ -919,50 +913,6 @@
       else{window.prompt('Copy this link',url);ok();}
     });
   }
-  var shareImg=document.getElementById('cmpShareImg');
-  if(shareImg)shareImg.addEventListener('click',function(){
-    var s=window._rkCmpShare; if(!s||!s.rows||s.rows.length<2)return;
-    var W=1080,H=1080,c=document.createElement('canvas');c.width=W;c.height=H;
-    var ctx=c.getContext('2d');
-    ctx.fillStyle='#0E141F';ctx.fillRect(0,0,W,H);
-    ctx.fillStyle='#157A43';ctx.beginPath();ctx.roundRect?ctx.roundRect(72,72,56,56,16):ctx.rect(72,72,56,56);ctx.fill();
-    ctx.fillStyle='#E6EAF2';ctx.font='800 42px Inter, system-ui, sans-serif';ctx.fillText('ReturnKoto?',148,112);
-    ctx.fillStyle='#9BA7BB';ctx.font='600 28px Inter, system-ui, sans-serif';ctx.fillText('Compared over '+s.period,72,190);
-    var y=280, maxAbs=0;
-    s.rows.forEach(function(r){if(r.tot!=null&&isFinite(r.tot))maxAbs=Math.max(maxAbs,Math.abs(r.tot));});
-    s.rows.forEach(function(r){
-      ctx.fillStyle='#E6EAF2';ctx.font='700 30px Inter, system-ui, sans-serif';
-      var nm=r.name.length>42?r.name.slice(0,40)+'...':r.name;
-      ctx.fillText(nm,72,y);
-      var totTxt=(r.tot==null||!isFinite(r.tot))?'Needs more history':((r.tot>=0?'+':'')+r.tot.toFixed(2)+'%');
-      ctx.fillStyle=(r.tot!=null&&r.tot<0)?'#F87171':'#3DD98A';
-      ctx.font='800 40px Inter, system-ui, sans-serif';ctx.fillText(totTxt,72,y+48);
-      if(r.cagr!=null&&isFinite(r.cagr)){
-        ctx.fillStyle='#9BA7BB';ctx.font='600 24px Inter, system-ui, sans-serif';
-        ctx.fillText((r.cagr>=0?'+':'')+r.cagr.toFixed(2)+'% /yr',72,y+82);
-      }
-      if(r.tot!=null&&isFinite(r.tot)&&maxAbs){
-        var bw=Math.max(8,Math.abs(r.tot)/maxAbs*936);
-        ctx.fillStyle=r.tot<0?'#F87171':'#157A43';
-        ctx.fillRect(72,y+96,bw,10);
-      }
-      y+=170;
-    });
-    ctx.fillStyle='#9BA7BB';ctx.font='500 24px Inter, system-ui, sans-serif';
-    ctx.fillText('Historical total return. Past performance does not predict the future.',72,980);
-    ctx.fillStyle='#3DD98A';ctx.font='700 28px Inter, system-ui, sans-serif';
-    ctx.fillText('returnkoto.com/compare',72,1028);
-    function done(blob){
-      if(!blob)return;
-      var file=new File([blob],'returnkoto-compare.png',{type:'image/png'});
-      if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
-        navigator.share({files:[file],title:'ReturnKoto?',text:'Compared over '+s.period}).catch(function(){dl(blob);});
-      }else dl(blob);
-      try{if(window.gtag)gtag('event','share_image',{place:'compare'});}catch(e){}
-    }
-    function dl(blob){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='returnkoto-compare.png';a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},2500);}
-    if(c.toBlob)c.toBlob(done,'image/png');
-  });
   scheduleRender();
 })();
 /* Pin the fund-name header just below the nav and the quick bar. Measured rather than
