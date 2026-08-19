@@ -109,7 +109,7 @@
   .sw input:checked + .sl:before{transform:translateX(20px)}
   .headline{margin-top:22px;font-size:15px;color:var(--text);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:12px;padding:14px 16px}
   .headline b{font-weight:700}
-  .row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--card);margin-top:10px}
+  .row{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--card);margin-top:10px}
   .row.best{border-color:var(--green)}
   .row.best .rank{width:auto;overflow:visible}
   .bestbadge{display:inline-flex;align-items:center;font-size:11px;font-weight:800;color:var(--green-dark);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:999px;padding:2px 9px;letter-spacing:.02em}
@@ -146,12 +146,12 @@
   .why.caveat b{color:#334155}
   .fund .sub{font-size:12px;color:var(--muted);margin-top:3px}
   .fsz{font-weight:600;color:#374151;white-space:nowrap}
-  .nums{text-align:right;flex:none}
-  .nums .fv{font-weight:800;font-size:18px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-  .sparkwrap{flex:none;width:64px;align-self:center}
-  .sparkwrap .spark{display:block;width:64px;height:24px;color:var(--green-dark)}
+  .nums{text-align:right;flex:none;min-width:7.2em}
+  .nums .fv{font-weight:800;font-size:16px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .sparkwrap{width:72px;margin:0 0 6px auto}
+  .sparkwrap .spark{display:block;width:72px;height:22px;color:var(--green-dark)}
   .sparkwrap .spark.neg{color:var(--red)}
-  @media(max-width:380px){.sparkwrap{width:52px}.sparkwrap .spark{width:52px}}
+  @media(min-width:561px){.nums .fv{font-size:18px}}
   .nums .gn{font-size:12.5px;font-weight:600;margin-top:2px}
   .nums .gn.pos{color:#15803d}
   .nums .gn.neg{color:var(--red)}
@@ -1395,8 +1395,8 @@ function renderList(rows){
           ${why}
           ${detToggle}
         </div>
-        ${sparkCell}
         <div class="nums">
+          ${sparkCell}
           <div class="fv">${fmt(r.final)}</div>
           <div class="gn ${gpos?"pos":"neg"}">${gpos?"+":""}${fmt(r.gain)}</div>
           <div class="ann">${r.annual>=0?"+":""}${tn(r.annual)}%${t("peryr")}</div>
