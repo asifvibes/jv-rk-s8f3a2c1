@@ -144,7 +144,7 @@
   .cbar-fill{display:block;height:100%;width:var(--w,0);background:var(--green-dark);border-radius:4px}
   .cbar-fill.neg{background:#c0392b}
   .cmix-donut{width:72px;height:72px;display:block;margin:0 auto 8px}
-  .cmix-donut circle{cursor:pointer}
+  .cmix-donut circle{cursor:pointer;stroke-dasharray:var(--len) var(--gap);stroke-dashoffset:var(--off,0)}
   .cmix-tip{display:block;width:100%;font-size:11.5px;font-weight:600;line-height:1.4;color:var(--text);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:8px;padding:7px 9px;margin:0 0 8px;box-sizing:border-box}
   .hp-conc-trk,.cconc-trk{display:block;height:7px;border-radius:4px;background:var(--border);overflow:hidden;margin-top:6px}
   .hp-conc-fill,.cconc-fill{display:block;height:100%;width:var(--w,0);background:var(--green-dark);border-radius:4px}
@@ -159,8 +159,12 @@
   html.rk-anim .roll-trk:not(.in) .roll-mark{transform:scale(0)}
   html.rk-anim .roll-mark{transition:transform .4s ease .15s}
   html.rk-anim .roll-trk.in .roll-mark{transform:scale(1)}
+  html.rk-anim .cmix-donut circle{transition:stroke-dasharray .7s ease}
+  html.rk-anim .cmix-donut:not(.in) circle{stroke-dasharray:0 var(--gap)}
+  html.rk-anim .cmix-donut.in circle{stroke-dasharray:var(--len) var(--gap);transition-delay:calc(var(--i,0)*.06s)}
   @media(prefers-reduced-motion:reduce){
     html.rk-anim .cbar .cbar-fill,html.rk-anim .csec-trk .csec-fill,html.rk-anim .cconc-trk .cconc-fill,html.rk-anim .cmix-bar,html.rk-anim .roll-mark{transform:none;transition:none}
+    html.rk-anim .cmix-donut circle{transition:none;stroke-dasharray:var(--len) var(--gap)}
   }
   @media(min-width:768px){.cmix-donut{width:88px;height:88px}}
   .cmp-div{border:1px solid var(--border);border-radius:10px;padding:11px 13px;background:var(--card);line-height:1.55}
@@ -603,7 +607,7 @@
     var total=ac.reduce(function(s,it){return s+(+it.v||0);},0)||100;
     var segs=ac.map(function(it,i){
       var frac=(+it.v||0)/total;
-      var d='<circle r="'+R+'" cx="'+CX+'" cy="'+CX+'" fill="none" stroke="'+HPAL[i%HPAL.length]+'" stroke-width="'+SW+'" stroke-dasharray="'+(frac*C).toFixed(3)+' '+C.toFixed(3)+'" stroke-dashoffset="'+(-acc*C).toFixed(3)+'" data-l="'+esc(it.k)+': '+it.v.toFixed(2)+'%"></circle>';
+      var d='<circle r="'+R+'" cx="'+CX+'" cy="'+CX+'" fill="none" stroke="'+HPAL[i%HPAL.length]+'" stroke-width="'+SW+'" stroke-dasharray="'+(frac*C).toFixed(3)+' '+C.toFixed(3)+'" stroke-dashoffset="'+(-acc*C).toFixed(3)+'" style="--len:'+(frac*C).toFixed(3)+';--gap:'+C.toFixed(3)+';--off:'+(-acc*C).toFixed(3)+';--i:'+i+'" data-l="'+esc(it.k)+': '+it.v.toFixed(2)+'%"></circle>';
       acc+=frac;
       return d;
     }).join('');
