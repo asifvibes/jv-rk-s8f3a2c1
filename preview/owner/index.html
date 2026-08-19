@@ -448,9 +448,9 @@
 .badgekey .bk-row{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--border,#eef3f0)}
 .badgekey .bk-row:last-child{border-bottom:none}
 .badgekey .bk-what{flex:1;color:var(--muted);line-height:1.55;font-size:12.5px}
-.hsel{border:none;background:transparent;padding:9px 4px;border-radius:7px;font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;max-width:86px}
-.hsel.on{background:#fff;color:var(--green-dark,#1F9E57);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-[data-theme="dark"] .hsel.on{background:#0C2E1B;color:#4ADE80}
+.hsel{border:none;background-color:transparent;padding:9px 4px;border-radius:7px;font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;max-width:86px}
+.hsel.on{background-color:#fff;color:var(--green-dark,#1F9E57);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+[data-theme="dark"] .hsel.on{background-color:#0C2E1B;color:#4ADE80}
 .typehead{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:16.5px;font-weight:800;letter-spacing:-.02em;color:var(--text);text-transform:none;margin:30px 0 10px}
 .typehead::before{content:"";width:11px;height:11px;border-radius:3.5px;background:var(--tycol,#6B7280);flex:none}
 .typehead-n{background:color-mix(in srgb,var(--tycol,#157A43) 13%,transparent);color:var(--tycol,#157A43);border:1.5px solid var(--tycol,#157A43);border-radius:999px;padding:2px 11px;font-size:12.5px;font-weight:800;line-height:1.4}
@@ -569,8 +569,8 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   details.allopts>summary::-webkit-details-marker{display:none}
   details.allopts>summary::after{content:"\25be";transition:transform .2s}
   details.allopts[open]>summary::after{transform:rotate(180deg)}
-  .hsel-wide{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:10px;padding:11px 12px;max-width:none;width:100%;font-size:13.5px;font-weight:600}
-  [data-theme="dark"] .hsel-wide{background:#141C28}
+  .hsel-wide{border:1px solid var(--border);background-color:var(--card);color:var(--text);border-radius:10px;padding:11px 12px;max-width:none;width:100%;font-size:13.5px;font-weight:600}
+  [data-theme="dark"] .hsel-wide{background-color:#141C28}
   /* ---- Tap-to-open tooltips ---- */
   .tipbtn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1.2px solid var(--muted);background:transparent;color:var(--muted);font-size:9px;font-weight:800;font-family:inherit;cursor:pointer;vertical-align:middle;margin-left:4px;line-height:1;padding:0;text-transform:none;letter-spacing:0;flex:none;opacity:.85}
   .tipbtn::after{content:"";position:absolute;inset:-10px;border-radius:50%} /* invisible tap area stays >=34px while the icon stays small */
@@ -786,7 +786,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://returnkoto.com/#org", "name": "ReturnKoto?", "url": "https://returnkoto.com/", "email": "hello@returnkoto.com", "logo": "https://returnkoto.com/apple-touch-icon.png", "sameAs": ["https://www.facebook.com/ReturnKoto", "https://www.instagram.com/returnkoto/", "https://www.youtube.com/@ReturnKoto", "https://www.tiktok.com/@returnkoto", "https://www.reddit.com/r/returnkoto/", "https://www.linkedin.com/company/returnkoto"], "description": "Independent, free resource for the real historical returns of Bangladeshi open-end mutual funds, with verified fees and details from official BSEC prospectuses.", "areaServed": {"@type": "Country", "name": "Bangladesh"}, "knowsAbout": ["Bangladeshi open-end mutual funds", "mutual fund NAV", "SIP investing", "total return", "Shariah-compliant mutual funds", "Sanchayapatra", "DPS", "fixed deposit rates"]}, {"@type": "WebSite", "@id": "https://returnkoto.com/#website", "name": "ReturnKoto?", "url": "https://returnkoto.com/", "inLanguage": "en", "publisher": {"@id": "https://returnkoto.com/#org"}, "description": "What your money would actually have made in Bangladeshi open-end mutual funds, with dividends reinvested by default or taken as cash, and verified fund fees."}, {"@type": "Dataset", "@id": "https://returnkoto.com/#dataset", "name": "Bangladeshi Open-End Mutual Fund Returns", "description": "Historical total returns for Bangladeshi open-end mutual funds, computed from each fund's real published NAV history with cash dividends reinvested by default or taken as cash. Includes lump-sum and monthly-SIP returns over multiple periods, annualized as CAGR for lump sum and money-weighted IRR for SIP, plus each fund's verified management fee, trustee, custodian, sponsor and minimum investment from its official BSEC prospectus.", "creator": {"@id": "https://returnkoto.com/#org"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "isAccessibleForFree": true, "inLanguage": "en", "spatialCoverage": {"@type": "Place", "name": "Bangladesh"}, "keywords": ["Bangladesh mutual funds", "open-end mutual fund", "NAV", "total return", "SIP", "CAGR", "IRR", "Shariah fund", "Sanchayapatra"], "variableMeasured": ["Net asset value (NAV)", "Total return", "Compound annual growth rate (CAGR)", "Money-weighted IRR", "Management fee", "Assets under management"], "creativeWorkStatus": "Updated daily", "license": "https://returnkoto.com/terms.html", "dateModified": "2026-08-03", "temporalCoverage": "2013/..", "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://returnkoto.com/data.json"}, {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://returnkoto.com/holdings.json"}]}]}
 </script>
-<link rel="stylesheet" href="/rk-ui.css?v=1">
+<link rel="stylesheet" href="/rk-ui.css?v=2">
 </head>
 <body class="rk-home">
 <div id="rk-preview-banner" style="background:#FEF3C7;color:#92400E;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;border-bottom:1px solid #FDE68A;line-height:1.45">

@@ -1,6 +1,6 @@
 /* ============================================================================
    ReturnKoto? UI polish layer
-   Version 1, 20 Aug 2026
+   Version 2, 20 Aug 2026
 
    Additive only. Loads AFTER each page's inline <style> block and overrides it.
    Nothing here changes markup, copy, data or behaviour. Remove the one <link>
@@ -426,8 +426,11 @@ header p{
 .amount span{font-size:19px}
 
 /* Native selects were the most obviously unstyled elements on the site.
-   One consistent treatment with a drawn chevron. */
-select:not(.hs-period-sel){
+   One consistent treatment with a drawn chevron.
+   Every rule that sets background-image also sets repeat/size/position.
+   Dark-mode page CSS uses `background:` shorthand on .hsel-wide, which
+   otherwise resets those and tiles the chevron across the control. */
+html select:not(.hs-period-sel){
   appearance:none;
   -webkit-appearance:none;
   font-family:inherit;
@@ -439,20 +442,23 @@ select:not(.hs-period-sel){
   padding:12px 38px 12px 14px;
   min-height:46px;
   cursor:pointer;
-  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%236B7280' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%236B7280' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;
   background-position:right 14px center;
   background-size:11px 7px;
   transition:border-color .16s, box-shadow .16s;
 }
-select:not(.hs-period-sel):hover{border-color:var(--green)}
-select:not(.hs-period-sel):focus{
+html select:not(.hs-period-sel):hover{border-color:var(--green)}
+html select:not(.hs-period-sel):focus{
   border-color:var(--green);
   box-shadow:0 0 0 4px rgba(46,204,113,.14);
 }
-[data-theme="dark"] select:not(.hs-period-sel){
+html[data-theme="dark"] select:not(.hs-period-sel){
   background-color:#141C28;
-  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%239BA7BB' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%239BA7BB' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  background-size:11px 7px;
 }
 
 /* Primary call to action. */
