@@ -153,14 +153,14 @@
   .roll-zero{position:absolute;top:-2px;width:1px;height:12px;background:var(--muted);opacity:.45}
   .roll-mark{position:absolute;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--green-dark);box-shadow:0 0 0 2px var(--card);z-index:1}
   .roll-mark.neg{background:#c0392b}
-  html.rk-anim .cbar-fill,html.rk-anim .csec-fill,html.rk-anim .cconc-fill,html.rk-anim .cmix-bar{transform:scaleX(0);transform-origin:left;transition:transform .55s ease}
-  html.rk-anim .cbar-fill.in,html.rk-anim .csec-fill.in,html.rk-anim .cconc-fill.in,html.rk-anim .cmix-bar.in{transform:scaleX(1)}
-  html.rk-anim .cmix-donut{clip-path:circle(0 at 50% 50%);transition:clip-path .7s ease}
-  html.rk-anim .cmix-donut.in{clip-path:circle(50% at 50% 50%)}
-  html.rk-anim .roll-mark{transform:scale(0);transition:transform .4s ease .15s}
-  html.rk-anim .roll-mark.in{transform:scale(1)}
+  html.rk-anim .cbar:not(.in) .cbar-fill,html.rk-anim .csec-trk:not(.in) .csec-fill,html.rk-anim .cconc-trk:not(.in) .cconc-fill,html.rk-anim .cmix-bar:not(.in){transform:scaleX(0);transform-origin:left}
+  html.rk-anim .cbar .cbar-fill,html.rk-anim .csec-trk .csec-fill,html.rk-anim .cconc-trk .cconc-fill,html.rk-anim .cmix-bar{transition:transform .55s ease}
+  html.rk-anim .cbar.in .cbar-fill,html.rk-anim .csec-trk.in .csec-fill,html.rk-anim .cconc-trk.in .cconc-fill,html.rk-anim .cmix-bar.in{transform:scaleX(1)}
+  html.rk-anim .roll-trk:not(.in) .roll-mark{transform:scale(0)}
+  html.rk-anim .roll-mark{transition:transform .4s ease .15s}
+  html.rk-anim .roll-trk.in .roll-mark{transform:scale(1)}
   @media(prefers-reduced-motion:reduce){
-    html.rk-anim .cbar-fill,html.rk-anim .csec-fill,html.rk-anim .cconc-fill,html.rk-anim .cmix-bar,html.rk-anim .cmix-donut,html.rk-anim .roll-mark{transform:none;transition:none;clip-path:none}
+    html.rk-anim .cbar .cbar-fill,html.rk-anim .csec-trk .csec-fill,html.rk-anim .cconc-trk .cconc-fill,html.rk-anim .cmix-bar,html.rk-anim .roll-mark{transform:none;transition:none}
   }
   @media(min-width:768px){.cmix-donut{width:88px;height:88px}}
   .cmp-div{border:1px solid var(--border);border-radius:10px;padding:11px 13px;background:var(--card);line-height:1.55}
@@ -814,7 +814,7 @@
     var rows=[];
     rows.push([lab('Type','cmp_type','The fund\u2019s stated mandate: Growth leans to equities, Income to bonds and deposits, Balanced mixes both. Shariah means a board certifies Islamic investing rules.','What does Type mean?'),cols.map(typeCell)]);
     rows.push([lab('Data quality','cmp_quality','AMC-Verified means the asset manager and ReturnKoto? spoke through official channels, discussed this fund\u2019s figures in detail, and share an understanding of what appears on the site\u2019s data. Source-checked means we built the figures from public records (prospectus, portfolio statements, NAV history) without that AMC confirmation. Estimated or partial means some dividend detail is incomplete.','What does Data quality mean?'),cols.map(qualCell)]);
-    rows.push([lab('Fund size','cmp_aum','Assets under management: the fund\u2019s total size across all investors, in crore (৳1 cr = ৳1,00,00,000). Not your personal investment.','What does Fund size mean?'),(function(){
+    rows.push([lab('Fund size','cmp_aum','Assets under management: the fund\u2019s total size across all investors, in crore (৳1 cr = ৳1,00,00,000). Not your personal investment. The bar is relative to the largest fund in this comparison, not a 0 to 100% market share.','What does Fund size mean?'),(function(){
       var maxA=0;cols.forEach(function(f){if(f.aum)maxA=Math.max(maxA,f.aum);});
       return cols.map(function(f){
         if(!f.aum)return voidMsg('Fund size not disclosed');
@@ -830,9 +830,9 @@
       });
     })()]);
     var totalCells=retCells(cols,0), cagrCells=retCells(cols,1), sipCells=retCells(cols,2);
-    rows.push([lab('Total return ('+pl+')','cmp_total','Overall gain or loss on a one-time lump sum held for this period, with cash dividends reinvested into more units. This is the full period result, not a yearly rate.','What does Total return mean?'),totalCells]);
-    rows.push([lab('Per year ('+pl+')','cmp_cagr','The steady yearly compound rate (CAGR) that would produce the same Total return over this period. Use it to compare periods of different lengths.','What does Per year mean?'),cagrCells]);
-    rows.push([lab('Monthly SIP /yr ('+pl+')','cmp_sip','Annualized money-weighted return (IRR) if you invested the same amount every month through this period. Differs from Per year because cash goes in gradually, not all at the start.','What does Monthly SIP /yr mean?'),sipCells]);
+    rows.push([lab('Total return ('+pl+')','cmp_total','Overall gain or loss on a one-time lump sum held for this period, with cash dividends reinvested into more units. This is the full period result, not a yearly rate. The bar is relative to the highest Total return among these funds, not a 0 to 100% scale. A shorter bar can still be a real gain.','What does Total return mean?'),totalCells]);
+    rows.push([lab('Per year ('+pl+')','cmp_cagr','The steady yearly compound rate (CAGR) that would produce the same Total return over this period. Use it to compare periods of different lengths. The bar is relative to the highest Per year figure among these funds, not a 0 to 100% scale.','What does Per year mean?'),cagrCells]);
+    rows.push([lab('Monthly SIP /yr ('+pl+')','cmp_sip','Annualized money-weighted return (IRR) if you invested the same amount every month through this period. Differs from Per year because cash goes in gradually, not all at the start. The bar is relative to the highest SIP figure among these funds, not a 0 to 100% scale.','What does Monthly SIP /yr mean?'),sipCells]);
     if(cols.some(function(f){return !!rollingBand((f.series&&f.series.tr)||[],12)||!!rollingBand((f.series&&f.series.tr)||[],36);})){
       rows.push(['__sect',sect('Rolling returns (every closed window)','cmp_sect_roll','Replays every closed 1-year or 3-year stretch in each fund\u2019s NAV history (dividends reinvested). Latest, median, best and worst summarize those windows, so a single start date cannot flatter or punish the comparison.','What is Rolling returns?')]);
       rows.push([lab('Rolling 1-year','cmp_roll1','Annualized total return for every closed 12-month window in the fund\u2019s history (dividends reinvested). Latest is the most recent window; median / best / worst summarize all of them.','What does Rolling 1-year mean?'),cols.map(function(f){return rollCell(f,12);})]);
@@ -860,10 +860,10 @@
     }
     if(cols.some(function(f){return !!hld(f);})){
       rows.push(['__sect',sect('What they hold','cmp_sect_hold','Portfolio snapshot from each fund\u2019s latest verified statement: asset mix, sectors when labeled, largest named holdings, concentration and shared stocks. Statements are usually quarterly, so they can lag the daily NAV.','What is What they hold?')]);
-      rows.push([lab('Asset mix','cmp_mix','Share of the portfolio in broad buckets (equity, fixed income, cash and so on) from the fund\u2019s latest verified statement.','What does Asset mix mean?'),cols.map(mixCell)]);
-      if(cols.some(function(f){var h=hld(f);return h&&h.sectors&&h.sectors.length;}))rows.push([lab('Sector allocation','cmp_sector','How the equity sleeve splits across industries, when the statement labels sectors.','What does Sector allocation mean?'),cols.map(secCell)]);
-      if(cols.some(function(f){var h=hld(f);return h&&h.top&&h.top.length;}))rows.push([lab('Largest holdings','cmp_top','The largest named positions in the disclosed holdings, with weights. Up to five names, from that fund\u2019s statement.','What does Largest holdings mean?'),cols.map(topCell)]);
-      if(cols.some(function(f){var h=hld(f);return h&&h.top5;}))rows.push([lab('Top 5 holdings','cmp_top5','Combined weight of the five largest named positions. Higher concentration means more of the fund rides on fewer names.','What does Top 5 holdings mean?'),cols.map(concCell)]);
+      rows.push([lab('Asset mix','cmp_mix','Share of the portfolio in broad buckets (equity, fixed income, cash and so on) from the fund\u2019s latest verified statement. The donut and stacked bar are the whole portfolio (0 to 100%).','What does Asset mix mean?'),cols.map(mixCell)]);
+      if(cols.some(function(f){var h=hld(f);return h&&h.sectors&&h.sectors.length;}))rows.push([lab('Sector allocation','cmp_sector','How the equity sleeve splits across industries, when the statement labels sectors. Each bar is sized against the largest sector in that fund\u2019s list. The printed % is still that sector\u2019s weight.','What does Sector allocation mean?'),cols.map(secCell)]);
+      if(cols.some(function(f){var h=hld(f);return h&&h.top&&h.top.length;}))rows.push([lab('Largest holdings','cmp_top','The largest named positions in the disclosed holdings, with weights. Up to five names, from that fund\u2019s statement. Each bar is sized against the largest name in that fund\u2019s list. The printed % is still that name\u2019s share of the fund.','What does Largest holdings mean?'),cols.map(topCell)]);
+      if(cols.some(function(f){var h=hld(f);return h&&h.top5;}))rows.push([lab('Top 5 holdings','cmp_top5','Combined weight of the five largest named positions. Higher concentration means more of the fund rides on fewer names. The bar is that combined weight as a share of the whole fund (0 to 100%).','What does Top 5 holdings mean?'),cols.map(concCell)]);
       rows.push([lab('Holdings as of','cmp_hasof','Statement date for the holdings above. Portfolios are usually quarterly, so they can lag the latest daily NAV.','What does Holdings as of mean?'),cols.map(hAsofCell)]);
       var _sc=sharedCell(cols);
       if(_sc!==null)rows.push(['__span',lab('Shared stocks','cmp_shared','Named stocks that appear in more than one of these funds\u2019 disclosed top holdings. Weights are from those statements, not live market prices.','What does Shared stocks mean?'),_sc]);
@@ -877,14 +877,14 @@
     body+='<tr class="cmp-openrow"><td class="k"></td>'+cols.map(function(f){return '<td><a href="/funds/'+slug(f.label)+'.html">Open '+fundDisp(f).replace(/</g,'&lt;')+' →</a></td>';}).join('')+'</tr>';
     body+='</tbody>';
     root.innerHTML=head+body;
-    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. When a fund is younger than the selected period, return cells say Needs N years of history (or Insufficient history). Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or a clear shortfall label. For two funds, Diversification snapshot combines shared stock weight, shared sector weight (when both statements label sectors), and monthly-return co-movement into one plain-language line. Tap the ? next to each row or section for a short tip (it opens above the row). "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). Missing prospectus or holdings fields say why they are blank (for example Not stated in prospectus, or No sector labels in this statement). Holdings come from each fund&rsquo;s quarterly portfolio disclosure, with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV.';
+    document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Return and size bars in each row are relative to the highest figure among the funds on screen, not a 0 to 100% scale. When a fund is younger than the selected period, return cells say Needs N years of history (or Insufficient history). Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or a clear shortfall label. For two funds, Diversification snapshot combines shared stock weight, shared sector weight (when both statements label sectors), and monthly-return co-movement into one plain-language line. Tap the ? next to each row or section for a short tip (it opens above the row). "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). Missing prospectus or holdings fields say why they are blank (for example Not stated in prospectus, or No sector labels in this statement). Holdings come from each fund&rsquo;s quarterly portfolio disclosure, with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV.';
     writeShareUrl(cols);
     rkReveal(root);
   }
   var _revIo;
   function rkReveal(scope){
     if(_revIo){_revIo.disconnect();_revIo=null;}
-    var sel='.cbar-fill,.csec-fill,.cconc-fill,.cmix-bar,.cmix-donut,.roll-mark';
+    var sel='.cbar,.csec-trk,.cconc-trk,.cmix-bar,.cmix-donut,.roll-trk';
     var nodes=[].slice.call((scope||document).querySelectorAll(sel));
     var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
     if(reduce||!('IntersectionObserver' in window)){
@@ -894,7 +894,7 @@
     document.documentElement.classList.add('rk-anim');
     _revIo=new IntersectionObserver(function(ents){
       ents.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');_revIo.unobserve(e.target);}});
-    },{threshold:0.18,rootMargin:'0px 0px -8% 0px'});
+    },{threshold:0.01,rootMargin:'0px 0px -6% 0px'});
     nodes.forEach(function(el){_revIo.observe(el);});
   }
   var copyBtnInit=document.getElementById('cmpCopyLink');
