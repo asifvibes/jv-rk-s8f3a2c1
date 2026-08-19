@@ -146,7 +146,11 @@
   .fund .sub{font-size:12px;color:var(--muted);margin-top:3px}
   .fsz{font-weight:600;color:#374151;white-space:nowrap}
   .nums{text-align:right;flex:none}
-  .nums .fv{font-weight:800;font-size:16px}
+  .nums .fv{font-weight:800;font-size:18px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .sparkwrap{flex:none;width:64px;align-self:center}
+  .sparkwrap .spark{display:block;width:64px;height:24px;color:var(--green-dark)}
+  .sparkwrap .spark.neg{color:var(--red)}
+  @media(max-width:380px){.sparkwrap{width:52px}.sparkwrap .spark{width:52px}}
   .nums .gn{font-size:12.5px;font-weight:600;margin-top:2px}
   .nums .gn.pos{color:#15803d}
   .nums .gn.neg{color:var(--red)}
@@ -155,8 +159,16 @@
   .sec-title{font-size:18px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
   .eyebrow{display:inline-block;font-size:13px;font-weight:800;color:var(--green-dark);letter-spacing:-.01em;margin:0 0 2px}
   .herostat{margin-bottom:9px}
-  .hs-main{font-size:25px;font-weight:800;letter-spacing:-.02em;color:var(--text);line-height:1.15}
+  .hs-kicker{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px;line-height:1.35}
+  .hs-main{font-size:36px;font-weight:800;letter-spacing:-.03em;color:var(--text);line-height:1.05;font-variant-numeric:tabular-nums}
   .hs-main b{color:var(--green-dark)}
+  .hs-spark{margin:10px 0 2px}
+  .hs-spark .spark{display:block;width:100%;height:36px;color:var(--green-dark)}
+  .hs-spark .spark.neg{color:var(--red)}
+  .hs-share{display:inline-flex;align-items:center;justify-content:center;margin-top:12px;font-family:inherit;font-size:13.5px;font-weight:700;color:var(--green-dark);background:transparent;border:1.5px solid #CDEEDB;border-radius:10px;padding:10px 14px;min-height:44px;cursor:pointer}
+  .hs-share:hover,.hs-share:focus{background:var(--green-soft)}
+  [data-theme="dark"] .hs-share{border-color:#1E4A30;color:#3DD98A}
+  [data-theme="dark"] .hs-share:hover,[data-theme="dark"] .hs-share:focus{background:#12301E}
   .hs-op{font-weight:400;color:var(--muted)}
   .hs-sub{font-size:13.5px;font-weight:600;margin-top:3px;color:var(--muted)}
   .hs-ann{font-weight:700;color:var(--green-dark)}
@@ -176,8 +188,8 @@
   [data-theme="dark"] .hl-range{color:var(--muted)}
   /* Dark mode: neutral card surface so the green lives only in the numbers and the control */
   [data-theme="dark"] .headline{background:#161F2E;border-color:#2B3648}
-  @media(max-width:560px){.hs-period-sel{min-height:44px}.hs-main{font-size:20px}}
-  @media(max-width:380px){.hs-main{font-size:18px}}
+  @media(max-width:560px){.hs-period-sel{min-height:44px}.hs-main{font-size:30px}}
+  @media(max-width:380px){.hs-main{font-size:28px}}
   /* Return-period pills: 3-column grid on phones so Since launch never clips */
   @media(max-width:560px){#horizon{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}#horizon button{white-space:normal}}
   /* Method buttons: allow wrapping on narrow phones so One Time (Lump Sum) fits */
@@ -343,6 +355,8 @@
   [data-theme="dark"] .tag.balanced{background:#2A3446;color:#AAB6C6}
   [data-theme="dark"] .pos,[data-theme="dark"] .nums .gn.pos,[data-theme="dark"] .cbar-num.pos,[data-theme="dark"] .hs-pct.pos{color:#34D399}
   [data-theme="dark"] .hs-main b,[data-theme="dark"] .eyebrow,[data-theme="dark"] .fundlink:hover,[data-theme="dark"] .fundlink::after{color:#3DD98A}
+  [data-theme="dark"] .hs-main b{text-shadow:0 0 22px rgba(61,217,138,.28)}
+  [data-theme="dark"] .headline{box-shadow:inset 0 1px 0 rgba(61,217,138,.08)}
   [data-theme="dark"] .cfmsg a,[data-theme="dark"] .lcsel .x,[data-theme="dark"] .lcleg .lcbulk button{color:#3DD98A}
   [data-theme="dark"] .rk-foot{background:#0B111A;border-top-color:#1E2735}
   [data-theme="dark"] .rk-foot-links a{color:#AEB9CC}
@@ -658,7 +672,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   [data-theme="dark"] .lccap b[data-bn="Inflation"]{color:#F87171!important}
   [data-theme="dark"] .lccap b[data-bn="Gold"]{color:#FBBF24!important}
   /* headline skeleton: no layout jump while data.json loads */
-  .headline{min-height:118px}
+  .headline{min-height:168px}
   .hl-loading{font-size:13.5px;color:var(--muted);padding:24px 0;text-align:center}
   /* comparison split + rate editing disclosures */
   details.morecmp{display:inline-flex;align-items:center;flex-wrap:wrap;gap:7px 8px}
@@ -1075,6 +1089,115 @@ const T={
 const t=k=>(T[k]!=null?T[k]:k);
 
 const fmt=v=>"৳"+Math.round(v).toLocaleString("en-IN");
+function sparkSlice(ser, monthsUsed){
+  if(!ser||ser.length<2)return null;
+  var n=Math.max(2, Math.min(ser.length, (monthsUsed>0?monthsUsed:ser.length-1)+1));
+  return ser.slice(-n);
+}
+function sparkSvg(vals,w,h,area){
+  if(!vals||vals.length<2)return "";
+  var lo=vals[0],hi=vals[0],i;
+  for(i=1;i<vals.length;i++){if(vals[i]<lo)lo=vals[i];if(vals[i]>hi)hi=vals[i];}
+  var span=(hi-lo)||1, last=vals[vals.length-1], neg=last<vals[0];
+  var pts="";
+  for(i=0;i<vals.length;i++){
+    var x=i/(vals.length-1)*w;
+    var y=h-1.2-((vals[i]-lo)/span)*(h-2.4);
+    pts+=(i?" ":"")+x.toFixed(1)+","+y.toFixed(1);
+  }
+  var cls="spark"+(neg?" neg":"");
+  var fill=area?('<polygon fill="currentColor" fill-opacity="0.14" points="0,'+h+' '+pts+' '+w+','+h+'"/>'):"";
+  return '<svg class="'+cls+'" viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" aria-hidden="true">'+fill+'<polyline fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" points="'+pts+'"/></svg>';
+}
+var _hsCount=0,_hsFrom=null;
+function countTaka(el,to,fromHint){
+  if(!el)return;
+  var from=(_hsFrom!=null)?_hsFrom:(fromHint!=null?fromHint:to);
+  _hsFrom=to;
+  if(REDUCED_MOTION||!window.requestAnimationFrame||Math.abs(to-from)<1){el.textContent=fmt(to);return;}
+  var id=++_hsCount,t0=null;
+  function step(ts){
+    if(id!==_hsCount)return;
+    if(!t0)t0=ts;
+    var k=Math.min(1,(ts-t0)/720);
+    var v=from+(to-from)*(1-Math.pow(1-k,3));
+    el.textContent=fmt(v);
+    if(k<1)requestAnimationFrame(step);
+    else el.textContent=fmt(to);
+  }
+  requestAnimationFrame(step);
+}
+function rkShareImage(){
+  var s=window._rkShare; if(!s)return;
+  var W=1080,H=1080,c=document.createElement("canvas");
+  c.width=W;c.height=H;
+  var ctx=c.getContext("2d");
+  ctx.fillStyle="#0E141F";ctx.fillRect(0,0,W,H);
+  ctx.fillStyle="#157A43";
+  roundRect(ctx,72,72,56,56,16);ctx.fill();
+  ctx.strokeStyle="#fff";ctx.lineWidth=5;ctx.lineCap="round";ctx.lineJoin="round";
+  ctx.beginPath();ctx.moveTo(84,110);ctx.lineTo(96,98);ctx.lineTo(104,104);ctx.lineTo(116,86);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(107,86);ctx.lineTo(116,86);ctx.lineTo(116,95);ctx.stroke();
+  ctx.fillStyle="#E6EAF2";ctx.font="800 42px Inter, system-ui, sans-serif";
+  ctx.fillText("ReturnKoto?",148,112);
+  ctx.fillStyle="#9BA7BB";ctx.font="600 28px Inter, system-ui, sans-serif";
+  wrapCanvas(ctx,s.kicker,72,190,936,38);
+  ctx.fillStyle=s.pos?"#3DD98A":"#F87171";
+  ctx.font="800 92px Inter, system-ui, sans-serif";
+  fitCanvasText(ctx,s.big,72,430,936,92);
+  ctx.fillStyle="#E6EAF2";ctx.font="700 32px Inter, system-ui, sans-serif";
+  wrapCanvas(ctx,s.sub,72,500,936,40);
+  if(s.spark&&s.spark.length>1){
+    var vals=s.spark,lo=vals[0],hi=vals[0],i;
+    for(i=1;i<vals.length;i++){if(vals[i]<lo)lo=vals[i];if(vals[i]>hi)hi=vals[i];}
+    var span=(hi-lo)||1, x0=72,y0=620,ww=936,hh=160;
+    ctx.beginPath();
+    for(i=0;i<vals.length;i++){
+      var x=x0+i/(vals.length-1)*ww;
+      var y=y0+hh-((vals[i]-lo)/span)*hh;
+      if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);
+    }
+    ctx.strokeStyle=s.pos?"#3DD98A":"#F87171";ctx.lineWidth=5;ctx.lineJoin="round";ctx.stroke();
+  }
+  ctx.fillStyle="#9BA7BB";ctx.font="500 24px Inter, system-ui, sans-serif";
+  ctx.fillText(s.note,72,860);
+  ctx.fillStyle="#3DD98A";ctx.font="700 28px Inter, system-ui, sans-serif";
+  ctx.fillText("returnkoto.com",72,980);
+  function blobReady(blob){
+    if(!blob)return;
+    var file=new File([blob],"returnkoto.png",{type:"image/png"});
+    var shareObj={files:[file],title:"ReturnKoto?",text:s.kicker};
+    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+      navigator.share(shareObj).catch(function(){dl(blob);});
+    }else dl(blob);
+    try{if(window.gtag)gtag("event","share_image",{place:"home"});}catch(e){}
+  }
+  if(c.toBlob)c.toBlob(blobReady,"image/png");
+  else{
+    var a=document.createElement("a");a.href=c.toDataURL("image/png");a.download="returnkoto.png";a.click();
+  }
+  function dl(blob){
+    var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="returnkoto.png";a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);},2500);
+  }
+}
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();
+}
+function wrapCanvas(ctx,text,x,y,maxW,lh){
+  var words=String(text).split(" "),line="",yy=y,i;
+  for(i=0;i<words.length;i++){
+    var test=line?line+" "+words[i]:words[i];
+    if(ctx.measureText(test).width>maxW&&line){ctx.fillText(line,x,yy);yy+=lh;line=words[i];}
+    else line=test;
+  }
+  if(line)ctx.fillText(line,x,yy);
+}
+function fitCanvasText(ctx,text,x,y,maxW,size){
+  ctx.font="800 "+size+"px Inter, system-ui, sans-serif";
+  while(size>42&&ctx.measureText(text).width>maxW){size-=4;ctx.font="800 "+size+"px Inter, system-ui, sans-serif";}
+  ctx.fillText(text,x,y);
+}
 const getAmt=()=>{const e=document.getElementById("amt");return Math.max(0,parseInt(String(e.value).replace(/[^0-9]/g,""),10)||0);};
 const setAmt=v=>{document.getElementById("amt").value=v?(+v).toLocaleString("en-IN"):"";};
 const since=d=>{const p=d.split("-");return MONTHS[+p[1]-1]+" "+p[2];};
@@ -1119,6 +1242,7 @@ function render(){
   let banner, hs="";
   if(!rows.length){
     banner=`No fund has enough history for this return period yet. Try a shorter period or "Since launch".`;
+    window._rkShare=null;
   }else{
     const b0=rows[0], pp=b0.gain>=0;
     const pct=Math.round(b0.gain/b0.invested*10000)/100;
@@ -1126,7 +1250,19 @@ function render(){
     if(horizon==="max"){const yv=Math.round(b0.monthsUsed/12*10)/10;periodTxt=yv+(yv===1?" year":" years");}
     else{periodTxt=periodWords(horizon);}
     const bsl=b0.f.label.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
-    hs='<div class="herostat"><div class="hs-main">'+fmt(b0.invested)+' <span class="hs-op">'+(pp?'grew to':'became')+'</span> <b>'+fmt(b0.final)+'</b></div><div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+(b0.annual>=0?'+':'')+tn(b0.annual)+'%/yr)</span> \u00b7 <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(b0.gain))+'</span> \u00b7 best: <a class="fundlink hs-fund" href="/funds/'+bsl+'.html">'+fundDispHtml(b0.f)+'</a></div></div>';
+    const ser=(divBasis==="cash"&&b0.f.series&&b0.f.series.co&&b0.f.series.co.length)?b0.f.series.co:((b0.f.series&&b0.f.series.tr)||[]);
+    const sparkVals=sparkSlice(ser, b0.monthsUsed);
+    const sparkHtml=sparkVals?('<div class="hs-spark">'+sparkSvg(sparkVals,280,36,true)+'</div>'):'';
+    const kicker=fmt(b0.invested)+' <span class="hs-op">'+(pp?'grew to':'became')+'</span>';
+    hs='<div class="herostat"><div class="hs-kicker">'+kicker+'</div><div class="hs-main"><b class="hs-final" data-to="'+Math.round(b0.final)+'">'+fmt(b0.final)+'</b></div>'+sparkHtml+'<div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+(b0.annual>=0?'+':'')+tn(b0.annual)+'%/yr)</span> \u00b7 <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(b0.gain))+'</span> \u00b7 best: <a class="fundlink hs-fund" href="/funds/'+bsl+'.html">'+fundDispHtml(b0.f)+'</a></div><button type="button" class="hs-share">Share image</button></div>';
+    window._rkShare={
+      kicker: fmt(b0.invested)+(method==="sip"?" every month":" once")+" · "+periodTxt,
+      big: fmt(b0.final),
+      sub: (pp?"+":"-")+Math.abs(pct).toFixed(2)+"%  ("+(b0.annual>=0?"+":"")+tn(b0.annual)+"%/yr)  ·  "+(b0.f.short||b0.f.label),
+      note: "Historical total return. Past performance does not predict the future.",
+      spark: sparkVals||[],
+      pos: pp
+    };
     // Scannable context: fund count + spread only (period + dates live in the card header)
     if(rows.length>2){
       const mid=rows[Math.floor((rows.length-1)/2)], low=rows[rows.length-1];
@@ -1148,6 +1284,13 @@ function render(){
   const sel=document.getElementById("hsPeriodSel");
   if(sel&&sel.value!==horizon&&[...sel.options].some(o=>o.value===horizon))sel.value=horizon;
   document.getElementById("hlBody").innerHTML=hs+'<div class="hl-sentence">'+banner+'</div>';
+  var az=document.getElementById("answerzone");
+  var fin=document.querySelector("#hlBody .hs-final");
+  if(fin){
+    var to=+fin.getAttribute("data-to");
+    if(az&&!az.hidden) countTaka(fin,to,rows[0]?rows[0].invested:to);
+    else{fin.textContent=fmt(to);_hsFrom=to;}
+  }
   // Screen readers get one settled sentence instead of every keystroke's partial result
   clearTimeout(window._srT);
   window._srT=setTimeout(function(){
@@ -1419,6 +1562,9 @@ function renderList(rows){
       const sl=f.label.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
       const detToggle = `<button class="fdtog" data-fdet="${ty}${f.id}" aria-expanded="false" type="button">Fund details <span class="fchev">\u25be</span></button>`;
       const detPanel = buildDetPanel(ty+f.id,det);
+      const rser=(divBasis==="cash"&&f.series&&f.series.co&&f.series.co.length)?f.series.co:((f.series&&f.series.tr)||[]);
+      const rspark=sparkSlice(rser, r.monthsUsed);
+      const sparkCell=rspark?`<div class="sparkwrap">${sparkSvg(rspark,64,24,false)}</div>`:"";
       div.innerHTML=`
         <div class="rank">${rankCell}</div>
         <div class="fund">
@@ -1428,6 +1574,7 @@ function renderList(rows){
           ${why}
           ${detToggle}
         </div>
+        ${sparkCell}
         <div class="nums">
           <div class="fv">${fmt(r.final)}</div>
           <div class="gn ${gpos?"pos":"neg"}">${gpos?"+":""}${fmt(r.gain)}</div>
@@ -1617,6 +1764,8 @@ var btn=document.getElementById("browseallbtn");if(btn)btn.textContent="Browse a
     var hl=document.getElementById("headline");
     if(hl&&hl.scrollIntoView)setTimeout(function(){hl.scrollIntoView({behavior:REDUCED_MOTION?"auto":"smooth",block:"center"});},140);
   });
+  var hlHost=document.getElementById("headline");
+  if(hlHost)hlHost.addEventListener("click",function(e){if(e.target.closest&&e.target.closest(".hs-share"))rkShareImage();});
   var amtEl=document.getElementById("amt");
   if(amtEl)amtEl.addEventListener("keydown",function(e){if(e.key==="Enter"&&az&&az.hidden&&rb){e.preventDefault();rb.click();}});
   // Layer 3: the cockpit implies the answer zone
