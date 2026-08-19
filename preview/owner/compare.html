@@ -91,6 +91,9 @@
   .rktip{display:block;width:100%;font-size:12.5px;font-weight:500;line-height:1.55;color:var(--text);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:10px;padding:10px 12px;margin:0;text-transform:none;letter-spacing:0;box-sizing:border-box}
   .lead + .rktip{margin:8px 0 14px}
   [data-theme="dark"] .rktip{border-color:#1E4A30;background:#12301E}
+  [data-theme="dark"] .cmix-tip{border-color:#1E4A30;background:#12301E}
+  [data-theme="dark"] .roll-mark{box-shadow:0 0 0 2px #182130}
+  [data-theme="dark"] .cbar-fill.neg,[data-theme="dark"] .roll-mark.neg{background:#F87171}
   tr.cmp-tiprow td{padding:0 13px 11px;border-bottom:1px solid var(--line);background:transparent}
   tr.cmp-tiprow .rktip{display:block;width:100%;max-width:none;box-sizing:border-box}
   @media(max-width:560px){.tipbtn{width:13px;height:13px;font-size:8.5px;line-height:11px}.tipbtn::after{inset:-14px}}
@@ -134,8 +137,32 @@
   .csec-row{display:flex;align-items:center;gap:6px;margin:0 0 4px;min-width:150px}
   .csec-lbl{font-size:11.5px;color:var(--muted);flex:0 0 34%;max-width:110px;white-space:normal;line-height:1.25;overflow-wrap:break-word}
   .csec-trk{flex:1;height:7px;border-radius:4px;background:var(--border);overflow:hidden}
-  .csec-fill{display:block;height:100%;background:var(--green-dark);border-radius:4px}
+  .csec-fill{display:block;height:100%;width:var(--w,0);background:var(--green-dark);border-radius:4px}
   .csec-val{font-size:11.5px;font-weight:700;flex:0 0 auto}
+  .cbar{display:block}
+  .cbar-trk{display:block;height:7px;border-radius:4px;background:var(--border);overflow:hidden;margin-top:6px}
+  .cbar-fill{display:block;height:100%;width:var(--w,0);background:var(--green-dark);border-radius:4px}
+  .cbar-fill.neg{background:#c0392b}
+  .cmix-donut{width:72px;height:72px;display:block;margin:0 auto 8px}
+  .cmix-donut circle{cursor:pointer}
+  .cmix-tip{display:block;width:100%;font-size:11.5px;font-weight:600;line-height:1.4;color:var(--text);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:8px;padding:7px 9px;margin:0 0 8px;box-sizing:border-box}
+  .hp-conc-trk,.cconc-trk{display:block;height:7px;border-radius:4px;background:var(--border);overflow:hidden;margin-top:6px}
+  .hp-conc-fill,.cconc-fill{display:block;height:100%;width:var(--w,0);background:var(--green-dark);border-radius:4px}
+  .roll-trk{position:relative;height:8px;border-radius:4px;background:var(--border);margin:7px 6px 0;overflow:visible}
+  .roll-span{position:absolute;top:0;height:100%;background:color-mix(in srgb,var(--green-dark) 35%,var(--border));border-radius:4px}
+  .roll-zero{position:absolute;top:-2px;width:1px;height:12px;background:var(--muted);opacity:.45}
+  .roll-mark{position:absolute;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--green-dark);box-shadow:0 0 0 2px var(--card);z-index:1}
+  .roll-mark.neg{background:#c0392b}
+  html.rk-anim .cbar-fill,html.rk-anim .csec-fill,html.rk-anim .cconc-fill,html.rk-anim .cmix-bar{transform:scaleX(0);transform-origin:left;transition:transform .55s ease}
+  html.rk-anim .cbar-fill.in,html.rk-anim .csec-fill.in,html.rk-anim .cconc-fill.in,html.rk-anim .cmix-bar.in{transform:scaleX(1)}
+  html.rk-anim .cmix-donut{clip-path:circle(0 at 50% 50%);transition:clip-path .7s ease}
+  html.rk-anim .cmix-donut.in{clip-path:circle(50% at 50% 50%)}
+  html.rk-anim .roll-mark{transform:scale(0);transition:transform .4s ease .15s}
+  html.rk-anim .roll-mark.in{transform:scale(1)}
+  @media(prefers-reduced-motion:reduce){
+    html.rk-anim .cbar-fill,html.rk-anim .csec-fill,html.rk-anim .cconc-fill,html.rk-anim .cmix-bar,html.rk-anim .cmix-donut,html.rk-anim .roll-mark{transform:none;transition:none;clip-path:none}
+  }
+  @media(min-width:768px){.cmix-donut{width:88px;height:88px}}
   .cmp-div{border:1px solid var(--border);border-radius:10px;padding:11px 13px;background:var(--card);line-height:1.55}
   .cmp-div-line{font-size:14px;font-weight:700;color:var(--text)}
   .cmp-div-line b{font-weight:800}
@@ -154,6 +181,7 @@
     tr.cmp-sect td{padding:7px 8px}
     tr.cmp-tiprow td{padding:0 8px 9px}
     .cmix-bar{min-width:0;height:10px}
+    .cmix-donut{width:64px;height:64px}
     .csec-row{flex-wrap:wrap;min-width:0;gap:1px 5px;margin:0 0 7px}
     .csec-lbl{flex:1 1 100%;max-width:none;min-width:0;font-size:11px;overflow-wrap:anywhere}
     .csec-trk{flex:1 1 auto}
@@ -508,10 +536,21 @@
       return '<span style="color:var(--muted);font-size:13px;font-weight:600">Insufficient history</span>';
     }
     var cls=b.latest>=0?'v-pos':'v-neg';
+    var lo=Math.min(b.worst,b.best,b.latest,0);
+    var hi=Math.max(b.worst,b.best,b.latest,0);
+    var span=hi-lo||1;
+    function x(v){return ((v-lo)/span*100);}
+    var left=Math.min(x(b.worst),x(b.best));
+    var width=Math.abs(x(b.best)-x(b.worst));
+    var zero=x(0);
+    var latest=x(b.latest);
     return '<b class="'+cls+'">'+(b.latest>=0?'+':'')+b.latest.toFixed(2)+'%</b>'
       +'<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">median '+(b.median>=0?'+':'')+b.median.toFixed(1)
       +'% · best '+(b.best>=0?'+':'')+b.best.toFixed(1)+'% · worst '+(b.worst>=0?'+':'')+b.worst.toFixed(1)
-      +'% · '+b.n+' windows</div>';
+      +'% · '+b.n+' windows</div>'
+      +'<div class="roll-trk" aria-hidden="true"><span class="roll-span" style="left:'+left.toFixed(1)+'%;width:'+Math.max(width,2).toFixed(1)+'%"></span>'
+      +(lo<0&&hi>0?'<i class="roll-zero" style="left:'+zero.toFixed(1)+'%"></i>':'')
+      +'<span class="roll-mark'+(b.latest<0?' neg':'')+'" style="left:'+latest.toFixed(1)+'%"></span></div>';
   }
   function ned(msg){return '<span style="color:var(--muted);font-size:13px;font-weight:600">'+(msg||'Insufficient history')+'</span>';}
   function pathCell(f, key, fmt){
@@ -552,13 +591,31 @@
   var HPAL=['#1F9E57','#2F80ED','#E0A82E','#8E7CC3','#59B8B3','#9AA3B2','#C2698D'];
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
   function hld(f){return holdings[String(f.id)]||null;}
+  function growBar(w, cls){
+    w=Math.max(0,Math.min(100,+w||0));
+    return '<span class="cbar-trk" aria-hidden="true"><span class="cbar-fill'+(cls?' '+cls:'')+'" style="--w:'+w+'%"></span></span>';
+  }
+  function metricCell(html, w, cls){
+    return '<div class="cbar">'+html+growBar(w,cls)+'</div>';
+  }
+  function mixDonut(ac, label){
+    var R=22, CX=32, SW=12, C=2*Math.PI*R, acc=0;
+    var total=ac.reduce(function(s,it){return s+(+it.v||0);},0)||100;
+    var segs=ac.map(function(it,i){
+      var frac=(+it.v||0)/total;
+      var d='<circle r="'+R+'" cx="'+CX+'" cy="'+CX+'" fill="none" stroke="'+HPAL[i%HPAL.length]+'" stroke-width="'+SW+'" stroke-dasharray="'+(frac*C).toFixed(3)+' '+C.toFixed(3)+'" stroke-dashoffset="'+(-acc*C).toFixed(3)+'" data-l="'+esc(it.k)+': '+it.v.toFixed(2)+'%"></circle>';
+      acc+=frac;
+      return d;
+    }).join('');
+    return '<svg class="cmix-donut" viewBox="0 0 64 64" role="img" aria-label="Asset mix of '+esc(label)+'"><g transform="rotate(-90 '+CX+' '+CX+')">'+segs+'</g></svg>';
+  }
   function mixCell(f){
     var h=hld(f); if(!h)return voidMsg('Holdings not yet verified');
     var ac=h.assetClass||[];
     if(!ac.length)return voidMsg('Asset mix not disclosed');
     var segs=ac.map(function(it,i){return '<div style="width:'+it.v+'%;background:'+HPAL[i%HPAL.length]+'"></div>';}).join('');
     var leg=ac.map(function(it,i){return '<span><span class="cmix-sw" style="background:'+HPAL[i%HPAL.length]+'"></span>'+esc(it.k)+' '+it.v.toFixed(2)+'%</span>';}).join('');
-    return '<div class="cmix-bar">'+segs+'</div><div class="cmix-leg">'+leg+'</div>';
+    return mixDonut(ac,f.label)+'<div class="cmix-bar">'+segs+'</div><div class="cmix-leg">'+leg+'</div>';
   }
   function secCell(f){
     var h=hld(f); if(!h)return voidMsg('Holdings not yet verified');
@@ -567,11 +624,25 @@
     var maxv=s.reduce(function(m,it){return it.v>m?it.v:m;},0);
     return s.map(function(it){
       var w=maxv?Math.max(2,Math.round(it.v/maxv*100)):0;
-      return '<div class="csec-row"><span class="csec-lbl" title="'+esc(it.k)+'">'+esc(it.k)+'</span><span class="csec-trk"><span class="csec-fill" style="width:'+w+'%"></span></span><span class="csec-val">'+it.v.toFixed(2)+'%</span></div>';
+      return '<div class="csec-row"><span class="csec-lbl" title="'+esc(it.k)+'">'+esc(it.k)+'</span><span class="csec-trk"><span class="csec-fill" style="--w:'+w+'%"></span></span><span class="csec-val">'+it.v.toFixed(2)+'%</span></div>';
     }).join('');
   }
-  function topCell(f){var h=hld(f);if(!h)return voidMsg('Holdings not yet verified');var t=h.top;if(!t||!t.length)return voidMsg('No named tops disclosed');return '<b>'+esc(t[0].name)+'</b> '+t[0].v.toFixed(2)+'%';}
-  function concCell(f){var h=hld(f);if(!h)return voidMsg('Holdings not yet verified');if(!h.top5)return voidMsg('Concentration not disclosed');return '<b>'+h.top5.toFixed(2)+'%</b> of the fund';}
+  function topCell(f){
+    var h=hld(f);if(!h)return voidMsg('Holdings not yet verified');
+    var t=h.top;if(!t||!t.length)return voidMsg('No named tops disclosed');
+    var slice=t.slice(0,5);
+    var maxv=slice.reduce(function(m,it){return it.v>m?it.v:m;},0);
+    return slice.map(function(it){
+      var w=maxv?Math.max(2,Math.round(it.v/maxv*100)):0;
+      return '<div class="csec-row"><span class="csec-lbl" title="'+esc(it.name)+'">'+esc(it.name)+'</span><span class="csec-trk"><span class="csec-fill" style="--w:'+w+'%"></span></span><span class="csec-val">'+it.v.toFixed(2)+'%</span></div>';
+    }).join('');
+  }
+  function concCell(f){
+    var h=hld(f);if(!h)return voidMsg('Holdings not yet verified');
+    if(!h.top5)return voidMsg('Concentration not disclosed');
+    var w=Math.max(2,Math.min(100,h.top5));
+    return '<div class="cbar"><b>'+h.top5.toFixed(2)+'%</b> of the fund<span class="cconc-trk" aria-hidden="true"><span class="cconc-fill" style="--w:'+w+'%"></span></span></div>';
+  }
   function hAsofCell(f){var h=hld(f);if(!h)return voidMsg('Holdings not yet verified');return esc(h.asOfLabel)+'<span class="cmp-basis"> ('+esc(h.basis)+')</span>';}
   var SXINSTR=/sukuk|bond|treasur|t-bill|deposit|fdr|units|unit fund|mutual fund|preference|perpetual|brokerage|cash|\bIPO\b|SEML/i;
   var SXALIAS={"Marico":"Marico Bangladesh","Bangladesh Submarine Cable Company PLC":"Bangladesh Submarine Cables","The ACME Laboratories Limited":"The ACME Laboratories"};
@@ -804,10 +875,38 @@
     return ned();
   }
   function retCells(cols,idx){
-    return cols.map(function(f){
-      var v=retNum(f,idx);
+    var nums=cols.map(function(f){return retNum(f,idx);});
+    var max=0;
+    nums.forEach(function(v){if(v!=null&&isFinite(v))max=Math.max(max,Math.abs(v));});
+    return cols.map(function(f,i){
+      var v=nums[i];
       if(v==null||!isFinite(v))return retShortfall(f);
-      return '<b class="'+(v>=0?'v-pos':'v-neg')+'">'+(v>=0?'+':'')+v.toFixed(2)+'%</b>';
+      var w=max?Math.max(2,Math.round(Math.abs(v)/max*100)):0;
+      var num='<b class="'+(v>=0?'v-pos':'v-neg')+'">'+(v>=0?'+':'')+v.toFixed(2)+'%</b>';
+      return metricCell(num,w,v<0?'neg':'');
+    });
+  }
+  function pathCells(cols,key,fmt,scale100){
+    var vals=cols.map(function(f){
+      var p=pathOf(f);
+      return (p&&p[key]!=null&&isFinite(p[key]))?p[key]:null;
+    });
+    var max=scale100?100:0;
+    if(!scale100)vals.forEach(function(v){if(v!=null)max=Math.max(max,Math.abs(v));});
+    return cols.map(function(f,i){
+      var p=pathOf(f);
+      if(!p)return ned('Track record too short');
+      if(p[key]==null){
+        if(key==='consist')return ned('Insufficient history');
+        return ned(p.fixed3y?'Insufficient history':'Needs 3 years of history');
+      }
+      var v=vals[i];
+      var w=max?Math.max(2,Math.round(Math.abs(v)/max*100)):0;
+      var html=fmt(v);
+      if(!p.fixed3y&&p.months!=null){
+        html+='<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">Available history (~'+(p.months/12).toFixed(1)+'y) · fixed 3-year window after 3 years</div>';
+      }
+      return metricCell(html,w,v<0?'neg':'');
     });
   }
   var _rrT;function scheduleRender(d){clearTimeout(_rrT);_rrT=setTimeout(render,d||0);}
@@ -824,8 +923,21 @@
     var rows=[];
     rows.push([lab('Type','cmp_type','The fund\u2019s stated mandate: Growth leans to equities, Income to bonds and deposits, Balanced mixes both. Shariah means a board certifies Islamic investing rules.','What does Type mean?'),cols.map(typeCell)]);
     rows.push([lab('Data quality','cmp_quality','AMC-Verified means the asset manager and ReturnKoto? spoke through official channels, discussed this fund\u2019s figures in detail, and share an understanding of what appears on the site\u2019s data. Source-checked means we built the figures from public records (prospectus, portfolio statements, NAV history) without that AMC confirmation. Estimated or partial means some dividend detail is incomplete.','What does Data quality mean?'),cols.map(qualCell)]);
-    rows.push([lab('Fund size','cmp_aum','Assets under management: the fund\u2019s total size across all investors, in crore (৳1 cr = ৳1,00,00,000). Not your personal investment.','What does Fund size mean?'),cols.map(function(f){return aumcr(f);})]);
-    rows.push([lab('Tracked since','cmp_since','The start of the NAV history ReturnKoto? uses for this fund. Max returns run from this date (or from launch when the series starts at inception).','What does Tracked since mean?'),cols.map(function(f){return since(f.since);})]);
+    rows.push([lab('Fund size','cmp_aum','Assets under management: the fund\u2019s total size across all investors, in crore (৳1 cr = ৳1,00,00,000). Not your personal investment.','What does Fund size mean?'),(function(){
+      var maxA=0;cols.forEach(function(f){if(f.aum)maxA=Math.max(maxA,f.aum);});
+      return cols.map(function(f){
+        if(!f.aum)return voidMsg('Fund size not disclosed');
+        var w=maxA?Math.max(2,Math.round(f.aum/maxA*100)):0;
+        return metricCell(aumcr(f),w);
+      });
+    })()]);
+    rows.push([lab('Tracked since','cmp_since','The start of the NAV history ReturnKoto? uses for this fund. Max returns run from this date (or from launch when the series starts at inception). The bar is months of tracked history vs the longest fund in this comparison.','What does Tracked since mean?'),(function(){
+      var maxM=0;cols.forEach(function(f){if(f.M)maxM=Math.max(maxM,f.M);});
+      return cols.map(function(f){
+        var w=maxM&&f.M?Math.max(2,Math.round(f.M/maxM*100)):0;
+        return metricCell(since(f.since),w);
+      });
+    })()]);
     var totalCells=retCells(cols,0), cagrCells=retCells(cols,1), sipCells=retCells(cols,2);
     rows.push([lab('Total return ('+pl+')','cmp_total','Overall gain or loss on a one-time lump sum held for this period, with cash dividends reinvested into more units. This is the full period result, not a yearly rate.','What does Total return mean?'),totalCells]);
     rows.push([lab('Per year ('+pl+')','cmp_cagr','The steady yearly compound rate (CAGR) that would produce the same Total return over this period. Use it to compare periods of different lengths.','What does Per year mean?'),cagrCells]);
@@ -837,9 +949,9 @@
     }
     if(cols.some(function(f){var p=pathOf(f);return !!p;})||cols.some(function(f){var tr=(f.series&&f.series.tr)||[];return tr.length>1;})){
       rows.push(['__sect',sect('Path risk','cmp_sect_path','How bumpy the ride was: downside deviation, worst peak-to-trough drop, and how often rolling 12-month holds finished positive. Uses the fixed 3-year rating window when the fund is old enough; shorter track records show available history or a clear shortfall label.','What is Path risk?')]);
-      rows.push([lab('Downside deviation','cmp_ddev','Annualized volatility of losing months only. Uses the fixed 3-year rating window when the fund is old enough; otherwise available history (labeled). Lower means milder down months.','What does Downside deviation mean?'),cols.map(function(f){return pathCell(f,'ddev',function(v){return '<b>'+v.toFixed(1)+'%</b>';});})]);
-      rows.push([lab('Worst drop','cmp_mdd','Deepest peak-to-trough fall inside that window. Not a guarantee of future drawdowns.','What does Worst drop mean?'),cols.map(function(f){return pathCell(f,'mdd',function(v){return '<b class="v-neg">'+v.toFixed(0)+'%</b>';});})]);
-      rows.push([lab('Positive 12-mo windows','cmp_consist','Share of rolling 12-month holds inside the window that finished positive. Needs at least a year of history.','What does Positive 12-mo windows mean?'),cols.map(function(f){return pathCell(f,'consist',function(v){return '<b>'+v+'%</b>';});})]);
+      rows.push([lab('Downside deviation','cmp_ddev','Annualized volatility of losing months only. Uses the fixed 3-year rating window when the fund is old enough; otherwise available history (labeled). Lower means milder down months. Bar length is relative to the highest figure in this row.','What does Downside deviation mean?'),pathCells(cols,'ddev',function(v){return '<b>'+v.toFixed(1)+'%</b>';})]);
+      rows.push([lab('Worst drop','cmp_mdd','Deepest peak-to-trough fall inside that window. Not a guarantee of future drawdowns. Bar length is relative to the deepest drop in this row.','What does Worst drop mean?'),pathCells(cols,'mdd',function(v){return '<b class="v-neg">'+v.toFixed(0)+'%</b>';})]);
+      rows.push([lab('Positive 12-mo windows','cmp_consist','Share of rolling 12-month holds inside the window that finished positive. Needs at least a year of history. Bar is the share of 100%.','What does Positive 12-mo windows mean?'),pathCells(cols,'consist',function(v){return '<b>'+v+'%</b>';},true)]);
       var _pn=pathWindowNote(cols);
       if(_pn)rows.push(['__span','Window note',_pn]);
     }
@@ -859,7 +971,7 @@
       rows.push(['__sect',sect('What they hold','cmp_sect_hold','Portfolio snapshot from each fund\u2019s latest verified statement: asset mix, sectors when labeled, largest named holdings, concentration and shared stocks. Statements are usually quarterly, so they can lag the daily NAV.','What is What they hold?')]);
       rows.push([lab('Asset mix','cmp_mix','Share of the portfolio in broad buckets (equity, fixed income, cash and so on) from the fund\u2019s latest verified statement.','What does Asset mix mean?'),cols.map(mixCell)]);
       if(cols.some(function(f){var h=hld(f);return h&&h.sectors&&h.sectors.length;}))rows.push([lab('Sector allocation','cmp_sector','How the equity sleeve splits across industries, when the statement labels sectors.','What does Sector allocation mean?'),cols.map(secCell)]);
-      if(cols.some(function(f){var h=hld(f);return h&&h.top&&h.top.length;}))rows.push([lab('Top holding','cmp_top','The single largest named position in the disclosed holdings, with its weight.','What does Top holding mean?'),cols.map(topCell)]);
+      if(cols.some(function(f){var h=hld(f);return h&&h.top&&h.top.length;}))rows.push([lab('Largest holdings','cmp_top','The largest named positions in the disclosed holdings, with weights. Up to five names, from that fund\u2019s statement.','What does Largest holdings mean?'),cols.map(topCell)]);
       if(cols.some(function(f){var h=hld(f);return h&&h.top5;}))rows.push([lab('Top 5 holdings','cmp_top5','Combined weight of the five largest named positions. Higher concentration means more of the fund rides on fewer names.','What does Top 5 holdings mean?'),cols.map(concCell)]);
       rows.push([lab('Holdings as of','cmp_hasof','Statement date for the holdings above. Portfolios are usually quarterly, so they can lag the latest daily NAV.','What does Holdings as of mean?'),cols.map(hAsofCell)]);
       var _sc=sharedCell(cols);
@@ -876,6 +988,23 @@
     root.innerHTML=head+body;
     document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. When a fund is younger than the selected period, return cells say Needs N years of history (or Insufficient history). Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or a clear shortfall label. For two funds, Diversification snapshot combines shared stock weight, shared sector weight (when both statements label sectors), and monthly-return co-movement into one plain-language line. Tap the ? next to each row or section for a short tip (it opens above the row). "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). Missing prospectus or holdings fields say why they are blank (for example Not stated in prospectus, or No sector labels in this statement). Holdings come from each fund&rsquo;s quarterly portfolio disclosure, with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV.';
     writeShareUrl(cols);
+    rkReveal(root);
+  }
+  var _revIo;
+  function rkReveal(scope){
+    if(_revIo){_revIo.disconnect();_revIo=null;}
+    var sel='.cbar-fill,.csec-fill,.cconc-fill,.cmix-bar,.cmix-donut,.roll-mark';
+    var nodes=[].slice.call((scope||document).querySelectorAll(sel));
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if(reduce||!('IntersectionObserver' in window)){
+      nodes.forEach(function(el){el.classList.add('in');});
+      return;
+    }
+    document.documentElement.classList.add('rk-anim');
+    _revIo=new IntersectionObserver(function(ents){
+      ents.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');_revIo.unobserve(e.target);}});
+    },{threshold:0.18,rootMargin:'0px 0px -8% 0px'});
+    nodes.forEach(function(el){_revIo.observe(el);});
   }
   var copyBtnInit=document.getElementById('cmpCopyLink');
   if(copyBtnInit){
@@ -954,6 +1083,27 @@
     try{if(window.gtag)gtag('event','badge_tooltip_open',{tag:b.getAttribute('data-tipkey')||'compare'});}catch(err){}
   },false);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeTips();});
+})();
+(function(){
+  document.addEventListener('click',function(e){
+    var c=e.target.closest&&e.target.closest('svg.cmix-donut circle');
+    if(!c){
+      if(!(e.target.closest&&e.target.closest('.cmix-tip')))document.querySelectorAll('.cmix-tip').forEach(function(t){t.remove();});
+      return;
+    }
+    var svg=c.closest('svg.cmix-donut');
+    var label=c.getAttribute('data-l');
+    if(!svg||!label)return;
+    var host=svg.parentNode;
+    var old=host.querySelector('.cmix-tip');
+    if(old&&old.textContent===label){old.remove();return;}
+    if(old)old.remove();
+    var tip=document.createElement('span');
+    tip.className='cmix-tip';
+    tip.setAttribute('role','note');
+    tip.textContent=label;
+    svg.insertAdjacentElement('afterend',tip);
+  },false);
 })();
 </script>
 <script>(function(){function rkRoadmapTrack(){try{if(window.gtag)gtag("event","roadmap_click",{});}catch(e){}}document.querySelectorAll('a[href="/roadmap/"],a[href="/roadmap"],.rk-roadmap').forEach(function(a){if(a.dataset.rkTrack)return;a.dataset.rkTrack="1";a.addEventListener("click",rkRoadmapTrack);});})();</script>
