@@ -239,6 +239,19 @@
     best.setAttribute("aria-current", "page");
   }
 
+  /* Publish the real header height as --rk-chrome.
+
+     Sticky toolbars offset themselves against this. Some pages never set it, and
+     the funds directory hardcoded top:47px, so once the nav grew those bars slid
+     underneath it. Measuring the nav means every sticky element stays clear of
+     it whatever the nav ends up being. */
+  function measureChrome() {
+    var nav = document.querySelector(".rk-nav");
+    if (!nav) return;
+    var h = Math.round(nav.getBoundingClientRect().height);
+    if (h > 0) root.style.setProperty("--rk-chrome", h + "px");
+  }
+
   /* Mobile menu, fallback only.
 
      The burger markup and its stylesheet ship in the page, but the handler that
@@ -366,6 +379,8 @@
   }
 
   function start() {
+    measureChrome();
+    addEventListener("resize", measureChrome, { passive: true });
     markActiveNav();
     menuFallback();
     guardSummaryTaps();

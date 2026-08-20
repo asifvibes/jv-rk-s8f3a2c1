@@ -274,8 +274,8 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "ReturnKoto? Fund Comparison", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "url": "https://returnkoto.com/compare.html", "description": "Compare Bangladeshi open-end mutual funds side by side: historical returns, fees, exit loads, minimum investment, risk and what each fund holds.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BDT"}, "dateModified": "2026-08-03", "isAccessibleForFree": true, "inLanguage": "en", "publisher": {"@id": "https://returnkoto.com/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://returnkoto.com/compare.html"}]}]}
 </script>
-<link rel="stylesheet" href="/rk-ui.css?v=5">
-<script src="/rk-ui.js?v=2" defer></script>
+<link rel="stylesheet" href="/rk-ui.css?v=6">
+<script src="/rk-ui.js?v=3" defer></script>
 </head>
 <body>
 <div id="rk-preview-banner" style="background:#FEF3C7;color:#92400E;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;border-bottom:1px solid #FDE68A;line-height:1.45">
@@ -336,6 +336,18 @@
     <button type="button" class="cmp-copy" id="cmpCopyLink" hidden>Copy link</button>
   </div>
 
+  <section class="cmp-viz" id="cmpViz" hidden>
+    <div class="cmp-viz-head">
+      <h2>Growth over the period</h2>
+      <p class="cmp-viz-sub" id="cmpVizSub"></p>
+    </div>
+    <div class="cmp-legend" id="cmpLegend"></div>
+    <div class="cmp-chart" id="cmpChart"></div>
+    <p class="cmp-viz-foot">Each line starts at 100 on the first month of the window, so the shapes are comparable whatever the unit prices are. Dividends are reinvested.</p>
+    <details class="cht-nums" id="cmpVizNums"></details>
+  </section>
+
+  <p class="rk-barnote">Bars in each column are relative to the largest figure in that column, not a 0 to 100% scale. <button type="button" class="tipbtn" data-tipkey="barscale" data-tip="Read the printed %. A full bar means that cell is the largest figure in its column. A short bar means a smaller figure than the column&#39;s peak, not a near-zero return. A 3% six-month gain looks tiny next to a 100% since-launch total because both sit in the same column. That is deliberate, so you can scan which periods dominated." aria-label="How are these bars scaled?">?</button></p>
   <div class="tablewrap" id="cmpTableWrap">
     <table class="cmpt" id="cmpTable">
     <!-- rk-cmp-default:start -->
@@ -832,11 +844,90 @@
     });
   }
   var _rrT;function scheduleRender(d){clearTimeout(_rrT);_rrT=setTimeout(render,d||0);}
+  /* Growth chart for the compared funds.
+
+     Every fund is rebased to 100 at the first month of the window, because unit
+     prices are not comparable across funds and the question here is shape, not
+     level. The window is the shortest history among the selected funds, so no
+     line is drawn over months another fund does not have. */
+  var CMPC = ['#2ECC71', '#38BDF8', '#A78BFA'];
+
+  function cmpTr(f){ return (f.series && f.series.tr) || []; }
+
+  function cmpWindow(cols){
+    var minLen = Math.min.apply(null, cols.map(function(f){ return cmpTr(f).length; }));
+    var want;
+    if (period === 'max') want = minLen;
+    else if (period === 'ytd') want = (new Date().getMonth() + 1);
+    else want = +period;
+    if (!isFinite(want) || want < 2) want = minLen;
+    return Math.max(2, Math.min(want, minLen));
+  }
+
+  function drawCmpChart(cols){
+    var host = document.getElementById('cmpViz');
+    if (!host) return;
+    var usable = cols.filter(function(f){ return cmpTr(f).length > 1; });
+    if (usable.length < 2){ host.hidden = true; return; }
+    host.hidden = false;
+
+    var n = cmpWindow(usable);
+    var lines = usable.map(function(f){
+      var tr = cmpTr(f), seg = tr.slice(tr.length - n), base = seg[0] || 1;
+      return seg.map(function(v){ return v / base * 100; });
+    });
+
+    var lo = Infinity, hi = -Infinity;
+    lines.forEach(function(a){ a.forEach(function(v){ if(v<lo)lo=v; if(v>hi)hi=v; }); });
+    if (!isFinite(lo) || !isFinite(hi) || hi === lo){ lo = 90; hi = 110; }
+    var padv = (hi - lo) * 0.10; lo -= padv; hi += padv;
+
+    var W = 720, H = 260, PL = 6, PR = 6, PT = 10, PB = 16;
+    var X = function(i){ return PL + i / (n - 1) * (W - PL - PR); };
+    var Y = function(v){ return PT + (1 - (v - lo) / (hi - lo)) * (H - PT - PB); };
+
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="cmp-chart-svg" preserveAspectRatio="none" role="img" aria-label="Growth of the compared funds, each rebased to 100 at the start of the window">';
+    svg += '<line class="cmp-base" x1="' + PL + '" x2="' + (W - PR) + '" y1="' + Y(100).toFixed(1) + '" y2="' + Y(100).toFixed(1) + '"/>';
+    lines.forEach(function(a, i){
+      var pts = a.map(function(v, j){ return X(j).toFixed(1) + ',' + Y(v).toFixed(1); }).join(' ');
+      svg += '<polyline points="' + pts + '" fill="none" stroke="' + CMPC[i % CMPC.length] + '" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>';
+    });
+    svg += '</svg>';
+    document.getElementById('cmpChart').innerHTML = svg;
+
+    document.getElementById('cmpLegend').innerHTML = usable.map(function(f, i){
+      var a = lines[i], chg = a[a.length - 1] - 100;
+      return '<span class="cmp-lg"><i style="background:' + CMPC[i % CMPC.length] + '"></i>' +
+             fundDisp(f).replace(/</g, '&lt;') +
+             ' <b class="' + (chg >= 0 ? 'v-pos' : 'v-neg') + '">' + (chg >= 0 ? '+' : '') + chg.toFixed(1) + '%</b></span>';
+    }).join('');
+
+    var months = n === 1 ? '1 month' : n + ' months';
+    var who = usable.length > 2 ? 'all three funds' : 'both funds';
+    document.getElementById('cmpVizSub').textContent =
+      'The last ' + months + ' ' + who + ' have in common, rebased to 100.';
+
+    // Same numbers as a table, for screen readers and for anyone citing them.
+    var head = '<tr><th>Month</th>' + usable.map(function(f){
+      return '<th>' + fundDisp(f).replace(/</g, '&lt;') + '</th>';
+    }).join('') + '</tr>';
+    var body = '';
+    for (var r = 0; r < n; r++){
+      body += '<tr><td>' + (r + 1) + '</td>' + lines.map(function(a){
+        return '<td>' + a[r].toFixed(2) + '</td>';
+      }).join('') + '</tr>';
+    }
+    document.getElementById('cmpVizNums').innerHTML =
+      '<summary>See the numbers behind this chart</summary>' +
+      '<div class="cht-nums-wrap"><table><caption>Rebased to 100 at the start of the window</caption>' +
+      '<thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>';
+  }
+
   function render(){
     fillSelects();
     var cols=cmpCols();
     var copyBtn=document.getElementById('cmpCopyLink');
-    if(cols.length<2){root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;return;}
+    if(cols.length<2){var _v=document.getElementById('cmpViz');if(_v)_v.hidden=true;root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;return;}
     var pl=plabel();
     var chip=document.getElementById('cmpPeriodChip');
     if(chip){chip.hidden=false;chip.textContent='Comparing over '+pl+(period==='max'?' (each fund\u2019s full tracked history)':'');}
@@ -899,6 +990,7 @@
       var _sc=sharedCell(cols);
       if(_sc!==null)rows.push(['__span',lab('Shared stocks','cmp_shared','Named stocks that appear in more than one of these funds\u2019 disclosed top holdings. Weights are from those statements, not live market prices.','What does Shared stocks mean?'),_sc]);
     }
+    try{ drawCmpChart(cols); }catch(e){ var _v=document.getElementById('cmpViz'); if(_v)_v.hidden=true; }
     var head='<thead><tr><th class="k"></th>'+cols.map(function(f){return '<th>'+fundDispHtml(f)+'</th>';}).join('')+'</tr></thead>';
     var body='<tbody>';
     rows.forEach(function(r){

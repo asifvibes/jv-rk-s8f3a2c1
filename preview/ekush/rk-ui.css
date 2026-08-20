@@ -244,21 +244,35 @@ label.fld,.fld{
 
 /* Nav was cramped at 390px. Give every item a 44px tap target without letting
    the row overflow: the logo may shrink, the links own the remaining space. */
+/* On a phone the whole link row was hidden and everything lived behind the
+   burger. The two destinations people actually reach for stay in the bar; the
+   rest stay in the menu, which still lists all of them. */
 @media(max-width:560px){
   .rk-nav{padding:8px 8px;gap:4px}
   .rk-logo{min-width:0;flex:0 1 auto;overflow:hidden}
-  .rk-links{gap:0;flex:0 0 auto;min-width:0}
-  .rk-links a{
-    padding:10px 5px;
-    font-size:12px;
+
+  .rk-nav .rk-links{
+    display:flex;
+    gap:0;
+    flex:0 0 auto;
+    min-width:0;
+  }
+  .rk-nav .rk-links a{display:none}
+  .rk-nav .rk-links a[data-nav="funds"],
+  .rk-nav .rk-links a[data-nav="compare"]{
+    display:flex;
+    align-items:center;
+    padding:10px 7px;
+    font-size:12.5px;
     min-height:44px;
-    display:flex;align-items:center;
   }
   .themetog{min-width:40px;min-height:44px}
 }
 @media(max-width:400px){
-  .rk-links a{padding:10px 4px;font-size:11.5px}
+  .rk-nav .rk-links a[data-nav="funds"],
+  .rk-nav .rk-links a[data-nav="compare"]{padding:10px 5px;font-size:11.5px}
   .themetog{min-width:34px}
+  .rk-logo{font-size:12px}
 }
 
 
@@ -346,9 +360,25 @@ header p{
     margin-top:0;
     align-self:start;
   }
-  body.rk-home.rk-answered #headline{grid-column:2;grid-row:2;margin-top:0;align-self:stretch}
-  body.rk-home.rk-answered .hl-note,
-  body.rk-home.rk-answered .fresh-under,
+  /* The left column ended below the calculator while the result card ran on for
+     another 180px, leaving a hole. The two footnotes fill it: they sit in
+     column one, and the middle row takes the slack as 1fr so they anchor to the
+     bottom. The result spans all three rows, so both columns finish on exactly
+     the same line. */
+  body.rk-home.rk-answered .rk-fold{grid-template-rows:auto auto 1fr auto}
+  body.rk-home.rk-answered #headline{grid-column:2;grid-row:2 / 5;margin-top:0}
+  body.rk-home.rk-answered .hl-note{
+    grid-column:1;grid-row:3;
+    align-self:end;
+    text-align:left;
+    margin:0;
+    max-width:none;
+  }
+  body.rk-home.rk-answered .fresh-under{
+    grid-column:1;grid-row:4;
+    margin:10px 0 0;
+    justify-content:flex-start;
+  }
   body.rk-home.rk-answered .doors,
   body.rk-home.rk-answered .bcard,
   body.rk-home.rk-answered #topperf,
@@ -632,6 +662,23 @@ summary:hover{background:rgba(46,204,113,.08)}
 .cbar-fill{
   border-radius:var(--r-pill);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.25);
+  transform-origin:left center;
+}
+
+/* The Compare all funds bars grow on render, same keyframe approach as the
+   stocks page: no JS gate, so a bar can never be left at zero. The list
+   re-renders whenever a control changes, so the growth replays and doubles as
+   feedback that the figures updated. */
+@media (prefers-reduced-motion: no-preference){
+  .cbar-fill{animation:rkBarIn .8s cubic-bezier(.22,.8,.3,1) both}
+  .cbar-row:nth-of-type(1) .cbar-fill{animation-delay:.04s}
+  .cbar-row:nth-of-type(2) .cbar-fill{animation-delay:.08s}
+  .cbar-row:nth-of-type(3) .cbar-fill{animation-delay:.12s}
+  .cbar-row:nth-of-type(4) .cbar-fill{animation-delay:.16s}
+  .cbar-row:nth-of-type(5) .cbar-fill{animation-delay:.20s}
+  .cbar-row:nth-of-type(6) .cbar-fill{animation-delay:.24s}
+  .cbar-row:nth-of-type(7) .cbar-fill{animation-delay:.28s}
+  .cbar-row:nth-of-type(8) .cbar-fill{animation-delay:.32s}
 }
 .cbar-fill.pos{
   background:linear-gradient(90deg,#1FA85C,#2ECC71);
@@ -1198,7 +1245,7 @@ details.cht-nums[open] > summary::after{
   .wrap:not(:has(> nav.toc)) :is(section, article):not(.card) > p,
   .wrap:not(:has(> nav.toc)) :is(section, article):not(.card) > ul,
   .wrap:not(:has(> nav.toc)) :is(section, article):not(.card) > ol{
-    max-width:74ch;
+    max-width:92ch;
   }
   .wrap .card p,
   .wrap .card ul,
@@ -1258,6 +1305,10 @@ details.cht-nums[open] > summary::after{
    without JavaScript, who would be looking at a button that cannot scroll.
    ------------------------------------------------------------------------ */
 
+/* Nothing is below the fold until the reader asks for the result, so the cue
+   would be pointing at an empty page. It appears with the answer. */
+body:not(.rk-answered) .rk-cue{display:none}
+
 .rk-cue{
   display:flex;
   flex-direction:column;
@@ -1308,57 +1359,75 @@ details.cht-nums[open] > summary::after{
    ------------------------------------------------------------------------ */
 
 /* Tap tooltips rendered as a full width block, so the text started hard against
-   the left edge of the page while the control that opened it was centred. Give
-   the callout a measure and centre the box; the text inside stays left aligned
-   because that is what is readable. */
+   the left edge of the page while the control that opened it was centred. They
+   were then capped too tightly and read as a narrow column in a wide layout.
+   A generous measure that still breaks before the line becomes unreadable. */
 .rktip{
   width:auto;
-  max-width:min(62ch, 100%);
+  max-width:min(88ch, 100%);
   margin-left:auto;
   margin-right:auto;
 }
 /* Under a left aligned control the callout should stay left aligned. */
 .row .rktip,
 .stat .rktip,
-.fdgrid .rktip{margin-left:0}
+.fdgrid .rktip,
+.card .rktip{margin-left:0}
 
-/* Short section subtitles were capped at the reading measure, so a one line
-   sentence broke across the middle of a full width section. These are labels,
-   not prose, and a wider cap lets them sit on one line. */
+/* Short section subtitles are labels, not prose. A subtitle is the paragraph
+   directly under a heading, so matching on that relationship catches every one
+   of them instead of naming each section by hand and missing the next. They
+   should sit under a full width heading, not break across the middle of it. */
+h1 + p,
+h2 + p,
+h3 + p,
 .shnote,
 .typehead + p,
 .browseall > p,
 .ba-head + p,
-section > h2 + p.sub,
+p.sub,
 .sortbar + p{
-  max-width:96ch;
+  max-width:none;
 }
 .shnote{display:block;margin-top:6px}
 
-/* The community card centred its text but let the paragraph run the full width,
-   so the second line centred under the first as a ragged stub. Same treatment
-   anywhere a centred block holds prose. */
-.rk-community p,
+/* The community card centred its text but the paragraph carries an inline
+   margin:0 0 14px, and an inline style beats a stylesheet auto margin, so it
+   stayed pinned left however wide the cap was. Centring the section as a flex
+   column sidesteps the inline margin entirely. */
+.rk-community,
+section[style*="text-align:center"]{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.rk-community > p,
 section[style*="text-align:center"] > p{
-  max-width:62ch;
-  margin-left:auto;
-  margin-right:auto;
+  max-width:78ch;
 }
 
-/* Sticky search fields sat at top:0, so their upper edge slid under the sticky
-   header. Offset every one of them by the measured header height. */
+/* Sticky search and toolbars sat at top:0, or at a hardcoded 47px that no
+   longer matches the nav, so their upper edge slid underneath it. Offset each
+   one by the real header height. rk-ui.js measures the nav and publishes it as
+   --rk-chrome, so this stays correct if the nav ever changes height.
+
+   .ftools is the funds directory toolbar. It is the sticky element on that
+   page, not .fsearch inside it, which is why targeting the search field alone
+   left that page still broken. */
 .faqsearch,
 .lnsearch,
 .fsearch,
-.srchwrap{
-  top:calc(var(--rk-chrome, 56px) + 10px);
+.srchwrap,
+.ftools{
+  top:calc(var(--rk-chrome, 56px) + 8px);
 }
 @media(max-width:560px){
   .faqsearch,
   .lnsearch,
   .fsearch,
-  .srchwrap{
-    top:calc(var(--rk-chrome, 56px) + 6px);
+  .srchwrap,
+  .ftools{
+    top:calc(var(--rk-chrome, 56px) + 4px);
   }
 }
 
@@ -1379,19 +1448,143 @@ section[style*="text-align:center"] > p{
   background:var(--card);
 }
 
-/* Stocks page: the share bars fill from the left when their card arrives. */
-.sx-fill{
-  transform-origin:left center;
-  will-change:transform;
-}
-.rk-anim .sx-card.rk-rise .sx-fill{transform:scaleX(0)}
-.rk-anim .sx-card.rk-rise.rk-in .sx-fill{transform:scaleX(1)}
+/* Stocks page.
+
+   The bars fill from the left on load. This is a plain CSS keyframe rather than
+   a scroll triggered reveal on purpose: the entrance logic in rk-ui.js only
+   touches elements already in the viewport, and almost every stock card is
+   below the fold, which is why nothing appeared to animate at all. A keyframe
+   with fill-mode both runs for every card regardless of position, and a bar
+   that finished animating before it was scrolled into view is simply a full
+   bar. Nothing here can leave a bar stuck at zero. */
+.sx-fill{transform-origin:left center}
+
 @media (prefers-reduced-motion: no-preference){
-  .sx-fill{transition:transform .95s cubic-bezier(.22,.8,.3,1) .1s}
+  @keyframes rkBarIn{
+    from{transform:scaleX(0)}
+    to{transform:scaleX(1)}
+  }
+  .sx-fill{animation:rkBarIn .9s cubic-bezier(.22,.8,.3,1) both}
+  /* A short stagger down the first screen, then everything runs together. */
+  .sx-card:nth-of-type(1) .sx-fill{animation-delay:.05s}
+  .sx-card:nth-of-type(2) .sx-fill{animation-delay:.10s}
+  .sx-card:nth-of-type(3) .sx-fill{animation-delay:.15s}
+  .sx-card:nth-of-type(4) .sx-fill{animation-delay:.20s}
+  .sx-card:nth-of-type(5) .sx-fill{animation-delay:.25s}
+  .sx-card:nth-of-type(6) .sx-fill{animation-delay:.30s}
+  .sx-card:nth-of-type(7) .sx-fill{animation-delay:.35s}
+  .sx-card:nth-of-type(8) .sx-fill{animation-delay:.40s}
 }
-@media (prefers-reduced-motion: reduce){
-  .rk-anim .sx-card.rk-rise .sx-fill,
-  .rk-anim .sx-card.rk-rise.rk-in .sx-fill{transform:none}
+
+/* Fund list sparklines draw in with a left to right wipe.
+
+   Deliberately clip-path, not stroke-dasharray. The dash approach is what left
+   those broken looking graphs: the list re-renders on every control change, and
+   a line interrupted mid-draw kept a partial dash pattern. A clip wipe touches
+   no stroke property, so an interrupted animation simply restarts, and if it
+   never runs at all the graph is drawn in full. */
+@media (prefers-reduced-motion: no-preference){
+  @keyframes rkWipe{
+    from{clip-path:inset(0 100% 0 0)}
+    to{clip-path:inset(0 0 0 0)}
+  }
+  .row .sparkwrap .spark{animation:rkWipe .85s cubic-bezier(.22,.8,.3,1) both}
+  .row:nth-of-type(1) .sparkwrap .spark{animation-delay:.05s}
+  .row:nth-of-type(2) .sparkwrap .spark{animation-delay:.11s}
+  .row:nth-of-type(3) .sparkwrap .spark{animation-delay:.17s}
+  .row:nth-of-type(4) .sparkwrap .spark{animation-delay:.23s}
+  .row:nth-of-type(5) .sparkwrap .spark{animation-delay:.29s}
+  .row:nth-of-type(6) .sparkwrap .spark{animation-delay:.35s}
+}
+
+/* Cards respond to the pointer so the list feels alive rather than static. */
+.sx-card{transition:border-color .16s ease, box-shadow .16s ease, transform .16s ease}
+.sx-card:hover{
+  border-color:color-mix(in srgb, var(--green) 45%, var(--border));
+  box-shadow:var(--el-2);
+}
+.sx-trk{height:9px;border-radius:5px}
+.sx-fill{
+  border-radius:5px;
+  background:linear-gradient(90deg,#1FA85C,#2ECC71);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25);
+}
+[data-theme="dark"] .sx-fill{background:linear-gradient(90deg,#22A05F,#3DD98A)}
+.sx-det summary{
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  cursor:pointer;
+}
+
+
+/* The bar scale note. Every table on the site that draws a bar relative to the
+   largest figure in its column now carries the same explanation, because a bar
+   that is not a 0 to 100% scale is genuinely misleading without one. */
+.rk-barnote{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:0 0 12px;
+  font-size:12.5px;
+  line-height:1.5;
+  color:var(--muted);
+  max-width:none;
+}
+
+
+/* ---------------------------------------------------------------------------
+   9c. COMPARE PAGE CHART
+   ------------------------------------------------------------------------ */
+
+.cmp-viz{
+  margin:22px 0 6px;
+  padding:20px 22px 16px;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  background:var(--card);
+  background-image:var(--wash);
+  box-shadow:var(--el-2), var(--edge);
+}
+.cmp-viz[hidden]{display:none}
+.cmp-viz-head h2{font-size:18px;margin:0 0 4px}
+.cmp-viz-sub{font-size:13px;color:var(--muted);margin:0 0 14px;max-width:none}
+.cmp-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 20px;
+  margin-bottom:12px;
+  font-size:13px;
+  font-weight:600;
+}
+.cmp-lg{display:inline-flex;align-items:center;gap:8px}
+.cmp-lg i{
+  width:12px;height:12px;
+  border-radius:4px;
+  flex:none;
+}
+.cmp-chart-svg{
+  display:block;
+  width:100%;
+  height:280px;
+}
+.cmp-base{
+  stroke:var(--border);
+  stroke-width:1;
+  stroke-dasharray:3 4;
+  vector-effect:non-scaling-stroke;
+}
+.cmp-viz-foot{
+  font-size:12px;
+  color:var(--muted);
+  margin:12px 0 4px;
+  max-width:none;
+}
+@media(max-width:560px){
+  .cmp-viz{padding:16px 14px 12px}
+  .cmp-chart-svg{height:210px}
+  .cmp-legend{gap:6px 14px;font-size:12.5px}
 }
 
 
