@@ -178,6 +178,28 @@
     try { len = path.getTotalLength(); } catch (e) { return; }
     if (!len) return;
 
+    // Decorative sea, behind the data line.
+    //
+    // This is the only thing that moves. The total-return path itself is never
+    // deformed: it is the fund's real published performance, and a chart that
+    // visibly wobbles away from its own numbers would undercut the one claim
+    // the whole site rests on. So the water animates and the data does not.
+    //
+    // The wave tiles four times across a 400 unit viewBox at a period of 100,
+    // and the element is twice its container's width, so translating it by 25%
+    // shifts exactly one period and the loop is seamless with no visible jump.
+    if (!wrap.querySelector(".rk-sea")) {
+      var sea = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      sea.setAttribute("class", "rk-sea");
+      sea.setAttribute("viewBox", "0 0 400 24");
+      sea.setAttribute("preserveAspectRatio", "none");
+      sea.setAttribute("aria-hidden", "true");
+      sea.innerHTML =
+        '<path class="rk-sea-back" d="M0,14 q25,-7 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 V24 H0 Z"/>' +
+        '<path class="rk-sea-front" d="M0,17 q25,-6 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 V24 H0 Z"/>';
+      wrap.insertBefore(sea, wrap.firstChild);
+    }
+
     var surf = document.createElement("span");
     surf.className = "rk-surf";
     surf.setAttribute("aria-hidden", "true");
@@ -210,6 +232,10 @@
       surf.style.transform =
         "translate(" + (here.x - box.left) + "px," + (here.y - box.top) + "px) " +
         "translate(-50%,-92%) rotate(" + deg.toFixed(1) + "deg)";
+
+      // Climbing gets a bit more spray than coasting, so the surfer reads as
+      // working with the line rather than being dragged along it.
+      surf.style.setProperty("--rk-spray", Math.min(1, Math.max(0.25, deg / -32 + 0.35)).toFixed(2));
 
       surfRaf = requestAnimationFrame(frame);
     }
