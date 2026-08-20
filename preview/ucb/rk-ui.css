@@ -548,31 +548,66 @@ header p{
   .hs-spark .spark{height:52px}
 }
 
-/* A slow highlight glides along the result sparkline, on a loop.
+/* A marker travels the length of every sparkline, continuously.
 
-   Deliberately an overlaid segment rather than redrawing the line each cycle.
-   A redraw loop has to blank the line to start again, and blanking a chart
-   somebody may be reading, on a page about their savings, to get a bit of
-   motion is a bad trade. The base line stays fully drawn at all times and a
-   short bright segment travels over it. --rk-len is the measured path length,
-   set per element by rk-ui.js. */
-.hs-spark svg.spark .rk-trace{
+   Two overlaid copies of the line, both with no fill:
+     .rk-trace  a short comet tail
+     .rk-dot    a zero length dash with a round cap, which renders as a dot
+
+   The dot is a round line cap rather than a circle or an arrow glyph on
+   purpose. These sparklines use preserveAspectRatio="none" and are stretched
+   by different amounts on each axis, so any real shape would be visibly
+   squashed, and by a different amount on the hero, the fund rows and the fund
+   pages. A cap is drawn in stroke space, and with non-scaling-stroke it stays
+   perfectly round at every size.
+
+   Both are decoration painted over the real line, which stays fully drawn
+   underneath at all times. --rk-len is the measured path length, set per
+   element by rk-ui.js. */
+.rk-trace,
+.rk-dot{
   fill:none;
-  stroke:currentColor;
-  stroke-width:2.4;
-  stroke-linecap:round;
-  opacity:0;
   pointer-events:none;
+  opacity:0;
 }
 @media (prefers-reduced-motion: no-preference){
-  .hs-spark svg.spark .rk-trace{
-    opacity:.95;
+  .rk-trace{
+    stroke:currentColor;
+    stroke-width:2.4;
+    stroke-linecap:round;
+    opacity:.55;
+    animation:rkTrace var(--rk-dur, 5.5s) linear infinite;
+  }
+  .rk-dot{
+    stroke:currentColor;
+    stroke-width:5.5;
+    stroke-linecap:round;
+    opacity:1;
     filter:drop-shadow(0 0 5px currentColor);
-    animation:rkTrace 5.5s linear infinite;
+    animation:rkTrace var(--rk-dur, 5.5s) linear infinite;
   }
   @keyframes rkTrace{
     from{stroke-dashoffset:var(--rk-len, 1000)}
     to{stroke-dashoffset:0}
+  }
+}
+
+/* The growth chart draws itself in front of the reader on every render.
+
+   The resting state is a fully drawn line: the keyframe runs from the measured
+   length to zero, and the element's own inline stroke-dashoffset is 0. So an
+   animation that never starts, or is cancelled by the chart re-rendering,
+   leaves a complete chart rather than a blank one. */
+@media (prefers-reduced-motion: no-preference){
+  #chart svg path.rk-draw{
+    animation:rkTrace var(--rk-draw-dur, 1.5s) cubic-bezier(.25,.8,.35,1) both;
+  }
+  #chart svg circle.rk-draw-pt{
+    animation:rkPop .4s cubic-bezier(.2,.85,.3,1) var(--rk-draw-dur, 1.5s) both;
+  }
+  @keyframes rkPop{
+    from{opacity:0;transform:scale(.4)}
+    to{opacity:1;transform:none}
   }
 }
 [data-theme="dark"] .hs-spark .spark{
@@ -734,20 +769,25 @@ summary:hover{background:rgba(46,204,113,.08)}
   transform-origin:left center;
 }
 
-/* The Compare all funds bars grow on render, same keyframe approach as the
-   stocks page: no JS gate, so a bar can never be left at zero. The list
-   re-renders whenever a control changes, so the growth replays and doubles as
-   feedback that the figures updated. */
+/* The Compare all funds bars grow when the panel is scrolled into view, not on
+   page load, because the panel sits well below the fold and a load-time
+   animation had always finished before anyone reached it.
+
+   The gate is a class rk-ui.js adds on intersection, and the resting state is a
+   full bar. So the animation is purely additive: if the observer never fires,
+   or the script never runs, every bar is simply already drawn. Nothing here can
+   leave a bar at zero. */
 @media (prefers-reduced-motion: no-preference){
-  .cbar-fill{animation:rkBarIn .8s cubic-bezier(.22,.8,.3,1) both}
-  .cbar-row:nth-of-type(1) .cbar-fill{animation-delay:.04s}
-  .cbar-row:nth-of-type(2) .cbar-fill{animation-delay:.08s}
-  .cbar-row:nth-of-type(3) .cbar-fill{animation-delay:.12s}
-  .cbar-row:nth-of-type(4) .cbar-fill{animation-delay:.16s}
-  .cbar-row:nth-of-type(5) .cbar-fill{animation-delay:.20s}
-  .cbar-row:nth-of-type(6) .cbar-fill{animation-delay:.24s}
-  .cbar-row:nth-of-type(7) .cbar-fill{animation-delay:.28s}
-  .cbar-row:nth-of-type(8) .cbar-fill{animation-delay:.32s}
+  .rk-barview .cbar-fill{animation:rkBarIn .8s cubic-bezier(.22,.8,.3,1) both}
+  .rk-barview .cbar-row:nth-of-type(1) .cbar-fill{animation-delay:.04s}
+  .rk-barview .cbar-row:nth-of-type(2) .cbar-fill{animation-delay:.09s}
+  .rk-barview .cbar-row:nth-of-type(3) .cbar-fill{animation-delay:.14s}
+  .rk-barview .cbar-row:nth-of-type(4) .cbar-fill{animation-delay:.19s}
+  .rk-barview .cbar-row:nth-of-type(5) .cbar-fill{animation-delay:.24s}
+  .rk-barview .cbar-row:nth-of-type(6) .cbar-fill{animation-delay:.29s}
+  .rk-barview .cbar-row:nth-of-type(7) .cbar-fill{animation-delay:.34s}
+  .rk-barview .cbar-row:nth-of-type(8) .cbar-fill{animation-delay:.39s}
+  .rk-barview .cbar-row:nth-of-type(n+9) .cbar-fill{animation-delay:.44s}
 }
 .cbar-fill.pos{
   background:linear-gradient(90deg,#1FA85C,#2ECC71);
@@ -1478,7 +1518,7 @@ section[style*="text-align:center"]{
 }
 .rk-community > p,
 section[style*="text-align:center"] > p{
-  max-width:78ch;
+  max-width:none;
 }
 
 /* Sticky search and toolbars sat at top:0, or at a hardcoded 47px that no
@@ -1630,16 +1670,38 @@ section[style*="text-align:center"] > p{
   border-radius:4px;
   flex:none;
 }
+/* Uniform scaling now that the chart carries real text. height:auto keeps the
+   720 by 260 viewBox aspect, so labels are never stretched. */
 .cmp-chart-svg{
   display:block;
   width:100%;
-  height:280px;
+  height:auto;
 }
-.cmp-base{
+.cmp-grid{
   stroke:var(--border);
   stroke-width:1;
-  stroke-dasharray:3 4;
-  vector-effect:non-scaling-stroke;
+  opacity:.55;
+}
+.cmp-base{
+  stroke:var(--green);
+  stroke-width:1.4;
+  stroke-dasharray:4 4;
+  opacity:.8;
+}
+.cmp-axl{
+  font-size:11px;
+  font-weight:600;
+  fill:var(--muted);
+}
+.cmp-baselbl{
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.04em;
+  fill:var(--green-dark);
+}
+.cmp-endlbl{
+  font-size:12px;
+  font-weight:800;
 }
 .cmp-viz-foot{
   font-size:12px;

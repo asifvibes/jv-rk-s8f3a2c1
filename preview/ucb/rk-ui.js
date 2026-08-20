@@ -162,26 +162,86 @@
      segment travels along the path on a loop while the real line stays fully
      drawn underneath. The clone is aria-hidden and has no pointer events: it is
      decoration over data, and it must never be mistaken for data. */
-  function traceHeroSpark() {
-    if (reduced) return;
-    var base = document.querySelector(".hs-spark svg.spark polyline:not(.rk-trace)");
-    if (!base) return;
+  function traceOne(base, dur) {
     var svg = base.ownerSVGElement;
-    if (!svg || svg.querySelector(".rk-trace")) return;
+    if (!svg || svg.querySelector(".rk-dot")) return;
 
     var len = 0;
     try { len = base.getTotalLength(); } catch (e) { return; }
     if (!len) return;
 
-    var t = base.cloneNode(true);
-    t.setAttribute("class", "rk-trace");
-    t.setAttribute("aria-hidden", "true");
-    t.removeAttribute("data-rk-drawn");
-    t.removeAttribute("id");
-    t.style.setProperty("--rk-len", len);
-    // A segment about a tenth of the path, with the rest of the cycle empty.
-    t.style.strokeDasharray = Math.max(24, len * 0.1) + " " + len;
-    svg.appendChild(t);
+    var tail = Math.max(14, len * 0.09);
+
+    function overlay(cls, dash, lead) {
+      var el = base.cloneNode(true);
+      el.setAttribute("class", cls);
+      el.setAttribute("aria-hidden", "true");
+      el.removeAttribute("data-rk-drawn");
+      el.removeAttribute("id");
+      el.style.setProperty("--rk-len", len);
+      el.style.setProperty("--rk-dur", dur + "s");
+      el.style.strokeDasharray = dash;
+      // The dot leads the tail. Offset in time rather than in dash space,
+      // because the animation is linear so distance and time are proportional.
+      if (lead) el.style.animationDelay = (-(lead / len) * dur).toFixed(3) + "s";
+      svg.appendChild(el);
+      return el;
+    }
+
+    overlay("rk-trace", tail + " " + len, 0);
+    overlay("rk-dot", "0.1 " + len, tail);
+  }
+
+  /* Runs the travelling marker on every sparkline on the page: the result on
+     the homepage, each row in the fund list, and the total-return path on a
+     fund page. Fund rows re-render on every control change, so this is called
+     again from the debounced rescan and skips anything already carrying one. */
+  function traceSparks() {
+    if (reduced) return;
+    var hero = document.querySelector(".hs-spark svg.spark polyline:not(.rk-trace):not(.rk-dot)");
+    if (hero) traceOne(hero, 5.5);
+
+    var rows = document.querySelectorAll(".row .sparkwrap svg.spark polyline:not(.rk-trace):not(.rk-dot)");
+    for (var i = 0; i < rows.length; i++) traceOne(rows[i], 6.5);
+
+    var fp = document.querySelectorAll("svg.fp-spark polyline:not(.rk-trace):not(.rk-dot)");
+    for (var j = 0; j < fp.length; j++) traceOne(fp[j], 6);
+  }
+
+  /* The growth chart redraws itself in front of the reader.
+
+     Only the visible series lines are touched: .lchit paths are the invisible
+     wide hit targets for hover, and animating those would make the chart feel
+     unresponsive while it played. The resting state is a drawn line, so a
+     cancelled animation leaves a complete chart. */
+  function drawGrowthChart() {
+    if (reduced) return;
+    var svg = document.querySelector("#chart svg");
+    if (!svg || svg.dataset.rkDrawn) return;
+    svg.dataset.rkDrawn = "1";
+
+    var paths = svg.querySelectorAll("path[stroke]:not(.lchit)");
+    var slowest = 0;
+    for (var i = 0; i < paths.length; i++) {
+      var p = paths[i];
+      var len = 0;
+      try { len = p.getTotalLength(); } catch (e) { continue; }
+      if (!len) continue;
+      var dur = 1.15 + Math.min(0.6, i * 0.09);
+      slowest = Math.max(slowest, dur);
+      p.style.setProperty("--rk-len", len);
+      p.style.setProperty("--rk-draw-dur", dur + "s");
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = 0; // resting state is fully drawn
+      p.classList.add("rk-draw");
+    }
+
+    // Endpoint dots arrive once their line has finished.
+    var dots = svg.querySelectorAll("circle");
+    for (var k = 0; k < dots.length; k++) {
+      dots[k].style.setProperty("--rk-draw-dur", slowest + "s");
+      dots[k].classList.add("rk-draw-pt");
+    }
   }
 
   /* A table that scrolls inside a card keeps its caption and column headings
@@ -265,6 +325,27 @@
     if (!best) return;
     best.classList.add("active");
     best.setAttribute("aria-current", "page");
+  }
+
+  /* Adds rk-barview to the Compare all funds panel when it scrolls into view,
+     which is what starts the bar growth. Purely additive: the resting state in
+     CSS is a full bar, so if this never runs the bars are already drawn. */
+  function watchBars() {
+    if (reduced || !("IntersectionObserver" in window)) return;
+    var panels = document.querySelectorAll(".chartpanel:not([data-rk-bars])");
+    if (!panels.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        entries[i].target.classList.add("rk-barview");
+        io.unobserve(entries[i].target);
+      }
+    }, { threshold: 0.12 });
+    for (var j = 0; j < panels.length; j++) {
+      if (!panels[j].querySelector(".cbar-fill")) continue;
+      panels[j].setAttribute("data-rk-bars", "1");
+      io.observe(panels[j]);
+    }
   }
 
   /* Publish the real header height as --rk-chrome.
@@ -403,7 +484,9 @@
       if (reduced) return;
       scan();
       drawSparks();
-      traceHeroSpark();
+    traceSparks();
+    drawGrowthChart();
+    watchBars();
     }, 90);
   }
 
@@ -432,7 +515,8 @@
     root.classList.add("rk-anim");
     scan();
     drawSparks();
-    traceHeroSpark();
+    traceSparks();
+      drawGrowthChart();
 
     if ("MutationObserver" in window) {
       new MutationObserver(schedule).observe(document.body, {
