@@ -1,6 +1,6 @@
 {
  "asOf": "2026-08-19",
- "generated": "2026-08-20T03:44:52.036Z",
+ "generated": "2026-08-20T04:15:28.743Z",
  "funds": [
   {
    "id": "idlc-income-fund",
@@ -7499,7 +7499,7 @@
   },
   {
    "id": "ucb-aml-first-mutual-fund",
-   "type": "Growth",
+   "type": "Balanced",
    "label": "UCB AML First Mutual Fund",
    "sh": 0,
    "since": "29-04-2021",
@@ -7510,7 +7510,7 @@
    "navSrc": "UCB Asset Management Limited (UCB AML)'s website",
    "div": 3.5,
    "conf": "complete",
-   "note": "Cash dividends verified from UCB dividend declarations. No dividend was declared for FY2023-24.",
+   "note": "Cash dividends verified from UCB dividend declarations. No dividend was declared for FY2023-24. Category: Balanced, per UCB Asset Management (Aug 2026).",
    "H": {
     "6": [
      0.9104,
