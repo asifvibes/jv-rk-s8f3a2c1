@@ -54,3 +54,72 @@
     });
   } catch (e) {}
 })();
+
+(function () {
+  var btn = document.getElementById("rkMenuBtn");
+  var panel = document.getElementById("rkMenu");
+  if (!btn || !panel) return;
+  var last = null;
+  function setOpen(on) {
+    panel.hidden = !on;
+    btn.setAttribute("aria-expanded", on ? "true" : "false");
+    btn.setAttribute("aria-label", on ? "Close menu" : "Open menu");
+    document.body.classList.toggle("rk-menu-open", on);
+    if (on) {
+      last = document.activeElement;
+      var a = panel.querySelector("a");
+      if (a) a.focus();
+    } else if (last && last.focus) last.focus();
+  }
+  btn.addEventListener("click", function () {
+    setOpen(panel.hidden);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !panel.hidden) {
+      e.preventDefault();
+      setOpen(false);
+      return;
+    }
+    if (panel.hidden || e.key !== "Tab") return;
+    var f = [btn].concat([].slice.call(panel.querySelectorAll("a,button")));
+    var i = f.indexOf(document.activeElement);
+    if (e.shiftKey && i <= 0) {
+      e.preventDefault();
+      f[f.length - 1].focus();
+    } else if (!e.shiftKey && i === f.length - 1) {
+      e.preventDefault();
+      f[0].focus();
+    }
+  });
+  panel.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      setOpen(false);
+    });
+  });
+})();
+
+(function () {
+  var p = location.pathname;
+  var k = /^\/funds(\/|$)/.test(p)
+    ? "funds"
+    : /compare/.test(p)
+    ? "compare"
+    : /learn|guides/.test(p)
+    ? "learn"
+    : /faq/.test(p)
+    ? "faq"
+    : /ratings/.test(p)
+    ? "ratings"
+    : /stocks/.test(p)
+    ? "stocks"
+    : /more/.test(p)
+    ? "more"
+    : /about/.test(p)
+    ? "about"
+    : null;
+  if (!k) return;
+  document.querySelectorAll('.rk-links [data-nav="' + k + '"], .rk-menu [data-nav="' + k + '"]').forEach(function (a) {
+    a.classList.add("active");
+    a.setAttribute("aria-current", "page");
+  });
+})();
