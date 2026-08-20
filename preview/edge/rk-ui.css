@@ -1347,6 +1347,24 @@ details.cht-nums[open] > summary::after{
 }
 .fp-axis-note{margin:8px 2px 2px}
 
+/* The provenance caption and the index note were two stacked left aligned
+   lines with the whole right half of the card empty. They are related but
+   independent, so they sit on one row, caption left and note right, and the
+   row uses the full card width. */
+@media(min-width:700px){
+  .fp-sparkcard{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:baseline;
+    column-gap:20px;
+  }
+  .fp-sparkcard > svg,
+  .fp-sparkcard > .fp-axis,
+  .fp-sparkcard > details{grid-column:1 / -1}
+  .fp-sparkcard > .fp-sparkcap{grid-column:1;margin:4px 2px 0}
+  .fp-sparkcard > .fp-axis-note{grid-column:2;justify-self:end;margin:4px 2px 0}
+}
+
 /* Fund page provenance lines were three centred sentences with no styling,
    the only centred text on an otherwise left aligned page. Turn them into one
    quiet meta block that reads as metadata rather than as body copy. */
@@ -1448,23 +1466,23 @@ details.cht-nums[open] > summary::after{
     columns:1;
   }
 
-  /* Prose pages with no table of contents keep a reading measure rather than
-     running the full width of the wrapper.
+  /* No reading measure cap on these pages.
 
-     :not(.card) matters. Fund page sections are also <section> elements, so an
-     unqualified rule capped "Matches EDGE's published CAGR", "Historical
-     returns" and "Rolling returns & path risk" at about 583px inside a 1124px
-     card, which is exactly the stranded left aligned look this pass is meant to
-     remove. Cards carry data, not long-form prose, and keep the full width. */
-  .wrap:not(:has(> nav.toc)) .qa p,
-  .wrap:not(:has(> nav.toc)) :is(section, article):not(.card) > p,
-  .wrap:not(:has(> nav.toc)) :is(section, article):not(.card) > ul,
-  .wrap:not(:has(> nav.toc)) :is(section, article):not(.card) > ol{
-    max-width:92ch;
+     There used to be one, at 74ch and then 92ch, and it was the single thing
+     that kept making text stop short of the edge with obvious space to its
+     right. Every time it was narrowed in scope it just moved the problem to
+     another block: fund page cards, then the compare intro, then the fund page
+     Questions section.
+
+     Pages that carry a table of contents already get a 72ch column from the
+     grid above, which is where a measure genuinely helps. Everywhere else the
+     container is the card, and the card is already the right width, so the
+     text simply fills it. */
+  .wrap:not(:has(> nav.toc)) p,
+  .wrap:not(:has(> nav.toc)) ul,
+  .wrap:not(:has(> nav.toc)) ol{
+    max-width:none;
   }
-  .wrap .card p,
-  .wrap .card ul,
-  .wrap .card ol{max-width:none}
 }
 
 /* Charts get taller on a big screen instead of staying phone sized. */

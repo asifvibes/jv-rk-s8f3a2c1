@@ -104,6 +104,47 @@
      All three now get the same treatment: the line renders complete, and the
      marker loops along it. One behaviour, one code path, nothing to conflict. */
 
+  /* Builds the travelling marker over one sparkline.
+
+     Two overlaid copies of the line: a short comet tail, and a zero length dash
+     with a round cap that renders as a dot. The dot leads the tail, offset in
+     time rather than in dash space, because the animation is linear so distance
+     and time are proportional. The real line underneath is never touched. */
+  function traceOne(base, dur) {
+    var svg = base.ownerSVGElement;
+    if (!svg || svg.querySelector(".rk-dot")) return;
+
+    var len = 0;
+    try { len = base.getTotalLength(); } catch (e) { return; }
+    if (!len) return;
+
+    var tail = Math.max(14, len * 0.09);
+
+    function overlay(cls, dash, lead) {
+      var el = base.cloneNode(true);
+      el.setAttribute("class", cls);
+      el.setAttribute("aria-hidden", "true");
+      el.removeAttribute("data-rk-drawn");
+      el.removeAttribute("id");
+
+      // The clone inherits every inline style the original carries, so any
+      // leftover dash state is cleared before the loop is set up.
+      el.style.transition = "none";
+      el.style.strokeDashoffset = "";
+      el.style.animationDelay = "";
+
+      el.style.setProperty("--rk-len", len);
+      el.style.setProperty("--rk-dur", dur + "s");
+      el.style.strokeDasharray = dash;
+      if (lead) el.style.animationDelay = (-(lead / len) * dur).toFixed(3) + "s";
+      svg.appendChild(el);
+      return el;
+    }
+
+    overlay("rk-trace", tail + " " + len, 0);
+    overlay("rk-dot", "0.1 " + len, tail);
+  }
+
   /* Fund list markers: the top three of every group, always.
 
      Not every row. A perpetual animation on a fully expanded list means dozens
