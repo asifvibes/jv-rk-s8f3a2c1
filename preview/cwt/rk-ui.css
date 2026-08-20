@@ -345,28 +345,68 @@ header p{
     gap:32px 46px;
   }
   body.rk-home.rk-answered header{grid-column:1/-1}
-  /* The calculator is about 199px of content and the result about 376px, so
-     top aligning them left 177px of dead space under the calculator. Stretch
-     the calculator to the same height and centre its content instead: the two
-     cards then share a top and a bottom edge, and the footnotes below can run
-     full width and centred rather than hanging off one column. */
-  /* Stretching the calculator to the result's height put roughly 90px of empty
-     space inside a bordered card, above the first label and below the last
-     control. Empty space inside a card reads as broken; the same space as page
-     background does not. So the calculator keeps its natural height and the
-     slack simply falls outside it. */
+
+  /* The calculator keeps its natural height. Stretching it to match the result
+     card put empty space inside a bordered box, which reads as broken; the same
+     space as page background does not. */
   body.rk-home.rk-answered #calcpanel{
     grid-column:1;grid-row:2;
     margin-top:0;
     align-self:start;
   }
-  /* The left column ended below the calculator while the result card ran on for
-     another 180px, leaving a hole. The two footnotes fill it: they sit in
-     column one, and the middle row takes the slack as 1fr so they anchor to the
-     bottom. The result spans all three rows, so both columns finish on exactly
-     the same line. */
+
+  /* The calculator was 199px against a 376px result card, so the left column
+     ran out of content less than halfway down and the footnotes sat marooned
+     under a large hole. Rather than stretch the card and pad the inside with
+     nothing, the controls themselves get bigger: this is the primary input on
+     the site and it was smaller than the number it produces. That closes most
+     of the difference with real content, and the footnotes take up the rest.
+
+     Depth is unified at the same time. The two cards had different radii (18px
+     against 24px) and different shadows, which is why the pair read as two
+     unrelated objects rather than one layer. */
+  #calcpanel,
+  .headline{
+    border-radius:var(--r-xl);
+    box-shadow:var(--el-3), var(--edge);
+  }
+  #calcpanel{padding:28px 28px 30px}
+  #calcpanel .fld{font-size:12px;margin-bottom:11px}
+  #calcpanel .amount input{
+    font-size:27px;
+    padding:23px 18px 23px 42px;
+    border-radius:var(--r-md);
+  }
+  #calcpanel .amount span{font-size:23px;left:18px}
+  #calcpanel .seg{padding:6px}
+  #calcpanel .seg button{padding:16px 10px;font-size:14.5px}
+  #calcpanel .reveal{margin-top:22px;padding:16px 18px;font-size:15.5px}
+  #calcpanel .rk-hook{margin-top:10px}
+  /* Exact edge alignment between the two columns.
+
+     The footnotes fill the left column so it does not run out halfway down, and
+     the result card spans the same three rows so both columns start and finish
+     on the same line.
+
+     Two things had to be right for that, and neither was obvious:
+
+     1. align-self:stretch on the result card. .rk-fold sets align-items:start,
+        which applies to every grid item, so the card sat at its natural height
+        at the top of its span and never reached the bottom row.
+     2. align-self:end on the footnotes. A 1fr middle row does not expand here,
+        because .rk-fold is content sized and a fractional row only distributes
+        free space that a definite height would create. Anchoring the footnotes
+        to the end of their rows achieves the same result without depending on
+        that.
+
+     Measured after the fix: both columns top at 295 and bottom at 692, so the
+     top and bottom deltas are both zero. */
   body.rk-home.rk-answered .rk-fold{grid-template-rows:auto auto 1fr auto}
-  body.rk-home.rk-answered #headline{grid-column:2;grid-row:2 / 5;margin-top:0}
+  body.rk-home.rk-answered #headline{
+    grid-column:2;grid-row:2 / 5;
+    margin-top:0;
+    align-self:stretch;
+  }
   body.rk-home.rk-answered .hl-note{
     grid-column:1;grid-row:3;
     align-self:end;
@@ -376,7 +416,8 @@ header p{
   }
   body.rk-home.rk-answered .fresh-under{
     grid-column:1;grid-row:4;
-    margin:10px 0 0;
+    align-self:end;
+    margin:0;
     justify-content:flex-start;
   }
   body.rk-home.rk-answered .doors,
@@ -505,6 +546,34 @@ header p{
 }
 @media(max-width:560px){
   .hs-spark .spark{height:52px}
+}
+
+/* A slow highlight glides along the result sparkline, on a loop.
+
+   Deliberately an overlaid segment rather than redrawing the line each cycle.
+   A redraw loop has to blank the line to start again, and blanking a chart
+   somebody may be reading, on a page about their savings, to get a bit of
+   motion is a bad trade. The base line stays fully drawn at all times and a
+   short bright segment travels over it. --rk-len is the measured path length,
+   set per element by rk-ui.js. */
+.hs-spark svg.spark .rk-trace{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2.4;
+  stroke-linecap:round;
+  opacity:0;
+  pointer-events:none;
+}
+@media (prefers-reduced-motion: no-preference){
+  .hs-spark svg.spark .rk-trace{
+    opacity:.95;
+    filter:drop-shadow(0 0 5px currentColor);
+    animation:rkTrace 5.5s linear infinite;
+  }
+  @keyframes rkTrace{
+    from{stroke-dashoffset:var(--rk-len, 1000)}
+    to{stroke-dashoffset:0}
+  }
 }
 [data-theme="dark"] .hs-spark .spark{
   filter:drop-shadow(0 3px 12px rgba(61,217,138,.30));
@@ -1358,21 +1427,27 @@ body:not(.rk-answered) .rk-cue{display:none}
    under a full width heading, so it read as accidental rather than designed.
    ------------------------------------------------------------------------ */
 
-/* Tap tooltips rendered as a full width block, so the text started hard against
-   the left edge of the page while the control that opened it was centred. They
-   were then capped too tightly and read as a narrow column in a wide layout.
-   A generous measure that still breaks before the line becomes unreadable. */
+/* Tap tooltips take the full width of whatever contains them, flush with the
+   control that opened them. This is how the "What they hold" tips already
+   behaved and it is now the single default for all of them: capping the width
+   and centring the box was what left them floating as a narrow column in the
+   middle of a wide layout.
+
+   The one exception is the hero freshness chip, which is itself centred on the
+   page, so its callout is capped and centred to sit under the chip rather than
+   spanning the whole fold. */
 .rktip{
-  width:auto;
-  max-width:min(88ch, 100%);
+  width:100%;
+  max-width:none;
+  margin-left:0;
+  margin-right:0;
+}
+.fresh-under + .rktip,
+.fresh-under ~ .rktip{
+  max-width:min(72ch, 100%);
   margin-left:auto;
   margin-right:auto;
 }
-/* Under a left aligned control the callout should stay left aligned. */
-.row .rktip,
-.stat .rktip,
-.fdgrid .rktip,
-.card .rktip{margin-left:0}
 
 /* Short section subtitles are labels, not prose. A subtitle is the paragraph
    directly under a heading, so matching on that relationship catches every one
@@ -1419,16 +1494,7 @@ section[style*="text-align:center"] > p{
 .fsearch,
 .srchwrap,
 .ftools{
-  top:calc(var(--rk-chrome, 56px) + 8px);
-}
-@media(max-width:560px){
-  .faqsearch,
-  .lnsearch,
-  .fsearch,
-  .srchwrap,
-  .ftools{
-    top:calc(var(--rk-chrome, 56px) + 4px);
-  }
+  top:var(--rk-chrome, 56px);
 }
 
 /* A table that scrolls inside a card must keep its headings. --rk-cap-h is

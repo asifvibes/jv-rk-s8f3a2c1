@@ -156,6 +156,34 @@
     }
   }
 
+  /* Adds the looping highlight to the result sparkline.
+
+     A clone of the line is overlaid and given a short dash pattern, so a bright
+     segment travels along the path on a loop while the real line stays fully
+     drawn underneath. The clone is aria-hidden and has no pointer events: it is
+     decoration over data, and it must never be mistaken for data. */
+  function traceHeroSpark() {
+    if (reduced) return;
+    var base = document.querySelector(".hs-spark svg.spark polyline:not(.rk-trace)");
+    if (!base) return;
+    var svg = base.ownerSVGElement;
+    if (!svg || svg.querySelector(".rk-trace")) return;
+
+    var len = 0;
+    try { len = base.getTotalLength(); } catch (e) { return; }
+    if (!len) return;
+
+    var t = base.cloneNode(true);
+    t.setAttribute("class", "rk-trace");
+    t.setAttribute("aria-hidden", "true");
+    t.removeAttribute("data-rk-drawn");
+    t.removeAttribute("id");
+    t.style.setProperty("--rk-len", len);
+    // A segment about a tenth of the path, with the rest of the cycle empty.
+    t.style.strokeDasharray = Math.max(24, len * 0.1) + " " + len;
+    svg.appendChild(t);
+  }
+
   /* A table that scrolls inside a card keeps its caption and column headings
      pinned. The caption wraps to two lines on narrow screens, so its height is
      measured rather than hardcoded and handed to CSS as --rk-cap-h. */
@@ -375,6 +403,7 @@
       if (reduced) return;
       scan();
       drawSparks();
+      traceHeroSpark();
     }, 90);
   }
 
@@ -403,6 +432,7 @@
     root.classList.add("rk-anim");
     scan();
     drawSparks();
+    traceHeroSpark();
 
     if ("MutationObserver" in window) {
       new MutationObserver(schedule).observe(document.body, {
