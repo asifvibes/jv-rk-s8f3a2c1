@@ -275,8 +275,8 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "ReturnKoto? Fund Comparison", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "url": "https://returnkoto.com/compare.html", "description": "Compare Bangladeshi open-end mutual funds side by side: historical returns, fees, exit loads, minimum investment, risk and what each fund holds.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BDT"}, "dateModified": "2026-08-03", "isAccessibleForFree": true, "inLanguage": "en", "publisher": {"@id": "https://returnkoto.com/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://returnkoto.com/compare.html"}]}]}
 </script>
-<link rel="stylesheet" href="/rk-ui.css?v=10">
-<script src="/rk-ui.js?v=6" defer></script>
+<link rel="stylesheet" href="/rk-ui.css?v=11">
+<script src="/rk-ui.js?v=9" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -339,7 +339,7 @@
     </div>
     <div class="cmp-legend" id="cmpLegend"></div>
     <div class="cmp-chart" id="cmpChart"></div>
-    <p class="cmp-viz-foot">Each line starts at 100 on the first month of the window, so the shapes are comparable whatever the unit prices are. Dividends are reinvested.</p>
+    <p class="rk-barnote cmp-viz-foot">Each line starts at 100, and the number beside each line is where it ended. Dividends are reinvested. <button type="button" class="tipbtn" data-tipkey="cmp_index" data-tip="These are index values, not taka and not NAV. Every fund is set to 100 on the first month of the window, so 145 means that fund ended the period 45% above where it started. Setting them all to 100 is what makes the shapes comparable: unit prices differ from fund to fund, so the raw NAVs cannot be read against each other. The dashed line marks 100, which is break even for the window." aria-label="What do these numbers mean?">?</button></p>
     <details class="cht-nums" id="cmpVizNums"></details>
   </section>
 
@@ -880,7 +880,7 @@
 
     // Margins leave room for the axis labels: the index scale on the left, the
     // final value on the right, and the time labels along the bottom.
-    var W = 720, H = 268, PL = 40, PR = 46, PT = 16, PB = 30;
+    var W = 720, H = 268, PL = 40, PR = 62, PT = 16, PB = 30;
     var X = function(i){ return PL + i / (n - 1) * (W - PL - PR); };
     var Y = function(v){ return PT + (1 - (v - lo) / (hi - lo)) * (H - PT - PB); };
 
@@ -925,12 +925,26 @@
       svg += '<polyline points="' + pts + '" fill="none" stroke="' + CMPC[i % CMPC.length] + '" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
     });
 
-    // End of each line: a dot and its final index value, so the reader can tell
-    // the lines apart without looking back up at the legend.
-    lines.forEach(function (a, i) {
-      var ex = X(n - 1), ey = Y(a[a.length - 1]);
-      svg += '<circle cx="' + ex.toFixed(1) + '" cy="' + ey.toFixed(1) + '" r="3.6" fill="' + CMPC[i % CMPC.length] + '"/>';
-      svg += '<text class="cmp-endlbl" x="' + (ex - 8).toFixed(1) + '" y="' + (ey - 8).toFixed(1) + '" text-anchor="end" fill="' + CMPC[i % CMPC.length] + '">' + a[a.length - 1].toFixed(0) + '</text>';
+    // End of each line: a dot, plus its final index value in the right margin.
+    // The label sits outside the plot rather than inside it, because at the
+    // right hand edge the lines are at their most crowded and an inside label
+    // lands on top of them.
+    var ex = X(n - 1);
+    var ends = lines.map(function (a, i) {
+      return { i: i, v: a[a.length - 1], y: Y(a[a.length - 1]) };
+    }).sort(function (p, q) { return p.y - q.y; });
+
+    // Nudge apart any two endpoints closer than a line height.
+    var MINGAP = 13;
+    for (var e = 1; e < ends.length; e++) {
+      if (ends[e].y - ends[e - 1].y < MINGAP) ends[e].y = ends[e - 1].y + MINGAP;
+    }
+
+    ends.forEach(function (o) {
+      var col = CMPC[o.i % CMPC.length];
+      var dotY = Y(o.v);
+      svg += '<circle cx="' + ex.toFixed(1) + '" cy="' + dotY.toFixed(1) + '" r="3.6" fill="' + col + '"/>';
+      svg += '<text class="cmp-endlbl" x="' + (ex + 9).toFixed(1) + '" y="' + (o.y + 4).toFixed(1) + '" text-anchor="start" fill="' + col + '">' + o.v.toFixed(0) + '</text>';
     });
 
     svg += '</svg>';
