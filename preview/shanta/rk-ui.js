@@ -93,119 +93,30 @@
     }
   }
 
-  /* Sparklines draw themselves in rather than appearing whole.
+  /* There is deliberately no one-time draw-in for sparklines any more.
 
-     Two hard won details:
+     It used to run on the homepage result and the fund page path, but not on
+     fund list rows, and that difference was the bug: it left inline
+     stroke-dasharray, stroke-dashoffset and transition on the line, which the
+     travelling marker then cloned and fought with. The rows, having no
+     draw-in, were the only ones that looked right.
 
-     1. Scope. The fund list re-renders its rows on every control change, and a
-        line whose draw was interrupted by a re-render is left frozen with a
-        partial stroke-dasharray, which shows up as a chart with chunks
-        missing. So only the two sparklines that are stable on the page get the
-        animation: the homepage result and the fund page total-return path.
-        Fund list rows render complete, every time.
+     All three now get the same treatment: the line renders complete, and the
+     marker loops along it. One behaviour, one code path, nothing to conflict. */
 
-     2. Cleanup. Once the draw finishes the dash properties are removed
-        entirely. Leaving a dasharray on the element is what turns any later
-        interruption, reflow or re-render into a broken looking line. */
-  var DRAW_MS = 1100;
+  /* Fund list markers: the top three of every group, always.
 
-  function clearDash(p) {
-    p.style.transition = "";
-    p.style.strokeDasharray = "";
-    p.style.strokeDashoffset = "";
-  }
+     Not every row. A perpetual animation on a fully expanded list means dozens
+     of simultaneous loops, which is busy to look at and wasteful on a phone.
+     The top three keep it whether the group is collapsed or expanded, so the
+     effect is stable rather than appearing and vanishing as the reader toggles.
 
-  function drawSparks() {
-    var lines = document.querySelectorAll(
-      ".hs-spark svg.spark polyline:not([data-rk-drawn]), svg.fp-spark polyline:not([data-rk-drawn])"
-    );
-    for (var i = 0; i < lines.length; i++) {
-      var p = lines[i];
-      var len = 0;
-      try { len = p.getTotalLength(); } catch (e) { continue; }
-      if (!len) continue;
-      p.setAttribute("data-rk-drawn", "1");
-      p.style.strokeDasharray = len;
-      p.style.strokeDashoffset = len;
+     #results is one flat container of headings, rows and Show all buttons, so
+     group membership comes from walking the children and counting rows since
+     the last heading. Rows four and beyond have any marker stripped, which
+     matters when a group is expanded in place. */
+  var TOP_N = 3;
 
-      // Fade the shaded area in alongside the line. Without this the fill is
-      // fully painted while the line is still drawing across it, which reads
-      // as a rendering fault rather than as an animation.
-      var area = p.parentNode.querySelector("polygon");
-      if (area) {
-        area.style.opacity = "0";
-        area.style.transition = "opacity " + DRAW_MS + "ms ease";
-      }
-
-      void p.getBoundingClientRect(); // force a start value to move from
-      p.style.transition = "stroke-dashoffset " + DRAW_MS + "ms cubic-bezier(.25,.8,.35,1)";
-      p.style.strokeDashoffset = "0";
-      if (area) area.style.opacity = "1";
-
-      // Strip the dash once it has landed, whichever fires first.
-      (function (node) {
-        var done = false;
-        function finish() {
-          if (done) return;
-          done = true;
-          clearDash(node);
-        }
-        node.addEventListener("transitionend", finish);
-        setTimeout(finish, DRAW_MS + 250);
-      })(p);
-    }
-  }
-
-  /* Adds the looping highlight to the result sparkline.
-
-     A clone of the line is overlaid and given a short dash pattern, so a bright
-     segment travels along the path on a loop while the real line stays fully
-     drawn underneath. The clone is aria-hidden and has no pointer events: it is
-     decoration over data, and it must never be mistaken for data. */
-  function traceOne(base, dur) {
-    var svg = base.ownerSVGElement;
-    if (!svg || svg.querySelector(".rk-dot")) return;
-
-    var len = 0;
-    try { len = base.getTotalLength(); } catch (e) { return; }
-    if (!len) return;
-
-    var tail = Math.max(14, len * 0.09);
-
-    function overlay(cls, dash, lead) {
-      var el = base.cloneNode(true);
-      el.setAttribute("class", cls);
-      el.setAttribute("aria-hidden", "true");
-      el.removeAttribute("data-rk-drawn");
-      el.removeAttribute("id");
-      el.style.setProperty("--rk-len", len);
-      el.style.setProperty("--rk-dur", dur + "s");
-      el.style.strokeDasharray = dash;
-      // The dot leads the tail. Offset in time rather than in dash space,
-      // because the animation is linear so distance and time are proportional.
-      if (lead) el.style.animationDelay = (-(lead / len) * dur).toFixed(3) + "s";
-      svg.appendChild(el);
-      return el;
-    }
-
-    overlay("rk-trace", tail + " " + len, 0);
-    overlay("rk-dot", "0.1 " + len, tail);
-  }
-
-  /* Fund list markers, top three of each group only.
-
-     A perpetual animation on every row means dozens of simultaneous loops once
-     the list is expanded, which is both busy to look at and wasteful on a
-     phone. So the marker runs only while a group is collapsed.
-
-     Detecting that needs no new state. #results is one flat container of
-     headings, rows and Show all buttons, and defLim() is 3, so a group showing
-     more than three rows is by definition expanded. Walking the children and
-     counting rows since the last heading gives the group membership.
-
-     Expanding re-renders the whole list, so the old markers are destroyed with
-     their rows. The explicit strip below is belt and braces in case a future
-     change makes that re-render partial. */
   function traceFundRows() {
     var results = document.getElementById("results");
     if (!results) return;
@@ -220,22 +131,18 @@
 
     for (var g = 0; g < groups.length; g++) {
       var rows = groups[g];
-
-      if (rows.length > 3) {
-        for (var x = 0; x < rows.length; x++) {
-          var old = rows[x].querySelectorAll(".rk-trace, .rk-dot");
+      for (var r = 0; r < rows.length; r++) {
+        if (r < TOP_N) {
+          var pl = rows[r].querySelector(
+            ".sparkwrap svg.spark polyline:not(.rk-trace):not(.rk-dot)"
+          );
+          if (pl) traceOne(pl, 6.5);
+        } else {
+          var old = rows[r].querySelectorAll(".rk-trace, .rk-dot");
           for (var y = 0; y < old.length; y++) {
             if (old[y].parentNode) old[y].parentNode.removeChild(old[y]);
           }
         }
-        continue;
-      }
-
-      for (var r = 0; r < rows.length; r++) {
-        var pl = rows[r].querySelector(
-          ".sparkwrap svg.spark polyline:not(.rk-trace):not(.rk-dot)"
-        );
-        if (pl) traceOne(pl, 6.5);
       }
     }
   }
@@ -248,12 +155,12 @@
   function traceSparks() {
     if (reduced) return;
     var hero = document.querySelector(".hs-spark svg.spark polyline:not(.rk-trace):not(.rk-dot)");
-    if (hero) traceOne(hero, 5.5);
+    if (hero) traceOne(hero, 6.5);
 
     traceFundRows();
 
     var fp = document.querySelectorAll("svg.fp-spark polyline:not(.rk-trace):not(.rk-dot)");
-    for (var j = 0; j < fp.length; j++) traceOne(fp[j], 6);
+    for (var j = 0; j < fp.length; j++) traceOne(fp[j], 6.5);
   }
 
   /* The growth chart redraws itself in front of the reader.
@@ -268,7 +175,16 @@
     if (!svg || svg.dataset.rkDrawn) return;
     svg.dataset.rkDrawn = "1";
 
-    var paths = svg.querySelectorAll("path[stroke]:not(.lchit)");
+    // Only the top three funds draw themselves in. Every extra line the reader
+    // adds, or the whole set behind Show all, renders complete straight away:
+    // watching a dozen lines crawl across the chart is a wait, not a flourish.
+    // data-rank comes from renderChart, where 0 is the best performer.
+    var all = svg.querySelectorAll("path.lcser");
+    var paths = [];
+    for (var q = 0; q < all.length; q++) {
+      if (+all[q].getAttribute("data-rank") < 3) paths.push(all[q]);
+    }
+
     var slowest = 0;
     for (var i = 0; i < paths.length; i++) {
       var p = paths[i];
@@ -380,8 +296,7 @@
      CSS is a full bar, so if this never runs the bars are already drawn. */
   function watchBars() {
     if (reduced || !("IntersectionObserver" in window)) return;
-    var panels = document.querySelectorAll(".chartpanel:not([data-rk-bars])");
-    if (!panels.length) return;
+
     var io = new IntersectionObserver(function (entries) {
       for (var i = 0; i < entries.length; i++) {
         if (!entries[i].isIntersecting) continue;
@@ -389,10 +304,23 @@
         io.unobserve(entries[i].target);
       }
     }, { threshold: 0.12 });
+
+    // Homepage: one panel holds the whole Compare all funds set, so the panel
+    // is the unit and the rows stagger inside it.
+    var panels = document.querySelectorAll(".chartpanel:not([data-rk-bars])");
     for (var j = 0; j < panels.length; j++) {
       if (!panels[j].querySelector(".cbar-fill")) continue;
       panels[j].setAttribute("data-rk-bars", "1");
       io.observe(panels[j]);
+    }
+
+    // Stocks page: about 43 separate cards down a long page, so each card is
+    // its own unit and fills as the reader reaches it.
+    var cards = document.querySelectorAll(".sx-card:not([data-rk-bars])");
+    for (var k = 0; k < cards.length; k++) {
+      if (!cards[k].querySelector(".sx-fill")) continue;
+      cards[k].setAttribute("data-rk-bars", "1");
+      io.observe(cards[k]);
     }
   }
 
@@ -531,7 +459,6 @@
       pinTableHeads();
       if (reduced) return;
       scan();
-      drawSparks();
     traceSparks();
     drawGrowthChart();
     watchBars();
@@ -562,7 +489,6 @@
 
     root.classList.add("rk-anim");
     scan();
-    drawSparks();
     traceSparks();
       drawGrowthChart();
 

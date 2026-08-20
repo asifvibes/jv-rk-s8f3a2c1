@@ -743,6 +743,38 @@ html[data-theme="dark"] select:not(.hs-period-sel){
   transform:translateY(-1px);
 }
 
+/* Open state. The button looked identical whether the panel below it was open
+   or shut, so clicking it gave no acknowledgement at all. aria-expanded is
+   already toggled by the existing script, so the state is there to style and
+   no new JavaScript is needed. The chevron marks the direction of the next
+   click rather than the current state. */
+.door[aria-expanded="true"]{
+  background-color:rgba(46,204,113,.12);
+  border-color:var(--green);
+}
+.door[aria-expanded="true"]::after{
+  content:"";
+  display:inline-block;
+  width:7px;height:7px;
+  margin-left:10px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:translateY(-3px) rotate(-135deg);
+}
+.door[aria-expanded="false"]::after{
+  content:"";
+  display:inline-block;
+  width:7px;height:7px;
+  margin-left:10px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:translateY(-1px) rotate(45deg);
+  opacity:.7;
+}
+@media (prefers-reduced-motion: no-preference){
+  .door::after{transition:transform .2s ease}
+}
+
 /* Disclosure summaries get a target and a hover state. */
 summary{
   border-radius:var(--r-sm);
@@ -833,6 +865,22 @@ summary:hover{background:rgba(46,204,113,.08)}
   border-radius:var(--r-pill);
   letter-spacing:.01em;
   font-size:11px;
+}
+
+/* Balanced was the only fund type whose badge ignored the type palette. Growth
+   reads green, Income blue and Shariah indigo, all matching their group dot,
+   while Balanced sat in slate grey against an amber dot. It now uses the amber
+   the palette already assigns it (--tycol #D97706 on .ty-balanced).
+
+   The amber is deliberately deeper than the .tag.warn amber, which means "AMC
+   site outdated", so a fund type is never mistaken for a data warning. */
+.tag.balanced{
+  background:#FCEFCD;
+  color:#96500B;
+}
+[data-theme="dark"] .tag.balanced{
+  background:#33280E;
+  color:#F5BE58;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1250,6 +1298,55 @@ details.cht-nums[open] > summary::after{
   transform:translateY(2px) rotate(-135deg);
 }
 
+/* The three most useful sections on the stocks page were indistinguishable
+   from the rest of the page furniture. They are also now deep linked from the
+   More page, so they need to be findable the moment a reader lands on them:
+   a brand accent bar, more space above, and a scroll landing that clears the
+   sticky header rather than hiding the heading underneath it. */
+#overlap,
+#diversify,
+#check{
+  scroll-margin-top:calc(var(--rk-chrome, 56px) + 18px);
+  margin-top:38px;
+  padding-left:14px;
+  border-left:4px solid var(--green);
+  border-radius:2px;
+}
+
+/* A deep linked heading flashes once so the eye lands in the right place. */
+@media (prefers-reduced-motion: no-preference){
+  #overlap:target,
+  #diversify:target,
+  #check:target{
+    animation:rkTargetFlash 1.8s ease-out 1;
+  }
+  @keyframes rkTargetFlash{
+    0%{background:color-mix(in srgb, var(--green) 22%, transparent)}
+    100%{background:transparent}
+  }
+}
+
+/* Start and end labels under the fund page total-return path. Kept in HTML
+   rather than inside the SVG, because fp-spark is drawn with
+   preserveAspectRatio="none" and any text in it would be stretched. */
+.fp-axis{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  margin:6px 2px 0;
+  font-size:12px;
+  color:var(--muted);
+  font-variant-numeric:tabular-nums;
+}
+.fp-axis b{
+  font-size:14.5px;
+  font-weight:800;
+  color:var(--green-dark);
+  margin-left:4px;
+}
+.fp-axis-note{margin:8px 2px 2px}
+
 /* Fund page provenance lines were three centred sentences with no styling,
    the only centred text on an otherwise left aligned page. Turn them into one
    quiet meta block that reads as metadata rather than as body copy. */
@@ -1579,16 +1676,15 @@ section[style*="text-align:center"] > p{
     from{transform:scaleX(0)}
     to{transform:scaleX(1)}
   }
-  .sx-fill{animation:rkBarIn .9s cubic-bezier(.22,.8,.3,1) both}
-  /* A short stagger down the first screen, then everything runs together. */
-  .sx-card:nth-of-type(1) .sx-fill{animation-delay:.05s}
-  .sx-card:nth-of-type(2) .sx-fill{animation-delay:.10s}
-  .sx-card:nth-of-type(3) .sx-fill{animation-delay:.15s}
-  .sx-card:nth-of-type(4) .sx-fill{animation-delay:.20s}
-  .sx-card:nth-of-type(5) .sx-fill{animation-delay:.25s}
-  .sx-card:nth-of-type(6) .sx-fill{animation-delay:.30s}
-  .sx-card:nth-of-type(7) .sx-fill{animation-delay:.35s}
-  .sx-card:nth-of-type(8) .sx-fill{animation-delay:.40s}
+  /* Each card fills when it scrolls into view, not on page load.
+
+     The load-time version was the bug: this page carries about 43 bars and all
+     of them finished inside 0.9 seconds, while roughly 40 were still below the
+     fold. By the time anyone scrolled down every bar was already full, so the
+     page looked completely static. rk-ui.js adds rk-barview per card as it
+     arrives. The resting state is a full bar, so a card that never gets the
+     class is simply drawn. */
+  .rk-barview .sx-fill{animation:rkBarIn .85s cubic-bezier(.22,.8,.3,1) both}
 }
 
 /* Fund list sparklines draw in with a left to right wipe.

@@ -1406,7 +1406,7 @@ function renderLineChart(rows){
   }
   if(showInv){const sel=lcSel==="invested";s+=`<path d="${path(investedVals)}" fill="none" style="stroke:var(--ch-inv)" stroke-width="${sel?3:2}" opacity="${sel?1:0.9}"/>`;}
   visB.forEach(o=>{const sel=lcSel==="b"+o.nm;s+=`<path d="${path(o.vals)}" fill="none" stroke="${o.c}" stroke-width="${sel?2.6:1.7}" opacity="${sel?1:0.85}"/>`;});
-  visS.slice().reverse().forEach(o=>{const best=o.i===0,sel=lcSel==="f"+o.sr.f.id;s+=`<path d="${path(o.vals)}" fill="none" stroke="${colOf(o.i)}" stroke-width="${sel?3.8:(best?3.2:2.5)}" opacity="1"/>`;});
+  visS.slice().reverse().forEach(o=>{const best=o.i===0,sel=lcSel==="f"+o.sr.f.id;s+=`<path class="lcser" data-rank="${o.i}" d="${path(o.vals)}" fill="none" stroke="${colOf(o.i)}" stroke-width="${sel?3.8:(best?3.2:2.5)}" opacity="1"/>`;});
   visS.forEach(o=>{const lx=X(o.vals.length-1).toFixed(1),ly=Y(o.vals[o.vals.length-1]).toFixed(1);s+=`<circle cx="${lx}" cy="${ly}" r="${o.i===0?4.5:3.5}" fill="${colOf(o.i)}" stroke="#fff" stroke-width="1.6"/>`;});
   if(showInv){const lx=X(maxLen-1).toFixed(1),ly=Y(investedVals[maxLen-1]).toFixed(1);s+=`<circle cx="${lx}" cy="${ly}" r="3" style="fill:var(--ch-inv)" stroke="#fff" stroke-width="1.4"/>`;}
   visB.forEach(o=>{s+=`<path class="lchit" data-key="b${o.nm}" data-name="${o.nm}" data-col="${o.c}" d="${path(o.vals)}" fill="none" stroke="transparent" stroke-width="16" pointer-events="stroke"/>`;});
