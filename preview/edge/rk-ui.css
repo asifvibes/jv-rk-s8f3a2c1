@@ -213,6 +213,35 @@ label.fld,.fld{
   box-shadow:0 2px 8px rgba(31,158,87,.30);
 }
 
+/* Current page marker. This lived in each page's own inline stylesheet and had
+   drifted: index.html set a colour with no underline at all, so Ratings and
+   Stocks showed no active state while Funds and Compare did. Defining it here,
+   in the layer that loads last on every page, makes it identical everywhere.
+   The underline is a pseudo-element so it can also animate on hover, but its
+   resting geometry is declared outside the motion block: the active state must
+   be visible even for a reader who has asked for reduced motion. */
+.rk-links a{position:relative}
+.rk-links a::after{
+  content:"";
+  position:absolute;
+  left:50%;right:50%;bottom:5px;
+  height:2px;
+  border-radius:2px;
+  background:var(--green);
+}
+.rk-links a:hover::after,
+.rk-links a.active::after,
+.rk-links a[aria-current="page"]::after{
+  left:11px;right:11px;
+}
+.rk-links a.active,
+.rk-links a[aria-current="page"]{
+  color:var(--green-dark);
+  font-weight:700;
+}
+[data-theme="dark"] .rk-links a.active,
+[data-theme="dark"] .rk-links a[aria-current="page"]{color:#3DD98A}
+
 /* Nav was cramped at 390px. Give every item a 44px tap target without letting
    the row overflow: the logo may shrink, the links own the remaining space. */
 @media(max-width:560px){
@@ -302,8 +331,20 @@ header p{
     gap:32px 46px;
   }
   body.rk-home.rk-answered header{grid-column:1/-1}
-  body.rk-home.rk-answered #calcpanel{grid-column:1;grid-row:2;margin-top:0}
-  body.rk-home.rk-answered #headline{grid-column:2;grid-row:2;margin-top:0}
+  /* The calculator is about 199px of content and the result about 376px, so
+     top aligning them left 177px of dead space under the calculator. Stretch
+     the calculator to the same height and centre its content instead: the two
+     cards then share a top and a bottom edge, and the footnotes below can run
+     full width and centred rather than hanging off one column. */
+  body.rk-home.rk-answered #calcpanel{
+    grid-column:1;grid-row:2;
+    margin-top:0;
+    align-self:stretch;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  body.rk-home.rk-answered #headline{grid-column:2;grid-row:2;margin-top:0;align-self:stretch}
   body.rk-home.rk-answered .hl-note,
   body.rk-home.rk-answered .fresh-under,
   body.rk-home.rk-answered .doors,
@@ -312,6 +353,53 @@ header p{
   body.rk-home.rk-answered #srlive{
     grid-column:1/-1;
   }
+}
+
+/* Both footnotes centre under the pair of cards rather than hanging off one
+   column. They are about the whole answer, not about either card. */
+.hl-note,
+.fresh-under{
+  text-align:center;
+}
+.hl-note{
+  max-width:none;
+  margin-top:18px;
+}
+
+/* The comparison date is a trust signal, not small print: it is the answer to
+   "is this current". It reads as a chip you could tap, because it is one. */
+.fresh-under{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:fit-content;
+  margin:12px auto 0;
+  padding:9px 16px;
+  font-size:13.5px;
+  border-radius:var(--r-pill);
+  border:1px solid color-mix(in srgb, var(--green) 34%, transparent);
+  background:color-mix(in srgb, var(--green) 8%, transparent);
+  color:var(--text);
+}
+.fresh-under .asof{
+  color:var(--green-dark);
+  font-weight:800;
+}
+.fresh-under .dot{
+  width:8px;height:8px;
+  margin:0;
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--green) 18%, transparent);
+}
+@media (prefers-reduced-motion: no-preference){
+  .fresh-under .dot{animation:rkPulse 2.8s ease-in-out infinite}
+  @keyframes rkPulse{
+    0%,100%{box-shadow:0 0 0 3px color-mix(in srgb, var(--green) 16%, transparent)}
+    50%{box-shadow:0 0 0 7px color-mix(in srgb, var(--green) 6%, transparent)}
+  }
+}
+@media(max-width:560px){
+  .fresh-under{font-size:12.5px;padding:8px 13px}
 }
 
 
@@ -883,6 +971,87 @@ summary:hover{background:rgba(46,204,113,.08)}
   text-decoration-color:color-mix(in srgb, currentColor 40%, transparent);
 }
 
+/* ---------------------------------------------------------------------------
+   8d. FUND PAGE HERO
+
+   The template puts the four stat tiles and the chart card side by side with
+   align-items:stretch and caps the chart column at 230px. Two consequences:
+   the tiles balloon to whatever height the chart column reaches, and opening
+   the data table crushes a month by month table into 230px, where every
+   heading wraps. Both get worse the moment the disclosure is opened.
+
+   Stacking is a better use of the width. The tiles run as one compact row of
+   four, the chart spans the full column and gets properly tall, and the table
+   inherits that full width instead of a narrow gutter. Matches the template's
+   own 700px breakpoint exactly so there is no band where both rules apply.
+   ------------------------------------------------------------------------ */
+
+@media(min-width:700px){
+  .fp-cluster:has(.fp-sparkcard){
+    display:block;
+  }
+  .fp-cluster:has(.fp-sparkcard) .stats{
+    grid-template-columns:repeat(4,1fr);
+  }
+  .fp-sparkcard{
+    margin-top:12px;
+    display:block;
+    padding:12px 14px 10px;
+  }
+  .fp-sparkcard .fp-spark{
+    display:block;
+    width:100%;
+    height:150px;
+  }
+  /* Compact tiles: they hold one number and one label, nothing more. */
+  .stat{padding:12px 10px}
+}
+
+@media(min-width:1024px){
+  .fp-sparkcard .fp-spark{height:180px}
+}
+
+/* A long table inside a card should scroll in the card, not run down the page. */
+.cht-nums-wrap{max-height:420px;overflow:auto}
+
+/* Roomier cells only where there is room. Left unscoped this would widen the
+   table on a 390px phone, which is the one place it cannot afford the pixels.
+   The fund page table carries just two columns, so it is capped as well:
+   otherwise it strands the month at one edge and the value at the other across
+   the full card. The homepage table has six or more columns and keeps it all. */
+@media(min-width:700px){
+  .cht-nums th,
+  .cht-nums td{padding:8px 12px}
+  .fp-sparkcard .cht-nums-wrap{max-width:720px}
+}
+
+/* The chart data table disclosure gave no sign it could be opened, and kept
+   saying "See the numbers" while the numbers were already on screen. A chevron
+   supplies the affordance; rk-ui.js swaps the wording on toggle. */
+details.cht-nums > summary{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  cursor:pointer;
+  list-style:none;
+  min-height:44px;
+  font-weight:700;
+  color:var(--green-dark);
+  width:fit-content;
+}
+details.cht-nums > summary::-webkit-details-marker{display:none}
+details.cht-nums > summary::after{
+  content:"";
+  width:8px;height:8px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);
+  transition:transform .2s ease;
+}
+details.cht-nums[open] > summary::after{
+  transform:translateY(2px) rotate(-135deg);
+}
+
 /* Fund page provenance lines were three centred sentences with no styling,
    the only centred text on an otherwise left aligned page. Turn them into one
    quiet meta block that reads as metadata rather than as body copy. */
@@ -949,6 +1118,51 @@ summary:hover{background:rgba(46,204,113,.08)}
   }
 }
 
+/* Prose pages had the opposite problem to the homepage. Widening .wrap to
+   1180px pushed FAQ paragraphs to 1124px, roughly 160 characters a line, which
+   is unreadable. The answer is not to fill that width with text but to put
+   something useful in the margin: pages that already carry a table of contents
+   get it as a sticky sidebar, and the text returns to a sane measure. */
+@media(min-width:1024px){
+  .wrap:has(> nav.toc){
+    display:grid;
+    grid-template-columns:232px minmax(0, 72ch);
+    justify-content:center;
+    column-gap:48px;
+    align-items:start;
+  }
+  .wrap:has(> nav.toc) > *{grid-column:2}
+  .wrap:has(> nav.toc) > h1,
+  .wrap:has(> nav.toc) > .lead,
+  .wrap:has(> nav.toc) > .g-updated{grid-column:1 / -1}
+  .wrap:has(> nav.toc) > nav.toc{
+    grid-column:1;
+    grid-row:4 / 200;
+    position:sticky;
+    top:88px;
+    align-self:start;
+    max-height:calc(100vh - 120px);
+    overflow:auto;
+  }
+  /* At 232px the topic list cannot hold two columns without breaking every
+     label across three lines. */
+  .wrap:has(> nav.toc) > nav.toc ul,
+  .wrap:has(> nav.toc) > nav.toc ol,
+  .wrap:has(> nav.toc) > nav.toc .toclist{
+    grid-template-columns:1fr;
+    columns:1;
+  }
+
+  /* Prose pages with no table of contents keep a reading measure rather than
+     running the full width of the wrapper. */
+  .wrap:not(:has(> nav.toc)) .qa p,
+  .wrap:not(:has(> nav.toc)) section > p,
+  .wrap:not(:has(> nav.toc)) section > ul,
+  .wrap:not(:has(> nav.toc)) section > ol{
+    max-width:74ch;
+  }
+}
+
 /* Charts get taller on a big screen instead of staying phone sized. */
 @media(min-width:1024px){
   .chartpanel canvas{min-height:340px}
@@ -960,6 +1174,36 @@ summary:hover{background:rgba(46,204,113,.08)}
   .door{flex:1 1 260px}
 }
 
+/* The beginner card was a capped paragraph on the left and four full width
+   link bars, each holding one short phrase against roughly 1900px of empty
+   green. Two columns: the explanation and its call to action on the left, the
+   four guides as a 2 by 2 block of real cards on the right. */
+@media(min-width:900px){
+  .bcard{
+    display:grid;
+    grid-template-columns:minmax(0,44%) minmax(0,56%);
+    column-gap:34px;
+    row-gap:18px;
+    align-items:start;
+    padding:24px 26px;
+  }
+  .bcard > p{grid-column:1;grid-row:1;margin:0}
+  .bcard .bcontinue{grid-column:1;grid-row:2;justify-self:start;align-self:start;margin-top:0}
+  .bcard .bguides{
+    grid-column:2;grid-row:1 / 3;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:0;
+  }
+  .bcard .bguides a{
+    display:flex;
+    align-items:center;
+    min-height:64px;
+    line-height:1.35;
+  }
+}
+
 
 /* ---------------------------------------------------------------------------
    10. MOTION
@@ -968,6 +1212,46 @@ summary:hover{background:rgba(46,204,113,.08)}
    ------------------------------------------------------------------------ */
 
 @media (prefers-reduced-motion: no-preference){
+
+  /* Scroll reveal. The .rk-anim class is added by rk-ui.js, and .rk-rise is
+     added per element by the same script, so if the script never runs nothing
+     is ever hidden. Never move this starting state out of the .rk-anim scope. */
+  .rk-anim .rk-rise{
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .55s cubic-bezier(.2,.85,.3,1),
+               transform .55s cubic-bezier(.2,.85,.3,1);
+  }
+  .rk-anim .rk-rise.rk-in{
+    opacity:1;
+    transform:none;
+  }
+
+  /* The underline itself is declared in the navigation section so it survives
+     reduced motion. Here it only gains the growth animation. */
+  .rk-links a::after{
+    transition:left .22s cubic-bezier(.2,.85,.3,1),
+               right .22s cubic-bezier(.2,.85,.3,1);
+  }
+
+  /* Buttons acknowledge the press. */
+  .reveal:active,
+  .door:active,
+  .fdtog:active,
+  .seg button:active{transform:translateY(1px)}
+
+  /* Tags lift very slightly, enough to read as tappable. */
+  .tag{transition:transform .14s ease, filter .14s ease}
+  .tag:hover{transform:translateY(-1px);filter:brightness(1.08)}
+
+  /* A slow travelling highlight along the top edge of the result card. */
+  @keyframes rkEdge{
+    0%{transform:translateX(-60%)}
+    100%{transform:translateX(60%)}
+  }
+  .headline::after{
+    animation:rkEdge 7s ease-in-out infinite alternate;
+  }
 
   /* Cards fade up as the page settles. Above the fold only, so nothing
      depends on scroll position or JavaScript. */
@@ -1001,7 +1285,11 @@ summary:hover{background:rgba(46,204,113,.08)}
 @media (prefers-reduced-motion: reduce){
   .headline,#topperf{animation:none}
   .headline .hs-main b{animation:none;background-image:none}
+  .headline::after{animation:none}
   .themetog:hover{transform:none}
+  /* Belt and braces: rk-ui.js already declines to run under reduced motion,
+     but if either class is ever applied the content must still be visible. */
+  .rk-anim .rk-rise{opacity:1;transform:none;transition:none}
 }
 
 
