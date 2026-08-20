@@ -607,20 +607,69 @@ header p{
    the containing block and keep it out of the way of everything else. It is
    decoration over data: aria-hidden in the markup, no pointer events here. */
 .hs-spark{position:relative}
+
+/* The sea. Decorative only, and deliberately the only moving part: the total
+   return path above it is real published data and is never deformed. Sits
+   behind the line, low contrast, so it reads as water rather than as a second
+   series someone might try to interpret. */
+.rk-sea{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:200%;
+  height:46%;
+  z-index:0;
+  pointer-events:none;
+}
+.rk-sea-back{fill:currentColor;opacity:.14}
+.rk-sea-front{fill:currentColor;opacity:.22}
+.hs-spark{color:var(--green-dark)}
+
 .rk-surf{
   position:absolute;
   left:0;
   top:0;
-  font-size:19px;
+  font-size:26px;
   line-height:1;
   pointer-events:none;
   user-select:none;
   z-index:2;
-  filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.45));
   will-change:transform;
 }
+/* Spray off the back of the board. --rk-spray is set per frame from the slope,
+   so it builds going uphill and settles on the way down. */
+.rk-surf::before{
+  content:"";
+  position:absolute;
+  right:78%;
+  bottom:6%;
+  width:16px;
+  height:5px;
+  border-radius:999px;
+  background:currentColor;
+  color:#fff;
+  opacity:calc(var(--rk-spray, .5) * .55);
+  filter:blur(2.5px);
+}
 @media(max-width:560px){
-  .rk-surf{font-size:16px}
+  .rk-surf{font-size:21px}
+  .rk-sea{height:52%}
+}
+
+@media (prefers-reduced-motion: no-preference){
+  /* Shift by exactly one wave period so the loop has no visible jump.
+     The unit here is user units, not a percentage: a percentage translate on an
+     SVG child resolves against that child's own bounding box rather than the
+     viewport, which would not line up. One period of this path is 100 units,
+     and the path is drawn out to 550 so the window stays covered while it
+     slides left. */
+  @keyframes rkSeaDrift{
+    from{transform:translateX(0)}
+    to{transform:translateX(-100px)}
+  }
+  .rk-sea-back{animation:rkSeaDrift 9s linear infinite}
+  .rk-sea-front{animation:rkSeaDrift 6s linear infinite}
 }
 /* No surfer at all for a reader who asked for less motion: a static emoji
    parked on the line would just look like a stray character. */
