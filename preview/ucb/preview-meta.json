@@ -1,7 +1,7 @@
 {
  "amc": "ucb",
  "display": "UCB Asset Management Limited (UCB AML)",
- "subdomain": "ucb-preview.returnkoto.com",
+ "subdomain": "ucbaml-preview.returnkoto.com",
  "fundCount": 3,
  "funds": [
   "UCB Income Plus Fund",
