@@ -192,17 +192,65 @@
     overlay("rk-dot", "0.1 " + len, tail);
   }
 
+  /* Fund list markers, top three of each group only.
+
+     A perpetual animation on every row means dozens of simultaneous loops once
+     the list is expanded, which is both busy to look at and wasteful on a
+     phone. So the marker runs only while a group is collapsed.
+
+     Detecting that needs no new state. #results is one flat container of
+     headings, rows and Show all buttons, and defLim() is 3, so a group showing
+     more than three rows is by definition expanded. Walking the children and
+     counting rows since the last heading gives the group membership.
+
+     Expanding re-renders the whole list, so the old markers are destroyed with
+     their rows. The explicit strip below is belt and braces in case a future
+     change makes that re-render partial. */
+  function traceFundRows() {
+    var results = document.getElementById("results");
+    if (!results) return;
+
+    var groups = [];
+    var cur = null;
+    for (var c = 0; c < results.children.length; c++) {
+      var el = results.children[c];
+      if (el.classList.contains("typehead")) { cur = []; groups.push(cur); continue; }
+      if (cur && el.classList.contains("row")) cur.push(el);
+    }
+
+    for (var g = 0; g < groups.length; g++) {
+      var rows = groups[g];
+
+      if (rows.length > 3) {
+        for (var x = 0; x < rows.length; x++) {
+          var old = rows[x].querySelectorAll(".rk-trace, .rk-dot");
+          for (var y = 0; y < old.length; y++) {
+            if (old[y].parentNode) old[y].parentNode.removeChild(old[y]);
+          }
+        }
+        continue;
+      }
+
+      for (var r = 0; r < rows.length; r++) {
+        var pl = rows[r].querySelector(
+          ".sparkwrap svg.spark polyline:not(.rk-trace):not(.rk-dot)"
+        );
+        if (pl) traceOne(pl, 6.5);
+      }
+    }
+  }
+
   /* Runs the travelling marker on every sparkline on the page: the result on
-     the homepage, each row in the fund list, and the total-return path on a
-     fund page. Fund rows re-render on every control change, so this is called
-     again from the debounced rescan and skips anything already carrying one. */
+     the homepage, the top three rows of each fund group, and the total-return
+     path on a fund page. Fund rows re-render on every control change, so this
+     is called again from the debounced rescan and skips anything already
+     carrying one. */
   function traceSparks() {
     if (reduced) return;
     var hero = document.querySelector(".hs-spark svg.spark polyline:not(.rk-trace):not(.rk-dot)");
     if (hero) traceOne(hero, 5.5);
 
-    var rows = document.querySelectorAll(".row .sparkwrap svg.spark polyline:not(.rk-trace):not(.rk-dot)");
-    for (var i = 0; i < rows.length; i++) traceOne(rows[i], 6.5);
+    traceFundRows();
 
     var fp = document.querySelectorAll("svg.fp-spark polyline:not(.rk-trace):not(.rk-dot)");
     for (var j = 0; j < fp.length; j++) traceOne(fp[j], 6);

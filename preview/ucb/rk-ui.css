@@ -244,13 +244,14 @@ label.fld,.fld{
 
 /* Nav was cramped at 390px. Give every item a 44px tap target without letting
    the row overflow: the logo may shrink, the links own the remaining space. */
-/* On a phone the whole link row was hidden and everything lived behind the
-   burger. The two destinations people actually reach for stay in the bar; the
-   rest stay in the menu, which still lists all of them. */
-@media(max-width:560px){
-  .rk-nav{padding:8px 8px;gap:4px}
-  .rk-logo{min-width:0;flex:0 1 auto;overflow:hidden}
+/* The bar keeps the two destinations people actually reach for; the rest live
+   in the burger, which still lists all of them.
 
+   The collapse happens at 860px, not at the 560px phone breakpoint. With
+   "Most-held Stocks" in it the full six item row measures about 773px, so once
+   the logo and the theme and menu buttons are added it overflows anywhere below
+   roughly 800px. Collapsing early is better than a row that wraps or clips. */
+@media(max-width:860px){
   .rk-nav .rk-links{
     display:flex;
     gap:0;
@@ -262,10 +263,18 @@ label.fld,.fld{
   .rk-nav .rk-links a[data-nav="compare"]{
     display:flex;
     align-items:center;
-    padding:10px 7px;
-    font-size:12.5px;
+    padding:10px 9px;
+    font-size:13.5px;
     min-height:44px;
   }
+}
+
+/* Phone sizing, separate from the collapse above. */
+@media(max-width:560px){
+  .rk-nav{padding:8px 8px;gap:4px}
+  .rk-logo{min-width:0;flex:0 1 auto;overflow:hidden}
+  .rk-nav .rk-links a[data-nav="funds"],
+  .rk-nav .rk-links a[data-nav="compare"]{padding:10px 7px;font-size:12.5px}
   .themetog{min-width:40px;min-height:44px}
 }
 @media(max-width:400px){
