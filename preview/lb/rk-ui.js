@@ -163,7 +163,7 @@
      Deliberately hero only. Fund pages and fund rows keep the plain marker:
      riding the wave is a momentum idea, and those are the pages an asset
      manager reviews. */
-  var SURF_MS = 6500;
+  var SURF_MS = 8200;
   var surfRaf = null;
 
   function surfHero() {
@@ -189,6 +189,14 @@
     // and the element is twice its container's width, so translating it by 25%
     // shifts exactly one period and the loop is seamless with no visible jump.
     if (!wrap.querySelector(".rk-sea")) {
+      // The sea is twice the container's width so it can slide a full period
+      // without exposing a gap, which means it overhangs the right edge. It
+      // gets its own clipping box rather than clipping .hs-spark itself,
+      // because the surfer sits above the line and would lose its head.
+      var seaBox = document.createElement("div");
+      seaBox.className = "rk-sea-box";
+      seaBox.setAttribute("aria-hidden", "true");
+
       var sea = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       sea.setAttribute("class", "rk-sea");
       sea.setAttribute("viewBox", "0 0 400 24");
@@ -197,7 +205,8 @@
       sea.innerHTML =
         '<path class="rk-sea-back" d="M0,14 q25,-7 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 V24 H0 Z"/>' +
         '<path class="rk-sea-front" d="M0,17 q25,-6 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 V24 H0 Z"/>';
-      wrap.insertBefore(sea, wrap.firstChild);
+      seaBox.appendChild(sea);
+      wrap.insertBefore(seaBox, wrap.firstChild);
     }
 
     var surf = document.createElement("span");
@@ -242,6 +251,33 @@
 
     if (surfRaf) cancelAnimationFrame(surfRaf);
     surfRaf = requestAnimationFrame(frame);
+  }
+
+  /* The "riding the wave" tooltip, bottom right of the result card.
+
+     Appended here rather than added to the render function, because that
+     function rebuilds the card on every control change and this only needs to
+     exist once. It carries data-tip, so the delegated tooltip component already
+     on the page handles opening and closing it. */
+  function addRideTip() {
+    var card = document.querySelector(".headline");
+    if (!card || card.querySelector(".rk-ride")) return;
+
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "rk-ride";
+    b.setAttribute("data-tipkey", "ride");
+    b.setAttribute("aria-label", "What does riding the wave mean here?");
+    b.setAttribute(
+      "data-tip",
+      "Riding the wave: this is the ride you would have had if you had put money " +
+      "in over this period and stayed in. The line is the fund's own published " +
+      "total return with cash dividends reinvested, not a projection and not a " +
+      "smoothed average, so the calm stretches and the drops are both real. " +
+      "It describes what already happened. It does not predict the next wave."
+    );
+    b.innerHTML = '<span aria-hidden="true">\uD83C\uDFC4</span> Riding the wave';
+    card.appendChild(b);
   }
 
   /* Fund list markers: the top three of every group, always.
@@ -296,7 +332,7 @@
     if (reduced) return;
     // Hero: tail only, because the surfer takes the place of the dot.
     var hero = document.querySelector(".hs-spark svg.spark polyline:not(.rk-trace):not(.rk-dot)");
-    if (hero) traceOne(hero, 6.5, true);
+    if (hero) traceOne(hero, 8.2, true);
     surfHero();
 
     traceFundRows();
@@ -627,6 +663,7 @@
       wireTables();
       pinTableHeads();
       syncDoors();
+      addRideTip();
       if (reduced) return;
       scan();
     traceSparks();
@@ -638,6 +675,7 @@
   function start() {
     measureChrome();
     syncDoors();
+    addRideTip();
     // The door's own handler runs first, so read the result on the next tick.
     document.addEventListener("click", function (e) {
       if (e.target && e.target.closest && e.target.closest(".door")) {
