@@ -601,6 +601,33 @@ header p{
   }
 }
 
+/* The surfer riding the result line.
+
+   Positioned by rk-ui.js against the real path, so all this does is establish
+   the containing block and keep it out of the way of everything else. It is
+   decoration over data: aria-hidden in the markup, no pointer events here. */
+.hs-spark{position:relative}
+.rk-surf{
+  position:absolute;
+  left:0;
+  top:0;
+  font-size:19px;
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+  z-index:2;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));
+  will-change:transform;
+}
+@media(max-width:560px){
+  .rk-surf{font-size:16px}
+}
+/* No surfer at all for a reader who asked for less motion: a static emoji
+   parked on the line would just look like a stray character. */
+@media (prefers-reduced-motion: reduce){
+  .rk-surf{display:none}
+}
+
 /* The growth chart draws itself in front of the reader on every render.
 
    The resting state is a fully drawn line: the keyframe runs from the measured
@@ -1448,7 +1475,13 @@ details.cht-nums[open] > summary::after{
   .wrap:has(> nav.toc) > h1,
   .wrap:has(> nav.toc) > .lead,
   .wrap:has(> nav.toc) > .g-updated{grid-column:1 / -1}
-  .wrap:has(> nav.toc) > nav.toc{
+  /* :first-of-type matters. Learn carries two nav.toc elements: the topics
+     list, and a second one holding the step-by-step guide links. Without this,
+     both were placed at grid-row 4 / 200 in column one, landing in the same
+     cell and covering each other, so the guide links only became visible when
+     the topics list was collapsed. Only the first becomes the sidebar; any
+     other nav.toc flows normally in the content column. */
+  .wrap:has(> nav.toc) > nav.toc:first-of-type{
     grid-column:1;
     grid-row:4 / 200;
     position:sticky;
@@ -1456,6 +1489,12 @@ details.cht-nums[open] > summary::after{
     align-self:start;
     max-height:calc(100vh - 120px);
     overflow:auto;
+  }
+  .wrap:has(> nav.toc) > nav.toc:not(:first-of-type){
+    grid-column:2;
+    grid-row:auto;
+    position:static;
+    max-height:none;
   }
   /* At 232px the topic list cannot hold two columns without breaking every
      label across three lines. */

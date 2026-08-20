@@ -592,7 +592,7 @@
       txt='<b>'+shared.map(esc).join('</b>, <b>')+'</b> ('+shared.length+' shared)';
       if(cols.length===2){var ow=shared.reduce(function(a,n){return a+Math.min(maps[0][n],maps[1][n]);},0);txt+=' &middot; &asymp;'+ow.toFixed(1)+'% shared weight';}
     }
-    return txt+' &middot; <a href="/stocks.html" style="color:var(--green-dark);font-weight:700;text-decoration:none">Explore overlap &#8594;</a>';
+    return txt+' &middot; <a href="/stocks.html#overlap" style="color:var(--green-dark);font-weight:700;text-decoration:none">Explore overlap &#8594;</a>';
   }
   function normSec(k){
     var s=String(k||'').toLowerCase().replace(/\s+/g,' ').trim();

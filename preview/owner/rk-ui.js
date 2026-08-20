@@ -110,9 +110,9 @@
      with a round cap that renders as a dot. The dot leads the tail, offset in
      time rather than in dash space, because the animation is linear so distance
      and time are proportional. The real line underneath is never touched. */
-  function traceOne(base, dur) {
+  function traceOne(base, dur, tailOnly) {
     var svg = base.ownerSVGElement;
-    if (!svg || svg.querySelector(".rk-dot")) return;
+    if (!svg || svg.querySelector(".rk-trace")) return;
 
     var len = 0;
     try { len = base.getTotalLength(); } catch (e) { return; }
@@ -142,7 +142,80 @@
     }
 
     overlay("rk-trace", tail + " " + len, 0);
-    overlay("rk-dot", "0.1 " + len, tail);
+    if (!tailOnly) overlay("rk-dot", "0.1 " + len, tail);
+  }
+
+  /* A surfer rides the result sparkline.
+
+     Why it is an HTML element and not a shape inside the SVG: these sparklines
+     are drawn with preserveAspectRatio="none" and stretched by a different
+     amount on each axis, so anything drawn in SVG user space arrives squashed,
+     and squashed by a different amount on the hero than on a fund row. An
+     absolutely positioned HTML element sits outside that coordinate system, so
+     it stays the right shape at every width.
+
+     Position comes from getPointAtLength on the real path, mapped to client
+     coordinates through getScreenCTM, so the surfer sits exactly on the line
+     however the SVG has been scaled. The rotation is the local slope, measured
+     from a second sample just ahead, which is what makes it read as riding
+     rather than sliding.
+
+     Deliberately hero only. Fund pages and fund rows keep the plain marker:
+     riding the wave is a momentum idea, and those are the pages an asset
+     manager reviews. */
+  var SURF_MS = 6500;
+  var surfRaf = null;
+
+  function surfHero() {
+    if (reduced) return;
+    var wrap = document.querySelector(".hs-spark");
+    if (!wrap || wrap.querySelector(".rk-surf")) return;
+    var svg = wrap.querySelector("svg.spark");
+    var path = svg && svg.querySelector("polyline:not(.rk-trace):not(.rk-dot)");
+    if (!path) return;
+
+    var len = 0;
+    try { len = path.getTotalLength(); } catch (e) { return; }
+    if (!len) return;
+
+    var surf = document.createElement("span");
+    surf.className = "rk-surf";
+    surf.setAttribute("aria-hidden", "true");
+    surf.textContent = "🏄";
+    wrap.appendChild(surf);
+
+    var t0 = null;
+
+    function frame(ts) {
+      // Bail out cleanly if the chart was re-rendered underneath us.
+      if (!surf.isConnected || !path.isConnected) {
+        surfRaf = null;
+        return;
+      }
+      if (document.hidden) { surfRaf = requestAnimationFrame(frame); return; }
+      if (t0 === null) t0 = ts;
+
+      var p = ((ts - t0) % SURF_MS) / SURF_MS;
+      var ctm = svg.getScreenCTM();
+      if (!ctm) { surfRaf = requestAnimationFrame(frame); return; }
+
+      var here = path.getPointAtLength(p * len).matrixTransform(ctm);
+      var ahead = path.getPointAtLength(Math.min(len, p * len + len * 0.02)).matrixTransform(ctm);
+      var box = wrap.getBoundingClientRect();
+      var deg = Math.atan2(ahead.y - here.y, ahead.x - here.x) * 180 / Math.PI;
+
+      // Lean with the slope but never far enough to look like it fell over.
+      deg = Math.max(-32, Math.min(32, deg));
+
+      surf.style.transform =
+        "translate(" + (here.x - box.left) + "px," + (here.y - box.top) + "px) " +
+        "translate(-50%,-92%) rotate(" + deg.toFixed(1) + "deg)";
+
+      surfRaf = requestAnimationFrame(frame);
+    }
+
+    if (surfRaf) cancelAnimationFrame(surfRaf);
+    surfRaf = requestAnimationFrame(frame);
   }
 
   /* Fund list markers: the top three of every group, always.
@@ -195,8 +268,10 @@
      carrying one. */
   function traceSparks() {
     if (reduced) return;
+    // Hero: tail only, because the surfer takes the place of the dot.
     var hero = document.querySelector(".hs-spark svg.spark polyline:not(.rk-trace):not(.rk-dot)");
-    if (hero) traceOne(hero, 6.5);
+    if (hero) traceOne(hero, 6.5, true);
+    surfHero();
 
     traceFundRows();
 
@@ -378,6 +453,33 @@
     if (h > 0) root.style.setProperty("--rk-chrome", h + "px");
   }
 
+  /* Keeps a door button's aria-expanded honest.
+
+     The chevron on "Open the full data & tools" never changed because the
+     attribute it reads never changed. Once the cockpit is open that button is
+     repurposed to control #allopts, and the click path sets aria-expanded to
+     "true" rather than toggling it, so it was stuck open for ever.
+
+     Rather than rewire that handler, the state is derived from the element the
+     button actually controls, which cannot drift: hidden attribute, a details
+     that is not open, or a zero height box all mean closed. This also fixes the
+     screen reader announcement, which was wrong for the same reason. */
+  function syncDoors() {
+    var doors = document.querySelectorAll(".door[aria-controls]");
+    for (var i = 0; i < doors.length; i++) {
+      var d = doors[i];
+      var target = document.getElementById(d.getAttribute("aria-controls"));
+      if (!target) continue;
+
+      var open;
+      if (target.tagName === "DETAILS") open = target.open;
+      else if (target.hasAttribute("hidden")) open = false;
+      else open = target.getBoundingClientRect().height > 0;
+
+      d.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+  }
+
   /* Mobile menu, fallback only.
 
      The burger markup and its stylesheet ship in the page, but the handler that
@@ -498,6 +600,7 @@
       pending = null;
       wireTables();
       pinTableHeads();
+      syncDoors();
       if (reduced) return;
       scan();
     traceSparks();
@@ -508,6 +611,14 @@
 
   function start() {
     measureChrome();
+    syncDoors();
+    // The door's own handler runs first, so read the result on the next tick.
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.closest && e.target.closest(".door")) {
+        setTimeout(syncDoors, 0);
+        setTimeout(syncDoors, 120);
+      }
+    }, true);
     addEventListener("resize", measureChrome, { passive: true });
     markActiveNav();
     menuFallback();
