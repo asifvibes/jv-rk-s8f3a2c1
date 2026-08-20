@@ -43,7 +43,8 @@
     ".typehead",
     ".browseall",
     ".support",
-    ".badgekey"
+    ".badgekey",
+    ".sx-card"
   ].join(",");
 
   /* DELIBERATE LIMIT, do not "improve" this into a scroll reveal.
@@ -92,11 +93,31 @@
     }
   }
 
-  /* Sparklines draw themselves in rather than appearing whole. Uses the path
-     length so timing is the same whatever the shape. */
+  /* Sparklines draw themselves in rather than appearing whole.
+
+     Two hard won details:
+
+     1. Scope. The fund list re-renders its rows on every control change, and a
+        line whose draw was interrupted by a re-render is left frozen with a
+        partial stroke-dasharray, which shows up as a chart with chunks
+        missing. So only the two sparklines that are stable on the page get the
+        animation: the homepage result and the fund page total-return path.
+        Fund list rows render complete, every time.
+
+     2. Cleanup. Once the draw finishes the dash properties are removed
+        entirely. Leaving a dasharray on the element is what turns any later
+        interruption, reflow or re-render into a broken looking line. */
+  var DRAW_MS = 1100;
+
+  function clearDash(p) {
+    p.style.transition = "";
+    p.style.strokeDasharray = "";
+    p.style.strokeDashoffset = "";
+  }
+
   function drawSparks() {
     var lines = document.querySelectorAll(
-      "svg.spark polyline:not([data-rk-drawn]), svg.fp-spark polyline:not([data-rk-drawn])"
+      ".hs-spark svg.spark polyline:not([data-rk-drawn]), svg.fp-spark polyline:not([data-rk-drawn])"
     );
     for (var i = 0; i < lines.length; i++) {
       var p = lines[i];
@@ -113,14 +134,74 @@
       var area = p.parentNode.querySelector("polygon");
       if (area) {
         area.style.opacity = "0";
-        area.style.transition = "opacity 1.1s ease";
+        area.style.transition = "opacity " + DRAW_MS + "ms ease";
       }
 
       void p.getBoundingClientRect(); // force a start value to move from
-      p.style.transition = "stroke-dashoffset 1.1s cubic-bezier(.25,.8,.35,1)";
+      p.style.transition = "stroke-dashoffset " + DRAW_MS + "ms cubic-bezier(.25,.8,.35,1)";
       p.style.strokeDashoffset = "0";
       if (area) area.style.opacity = "1";
+
+      // Strip the dash once it has landed, whichever fires first.
+      (function (node) {
+        var done = false;
+        function finish() {
+          if (done) return;
+          done = true;
+          clearDash(node);
+        }
+        node.addEventListener("transitionend", finish);
+        setTimeout(finish, DRAW_MS + 250);
+      })(p);
     }
+  }
+
+  /* A table that scrolls inside a card keeps its caption and column headings
+     pinned. The caption wraps to two lines on narrow screens, so its height is
+     measured rather than hardcoded and handed to CSS as --rk-cap-h. */
+  function pinTableHeads() {
+    var caps = document.querySelectorAll(".cht-nums caption");
+    for (var i = 0; i < caps.length; i++) {
+      var t = caps[i].closest("table");
+      if (!t) continue;
+      t.style.setProperty("--rk-cap-h", Math.round(caps[i].offsetHeight) + "px");
+    }
+  }
+
+  /* A cue that there is more below. The homepage first screen is a hero and two
+     cards, which reads as the whole page. This sits under the fold, scrolls to
+     the results when clicked, and gets out of the way as soon as the reader
+     starts scrolling on their own. */
+  function scrollCue() {
+    if (!document.body.classList.contains("rk-home")) return;
+    if (document.querySelector(".rk-cue")) return;
+
+    var fold = document.getElementById("rkfold");
+    if (!fold || !fold.parentNode) return;
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "rk-cue";
+    btn.setAttribute("aria-label", "Scroll down to the fund results");
+    btn.innerHTML =
+      '<span class="rk-cue-t">More below</span><span class="rk-cue-a" aria-hidden="true"></span>';
+
+    btn.addEventListener("click", function () {
+      var t = document.getElementById("topperf") ||
+              document.getElementById("cockpit") ||
+              document.querySelector(".doors");
+      if (t && t.scrollIntoView) {
+        t.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.scrollBy({ top: window.innerHeight * 0.8, behavior: "smooth" });
+      }
+    });
+
+    fold.parentNode.insertBefore(btn, fold.nextSibling);
+
+    addEventListener("scroll", function () {
+      btn.classList.toggle("rk-cue-off", window.scrollY > 120);
+    }, { passive: true });
   }
 
   /* Current page marker, fallback only.
@@ -156,6 +237,88 @@
     if (!best) return;
     best.classList.add("active");
     best.setAttribute("aria-current", "page");
+  }
+
+  /* Mobile menu, fallback only.
+
+     The burger markup and its stylesheet ship in the page, but the handler that
+     opens it lives in beta-notice.js, and the copy being served is an older
+     build with no rkMenuBtn code in it at all. On a phone that means tapping
+     the burger does nothing.
+
+     This binds a handler that only acts if nothing else did. It reads the
+     panel state before the click, then checks again on the next tick: if some
+     other listener already toggled it, this does nothing, so there is no double
+     toggle once the correct beta-notice.js is deployed. */
+  function menuFallback() {
+    var btn = document.getElementById("rkMenuBtn");
+    var panel = document.getElementById("rkMenu");
+    if (!btn || !panel || btn.dataset.rkMenuFallback) return;
+    btn.dataset.rkMenuFallback = "1";
+
+    function setOpen(on) {
+      panel.hidden = !on;
+      btn.setAttribute("aria-expanded", on ? "true" : "false");
+      btn.setAttribute("aria-label", on ? "Close menu" : "Open menu");
+      document.body.classList.toggle("rk-menu-open", on);
+      if (on) {
+        var a = panel.querySelector("a");
+        if (a && a.focus) a.focus();
+      }
+    }
+
+    btn.addEventListener("click", function () {
+      var before = panel.hidden;
+      setTimeout(function () {
+        if (panel.hidden === before) setOpen(before);
+      }, 0);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) setOpen(false);
+    });
+
+    panel.addEventListener("click", function (e) {
+      if (e.target.closest && e.target.closest("a")) setOpen(false);
+    });
+  }
+
+  /* Touch scroll guard.
+
+     A <summary> fires click on touch release even when the finger travelled,
+     so scrolling the page with a thumb resting on "See the numbers behind this
+     chart" collapsed the table underneath. Track how far the touch moved and
+     swallow the click in the capture phase if it was a drag rather than a tap.
+     Preventing default on a summary click is what stops the details toggling. */
+  function guardSummaryTaps() {
+    if (document.body.dataset.rkTapGuard) return;
+    document.body.dataset.rkTapGuard = "1";
+
+    var sx = 0, sy = 0, moved = false;
+    var SLOP = 10;
+
+    addEventListener("touchstart", function (e) {
+      var t = e.touches[0];
+      if (!t) return;
+      sx = t.clientX; sy = t.clientY; moved = false;
+    }, { passive: true });
+
+    addEventListener("touchmove", function (e) {
+      var t = e.touches[0];
+      if (!t) return;
+      if (Math.abs(t.clientX - sx) > SLOP || Math.abs(t.clientY - sy) > SLOP) {
+        moved = true;
+      }
+    }, { passive: true });
+
+    addEventListener("click", function (e) {
+      if (!moved) return;
+      var s = e.target && e.target.closest && e.target.closest("summary");
+      if (!s) return;
+      e.preventDefault();
+      e.stopPropagation();
+      moved = false;
+    }, true);
   }
 
   /* The chart data table said "See the numbers behind this chart" whether the
@@ -195,6 +358,7 @@
     pending = setTimeout(function () {
       pending = null;
       wireTables();
+      pinTableHeads();
       if (reduced) return;
       scan();
       drawSparks();
@@ -203,7 +367,12 @@
 
   function start() {
     markActiveNav();
+    menuFallback();
+    guardSummaryTaps();
     wireTables();
+    pinTableHeads();
+    scrollCue();
+    addEventListener("resize", pinTableHeads, { passive: true });
 
     if (reduced) {
       // Still watch for re-rendered charts so their toggles stay labelled.

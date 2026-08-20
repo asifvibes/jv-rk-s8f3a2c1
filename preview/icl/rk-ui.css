@@ -336,13 +336,15 @@ header p{
      the calculator to the same height and centre its content instead: the two
      cards then share a top and a bottom edge, and the footnotes below can run
      full width and centred rather than hanging off one column. */
+  /* Stretching the calculator to the result's height put roughly 90px of empty
+     space inside a bordered card, above the first label and below the last
+     control. Empty space inside a card reads as broken; the same space as page
+     background does not. So the calculator keeps its natural height and the
+     slack simply falls outside it. */
   body.rk-home.rk-answered #calcpanel{
     grid-column:1;grid-row:2;
     margin-top:0;
-    align-self:stretch;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    align-self:start;
   }
   body.rk-home.rk-answered #headline{grid-column:2;grid-row:2;margin-top:0;align-self:stretch}
   body.rk-home.rk-answered .hl-note,
@@ -1025,6 +1027,37 @@ summary:hover{background:rgba(46,204,113,.08)}
   .fp-sparkcard .cht-nums-wrap{max-width:720px}
 }
 
+/* The rolling returns table is table-layout:fixed with a 520px floor, which on
+   a 390px phone squeezed six columns until the values ran into each other and
+   read as one string. Letting the columns size to their content, with the cells
+   set to nowrap and a wider floor, guarantees a gap between every number and
+   sends the overflow to the wrapper, which already scrolls. */
+@media(max-width:600px){
+  table.ret-roll{
+    table-layout:auto;
+    min-width:600px;
+    font-size:12.5px;
+  }
+  table.ret-roll th,
+  table.ret-roll td{
+    padding:10px 13px;
+    white-space:nowrap;
+  }
+  /* A hint that the table moves sideways, since the edge is now off screen. */
+  .tablewrap{
+    scrollbar-width:thin;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+
+/* Fund page prose lives inside cards and should use the card, not a reading
+   measure meant for long-form pages. This covers the Questions section and any
+   other answer block that sits in a card. */
+.card .qa,
+.card .qa p,
+.card details p,
+.card > p{max-width:none}
+
 /* The chart data table disclosure gave no sign it could be opened, and kept
    saying "See the numbers" while the numbers were already on screen. A chevron
    supplies the affordance; rk-ui.js swaps the wording on toggle. */
@@ -1154,13 +1187,22 @@ details.cht-nums[open] > summary::after{
   }
 
   /* Prose pages with no table of contents keep a reading measure rather than
-     running the full width of the wrapper. */
+     running the full width of the wrapper.
+
+     :not(.card) matters. Fund page sections are also <section> elements, so an
+     unqualified rule capped "Matches EDGE's published CAGR", "Historical
+     returns" and "Rolling returns & path risk" at about 583px inside a 1124px
+     card, which is exactly the stranded left aligned look this pass is meant to
+     remove. Cards carry data, not long-form prose, and keep the full width. */
   .wrap:not(:has(> nav.toc)) .qa p,
-  .wrap:not(:has(> nav.toc)) section > p,
-  .wrap:not(:has(> nav.toc)) section > ul,
-  .wrap:not(:has(> nav.toc)) section > ol{
+  .wrap:not(:has(> nav.toc)) :is(section, article):not(.card) > p,
+  .wrap:not(:has(> nav.toc)) :is(section, article):not(.card) > ul,
+  .wrap:not(:has(> nav.toc)) :is(section, article):not(.card) > ol{
     max-width:74ch;
   }
+  .wrap .card p,
+  .wrap .card ul,
+  .wrap .card ol{max-width:none}
 }
 
 /* Charts get taller on a big screen instead of staying phone sized. */
@@ -1179,7 +1221,10 @@ details.cht-nums[open] > summary::after{
    green. Two columns: the explanation and its call to action on the left, the
    four guides as a 2 by 2 block of real cards on the right. */
 @media(min-width:900px){
-  .bcard{
+  /* :not([hidden]) matters. Setting display on .bcard unconditionally beat the
+     hidden attribute's own display:none, so the beginner card was permanently
+     open and the "New to funds? Start here" button had nothing left to reveal. */
+  .bcard:not([hidden]){
     display:grid;
     grid-template-columns:minmax(0,44%) minmax(0,56%);
     column-gap:34px;
@@ -1202,6 +1247,151 @@ details.cht-nums[open] > summary::after{
     min-height:64px;
     line-height:1.35;
   }
+}
+
+
+/* ---------------------------------------------------------------------------
+   9a. SCROLL CUE
+
+   The homepage first screen is a hero and two cards, which reads as the whole
+   page. This says otherwise. Built by rk-ui.js so it never exists for a reader
+   without JavaScript, who would be looking at a button that cannot scroll.
+   ------------------------------------------------------------------------ */
+
+.rk-cue{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+  margin:26px auto 4px;
+  padding:10px 18px 12px;
+  border:0;
+  background:transparent;
+  border-radius:var(--r-pill);
+  cursor:pointer;
+  font-family:inherit;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--muted);
+  transition:color .18s ease, opacity .35s ease, transform .35s ease;
+}
+.rk-cue:hover{color:var(--green-dark)}
+.rk-cue-a{
+  width:11px;height:11px;
+  border-right:2.5px solid currentColor;
+  border-bottom:2.5px solid currentColor;
+  border-radius:2px;
+  transform:rotate(45deg);
+}
+/* Once the reader is scrolling they no longer need to be told they can. */
+.rk-cue-off{
+  opacity:0;
+  transform:translateY(-8px);
+  pointer-events:none;
+}
+@media (prefers-reduced-motion: no-preference){
+  .rk-cue-a{animation:rkCueBob 1.9s ease-in-out infinite}
+  @keyframes rkCueBob{
+    0%,100%{transform:rotate(45deg) translate(0,0)}
+    50%{transform:rotate(45deg) translate(3px,3px)}
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   9b. ALIGNMENT AND MEASURE PASS
+
+   A batch of places where content still sat at the old narrow-column width
+   under a full width heading, so it read as accidental rather than designed.
+   ------------------------------------------------------------------------ */
+
+/* Tap tooltips rendered as a full width block, so the text started hard against
+   the left edge of the page while the control that opened it was centred. Give
+   the callout a measure and centre the box; the text inside stays left aligned
+   because that is what is readable. */
+.rktip{
+  width:auto;
+  max-width:min(62ch, 100%);
+  margin-left:auto;
+  margin-right:auto;
+}
+/* Under a left aligned control the callout should stay left aligned. */
+.row .rktip,
+.stat .rktip,
+.fdgrid .rktip{margin-left:0}
+
+/* Short section subtitles were capped at the reading measure, so a one line
+   sentence broke across the middle of a full width section. These are labels,
+   not prose, and a wider cap lets them sit on one line. */
+.shnote,
+.typehead + p,
+.browseall > p,
+.ba-head + p,
+section > h2 + p.sub,
+.sortbar + p{
+  max-width:96ch;
+}
+.shnote{display:block;margin-top:6px}
+
+/* The community card centred its text but let the paragraph run the full width,
+   so the second line centred under the first as a ragged stub. Same treatment
+   anywhere a centred block holds prose. */
+.rk-community p,
+section[style*="text-align:center"] > p{
+  max-width:62ch;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Sticky search fields sat at top:0, so their upper edge slid under the sticky
+   header. Offset every one of them by the measured header height. */
+.faqsearch,
+.lnsearch,
+.fsearch,
+.srchwrap{
+  top:calc(var(--rk-chrome, 56px) + 10px);
+}
+@media(max-width:560px){
+  .faqsearch,
+  .lnsearch,
+  .fsearch,
+  .srchwrap{
+    top:calc(var(--rk-chrome, 56px) + 6px);
+  }
+}
+
+/* A table that scrolls inside a card must keep its headings. --rk-cap-h is
+   measured per table by rk-ui.js, because the caption wraps to two lines on
+   narrow screens and a hardcoded offset would leave a gap or an overlap. */
+.cht-nums caption{
+  position:sticky;
+  top:0;
+  z-index:3;
+  background:var(--card);
+  padding-bottom:6px;
+}
+.cht-nums thead th{
+  position:sticky;
+  top:var(--rk-cap-h, 40px);
+  z-index:2;
+  background:var(--card);
+}
+
+/* Stocks page: the share bars fill from the left when their card arrives. */
+.sx-fill{
+  transform-origin:left center;
+  will-change:transform;
+}
+.rk-anim .sx-card.rk-rise .sx-fill{transform:scaleX(0)}
+.rk-anim .sx-card.rk-rise.rk-in .sx-fill{transform:scaleX(1)}
+@media (prefers-reduced-motion: no-preference){
+  .sx-fill{transition:transform .95s cubic-bezier(.22,.8,.3,1) .1s}
+}
+@media (prefers-reduced-motion: reduce){
+  .rk-anim .sx-card.rk-rise .sx-fill,
+  .rk-anim .sx-card.rk-rise.rk-in .sx-fill{transform:none}
 }
 
 
