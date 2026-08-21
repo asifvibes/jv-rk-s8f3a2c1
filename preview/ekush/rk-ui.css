@@ -1477,6 +1477,111 @@ details.cht-nums[open] > summary::after{
   }
 }
 
+/* ---------------------------------------------------------------------------
+   FUND VERSUS FUND
+   ------------------------------------------------------------------------ */
+
+/* The link out of a fund page, deliberately quiet.
+
+   These static pages exist to be found in search. The interactive compare tool
+   is the better experience, so this should not compete with it: a closed
+   disclosure, muted, no card and no heading. */
+.vs-more{
+  margin:14px 0 12px;
+  font-size:13px;
+}
+.vs-more > summary{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  min-height:44px;
+  cursor:pointer;
+  color:var(--muted);
+  list-style:none;
+  background:transparent;
+}
+.vs-more > summary::-webkit-details-marker{display:none}
+.vs-more > summary::after{
+  content:"";
+  width:7px;height:7px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);
+  transition:transform .2s ease;
+}
+.vs-more[open] > summary::after{transform:translateY(1px) rotate(-135deg)}
+.vs-more > summary:hover{
+  color:var(--green-dark);
+  background:transparent;
+}
+.vs-links{
+  margin:4px 0 0;
+  padding-left:18px;
+  font-size:13px;
+  line-height:1.9;
+}
+.vs-links a{color:var(--muted)}
+.vs-links a:hover{color:var(--green-dark)}
+
+/* The route back into the real tool, from a versus page. This one is the
+   opposite: it should be the loudest thing below the table. ctaBreath used
+   to live only in index.html inline CSS, so a versus page could not run it.
+   Same pulse as the homepage reveal button, with the green elevation kept. */
+.vs-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  box-sizing:border-box;
+  min-height:52px;
+  margin:22px 0 0;
+  padding:16px 22px;
+  font-size:16px;
+  font-weight:800;
+  color:#fff;
+  text-decoration:none;
+  background:linear-gradient(135deg,#1FA85C,#157A43);
+  border-radius:var(--r-md);
+  box-shadow:var(--el-green);
+  transition:transform .14s ease, box-shadow .16s ease;
+}
+.vs-cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 24px rgba(31,158,87,.42);
+}
+.vs-cta:active{transform:translateY(0)}
+.vs-cta-arrow{
+  width:8px;height:8px;
+  flex:none;
+  border-top:2.5px solid currentColor;
+  border-right:2.5px solid currentColor;
+  transform:rotate(45deg);
+}
+.vs-cta-note{
+  text-align:center;
+  margin:10px 0 0;
+  font-size:12.5px;
+  color:var(--muted);
+}
+@media (prefers-reduced-motion: no-preference){
+  @keyframes ctaBreath{
+    0%,100%{box-shadow:var(--el-green), 0 0 0 0 rgba(46,204,113,0)}
+    50%{box-shadow:var(--el-green), 0 0 0 8px rgba(46,204,113,.22)}
+  }
+  .vs-cta{animation:ctaBreath 3.2s ease-in-out infinite}
+  .vs-cta:hover{animation:none}
+  .vs-cta-arrow{animation:rkNudge 1.8s ease-in-out infinite}
+  @keyframes rkNudge{
+    0%,100%{transform:rotate(45deg) translate(0,0)}
+    50%{transform:rotate(45deg) translate(2px,-2px)}
+  }
+}
+@media(max-width:560px){
+  .vs-cta{font-size:15px;padding:15px 16px;min-height:48px}
+}
+
 /* Start and end labels under the fund page total-return path. Kept in HTML
    rather than inside the SVG, because fp-spark is drawn with
    preserveAspectRatio="none" and any text in it would be stretched. */
