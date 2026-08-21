@@ -542,6 +542,36 @@
     }
   }
 
+  /* Support button clicks, everywhere except the homepage.
+
+     The "Buy us a coffee" link sits on 140 pages, but the support_click event
+     was only wired up in index.html, so every click from a fund page, the FAQ,
+     Learn, Stocks, Compare or any versus page went unrecorded. Roughly 139 out
+     of 140 pages were reporting nothing.
+
+     The homepage is skipped on purpose: its own handler already fires this, and
+     firing again here would double count exactly the page with the most
+     traffic. The guard is the rk-home body class, which only index.html sets.
+
+     Event name and payload match the existing handler exactly, so the old and
+     new data are one continuous series rather than two shapes. GA4 records the
+     page path on every event, so per-page breakdown needs no extra parameter.
+     The link is target="_blank", so the page does not unload and the beacon is
+     never cut off. */
+  function trackSupportClicks() {
+    if (document.body.classList.contains("rk-home")) return;
+    if (document.body.dataset.rkSupportTracked) return;
+    document.body.dataset.rkSupportTracked = "1";
+
+    addEventListener("click", function (e) {
+      var a = e.target && e.target.closest && e.target.closest(".btn-coffee, .rk-coffee");
+      if (!a) return;
+      try {
+        if (window.gtag) window.gtag("event", "support_click", { place: "coffee" });
+      } catch (err) {}
+    }, true);
+  }
+
   /* Mobile menu, fallback only.
 
      The burger markup and its stylesheet ship in the page, but the handler that
@@ -674,6 +704,7 @@
 
   function start() {
     measureChrome();
+    trackSupportClicks();
     syncDoors();
     addRideTip();
     // The door's own handler runs first, so read the result on the next tick.
