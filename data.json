@@ -1,6 +1,6 @@
 {
  "asOf": "2026-08-19",
- "generated": "2026-08-22T13:42:18.271Z",
+ "generated": "2026-08-22T17:40:55.951Z",
  "funds": [
   {
    "id": "idlc-income-fund",
@@ -3465,7 +3465,7 @@
    "fundLaunched": "05-09-2024",
    "parInception": 1,
    "fullPublishedHistory": 1,
-   "vipbXirr": 19.36,
+   "vipbXirr": 19.33,
    "vipbXirrAsOf": "2026-08-20",
    "dividendsDated": 1,
    "amcVerified": "VIPB Asset Management Company Limited (VIPB AMCL)"
@@ -4604,7 +4604,7 @@
    "fundLaunched": "17-12-2020",
    "parInception": 1,
    "fullPublishedHistory": 1,
-   "vipbXirr": 9,
+   "vipbXirr": 8.99,
    "vipbXirrAsOf": "2026-08-20",
    "dividendsDated": 1,
    "amcVerified": "VIPB Asset Management Company Limited (VIPB AMCL)"
