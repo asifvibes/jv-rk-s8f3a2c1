@@ -862,6 +862,21 @@ html[data-theme="dark"] select:not(.hs-period-sel){
   background-size:11px 7px;
 }
 
+/* Full width calls to action centre their text.
+
+   Each carries a single message and spans the container, so left aligned text
+   leaves the label stranded at one end of a very wide button. This is scoped to
+   the full width CTAs on purpose: inline text-style buttons like the fund
+   details disclosure stay left aligned beside the content they open. */
+.door,
+.reveal,
+.bcontinue,
+.showall,
+.vs-cta{
+  text-align:center;
+  justify-content:center;
+}
+
 /* Primary call to action. */
 .reveal,
 .door-x{
@@ -889,8 +904,9 @@ html[data-theme="dark"] select:not(.hs-period-sel){
   overflow:hidden;
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
+  align-items:center;
   justify-content:center;
+  text-align:center;
   gap:3px;
   padding:16px 20px 15px;
   background:linear-gradient(135deg,#22B364 0%,#157A43 55%,#116538 100%);

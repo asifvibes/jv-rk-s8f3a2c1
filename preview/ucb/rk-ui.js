@@ -602,7 +602,7 @@
     if (/^\d+$/.test(count)) {
       var sub = document.createElement("span");
       sub.className = "door-x-sub";
-      sub.textContent = count + " funds, charts, star ratings, holdings and compare";
+      sub.textContent = count + " funds, growth charts, what they hold, side by side compare and much more";
       b.appendChild(sub);
     }
   }
