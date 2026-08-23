@@ -274,8 +274,8 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "ReturnKoto? Fund Comparison", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "url": "https://returnkoto.com/compare.html", "description": "Compare Bangladeshi open-end mutual funds side by side: historical returns, fees, exit loads, minimum investment, risk and what each fund holds.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BDT"}, "dateModified": "2026-08-03", "isAccessibleForFree": true, "inLanguage": "en", "publisher": {"@id": "https://returnkoto.com/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://returnkoto.com/compare.html"}]}]}
 </script>
-<link rel="stylesheet" href="/rk-ui.css?v=17">
-<script src="/rk-ui.js?v=14" defer></script>
+<link rel="stylesheet" href="/rk-ui.css?v=19">
+<script src="/rk-ui.js?v=15" defer></script>
 </head>
 <body>
 <div id="rk-preview-banner" style="background:#FEF3C7;color:#92400E;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;border-bottom:1px solid #FDE68A;line-height:1.45">
@@ -356,9 +356,9 @@
 <tbody>
 <tr><th scope="row" class="k">Type</th><td>Income</td><td>Income</td></tr>
 <tr><th scope="row" class="k">Fund size</th><td>৳377 cr</td><td>৳304 cr</td></tr>
-<tr><th scope="row" class="k">Total return (3 years)</th><td>+45.90%</td><td>+39.60%</td></tr>
-<tr><th scope="row" class="k">Per year (3 years)</th><td>+13.42%</td><td>+11.76%</td></tr>
-<tr><th scope="row" class="k">Monthly SIP /yr (3 years)</th><td>+14.72%</td><td>+12.59%</td></tr>
+<tr><th scope="row" class="k">Total return (3 years)</th><td>+46.09%</td><td>+39.63%</td></tr>
+<tr><th scope="row" class="k">Per year (3 years)</th><td>+13.47%</td><td>+11.77%</td></tr>
+<tr><th scope="row" class="k">Monthly SIP /yr (3 years)</th><td>+14.82%</td><td>+12.60%</td></tr>
 <tr><th scope="row" class="k">Management fee</th><td>0.70% per year</td><td>2.50% down to 1.00% per year (tiered by fund size)</td></tr>
 <tr class="cmp-openrow"><td class="k"></td><td><a href="/funds/ucb-income-plus-fund.html">Open UCB Income Plus Fund &rarr;</a></td><td><a href="/funds/shanta-fixed-income-fund.html">Open Shanta Fixed Income Fund &rarr;</a></td></tr>
 </tbody>
@@ -907,16 +907,29 @@
       svg += '<text class="cmp-baselbl" x="' + (W - PR - 4) + '" y="' + (Y(100) - 6).toFixed(1) + '" text-anchor="end">start = 100</text>';
     }
 
-    // Time along the bottom. Months when the window is short, years when long.
+    // Time labels along the bottom. Months when the window is short, years when long.
+    //
+    // Two things go wrong on long windows if you just print every year. At 102
+    // months there were ten ticks, and the exact start label ("8.4y ago") landed
+    // 30px from the "8y ago" tick and sat on top of it. So: thin the year ticks
+    // to at most six, and only print the exact start when it is clear of the
+    // leftmost tick, since that tick already says where the window begins.
     var xlabels = [];
     if (n <= 14) {
       xlabels.push([0, n + 'm ago'], [n - 1, 'now']);
       if (n > 6) xlabels.push([Math.round((n - 1) / 2), Math.round((n - 1) / 2) + 'm ago']);
     } else {
       var years = Math.floor((n - 1) / 12);
-      for (var yv = years; yv >= 1; yv--) xlabels.push([(n - 1) - yv * 12, yv + 'y ago']);
-      xlabels.push([0, Math.round((n - 1) / 12 * 10) / 10 + 'y ago']);
+      var step = Math.max(1, Math.ceil(years / 5));
+      for (var yv = years; yv >= 1; yv -= step) xlabels.push([(n - 1) - yv * 12, yv + 'y ago']);
       xlabels.push([n - 1, 'now']);
+      // The clearance test has to be in pixels, not in months: the same gap in
+      // months is wide at 3 years and cramped at 20, which is why an index
+      // based threshold still collided on the longest windows.
+      var leftmost = Math.min.apply(null, xlabels.map(function (t) { return t[0]; }));
+      if (X(leftmost) - X(0) > 52) {
+        xlabels.push([0, (Math.round((n - 1) / 12 * 10) / 10) + 'y ago']);
+      }
     }
     xlabels.forEach(function (t) {
       var xi = Math.max(0, Math.min(n - 1, t[0]));

@@ -572,6 +572,41 @@
     }, true);
   }
 
+  /* Gives the expert door a second line naming what is behind it.
+
+     "Open the full data & tools" asks for trust without saying what the reader
+     gets. The subline names it, and the fund count is read from the page rather
+     than hardcoded, so it cannot drift when the roster changes.
+
+     The label is rebuilt from the button's existing text, so the wording still
+     lives in index.html and this only restructures it. If the count is not on
+     the page for any reason, the subline is skipped and the button falls back
+     to exactly what it says today. */
+  function dressExpertDoor() {
+    var b = document.getElementById("doorExpert");
+    if (!b || b.querySelector(".door-x-main")) return;
+
+    var label = (b.textContent || "").trim();
+    if (!label) return;
+
+    var countEl = document.querySelector(".fund-n");
+    var count = countEl ? (countEl.textContent || "").trim() : "";
+
+    var main = document.createElement("span");
+    main.className = "door-x-main";
+    main.textContent = label;
+
+    b.textContent = "";
+    b.appendChild(main);
+
+    if (/^\d+$/.test(count)) {
+      var sub = document.createElement("span");
+      sub.className = "door-x-sub";
+      sub.textContent = count + " funds, charts, star ratings, holdings and compare";
+      b.appendChild(sub);
+    }
+  }
+
   /* Mobile menu, fallback only.
 
      The burger markup and its stylesheet ship in the page, but the handler that
@@ -693,6 +728,7 @@
       wireTables();
       pinTableHeads();
       syncDoors();
+      dressExpertDoor();
       addRideTip();
       if (reduced) return;
       scan();
@@ -705,6 +741,7 @@
   function start() {
     measureChrome();
     trackSupportClicks();
+    dressExpertDoor();
     syncDoors();
     addRideTip();
     // The door's own handler runs first, so read the result on the next tick.
