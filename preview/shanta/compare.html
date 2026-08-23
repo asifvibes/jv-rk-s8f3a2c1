@@ -923,13 +923,10 @@
       var step = Math.max(1, Math.ceil(years / 5));
       for (var yv = years; yv >= 1; yv -= step) xlabels.push([(n - 1) - yv * 12, yv + 'y ago']);
       xlabels.push([n - 1, 'now']);
-      // The clearance test has to be in pixels, not in months: the same gap in
-      // months is wide at 3 years and cramped at 20, which is why an index
-      // based threshold still collided on the longest windows.
-      var leftmost = Math.min.apply(null, xlabels.map(function (t) { return t[0]; }));
-      if (X(leftmost) - X(0) > 52) {
-        xlabels.push([0, (Math.round((n - 1) / 12 * 10) / 10) + 'y ago']);
-      }
+      // Do not also print the exact start ("9.9y ago") next to the floor year
+      // tick ("9y ago"). At long windows those two sit on top of each other
+      // even when they are several months apart, because the month gap is a
+      // few pixels. The leftmost year tick already says where the window begins.
     }
     xlabels.forEach(function (t) {
       var xi = Math.max(0, Math.min(n - 1, t[0]));
