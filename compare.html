@@ -908,8 +908,12 @@
     // Two things go wrong on long windows if you just print every year. At 102
     // months there were ten ticks, and the exact start label ("8.4y ago") landed
     // 30px from the "8y ago" tick and sat on top of it. So: thin the year ticks
-    // to at most six, and only print the exact start when it is clear of the
-    // leftmost tick, since that tick already says where the window begins.
+    // to at most six, and drop the exact start label entirely.
+    //
+    // A clearance test was tried first and was not enough. It measured the gap
+    // between label anchor points and ignored how wide the text itself is, so
+    // "9.9y ago" still collided with "9y ago" at a 57px anchor gap. The leftmost
+    // year tick already says where the window begins.
     var xlabels = [];
     if (n <= 14) {
       xlabels.push([0, n + 'm ago'], [n - 1, 'now']);
