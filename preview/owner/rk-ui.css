@@ -17,6 +17,22 @@
    ========================================================================== */
 
 
+/* Token fallbacks, and why they are here.
+
+   The site runs two token vocabularies. index.html and the fund pages declare
+   --border and --text; the stocks, ratings and versus shell declares --line and
+   --ink instead. This stylesheet loads on both, so a bare var(--border) was
+   invalid on stocks.html, ratings.html and all 90 versus pages, and every
+   declaration using it was silently dropped. Borders and text colours simply
+   were not applied there.
+
+   The chain resolves to whichever name the page actually defines, and both are
+   theme aware with matching dark values (#2B3648 and #E6EAF2), so light and
+   dark are both correct. The hex is a last resort that should never be reached.
+
+   Do not replace these with a :root alias. Declaring --border: var(--line) here
+   would override the real --border on index.html, because this file loads last. */
+
 /* ---------------------------------------------------------------------------
    1. TOKENS
    New tokens only. The existing --green, --text, --card and friends are left
@@ -405,7 +421,7 @@ header p{
     justify-content:space-between;
     gap:14px;
     padding-top:16px;
-    border-top:1px solid var(--border);
+    border-top:1px solid var(--border, var(--line, #E5E7EB));
   }
   #calcpanel .shrow .sht{font-size:14px;font-weight:700}
   #calcpanel .shrow .shsub{font-size:12.5px;color:var(--muted);margin-top:2px}
@@ -480,7 +496,7 @@ header p{
   border-radius:var(--r-pill);
   border:1px solid color-mix(in srgb, var(--green) 34%, transparent);
   background:color-mix(in srgb, var(--green) 8%, transparent);
-  color:var(--text);
+  color:var(--text, var(--ink, #1A1F2C));
 }
 .fresh-under .asof{
   color:var(--green-dark);
@@ -518,7 +534,7 @@ header p{
   box-shadow:var(--el-3), var(--edge);
   background:
     radial-gradient(120% 140% at 8% 0%, rgba(46,204,113,.13), transparent 58%),
-    var(--green-soft);
+    var(--green-soft, rgba(46,204,113,.12));
 }
 [data-theme="dark"] .headline{
   border-color:rgba(61,217,138,.24);
@@ -836,9 +852,9 @@ html select:not(.hs-period-sel){
   -webkit-appearance:none;
   font-family:inherit;
   font-weight:600;
-  color:var(--text);
+  color:var(--text, var(--ink, #1A1F2C));
   background-color:var(--card);
-  border:1px solid var(--border);
+  border:1px solid var(--border, var(--line, #E5E7EB));
   border-radius:var(--r-md);
   padding:12px 38px 12px 14px;
   min-height:46px;
@@ -1095,7 +1111,7 @@ summary:hover{background:rgba(46,204,113,.08)}
   margin:36px 0 12px;
   font-size:18px;
   padding-bottom:10px;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--border, var(--line, #E5E7EB));
 }
 .typehead::before{
   width:13px;height:13px;border-radius:4px;
@@ -1210,7 +1226,7 @@ summary:hover{background:rgba(46,204,113,.08)}
     text-align:left;
     margin-top:13px;
     padding-top:13px;
-    border-top:1px solid var(--border);
+    border-top:1px solid var(--border, var(--line, #E5E7EB));
   }
   .row .nums .fv{
     grid-column:1;grid-row:1;
@@ -1223,7 +1239,7 @@ summary:hover{background:rgba(46,204,113,.08)}
     justify-self:end;
     font-size:13.5px;
     font-weight:700;
-    color:var(--text);
+    color:var(--text, var(--ink, #1A1F2C));
     margin-top:0;
   }
   .row .nums .gn{
@@ -1328,7 +1344,7 @@ summary:hover{background:rgba(46,204,113,.08)}
     transition:border-color .16s, box-shadow .16s;
   }
   .row:hover{
-    border-color:color-mix(in srgb, var(--green) 45%, var(--border));
+    border-color:color-mix(in srgb, var(--green) 45%, var(--border, var(--line, #E5E7EB)));
     box-shadow:var(--el-2);
   }
 
@@ -1726,7 +1742,7 @@ details.cht-nums[open] > summary::after{
   line-height:1.5;
   padding:11px 13px;
   border-radius:var(--r-md);
-  border:1px solid var(--border);
+  border:1px solid var(--border, var(--line, #E5E7EB));
   background:color-mix(in srgb, var(--card) 70%, transparent);
 }
 .fresh-lines > span{display:inline-block;text-align:left}
@@ -2089,7 +2105,7 @@ section[style*="text-align:center"] > p{
 /* Cards respond to the pointer so the list feels alive rather than static. */
 .sx-card{transition:border-color .16s ease, box-shadow .16s ease, transform .16s ease}
 .sx-card:hover{
-  border-color:color-mix(in srgb, var(--green) 45%, var(--border));
+  border-color:color-mix(in srgb, var(--green) 45%, var(--border, var(--line, #E5E7EB)));
   box-shadow:var(--el-2);
 }
 .sx-trk{height:9px;border-radius:5px}
@@ -2130,7 +2146,7 @@ section[style*="text-align:center"] > p{
 .cmp-viz{
   margin:22px 0 6px;
   padding:20px 22px 16px;
-  border:1px solid var(--border);
+  border:1px solid var(--border, var(--line, #E5E7EB));
   border-radius:var(--r-lg);
   background:var(--card);
   background-image:var(--wash);
@@ -2182,7 +2198,7 @@ section[style*="text-align:center"] > p{
   height:auto;
 }
 .cmp-grid{
-  stroke:var(--border);
+  stroke:var(--border, var(--line, #E5E7EB));
   stroke-width:1;
   opacity:.55;
 }
@@ -2317,7 +2333,7 @@ section[style*="text-align:center"] > p{
 .cht-nums-wrap{overflow:auto;max-height:280px;margin-top:8px;-webkit-overflow-scrolling:touch}
 .cht-nums table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .cht-nums caption{text-align:left;font-weight:600;margin-bottom:6px;color:var(--muted)}
-.cht-nums th,.cht-nums td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+.cht-nums th,.cht-nums td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--border, var(--line, #E5E7EB));white-space:nowrap}
 .cht-nums th:first-child,.cht-nums td:first-child{text-align:left}
 .fp-spark,.navchart,.hs-spark .spark,.sparkwrap .spark{color:var(--green-dark)}
 .navchart{color:var(--green-dark)}
@@ -2325,19 +2341,19 @@ section[style*="text-align:center"] > p{
 .rk-menu-btn{
   display:none;border:0;background:transparent;cursor:pointer;
   width:44px;height:44px;padding:0;border-radius:var(--r-sm);
-  color:var(--text);align-items:center;justify-content:center;
+  color:var(--text, var(--ink, #1A1F2C));align-items:center;justify-content:center;
 }
 .rk-menu-btn:hover{background:rgba(46,204,113,.12)}
 .rk-menu-btn svg{width:22px;height:22px}
 .rk-menu{
   position:fixed;left:0;right:0;top:var(--rk-chrome,56px);z-index:80;
-  background:var(--card);border-bottom:1px solid var(--border);
+  background:var(--card);border-bottom:1px solid var(--border, var(--line, #E5E7EB));
   box-shadow:var(--el-2);padding:8px 12px 16px;
   max-height:calc(100dvh - var(--rk-chrome,56px));overflow:auto;
 }
 .rk-menu a{
   display:flex;align-items:center;min-height:44px;padding:0 12px;
-  font-weight:700;color:var(--text);text-decoration:none;border-radius:var(--r-sm);
+  font-weight:700;color:var(--text, var(--ink, #1A1F2C));text-decoration:none;border-radius:var(--r-sm);
 }
 .rk-menu a:hover,.rk-menu a.active{background:rgba(46,204,113,.10);color:var(--green-dark)}
 .rk-nav-end{display:flex;align-items:center;gap:2px;flex:none}
