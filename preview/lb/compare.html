@@ -862,6 +862,15 @@
      its own it looks like the chart ignored the period selector. So this also
      returns how many months were asked for and which fund is the constraint,
      which is the part that tells a reader what to change. */
+  // Render a month count in the unit a person would actually say out loud.
+  // Only rounds to years on an exact 12-month boundary, so 33 months stays
+  // "33 months" and never becomes a misleading "2 years". Used for the chart
+  // subtitle and the clamp notice so one sentence never mixes both units.
+  function spanLabel(m){
+    if(m>=12&&m%12===0){var y=m/12;return y+(y===1?' year':' years');}
+    return m+(m===1?' month':' months');
+  }
+
   function cmpWindow(cols){
     var lens = cols.map(function(f){ return cmpTr(f).length; });
     var minLen = Math.min.apply(null, lens);
@@ -987,7 +996,7 @@
              ' <b class="' + (chg >= 0 ? 'v-pos' : 'v-neg') + '">' + (chg >= 0 ? '+' : '') + chg.toFixed(1) + '%</b></span>';
     }).join('');
 
-    var months = n === 1 ? '1 month' : n + ' months';
+    var months = spanLabel(n);
     var who = usable.length > 2 ? 'all three funds' : 'both funds';
     document.getElementById('cmpVizSub').textContent =
       'The last ' + months + ' ' + who + ' have in common, rebased to 100.';
@@ -1000,17 +1009,16 @@
       if (winInfo.clamped) {
         var askLbl = plabel();
         var lim = fundDisp(winInfo.limiter).replace(/</g, '&lt;');
-        // 33 months is not "2 years". Round years only when the history
-        // lands on a 12-month boundary, otherwise print the month count.
-        var have = (winInfo.minLen % 12 === 0)
-          ? ((winInfo.minLen / 12) + (winInfo.minLen === 12 ? ' year' : ' years'))
-          : (winInfo.minLen + ' months');
+        // When the window is clamped, the span being shown IS the limiting
+        // fund's entire history, so printing the figure again in the next
+        // clause reads like a stutter. The headline carries the number; the
+        // sentence just says "that long". This also removes the old wart where
+        // one thought mixed units, as in "24 months ... tracked for 2 years".
         note.innerHTML =
           '<b>Showing ' + months + ', not ' + askLbl + '.</b> ' + lim +
-          ' has only been tracked for ' + have +
-          ', so that is the longest stretch these funds actually share. ' +
-          'Pick a shorter period, or swap that fund for an older one, to compare over ' +
-          askLbl + '.';
+          ' has only been tracked that long, so it sets how far back these funds ' +
+          'can be compared. Pick a shorter period, or swap it for an older fund, ' +
+          'to compare over ' + askLbl + '.';
         note.hidden = false;
       } else {
         note.hidden = true;
