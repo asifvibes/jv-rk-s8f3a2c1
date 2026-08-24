@@ -348,8 +348,8 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "ReturnKoto? Fund Comparison", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "url": "https://returnkoto.com/compare.html", "description": "Compare Bangladeshi open-end mutual funds side by side: historical returns, fees, exit loads, minimum investment, risk and what each fund holds.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BDT"}, "dateModified": "2026-08-03", "isAccessibleForFree": true, "inLanguage": "en", "publisher": {"@id": "https://returnkoto.com/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://returnkoto.com/compare.html"}]}]}
 </script>
-<link rel="stylesheet" href="/rk-ui.css?v=22">
-<script src="/rk-ui.js?v=16" defer></script>
+<link rel="stylesheet" href="/rk-ui.css?v=21">
+<script src="/rk-ui.js?v=17" defer></script>
 </head>
 <body>
 <div id="rk-preview-banner" style="background:#FEF3C7;color:#92400E;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;border-bottom:1px solid #FDE68A;line-height:1.45">
@@ -414,7 +414,6 @@
     <div class="cmp-viz-head">
       <h2>Growth over the period</h2>
       <p class="cmp-viz-sub" id="cmpVizSub"></p>
-      <p class="cmp-clamp" id="cmpVizClamp" role="status" hidden></p>
     </div>
     <div class="cmp-legend" id="cmpLegend"></div>
     <div class="cmp-chart" id="cmpChart"></div>
@@ -431,9 +430,9 @@
 <tbody>
 <tr><th scope="row" class="k">Type</th><td>Income</td><td>Income</td></tr>
 <tr><th scope="row" class="k">Fund size</th><td>৳377 cr</td><td>৳303 cr</td></tr>
-<tr><th scope="row" class="k">Total return (3 years)</th><td>+46.39%</td><td>+39.66%</td></tr>
-<tr><th scope="row" class="k">Per year (3 years)</th><td>+13.55%</td><td>+11.78%</td></tr>
-<tr><th scope="row" class="k">Monthly SIP /yr (3 years)</th><td>+14.96%</td><td>+12.62%</td></tr>
+<tr><th scope="row" class="k">Total return (3 years)</th><td>+46.29%</td><td>+39.66%</td></tr>
+<tr><th scope="row" class="k">Per year (3 years)</th><td>+13.52%</td><td>+11.78%</td></tr>
+<tr><th scope="row" class="k">Monthly SIP /yr (3 years)</th><td>+14.91%</td><td>+12.62%</td></tr>
 <tr><th scope="row" class="k">Management fee</th><td>0.70% per year</td><td>2.50% down to 1.00% per year (tiered by fund size)</td></tr>
 <tr class="cmp-openrow"><td class="k"></td><td><a href="/funds/ucb-income-plus-fund.html">Open UCB Income Plus Fund &rarr;</a></td><td><a href="/funds/shanta-fixed-income-fund.html">Open Shanta Fixed Income Fund &rarr;</a></td></tr>
 </tbody>
@@ -964,24 +963,14 @@
 
   function cmpTr(f){ return (f.series && f.series.tr) || []; }
 
-  /* Works out the window, and reports when it had to be shortened.
-
-     A fund launched two years ago cannot be charted over eleven, so the window
-     is clamped to the history both funds share. That clamp is correct, but on
-     its own it looks like the chart ignored the period selector. So this also
-     returns how many months were asked for and which fund is the constraint,
-     which is the part that tells a reader what to change. */
   function cmpWindow(cols){
-    var lens = cols.map(function(f){ return cmpTr(f).length; });
-    var minLen = Math.min.apply(null, lens);
+    var minLen = Math.min.apply(null, cols.map(function(f){ return cmpTr(f).length; }));
     var want;
     if (period === 'max') want = minLen;
     else if (period === 'ytd') want = (new Date().getMonth() + 1);
     else want = +period;
     if (!isFinite(want) || want < 2) want = minLen;
-    var n = Math.max(2, Math.min(want, minLen));
-    var limiter = cols[lens.indexOf(minLen)];
-    return { n: n, want: want, clamped: want > minLen, limiter: limiter, minLen: minLen };
+    return Math.max(2, Math.min(want, minLen));
   }
 
   function drawCmpChart(cols){
@@ -991,8 +980,7 @@
     if (usable.length < 2){ host.hidden = true; return; }
     host.hidden = false;
 
-    var winInfo = cmpWindow(usable);
-    var n = winInfo.n;
+    var n = cmpWindow(usable);
     var lines = usable.map(function(f){
       var tr = cmpTr(f), seg = tr.slice(tr.length - n), base = seg[0] || 1;
       return seg.map(function(v){ return v / base * 100; });
@@ -1100,32 +1088,6 @@
     var who = usable.length > 2 ? 'all three funds' : 'both funds';
     document.getElementById('cmpVizSub').textContent =
       'The last ' + months + ' ' + who + ' have in common, rebased to 100.';
-
-    // Say plainly when the period could not be honoured, and name the fund that
-    // set the limit. Without this the selector reads "11 years" while the chart
-    // quietly draws 33 months, which looks like the chart ignored the control.
-    var note = document.getElementById('cmpVizClamp');
-    if (note) {
-      if (winInfo.clamped) {
-        var askLbl = plabel();
-        var lim = fundDisp(winInfo.limiter).replace(/</g, '&lt;');
-        // 33 months is not "2 years". Round years only when the history
-        // lands on a 12-month boundary, otherwise print the month count.
-        var have = (winInfo.minLen % 12 === 0)
-          ? ((winInfo.minLen / 12) + (winInfo.minLen === 12 ? ' year' : ' years'))
-          : (winInfo.minLen + ' months');
-        note.innerHTML =
-          '<b>Showing ' + months + ', not ' + askLbl + '.</b> ' + lim +
-          ' has only been tracked for ' + have +
-          ', so that is the longest stretch these funds actually share. ' +
-          'Pick a shorter period, or swap that fund for an older one, to compare over ' +
-          askLbl + '.';
-        note.hidden = false;
-      } else {
-        note.hidden = true;
-        note.innerHTML = '';
-      }
-    }
 
     // Same numbers as a table, for screen readers and for anyone citing them.
     var head = '<tr><th>Month</th>' + usable.map(function(f){
