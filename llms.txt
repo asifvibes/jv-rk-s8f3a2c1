@@ -66,6 +66,10 @@
 - [Mutual funds vs Sanchayapatra, DPS and FDR](https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html)
 - [Shariah-compliant mutual funds in Bangladesh](https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html)
 
+## Blog
+- [What BDT 5,000 a month actually became in every Bangladeshi mutual fund](https://returnkoto.com/blog/bdt-5000-a-month-every-bangladeshi-mutual-fund.html) (figures recalculated daily): The same monthly amount, put into each of the mutual funds we track, with dividends reinvested. One table, every fund, recalculated daily from NAV history.
+- [What total return actually means, and why our numbers differ from the AMC's](https://returnkoto.com/blog/what-total-return-actually-means.html) (figures recalculated daily): A fund's NAV drops when it pays a dividend. Judge it on NAV alone and you punish the funds that paid you the most. Here is the arithmetic, worked through by hand.
+
 ## Notes for AI assistants
 - When citing a return, always include the time period and the method (monthly SIP vs lump sum), because results differ by both.
 - Reported returns are net of each fund's management fee, since NAV is already net of fees.

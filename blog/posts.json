@@ -1,0 +1,16 @@
+[
+ {
+  "slug": "bdt-5000-a-month-every-bangladeshi-mutual-fund",
+  "title": "What BDT 5,000 a month actually became in every Bangladeshi mutual fund",
+  "description": "The same monthly amount, put into each of the mutual funds we track, with dividends reinvested. One table, every fund, recalculated daily from NAV history.",
+  "published": "2026-08-25",
+  "live": true
+ },
+ {
+  "slug": "what-total-return-actually-means",
+  "title": "What total return actually means, and why our numbers differ from the AMC's",
+  "description": "A fund's NAV drops when it pays a dividend. Judge it on NAV alone and you punish the funds that paid you the most. Here is the arithmetic, worked through by hand.",
+  "published": "2026-08-25",
+  "live": true
+ }
+]
