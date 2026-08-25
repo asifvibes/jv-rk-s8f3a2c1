@@ -438,6 +438,28 @@
       raf = requestAnimationFrame(frame);
     }
 
+    // Place him once, synchronously, before the loop starts.
+    //
+    // The loop returns early while document.hidden is true, and Chrome pauses
+    // rAF in a background tab anyway. Without this the surfer was an empty span
+    // with no transform, so a page opened in a background tab had an unstyled
+    // element parked at the wrapper's top-left corner until the tab was focused.
+    // Now the resting state is a surfer sitting at the start of the line, which
+    // is what it should look like if the animation never runs at all.
+    (function place() {
+      surf.textContent = '\uD83C\uDFC4';
+      try {
+        var l0 = path.getTotalLength();
+        var c0 = svg.getScreenCTM();
+        if (!l0 || !c0) return;
+        var p0 = path.getPointAtLength(0).matrixTransform(c0);
+        var b0 = wrap.getBoundingClientRect();
+        surf.style.transform =
+          'translate(' + (p0.x - b0.left) + 'px,' + (p0.y - b0.top) +
+          'px) translate(-50%,-92%)';
+      } catch (e) {}
+    })();
+
     if (raf) cancelAnimationFrame(raf);
     raf = requestAnimationFrame(frame);
   })();
