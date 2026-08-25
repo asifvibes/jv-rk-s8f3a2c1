@@ -20,6 +20,9 @@ Total return fixes this by counting both parts of what you received: the change 
 
 ## Working one through by hand
 
+The numbers below are invented round figures, chosen so the arithmetic is easy to follow. They are not any real fund's results.
+
+:::example
 Say you put BDT 1,00,000 into a fund when its NAV was 10.00. That buys 10,000 units.
 
 The fund then declares a 10% cash dividend. On a face value of BDT 10 per unit, that is BDT 1 per unit, so your 10,000 units pay out BDT 10,000. The NAV drops by about the same BDT 1, to roughly 9.00, because the fund genuinely holds less now.
@@ -27,6 +30,9 @@ The fund then declares a 10% cash dividend. On a face value of BDT 10 per unit, 
 If you look only at NAV, you have gone from 10.00 to 9.00 and appear to be down 10%. You are not. You are holding units worth BDT 90,000 plus BDT 10,000 in cash. You are exactly level.
 
 Now reinvest that BDT 10,000 at a NAV of 11.00 and you buy another 909.09 units, taking you to 10,909.09 units. If the NAV later reaches 12.00, your holding is worth BDT 1,30,909. That is a total return of 30.9% on your original BDT 1,00,000, and no NAV chart on its own would have shown it to you.
+:::
+
+This is the same arithmetic the calculator on the homepage runs, applied to real NAV history instead of round numbers.
 
 ## Reinvested or taken as cash
 
@@ -63,7 +69,7 @@ Q: Why does the fund's own website show a different return than ReturnKoto?
 A: Most often because the window, the dividend treatment or the starting basis differs. All three can be correct at once and still produce different numbers. The value of comparing here is that the same method is applied to every fund.
 
 Q: Is total return the same as CAGR?
-A: No. Total return is the whole gain over a period. CAGR, or annualised return, spreads that gain evenly across the years so periods of different lengths can be compared. A fund that gained 30% over three years did not gain 30% a year.
+A: No. Total return is the whole gain over a period. CAGR, or annualised return, spreads that gain evenly across the years so that periods of different lengths can be compared fairly. A fund's three-year total gain is not the same as its gain per year, and quoting the first while implying the second is one of the more common ways a return figure gets oversold.
 
 Q: Does a falling NAV always mean the fund lost money?
 A: No. If the drop lines up with a dividend payment, the money moved to you rather than disappearing. That is exactly the case total return is designed to capture.
