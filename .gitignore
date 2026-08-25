@@ -17,3 +17,10 @@ Thumbs.db
 # Local scratch that must never reach the public site
 FETCH_HEAD
 .wrangler/
+
+# Build state, not a published artifact. generate-fund-pages.py reads this from
+# the BUILD repo to put posts in the sitemap; the public site never needs it.
+# The publish step deliberately copies only blog/*.html and blog/cards/*.png, so
+# committing this here would just make it churn: added by hand, deleted by the
+# next build, over and over.
+blog/posts.json
