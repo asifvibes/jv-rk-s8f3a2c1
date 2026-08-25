@@ -1,0 +1,19 @@
+# macOS / cloud-sync duplicates. When a sync client sees the same file written
+# twice it keeps both, naming the second one "page 2.html". These are never real
+# files: they are stale copies of a page the build regenerates anyway, and
+# committing one publishes an outdated duplicate of a live page at a second URL,
+# which is an SEO problem as well as a mess.
+#
+# This rule exists because roughly 200 of them accumulated in one working session.
+* [0-9].*
+*\ [0-9].*
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Local scratch that must never reach the public site
+FETCH_HEAD
+.wrangler/
