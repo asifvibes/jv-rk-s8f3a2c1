@@ -2540,11 +2540,26 @@ body.rk-menu-open{overflow:hidden}
   .bl-chartrows{gap:14px}
 }
 
-/* No animation-fill-mode. With "both" a failed animation holds scaleX(0) and
-   every bar renders invisible; without it the resting state is a full bar. */
+/* The entrance animation NEVER touches width or scale.
+
+   Two earlier attempts got this wrong. "animation: ... both" with scaleX(0)
+   strands every bar invisible if the animation never runs. Dropping fill-mode
+   fixed that case but not the real one: an animation can be applied and then
+   STALL. Chrome pauses the animation timeline in a background tab, so a bar sat
+   at scaleX(0) with playState "running" and currentTime 0, rendering at zero
+   width. Headless renderers can capture the same frame.
+
+   So the animated properties are opacity and a small horizontal nudge, and the
+   opacity floor is 0.35 rather than 0. Stalled at frame zero, a bar is still
+   full width, still the right colour, still readable. The animation can only
+   ever make it look better, never hide it. On a page whose entire purpose is
+   showing figures, that trade is not close. */
 @media (prefers-reduced-motion:no-preference){
-  .bl-cbar{transform-origin:left center;animation:bcGrow .5s cubic-bezier(.22,1,.36,1)}
-  @keyframes bcGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .bl-cbar{animation:bcGrow .55s cubic-bezier(.22,1,.36,1) both}
+  @keyframes bcGrow{
+    from{opacity:.35;transform:translateX(-6px)}
+    to{opacity:1;transform:none}
+  }
 }
 
 /* ---------------------------------------------------------------------------
