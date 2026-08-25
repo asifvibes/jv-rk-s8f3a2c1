@@ -87,6 +87,66 @@
     .card{padding:16px 14px}
     .sub{font-size:15px}
   }
+
+  /* Site shell styles, lifted from learn.html.
+     The shell MARKUP was copied here but its CSS lives in each page's
+     own inline stylesheet, not in rk-ui.css, which has no .rk-social or .skip
+     rules at all. Without these the footer rendered unstyled and full
+     width instead of the centred 680px column every other page uses. */
+.skip{position:absolute;left:-9999px;top:0;z-index:1000;background:var(--green-dark,#157A43);color:#fff;padding:10px 16px;font-weight:700;text-decoration:none;border-radius:0 0 8px 0}
+.skip:focus{left:0}
+.rk-nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #eef1ef}
+.rk-logo{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:17px;color:#0f1b14;text-decoration:none;letter-spacing:-.01em}
+.rk-logo svg{width:23px;height:23px;flex:none}
+.rk-beta{font-size:8.5px;font-weight:800;letter-spacing:.06em;color:#fff;background:linear-gradient(135deg,#FF7A3D,#F7409B);padding:2px 5px;border-radius:5px;align-self:flex-start;margin-left:1px;animation:rkBetaPulse 1.9s ease-in-out infinite}
+.rk-links{display:flex;align-items:center;gap:20px}
+.rk-links a{font-size:14px;font-weight:600;color:#3a4a40;text-decoration:none;transition:color .12s}
+.rk-links a:hover{color:#1F9E57}
+.rk-links a.active{color:#1F9E57;font-weight:700;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.rk-foot{margin-top:40px;background:#f4f7f5;border-top:1px solid #e6ece8}
+.rk-foot-in{max-width:680px;margin:0 auto;padding:34px 20px 38px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.rk-foot .rk-logo{font-size:18px}
+.rk-foot-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+.rk-foot-links a{color:#3a4a40;text-decoration:none;font-size:14px;font-weight:600}
+.rk-foot-links a:hover{color:#1F9E57}
+.rk-coffee{display:inline-flex;align-items:center;gap:10px;font-size:15.5px;font-weight:800;padding:13px 26px;border-radius:999px;text-decoration:none;color:#157A43;background:#F4FBF7;border:1.5px solid #1F9E57;box-shadow:0 4px 14px rgba(21,122,67,.12);transition:transform .12s,background .12s,box-shadow .12s,color .12s,border-color .12s;position:relative;overflow:visible;min-height:48px}
+.rk-coffee:hover{background:#E8F8F0;border-color:#157A43;transform:translateY(-2px);box-shadow:0 6px 18px rgba(21,122,67,.18);color:#0F5C32}
+.rk-mug{position:relative;display:inline-flex;width:1.5em;height:1.45em;align-items:flex-end;justify-content:center;flex:none}
+.rk-mug-ic{font-size:1.15em;line-height:1;position:relative;z-index:1;filter:drop-shadow(0 1px 0 rgba(21,122,67,.12))}
+.rk-steam{position:absolute;bottom:72%;width:5px;height:11px;border-radius:50% 50% 40% 40%;background:rgba(21,122,67,.40);box-shadow:0 0 4px rgba(31,158,87,.28);filter:blur(1.15px);opacity:0;transform-origin:50% 100%;animation:rkSteam 9s ease-in-out infinite;pointer-events:none;will-change:transform,opacity}
+.rk-steam-1{left:26%;animation-delay:0s}
+.rk-steam-2{left:44%;width:4px;height:13px;animation-delay:1.15s}
+.rk-steam-3{left:61%;width:4.5px;height:10px;animation-delay:2.3s}
+@media(prefers-reduced-motion:reduce){.rk-steam{animation:none!important;opacity:.42;transform:translate3d(0,-5px,0) scale(.85);filter:blur(1.2px)}}
+.rk-social{display:flex;gap:14px;justify-content:center}
+.rk-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid #e0e8e3;color:#5b6b61;transition:color .12s,border-color .12s,transform .12s}
+.rk-social a:hover{color:#1F9E57;border-color:#1F9E57;transform:translateY(-1px)}
+.rk-social svg{width:17px;height:17px;fill:currentColor}
+.rk-foot-note{font-size:12px;color:#5b6b61;line-height:1.7;margin:2px 0 0;max-width:520px}
+.rk-foot-contact{margin:0;font-size:14.5px;font-weight:700;letter-spacing:-.01em}
+.rk-foot-contact a{color:#157A43;text-decoration:none}
+.rk-foot-contact a:hover{text-decoration:underline;color:#0F5C32}
+@media(max-width:560px){.rk-nav{padding:10px 8px;gap:6px}.rk-logo{font-size:13.5px;gap:5px}.rk-logo svg{width:18px;height:18px}.rk-beta{font-size:7px;padding:2px 3px}.rk-links{gap:8px}.rk-links a{font-size:12px}.themetog{font-size:13px;padding:3px}.rk-foot-in{padding:28px 18px 32px;gap:14px}.rk-foot-links{gap:16px}}
+@media(max-width:380px){.rk-logo{font-size:12.5px}.rk-logo svg{width:16px;height:16px}.rk-links{gap:7px}.rk-links a{font-size:11.5px}.themetog{font-size:12px}}
+.themetog{background:none;border:0;cursor:pointer;font-size:15px;line-height:1;padding:5px 7px;border-radius:7px;display:inline-flex;align-items:center}
+.themetog:hover{background:rgba(0,0,0,.06)}
+[data-theme="dark"] .themetog:hover{background:rgba(255,255,255,.1)}
+[data-theme="dark"] .rk-nav{background:rgba(14,20,31,.92);border-bottom-color:#1E2735}
+[data-theme="dark"] .rk-logo{color:#EAF0F8}
+[data-theme="dark"] .rk-links a{color:#AEB9CC}
+[data-theme="dark"] .rk-links a:hover,[data-theme="dark"] .rk-links a.active{color:#3DD98A}
+[data-theme="dark"] .rk-foot{background:#0B111A;border-top-color:#1E2735}
+[data-theme="dark"] .rk-foot-links a{color:#AEB9CC}
+[data-theme="dark"] .rk-foot-links a:hover{color:#3DD98A}
+[data-theme="dark"] .rk-foot-note{color:#8391A5}
+[data-theme="dark"] .rk-foot-contact a{color:#3DD98A}
+[data-theme="dark"] .rk-coffee{color:#3DD98A;background:#12301E;border-color:#2A5E3C;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+[data-theme="dark"] .rk-coffee:hover{background:#173D27;border-color:#3DD98A;color:#5FE0A0}
+[data-theme="dark"] .rk-steam{background:rgba(180,230,200,.55);box-shadow:0 0 4px rgba(61,217,138,.35)}
+[data-theme="dark"] .rk-social a{background:#182130;border-color:#2B3648;color:#AEB9CC}
+[data-theme="dark"] .rk-social a:hover{color:#3DD98A;border-color:#3DD98A}
+@media(max-width:560px){.rk-links a.rk-sm-hide{display:none}}
+@media(max-width:560px){.rk-links a{padding:13px 3px}.themetog{padding:13px 9px}.rk-social a{width:44px;height:44px}}
 </style>
 <link rel="stylesheet" href="/rk-ui.css?v=192f31c728">
 <script src="/rk-ui.js?v=cf79bda41c" defer></script>
