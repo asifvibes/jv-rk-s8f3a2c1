@@ -3,10 +3,10 @@
 > ReturnKoto? is a free, independent tool that shows the real historical returns of Bangladeshi open-end mutual funds. It replays a monthly SIP or lump-sum investment over each fund's published NAV history, reinvests cash dividends by default (or shows them taken as cash) to compute total return, and shows each fund's fees and structure from its official BSEC prospectus.
 
 ## About the data
-- Coverage: 34 Bangladeshi open-end mutual funds with reliable, publicly verifiable NAV history and dividend records.
+- Coverage: 35 Bangladeshi open-end mutual funds with reliable, publicly verifiable NAV history and dividend records.
 - Method: published NAV history replayed for lump-sum and monthly SIP; cash dividends reinvested by default (or taken as cash); figures are total return. Annualized return is CAGR for lump sum and money-weighted IRR (XIRR) for SIP.
 - Sources: each fund's latest published NAV comes from the asset manager's own website, while the longer historical NAV series that powers the return math comes from secondary market data sources, cross-checked against the managers' figures; dividend records are from the asset managers; each fund's management fee, trustee, custodian, sponsor and minimum investment come from its official BSEC (Bangladesh Securities and Exchange Commission) prospectus.
-- Coverage date: return calculations run on NAVs up to 30 Aug 2026, the latest date common to all funds; each fund page shows that fund's newest daily NAV.
+- Coverage date: return calculations run on NAVs up to 31 Aug 2026, the latest date common to all funds; each fund page shows that fund's newest daily NAV.
 - Not financial advice. Figures are historical and educational; past performance does not guarantee future results.
 
 ## Key pages
@@ -43,6 +43,7 @@
 - [VIPB SEBL 1st Unit Fund](https://returnkoto.com/funds/vipb-sebl-1st-unit-fund.html)
 - [VIPB NLI 1st Unit Fund](https://returnkoto.com/funds/vipb-nli-1st-unit-fund.html)
 - [IDLC Growth Fund (IGF)](https://returnkoto.com/funds/idlc-growth-fund.html)
+- [IDLC Balanced Fund (IBF)](https://returnkoto.com/funds/idlc-balanced-fund.html)
 - [IDLC AML Shariah Fund (IAMLSF)](https://returnkoto.com/funds/idlc-aml-shariah-fund.html)
 - [LankaBangla Al-Arafah Shariah Unit Fund (LBASUF)](https://returnkoto.com/funds/lankabangla-al-arafah-shariah-unit-fund.html)
 - [Ekush First Unit Fund (EFUF)](https://returnkoto.com/funds/ekush-first-unit-fund.html)
@@ -67,7 +68,6 @@
 - [Shariah-compliant mutual funds in Bangladesh](https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html)
 
 ## Blog
-- [Fund movers report, week of 2026-08-31](https://returnkoto.com/blog/fund-movers-2026-w36.html): One-year total return for every Bangladeshi mutual fund we track, with the places gained and lost since the last report. Figures through 30 August 2026.
 - [What BDT 5,000 a month actually became in every Bangladeshi mutual fund](https://returnkoto.com/blog/bdt-5000-a-month-every-bangladeshi-mutual-fund.html) (figures recalculated daily): The same monthly amount, put into each of the mutual funds we track, with dividends reinvested. One table, every fund, recalculated daily from NAV history.
 - [The best performing mutual funds in Bangladesh, ranked by actual return](https://returnkoto.com/blog/best-performing-mutual-funds-bangladesh.html) (figures recalculated daily): Every fund we track, ranked by annualised total return with dividends reinvested, over a window every fund can fill. Rebuilt from NAV history each day.
 - [Do mutual funds actually beat Sanchayapatra? Here is the count](https://returnkoto.com/blog/do-mutual-funds-beat-sanchayapatra.html) (figures recalculated daily): Sanchayapatra pays a fixed rate with no market risk. We counted how many tracked mutual funds actually cleared that bar over the same period, and how many cleared inflation.

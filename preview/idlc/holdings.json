@@ -470,6 +470,310 @@
    "top5": 69.37
   }
  },
+ "idlc-balanced-fund": {
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
+  "basis": "by market value",
+  "source": "IDLC quarterly portfolio statement",
+  "sourceUrl": "https://idlc.com/aml/statements.php",
+  "topKind": "equity",
+  "assetClass": [
+   {
+    "k": "Listed equity",
+    "v": 46.11
+   },
+   {
+    "k": "Government treasury bond",
+    "v": 42.66
+   },
+   {
+    "k": "FDR / term deposit",
+    "v": 5.17
+   },
+   {
+    "k": "Cash at bank",
+    "v": 5.05
+   },
+   {
+    "k": "Corporate bond",
+    "v": 1.02
+   }
+  ],
+  "sectors": [
+   {
+    "k": "Bank",
+    "v": 23.65
+   },
+   {
+    "k": "Pharmaceuticals & Chemicals",
+    "v": 10.99
+   },
+   {
+    "k": "Telecommunication",
+    "v": 9.72
+   },
+   {
+    "k": "Cement",
+    "v": 1.74
+   }
+  ],
+  "top": [
+   {
+    "name": "20Y BGTB 28/05/2045 · 845,000",
+    "code": null,
+    "sector": null,
+    "v": 13.49,
+    "q": 845000,
+    "cost": 85220000,
+    "mkt": 85220000
+   },
+   {
+    "name": "BRAC Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 12.98,
+    "q": 1252277,
+    "cost": 60960000,
+    "mkt": 82020000
+   },
+   {
+    "name": "Beximco Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals & Chemicals",
+    "v": 10.99,
+    "q": 494085,
+    "cost": 60960000,
+    "mkt": 69470000
+   },
+   {
+    "name": "City Bank",
+    "code": null,
+    "sector": "Bank",
+    "v": 10.67,
+    "q": 2107500,
+    "cost": 61850000,
+    "mkt": 67440000
+   },
+   {
+    "name": "Robi Axiata",
+    "code": null,
+    "sector": "Telecommunication",
+    "v": 9.72,
+    "q": 1885000,
+    "cost": 61670000,
+    "mkt": 61450000
+   },
+   {
+    "name": "20Y BGTB 28/05/2045 · 424,000",
+    "code": null,
+    "sector": null,
+    "v": 6.61,
+    "q": 424000,
+    "cost": 41800000,
+    "mkt": 41800000
+   },
+   {
+    "name": "20Y BGTB 28/12/2042",
+    "code": null,
+    "sector": null,
+    "v": 6.39,
+    "q": 450000,
+    "cost": 40360000,
+    "mkt": 40360000
+   },
+   {
+    "name": "Mutual Trust Bank term deposits",
+    "code": null,
+    "sector": null,
+    "v": 5.17
+   },
+   {
+    "name": "20Y BGTB 25/01/2043 · 360,000",
+    "code": null,
+    "sector": null,
+    "v": 4.53,
+    "q": 360000,
+    "cost": 28610000,
+    "mkt": 28610000
+   },
+   {
+    "name": "20Y BGTB 28/05/2045 · 168,000",
+    "code": null,
+    "sector": null,
+    "v": 3.03,
+    "q": 168000,
+    "cost": 19160000,
+    "mkt": 19160000
+   },
+   {
+    "name": "20Y BGTB 25/01/2043 · 240,000",
+    "code": null,
+    "sector": null,
+    "v": 2.87,
+    "q": 240000,
+    "cost": 18120000,
+    "mkt": 18120000
+   },
+   {
+    "name": "LafargeHolcim Bangladesh",
+    "code": null,
+    "sector": "Cement",
+    "v": 1.74,
+    "q": 196000,
+    "cost": 9960000,
+    "mkt": 10980000
+   },
+   {
+    "name": "20Y BGTB 28/07/2044 · 106,000",
+    "code": null,
+    "sector": null,
+    "v": 1.68,
+    "q": 106000,
+    "cost": 10600000,
+    "mkt": 10600000
+   },
+   {
+    "name": "20Y BGTB 28/07/2044 · 96,000",
+    "code": null,
+    "sector": null,
+    "v": 1.52,
+    "q": 96000,
+    "cost": 9600000,
+    "mkt": 9600000
+   },
+   {
+    "name": "20Y BGTB 28/07/2044 · 95,000",
+    "code": null,
+    "sector": null,
+    "v": 1.5,
+    "q": 95000,
+    "cost": 9510000,
+    "mkt": 9510000
+   },
+   {
+    "name": "20Y BGTB 25/01/2043 · 70,000",
+    "code": null,
+    "sector": null,
+    "v": 1.04,
+    "q": 70000,
+    "cost": 6560000,
+    "mkt": 6560000
+   },
+   {
+    "name": "APSCL corporate bond",
+    "code": null,
+    "sector": null,
+    "v": 1.02,
+    "q": 5779,
+    "cost": 7090000,
+    "mkt": 6450000
+   }
+  ],
+  "top5": 57.85,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Government treasury bond",
+     "v": 46.97
+    },
+    {
+     "k": "Listed equity",
+     "v": 42.05
+    },
+    {
+     "k": "Cash at bank",
+     "v": 4.92
+    },
+    {
+     "k": "FDR / term deposit",
+     "v": 4.8
+    },
+    {
+     "k": "Corporate bond",
+     "v": 1.26
+    }
+   ],
+   "sectors": [
+    {
+     "k": "Bank",
+     "v": 30.87
+    },
+    {
+     "k": "Pharmaceuticals & Chemicals",
+     "v": 11.18
+    }
+   ],
+   "top": [
+    {
+     "name": "20Y BGTB 28/05/2045 · 845,000",
+     "v": 14.87
+    },
+    {
+     "name": "BRAC Bank",
+     "v": 11.26
+    },
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 11.18
+    },
+    {
+     "name": "City Bank",
+     "v": 11.08
+    },
+    {
+     "name": "Bank Asia",
+     "v": 8.52
+    },
+    {
+     "name": "20Y BGTB 28/05/2045 · 424,000",
+     "v": 7.29
+    },
+    {
+     "name": "20Y BGTB 28/12/2042",
+     "v": 7.03
+    },
+    {
+     "name": "20Y BGTB 25/01/2043 · 360,000",
+     "v": 4.97
+    },
+    {
+     "name": "Mutual Trust Bank term deposits",
+     "v": 4.8
+    },
+    {
+     "name": "20Y BGTB 28/05/2045 · 168,000",
+     "v": 3.35
+    },
+    {
+     "name": "20Y BGTB 25/01/2043 · 240,000",
+     "v": 3.15
+    },
+    {
+     "name": "20Y BGTB 28/07/2044 · 106,000",
+     "v": 1.85
+    },
+    {
+     "name": "20Y BGTB 28/07/2044 · 96,000",
+     "v": 1.67
+    },
+    {
+     "name": "20Y BGTB 28/07/2044 · 95,000",
+     "v": 1.66
+    },
+    {
+     "name": "APSCL corporate bond",
+     "v": 1.26
+    },
+    {
+     "name": "20Y BGTB 25/01/2043 · 70,000",
+     "v": 1.14
+    }
+   ],
+   "top5": 56.91
+  }
+ },
  "idlc-income-fund": {
   "asOf": "2026-06-30",
   "asOfLabel": "30 Jun 2026",
