@@ -2,7 +2,7 @@
  "amc": "owner",
  "display": "ReturnKoto? staging (all funds)",
  "subdomain": "preview.returnkoto.com",
- "fundCount": 34,
+ "fundCount": 35,
  "funds": [
   "IDLC Income Fund",
   "Shanta Fixed Income Fund",
@@ -21,6 +21,7 @@
   "VIPB SEBL 1st Unit Fund",
   "VIPB NLI 1st Unit Fund",
   "IDLC Growth Fund",
+  "IDLC Balanced Fund",
   "IDLC AML Shariah Fund",
   "LankaBangla Al-Arafah Shariah Unit Fund",
   "Ekush First Unit Fund",
@@ -39,5 +40,5 @@
   "LB Gratuity Opportunities Fund",
   "LB Gratuity Wealth Builder Fund"
  ],
- "built": "2026-08-31"
+ "built": "2026-09-01"
 }

@@ -251,6 +251,18 @@
   "min": "BDT 5,000 individual / BDT 50,000 institution",
   "minSip": "BDT 5,000/month"
  },
+ "idlc-balanced-fund": {
+  "amc": "IDLC Asset Management Limited (IDLC AML)",
+  "sponsor": "IDLC Finance PLC",
+  "trustee": "Investment Corporation of Bangladesh (ICB)",
+  "custodian": "Investment Corporation of Bangladesh (ICB)",
+  "fee": "2.50% down to 1.00% per year (tiered by fund size)",
+  "liquidity": "Open-end, redeemable weekly at NAV",
+  "exit": "Exit load 3% of Investor's Sale Price if surrendered before 90 calendar days (SIP clock from first installment); no entry load",
+  "face": "BDT 10 per unit",
+  "min": "BDT 5,000 individual / BDT 50,000 institution",
+  "minSip": "BDT 5,000/month"
+ },
  "lankabangla-al-arafah-shariah-unit-fund": {
   "amc": "LankaBangla Asset Management Company Limited (LBAMCL)",
   "sponsor": "Al-Arafah Islami Bank Employees Gratuity Fund Trust",
