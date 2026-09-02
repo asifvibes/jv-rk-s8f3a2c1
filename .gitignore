@@ -9,6 +9,9 @@
 *\ [0-9].*
 # Some sync clients use a parenthesised suffix instead: "page (1).html".
 *\ \([0-9]\).*
+# And some drop the extension entirely: "page 2" with no dot.
+*\ [0-9]
+*\ \([0-9]\)
 
 # OS and editor noise
 .DS_Store
