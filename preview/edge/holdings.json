@@ -1,81 +1,157 @@
 {
  "edge-high-quality-income-fund": {
-  "asOf": "2026-03-31",
-  "asOfLabel": "31 Mar 2026",
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
   "basis": "by market value",
   "source": "EDGE AMC quarterly portfolio statement",
-  "sourceUrl": "https://www.edgeamc.com/edge-high-quality-income-fund",
+  "sourceUrl": "https://www.edgeamc.com/pdfs/EDGEHQIF/Portfolio_Statement_2026_06_30.pdf",
   "topKind": "income",
   "assetClass": [
    {
-    "k": "Treasury bills & bonds",
-    "v": 43.01
+    "k": "Government treasury bonds (BGTB)",
+    "v": 14.5
+   },
+   {
+    "k": "Treasury bills",
+    "v": 36.97
    },
    {
     "k": "FDR / term deposit",
-    "v": 37.35
+    "v": 24.34
    },
    {
     "k": "Preference shares",
-    "v": 10.12
+    "v": 11.34
    },
    {
-    "k": "Cash at bank",
-    "v": 3.75
-   },
-   {
-    "k": "Open-end mutual fund",
-    "v": 3.56
+    "k": "Corporate subordinated bonds",
+    "v": 6.36
    },
    {
     "k": "Corporate bond",
-    "v": 1.08
+    "v": 2.99
    },
    {
-    "k": "Other assets",
-    "v": 1.13
+    "k": "Cash at bank",
+    "v": 3.49
    }
   ],
   "sectors": [],
   "top": [
    {
-    "name": "Bank & NBFI term deposits (IDLC, IPDC)",
-    "code": null,
-    "sector": null,
-    "v": 37.35
-   },
-   {
     "name": "Government treasury bills",
     "code": null,
     "sector": null,
-    "v": 29.77
+    "v": 36.97
+   },
+   {
+    "name": "Bank & NBFI term deposits (IDLC, IPDC, Midland, Bank Asia)",
+    "code": null,
+    "sector": null,
+    "v": 24.34
    },
    {
     "name": "Government treasury bonds (BGTB)",
     "code": null,
     "sector": null,
-    "v": 13.24
+    "v": 14.5
    },
    {
     "name": "Renata preference shares",
     "code": null,
     "sector": null,
-    "v": 10.12
+    "v": 11.34,
+    "q": 37700,
+    "cost": 71630000,
+    "mkt": 71630000
    },
    {
-    "name": "Ekush Stable Return Fund units",
+    "name": "Jamuna Bank subordinated bonds",
     "code": null,
     "sector": null,
-    "v": 3.56
+    "v": 6.36,
+    "cost": 40000000,
+    "mkt": 40177085
+   },
+   {
+    "name": "Cash at bank",
+    "code": null,
+    "sector": null,
+    "v": 3.49
    },
    {
     "name": "APSCL corporate bond",
     "code": null,
     "sector": null,
-    "v": 1.08
+    "v": 2.99,
+    "q": 15117,
+    "cost": 18896250,
+    "mkt": 18896250
    }
   ],
-  "top5": null
+  "top5": null,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Treasury bills & bonds",
+     "v": 43.01
+    },
+    {
+     "k": "FDR / term deposit",
+     "v": 37.35
+    },
+    {
+     "k": "Preference shares",
+     "v": 10.12
+    },
+    {
+     "k": "Cash at bank",
+     "v": 3.75
+    },
+    {
+     "k": "Open-end mutual fund",
+     "v": 3.56
+    },
+    {
+     "k": "Corporate bond",
+     "v": 1.08
+    },
+    {
+     "k": "Other assets",
+     "v": 1.13
+    }
+   ],
+   "sectors": [],
+   "top": [
+    {
+     "name": "Bank & NBFI term deposits (IDLC, IPDC)",
+     "v": 37.35
+    },
+    {
+     "name": "Government treasury bills",
+     "v": 29.77
+    },
+    {
+     "name": "Government treasury bonds (BGTB)",
+     "v": 13.24
+    },
+    {
+     "name": "Renata preference shares",
+     "v": 10.12
+    },
+    {
+     "name": "Ekush Stable Return Fund units",
+     "v": 3.56
+    },
+    {
+     "name": "APSCL corporate bond",
+     "v": 1.08
+    }
+   ],
+   "top5": null
+  }
  },
  "edge-amc-growth-fund": {
   "asOf": "2026-06-30",
@@ -445,96 +521,193 @@
   }
  },
  "edge-al-amin-shariah-consumer-fund": {
-  "asOf": "2026-03-31",
-  "asOfLabel": "31 Mar 2026",
+  "asOf": "2026-06-30",
+  "asOfLabel": "30 Jun 2026",
   "basis": "by market value",
   "source": "EDGE AMC quarterly portfolio statement",
-  "sourceUrl": "https://www.edgeamc.com/pdfs/EDGEALAMIN/Portfolio_Statement_2026_03_31.pdf",
+  "sourceUrl": "https://www.edgeamc.com/pdfs/EDGEALAMIN/Portfolio_Statement_2026_06_30.pdf",
   "topKind": "equity",
   "assetClass": [
    {
     "k": "Listed equity",
-    "v": 61.87
+    "v": 43.72
    },
    {
     "k": "Non-listed Sukuk",
-    "v": 21.19
+    "v": 39.4
    },
    {
     "k": "Mudaraba term deposit",
-    "v": 13.7
+    "v": 7.28
    },
    {
     "k": "Cash at bank",
-    "v": 2.21
-   },
-   {
-    "k": "Other assets",
-    "v": 1.03
+    "v": 9.59
    }
   ],
   "sectors": [
    {
     "k": "Pharmaceuticals",
-    "v": 37.69
+    "v": 28.27
    },
    {
     "k": "Consumer",
-    "v": 18.04
-   },
-   {
-    "k": "Other equities",
-    "v": 4.86
-   },
-   {
-    "k": "Telco",
-    "v": 1.28
+    "v": 15.45
    }
   ],
   "top": [
    {
-    "name": "Marico Bangladesh",
+    "name": "CIBRR-1 Socio-Economic Sukuk",
     "code": null,
-    "sector": "Consumer",
-    "v": 18.04
-   },
-   {
-    "name": "Square Pharmaceuticals",
-    "code": null,
-    "sector": "Pharmaceuticals",
-    "v": 15.91
-   },
-   {
-    "name": "The IBN SINA Pharmaceutical Industry",
-    "code": null,
-    "sector": "Pharmaceuticals",
-    "v": 12.14
+    "sector": null,
+    "v": 17.1,
+    "cost": 23000000,
+    "mkt": 23310313
    },
    {
     "name": "Beximco Pharmaceuticals",
     "code": null,
     "sector": "Pharmaceuticals",
-    "v": 7.87
+    "v": 16.38,
+    "q": 158790,
+    "cost": 15816788,
+    "mkt": 22325874
    },
    {
-    "name": "Berger Paints Bangladesh",
+    "name": "Marico Bangladesh",
     "code": null,
-    "sector": "Other equities",
-    "v": 4.86
+    "sector": "Consumer",
+    "v": 15.45,
+    "q": 7600,
+    "cost": 18538955,
+    "mkt": 21061120
    },
    {
-    "name": "Renata",
+    "name": "IRIDPNFL Socio-Economic Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 12.94,
+    "cost": 17000000,
+    "mkt": 17632176
+   },
+   {
+    "name": "The IBN SINA Pharmaceutical Industry",
     "code": null,
     "sector": "Pharmaceuticals",
-    "v": 1.77
+    "v": 10.34,
+    "q": 44098,
+    "cost": 13976821,
+    "mkt": 14093721
    },
    {
-    "name": "Grameenphone",
+    "name": "RDIRWSP Socio-Economic Sukuk",
     "code": null,
-    "sector": "Telco",
-    "v": 1.28
+    "sector": null,
+    "v": 7.42,
+    "cost": 10000000,
+    "mkt": 10116984
+   },
+   {
+    "name": "DBH Finance mudaraba term deposit",
+    "code": null,
+    "sector": null,
+    "v": 7.28,
+    "cost": 9700000,
+    "mkt": 9924770
+   },
+   {
+    "name": "CDWSP Social Impact Sukuk",
+    "code": null,
+    "sector": null,
+    "v": 1.94,
+    "cost": 2622978,
+    "mkt": 2640866
+   },
+   {
+    "name": "Square Pharmaceuticals",
+    "code": null,
+    "sector": "Pharmaceuticals",
+    "v": 1.55,
+    "q": 9400,
+    "cost": 1984952,
+    "mkt": 2105600
    }
   ],
-  "top5": 58.82
+  "top5": 43.72,
+  "prev": {
+   "asOf": "2026-03-31",
+   "asOfLabel": "31 Mar 2026",
+   "assetClass": [
+    {
+     "k": "Listed equity",
+     "v": 61.87
+    },
+    {
+     "k": "Non-listed Sukuk",
+     "v": 21.19
+    },
+    {
+     "k": "Mudaraba term deposit",
+     "v": 13.7
+    },
+    {
+     "k": "Cash at bank",
+     "v": 2.21
+    },
+    {
+     "k": "Other assets",
+     "v": 1.03
+    }
+   ],
+   "sectors": [
+    {
+     "k": "Pharmaceuticals",
+     "v": 37.69
+    },
+    {
+     "k": "Consumer",
+     "v": 18.04
+    },
+    {
+     "k": "Other equities",
+     "v": 4.86
+    },
+    {
+     "k": "Telco",
+     "v": 1.28
+    }
+   ],
+   "top": [
+    {
+     "name": "Marico Bangladesh",
+     "v": 18.04
+    },
+    {
+     "name": "Square Pharmaceuticals",
+     "v": 15.91
+    },
+    {
+     "name": "The IBN SINA Pharmaceutical Industry",
+     "v": 12.14
+    },
+    {
+     "name": "Beximco Pharmaceuticals",
+     "v": 7.87
+    },
+    {
+     "name": "Berger Paints Bangladesh",
+     "v": 4.86
+    },
+    {
+     "name": "Renata",
+     "v": 1.77
+    },
+    {
+     "name": "Grameenphone",
+     "v": 1.28
+    }
+   ],
+   "top5": 58.82
+  }
  }
 }
