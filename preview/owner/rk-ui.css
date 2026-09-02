@@ -2707,3 +2707,51 @@ body.rk-menu-open{overflow:hidden}
   .bl-table-bars .bl-barcell{display:none}
   .bl-table-bars td:first-child{white-space:normal}
 }
+
+/* ---------------------------------------------------------------------------
+   BLOG POST: contents, related, progress
+
+   Post pages were structurally thin: about 1100 words across six sections with
+   no way to scan them and exactly one link to another post, so the only route
+   onward was the nav. Three additions, all cheap:
+     a contents list on posts long enough to need one
+     three "read next" cards, same topic first
+     a reading progress bar
+--------------------------------------------------------------------------- */
+.bl-toc{
+  margin:0 0 26px;padding:14px 16px;border-radius:14px;max-width:520px;
+  border:1px solid var(--border, var(--line, #E5E7EB));
+  background:color-mix(in srgb, var(--muted,#5b6b61) 5%, transparent);
+}
+.bl-toch{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted,#5b6b61);margin:0 0 8px}
+.bl-toc ol{margin:0;padding-left:19px;display:flex;flex-direction:column;gap:5px}
+.bl-toc li{font-size:14px;line-height:1.45}
+.bl-toc a{color:var(--text, var(--ink, #1A1F2C));text-decoration:none}
+.bl-toc a:hover{color:var(--green,#157A43);text-decoration:underline}
+
+/* Headings are link targets now, so give them room under a sticky nav. */
+.bl-post h2[id]{scroll-margin-top:90px}
+
+.bl-rel{margin:44px 0 0;padding-top:28px;
+  border-top:1px solid var(--border, var(--line, #E5E7EB))}
+.bl-rel>h2{font-size:clamp(17px,2.6vw,21px);margin:0 0 16px}
+
+/* Progress bar. Fixed to the top, under the sticky nav, and purely decorative:
+   width is the only thing that animates, so if the script never runs there is
+   simply no bar rather than a broken one. */
+.bl-progress{
+  position:fixed;top:0;left:0;height:3px;width:0;z-index:80;
+  background:linear-gradient(90deg,#157A43,#34D399);
+  pointer-events:none;transition:width .08s linear;
+}
+[data-theme="dark"] .bl-progress{background:linear-gradient(90deg,#34D399,#7DE7B4)}
+
+@media (max-width:560px){
+  .bl-toc{max-width:none;padding:12px 14px}
+  .bl-toc li{font-size:13.5px}
+  .bl-rel{margin-top:34px;padding-top:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  .bl-progress{transition:none}
+}

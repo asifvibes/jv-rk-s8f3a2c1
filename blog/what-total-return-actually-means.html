@@ -196,7 +196,7 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 [data-theme="dark"] .sx-price.pl-up{color:#4DB87A}
 [data-theme="dark"] .sx-price.pl-dn{color:#D4A05A}
 </style>
-<link rel="stylesheet" href="/rk-ui.css?v=5f57c934e0">
+<link rel="stylesheet" href="/rk-ui.css?v=0ce33d7fd4">
 <script src="/rk-ui.js?v=cf79bda41c" defer></script>
 </head>
 <body>
@@ -218,13 +218,13 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 </div>
 </nav>
 <main id="main" class="wrap">
-<article class="bl-post"><p class="bl-crumb"><a href="/blog/">Blog</a></p><h1>What total return actually means, and why our numbers differ from the AMC's</h1><p class="bl-meta">By ReturnKoto? <span aria-hidden="true">|</span> Published <time datetime="2026-08-25">25 August 2026</time> <span aria-hidden="true">|</span> Updated <time datetime="2026-09-01">1 September 2026</time></p><p class="bl-standfirst">A fund's NAV drops when it pays a dividend. Judge it on NAV alone and you punish the funds that paid you the most. Here is the arithmetic, worked through by hand.</p><p class="bl-live"><b>These figures update themselves.</b> Every number below is recalculated from NAV history each day, so this page is current as of 1 September 2026 rather than the day it was written.</p><p>If you have ever compared a return figure on ReturnKoto? against one published by the fund manager and found they disagree, this page explains why. Usually neither number is wrong. They are answering different questions.</p>
-<h2>The problem in one sentence</h2>
+<article class="bl-post"><p class="bl-crumb"><a href="/blog/">Blog</a></p><h1>What total return actually means, and why our numbers differ from the AMC's</h1><p class="bl-meta">By ReturnKoto? <span aria-hidden="true">|</span> Published <time datetime="2026-08-25">25 August 2026</time> <span aria-hidden="true">|</span> Updated <time datetime="2026-09-01">1 September 2026</time></p><p class="bl-standfirst">A fund's NAV drops when it pays a dividend. Judge it on NAV alone and you punish the funds that paid you the most. Here is the arithmetic, worked through by hand.</p><p class="bl-live"><b>These figures update themselves.</b> Every number below is recalculated from NAV history each day, so this page is current as of 1 September 2026 rather than the day it was written.</p><nav class="bl-toc" aria-label="On this page"><p class="bl-toch">On this page</p><ol><li><a href="#the-problem-in-one-sentence">The problem in one sentence</a></li><li><a href="#working-one-through-by-hand">Working one through by hand</a></li><li><a href="#reinvested-or-taken-as-cash">Reinvested or taken as cash</a></li><li><a href="#why-an-amc-s-published-figure-can-still-differ">Why an AMC's published figure can still differ</a></li><li><a href="#what-we-do-not-model">What we do not model</a></li></ol></nav><p>If you have ever compared a return figure on ReturnKoto? against one published by the fund manager and found they disagree, this page explains why. Usually neither number is wrong. They are answering different questions.</p>
+<h2 id="the-problem-in-one-sentence">The problem in one sentence</h2>
 <p>When a fund pays out a cash dividend, its NAV falls by roughly the amount paid.</p>
 <p>That is not a loss. The money left the fund and arrived in your account. But it means the NAV chart alone tells a misleading story: the fund that paid you generously looks worse than the fund that paid you nothing, purely because paying you showed up as a drop.</p>
 <p class="bl-key">Measuring a fund on NAV movement alone quietly penalises exactly the funds that returned the most cash to their investors.</p>
 <p>Total return fixes this by counting both parts of what you received: the change in NAV, and the dividends. That is the number this site publishes.</p>
-<h2>Working one through by hand</h2>
+<h2 id="working-one-through-by-hand">Working one through by hand</h2>
 <p>The numbers below are invented round figures, chosen so the arithmetic is easy to follow. They are not any real fund's results.</p>
 <div class="bl-example"><p class="bl-example-lbl">Worked example, using made-up round numbers</p>
 <p>Say you put BDT 1,00,000 into a fund when its NAV was 10.00. That buys 10,000 units.</p>
@@ -233,18 +233,18 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <p>Now reinvest that BDT 10,000 at a NAV of 11.00 and you buy another 909.09 units, taking you to 10,909.09 units. If the NAV later reaches 12.00, your holding is worth BDT 1,30,909. That is a total return of 30.9% on your original BDT 1,00,000, and no NAV chart on its own would have shown it to you.</p>
 </div>
 <p>This is the same arithmetic the calculator on the homepage runs, applied to real NAV history instead of round numbers.</p>
-<h2>Reinvested or taken as cash</h2>
+<h2 id="reinvested-or-taken-as-cash">Reinvested or taken as cash</h2>
 <p>Both are legitimate, and ReturnKoto? will show you either.</p>
 <p>Reinvested is the default, because it answers the question most people actually mean: what would my money have become if I left it alone. Dividends buy more units, those units earn their own dividends, and the effect compounds.</p>
 <p>Taken as cash answers a different question: what if I spent every payout as it arrived. The money is still counted, it just stops compounding. Over a year or two the two figures sit close together, because dividends have barely had time to compound. Over a long horizon the gap becomes large, and the reinvested figure can be meaningfully higher.</p>
 <p>Neither is the "real" number. They are two honest answers to two different questions, which is why the site lets you switch between them rather than picking for you.</p>
-<h2>Why an AMC's published figure can still differ</h2>
+<h2 id="why-an-amc-s-published-figure-can-still-differ">Why an AMC's published figure can still differ</h2>
 <p>Even with the same underlying NAV history, two correct calculations can disagree, usually for one of these reasons.</p>
 <p>The window is different. A return "since inception" depends entirely on when inception was, and a fund quoting its best window is not lying, it is selecting.</p>
 <p>The dividend treatment is different. Some published figures assume reinvestment, some do not, and some are silent about which.</p>
 <p>The starting basis is different. A figure anchored to a fund's face value at launch is a different measurement from one anchored to the first NAV print we can verify.</p>
 <p>None of these make anyone dishonest. They make comparison hard, which is the entire reason a site like this exists: one method, applied identically to all 35 funds, so the differences you see are differences between funds rather than differences between accounting choices.</p>
-<h2>What we do not model</h2>
+<h2 id="what-we-do-not-model">What we do not model</h2>
 <p>Worth being direct about the limits.</p>
 <p>The fund's own management fee is already inside the NAV, so it is genuinely reflected in every figure here. Taxes are not modelled. Neither is the spread between a fund's buying and selling price, nor any fee your platform adds on top. Those are real costs, and they mean a live result would come in slightly below the figure shown.</p>
 <p>Dividends are modelled at a fixed annual point rather than on each fund's exact ex-dividend date, which can make a mid-year payout look slightly out of step for a few weeks. NAV history runs through 1 September 2026.</p>
@@ -254,7 +254,7 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <details class="bl-q"><summary>Does a falling NAV always mean the fund lost money?</summary><div class="bl-a"><p>No. If the drop lines up with a dividend payment, the money moved to you rather than disappearing. That is exactly the case total return is designed to capture.</p></div></details>
 <details class="bl-q"><summary>Which basis should I use, reinvested or cash?</summary><div class="bl-a"><p>Use reinvested if you want to know what leaving the money alone would have produced, which is what most people mean. Use cash if you plan to spend the payouts. The site defaults to reinvested and lets you switch.</p></div></details>
 <details class="bl-q"><summary>Are these figures net of fees?</summary><div class="bl-a"><p>They are net of the fund's management fee, because that is deducted inside the NAV. They are not net of tax, platform charges or buy and sell spreads.</p></div></details>
-</div><p class="bl-cta"><a class="bl-btn" href="/">Run these numbers on your own amount</a></p></article>
+</div><p class="bl-cta"><a class="bl-btn" href="/">Run these numbers on your own amount</a></p><section class="bl-rel"><h2>Read next</h2><ul class="bl-cards"><li class="bl-card bl-sm"><a href="/blog/open-end-vs-closed-end-funds-bangladesh.html"><div class="bl-thumbwrap"><img class="bl-thumb" src="/blog/thumbs/open-end-vs-closed-end-funds-bangladesh.png" alt="" loading="lazy" decoding="async" width="1200" height="630"></div><div class="bl-cardbody"><span class="bl-chip">How funds work</span><h3>Open-end and closed-end funds in Bangladesh, and why we track one kind</h3><p class="bl-cardmeta">3 min read</p></div></a></li><li class="bl-card bl-sm"><a href="/blog/what-is-nav-mutual-fund-bangladesh.html"><div class="bl-thumbwrap"><img class="bl-thumb" src="/blog/thumbs/what-is-nav-mutual-fund-bangladesh.png" alt="" loading="lazy" decoding="async" width="1200" height="630"></div><div class="bl-cardbody"><span class="bl-chip">How funds work</span><h3>What NAV means, and why the number on the AMC site may differ from ours</h3><p class="bl-cardmeta">3 min read</p></div></a></li><li class="bl-card bl-sm"><a href="/blog/what-mutual-funds-actually-own.html"><div class="bl-thumbwrap"><img class="bl-thumb" src="/blog/thumbs/what-mutual-funds-actually-own.png" alt="" loading="lazy" decoding="async" width="1200" height="630"></div><div class="bl-cardbody"><span class="bl-chip">How funds work</span><h3>What Bangladeshi mutual funds actually own</h3><p class="bl-cardmeta">2 min read</p></div></a></li></ul></section><div class="bl-progress" id="bl-progress" aria-hidden="true"></div><script>(function(){var b=document.getElementById("bl-progress"),a=document.querySelector(".bl-post");if(!b||!a)return;if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){b.remove();return;}var t=null;function up(){t=null;var r=a.getBoundingClientRect(),h=window.innerHeight;var total=r.height-h;var p=total<=0?0:Math.min(1,Math.max(0,(h-r.bottom+total)/total));b.style.width=(p*100).toFixed(1)+"%";}addEventListener("scroll",function(){if(!t)t=requestAnimationFrame(up);},{passive:true});addEventListener("resize",function(){if(!t)t=requestAnimationFrame(up);},{passive:true});up();})();</script></article>
 </main>
 <footer class="rk-foot">
 <div class="rk-foot-in">
