@@ -2448,20 +2448,117 @@ body.rk-menu-open{overflow:hidden}
   box-shadow:0 6px 18px rgba(21,122,67,.28);min-height:44px}
 .bl-btn:hover{transform:translateY(-1px);box-shadow:0 9px 24px rgba(21,122,67,.34)}
 
-.bl-cards{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px;
-  grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+/* ---------------------------------------------------------------------------
+   BLOG INDEX
+
+   The flat grid gave every post equal weight, carried no images even though a
+   1200x630 share card is already generated per post, and treated the weekly
+   auto-reports the same as evergreen writing. At one report a week the reports
+   would outnumber the posts roughly four to one within a year and bury them.
+
+   So: one lead, the newest report on its own, evergreen grouped by topic, and
+   older reports collapsed into a dated list rather than more cards.
+--------------------------------------------------------------------------- */
+.bl-index{max-width:1040px}
+.bl-index>.bl-standfirst{max-width:68ch;margin-bottom:30px}
+
+.bl-sec{margin:40px 0 0}
+.bl-sech{font-size:clamp(17px,2.6vw,21px);margin:0 0 4px;letter-spacing:-.01em}
+.bl-secsub{font-size:13.5px;color:var(--muted,#5b6b61);margin:0 0 16px;max-width:60ch}
+
+/* Lead ------------------------------------------------------------------- */
+.bl-lead{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+  gap:24px;align-items:center;text-decoration:none;color:inherit;
+  padding:18px;border-radius:20px;
+  border:1px solid var(--border, var(--line, #E5E7EB));
+  background:var(--card,#fff);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.bl-lead:hover{transform:translateY(-2px);border-color:var(--green,#157A43);
+  box-shadow:0 14px 34px rgba(0,0,0,.10)}
+.bl-leadthumb img{width:100%;height:auto;display:block;border-radius:14px}
+.bl-kicker{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green,#157A43);margin:0 0 8px}
+.bl-lead h2{font-size:clamp(20px,3.2vw,29px);line-height:1.22;margin:8px 0 10px;
+  letter-spacing:-.02em}
+.bl-leadsum{font-size:14.5px;line-height:1.6;color:var(--muted,#5b6b61);margin:0 0 12px}
+
+/* Cards ------------------------------------------------------------------ */
+.bl-cards{list-style:none;padding:0;margin:0;display:grid;gap:16px;
+  grid-template-columns:repeat(auto-fill,minmax(268px,1fr))}
+.bl-cards-2{grid-template-columns:minmax(0,1fr)}
 .bl-card{margin:0}
-.bl-card a{display:block;height:100%;padding:20px;border-radius:18px;text-decoration:none;
-  border:1px solid var(--border, var(--line, #E5E7EB));background:var(--card,#fff);
-  color:inherit;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.bl-card a:hover{transform:translateY(-2px);border-color:var(--green,#157A43);
+.bl-card>a{
+  display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit;
+  border-radius:18px;overflow:hidden;
+  border:1px solid var(--border, var(--line, #E5E7EB));
+  background:var(--card,#fff);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.bl-card>a:hover{transform:translateY(-2px);border-color:var(--green,#157A43);
   box-shadow:0 10px 26px rgba(0,0,0,.09)}
-.bl-card h2{font-size:18px;line-height:1.32;margin:0 0 8px;letter-spacing:-.01em}
-.bl-card p{font-size:14px;line-height:1.55;color:var(--muted,#5b6b61);margin:0 0 12px}
-.bl-cardmeta{font-size:12px;color:var(--muted,#5b6b61);margin:0}
-.bl-tag{display:inline-block;margin-left:7px;padding:2px 9px;border-radius:999px;
-  font-size:11px;font-weight:750;color:var(--green,#157A43);
-  background:color-mix(in srgb, var(--green,#157A43) 12%, transparent)}
+.bl-thumbwrap{aspect-ratio:1200/630;overflow:hidden;background:#0E141F}
+.bl-thumb{width:100%;height:100%;object-fit:cover;display:block}
+.bl-cardbody{padding:14px 15px 16px;display:flex;flex-direction:column;flex:1}
+.bl-card h3{font-size:16px;line-height:1.32;margin:0 0 7px;letter-spacing:-.01em}
+.bl-cardsum{font-size:13.5px;line-height:1.55;color:var(--muted,#5b6b61);margin:0 0 10px}
+.bl-cardmeta{font-size:12px;color:var(--muted,#5b6b61)}
+/* Pin the meta line to the card's bottom so every card in a row ends level.
+   Specificity is deliberate: a generic paragraph rule on this page sets a
+   12px bottom margin, which beat the plain .bl-cardmeta selector and left the
+   auto top margin resolving to 0, so cards ended 49px and 70px short. */
+.bl-card .bl-cardbody .bl-cardmeta{margin:auto 0 0}
+.bl-cardbody>*:last-child{margin-bottom:0}
+.bl-md h3{font-size:18px}
+
+/* Topic chip and the live figure. The figure is the point of the site, so it
+   gets to appear on the index rather than only inside the post. */
+.bl-chip{display:inline-block;font-size:11px;font-weight:750;letter-spacing:.02em;
+  padding:3px 9px;border-radius:999px;margin:0 0 8px;
+  color:var(--green,#157A43);
+  background:color-mix(in srgb, var(--green,#157A43) 11%, transparent)}
+.bl-statbadge{display:block;font-size:12.5px;color:var(--muted,#5b6b61);
+  margin:0 0 9px;line-height:1.4}
+.bl-statbadge b{font-size:17px;font-weight:800;color:var(--green,#157A43);
+  margin-right:6px;font-variant-numeric:tabular-nums}
+[data-theme="dark"] .bl-statbadge b{color:#34D399}
+[data-theme="dark"] .bl-chip{color:#34D399;
+  background:color-mix(in srgb, #34D399 15%, transparent)}
+
+/* Report archive: a list, not cards. Fifty of these as cards would be noise. */
+.bl-archive{border:1px solid var(--border, var(--line, #E5E7EB));border-radius:14px;
+  background:var(--card,#fff)}
+.bl-archive>summary{cursor:pointer;padding:13px 16px;font-weight:700;font-size:14.5px;
+  list-style:none;display:flex;align-items:center;gap:9px;min-height:44px}
+.bl-archive>summary::-webkit-details-marker{display:none}
+.bl-archive>summary::after{content:"+";margin-left:auto;font-size:18px;font-weight:700;
+  color:var(--green,#157A43)}
+.bl-archive[open]>summary::after{content:"\2212"}
+.bl-archive>summary span{font-size:12px;font-weight:700;padding:1px 8px;border-radius:999px;
+  color:var(--muted,#5b6b61);
+  background:color-mix(in srgb, var(--muted,#5b6b61) 13%, transparent)}
+.bl-arclist{list-style:none;margin:0;padding:0 8px 8px}
+.bl-arclist a{display:flex;gap:12px;align-items:baseline;padding:9px 8px;
+  border-radius:10px;text-decoration:none;color:inherit;font-size:14px}
+.bl-arclist a:hover{background:color-mix(in srgb, var(--green,#157A43) 7%, transparent)}
+.bl-arcdate{flex:none;font-size:12px;color:var(--muted,#5b6b61);
+  font-variant-numeric:tabular-nums;min-width:98px}
+.bl-arctitle{font-weight:600}
+
+@media (max-width:760px){
+  .bl-lead{grid-template-columns:1fr;gap:14px;padding:14px}
+  .bl-lead h2{font-size:20px}
+}
+@media (max-width:560px){
+  .bl-cards{grid-template-columns:1fr;gap:14px}
+  .bl-sec{margin-top:32px}
+  .bl-arclist a{flex-direction:column;gap:2px}
+  .bl-arcdate{min-width:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .bl-card>a:hover,.bl-lead:hover{transform:none}
+}
 
 @media (max-width:560px){
   .bl-table{font-size:13px;min-width:400px}
