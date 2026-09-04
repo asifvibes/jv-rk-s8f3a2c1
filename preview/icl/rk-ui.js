@@ -790,6 +790,46 @@
       var late = document.querySelectorAll(".rk-rise:not(.rk-in)");
       for (var i = 0; i < late.length; i++) late[i].classList.add("rk-in");
     }, 1200);
+
+    riskBars();
+  }
+
+  /* Risk panel bars: decorative only. Numbers stay visible with or without JS.
+     We only animate fills once the panel is on screen, and a watchdog always
+     lands them at full width so a missed callback cannot leave empty tracks. */
+  function riskBars() {
+    var card = document.getElementById("riskCard");
+    if (!card) return;
+    if (reduced) {
+      card.classList.add("is-in");
+      return;
+    }
+    card.classList.add("rk-uw-ready");
+    function show() {
+      card.classList.add("is-in");
+    }
+    var revealed = false;
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      show();
+    }
+    function near() {
+      var vh = window.innerHeight || root.clientHeight;
+      var r = card.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    }
+    if (near()) {
+      requestAnimationFrame(reveal);
+    } else {
+      var onScroll = function () {
+        if (!near()) return;
+        removeEventListener("scroll", onScroll);
+        reveal();
+      };
+      addEventListener("scroll", onScroll, { passive: true });
+    }
+    setTimeout(reveal, 2000);
   }
 
   if (document.readyState === "loading") {
