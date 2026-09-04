@@ -2755,3 +2755,46 @@ body.rk-menu-open{overflow:hidden}
 @media (prefers-reduced-motion:reduce){
   .bl-progress{transition:none}
 }
+
+/* ---------------------------------------------------------------------------
+   RISK PANEL (fund pages)
+
+   Every figure here was already being computed for the star rating and then
+   thrown away. A user asked for risk metrics; the site had them all along.
+
+   Presentation rules, because a risk number is easy to publish badly:
+     plain-English label first, the number second, the caveat third
+     each metric states what it means in one line, no jargon left bare
+     the window and the basis sit under the panel, not in a tooltip
+   Nothing here is a ranking. These describe one fund, not a league table.
+--------------------------------------------------------------------------- */
+.rk-risk .rk-risksub{font-size:14px;line-height:1.55;color:var(--muted,#5b6b61);
+  margin:0 0 18px;max-width:62ch}
+
+.rk-rkgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(196px,1fr))}
+.rk-rk{padding:14px 15px;border-radius:14px;
+  border:1px solid var(--border, var(--line, #E5E7EB));
+  background:color-mix(in srgb, var(--muted,#5b6b61) 4%, transparent)}
+.rk-rkl{font-size:11.5px;font-weight:750;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted,#5b6b61);margin:0 0 6px;line-height:1.3}
+.rk-rkv{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:0;
+  font-variant-numeric:tabular-nums;line-height:1.1;
+  color:var(--text, var(--ink, #1A1F2C))}
+.rk-rkn{font-size:12.5px;line-height:1.5;color:var(--muted,#5b6b61);margin:7px 0 0}
+
+/* Underwater bar for the worst fall. Scaled against 30%, the same cap the
+   rating uses for its drawdown pillar, so the picture and the score agree. */
+.rk-uw{margin:9px 0 0;height:6px;border-radius:999px;overflow:hidden;
+  background:color-mix(in srgb, var(--muted,#5b6b61) 16%, transparent)}
+.rk-uw span{display:block;height:100%;border-radius:999px;background:#DC2626}
+[data-theme="dark"] .rk-uw span{background:#F87171}
+
+.rk-risknote{font-size:12px;line-height:1.55;color:var(--muted,#5b6b61);
+  margin:16px 0 0;max-width:70ch}
+.rk-risknote a{color:var(--green,#157A43);font-weight:600}
+
+@media (max-width:560px){
+  .rk-rkgrid{grid-template-columns:1fr;gap:11px}
+  .rk-rkv{font-size:24px}
+  .rk-rk{padding:12px 13px}
+}
