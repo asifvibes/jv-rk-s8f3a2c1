@@ -2767,34 +2767,183 @@ body.rk-menu-open{overflow:hidden}
      each metric states what it means in one line, no jargon left bare
      the window and the basis sit under the panel, not in a tooltip
    Nothing here is a ranking. These describe one fund, not a league table.
+
+   Colour is meaning, not decoration: red for falls, green for spells that
+   ended up, amber for bumpiness, sky for market beta. Motion is gated by
+   prefers-reduced-motion and never hides a number (see rk-ui.js).
 --------------------------------------------------------------------------- */
+.rk-risk{position:relative}
+.rk-risk > h2{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.rk-risk > h2::before{
+  content:"";width:10px;height:10px;border-radius:3px;flex:0 0 auto;
+  background:linear-gradient(135deg,#157A43,#34D399);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--green,#1F9E57) 18%, transparent);
+}
 .rk-risk .rk-risksub{font-size:14px;line-height:1.55;color:var(--muted,#5b6b61);
   margin:0 0 18px;max-width:62ch}
 
 .rk-rkgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(196px,1fr))}
-.rk-rk{padding:14px 15px;border-radius:14px;
-  border:1px solid var(--border, var(--line, #E5E7EB));
-  background:color-mix(in srgb, var(--muted,#5b6b61) 4%, transparent)}
+.rk-rk{
+  --rk-accent:#157A43;
+  position:relative;isolation:isolate;
+  padding:15px 15px 14px;border-radius:16px;
+  border:1px solid color-mix(in srgb, var(--rk-accent) 22%, var(--border, var(--line, #E5E7EB)));
+  background:
+    linear-gradient(165deg,
+      color-mix(in srgb, var(--rk-accent) 10%, transparent) 0%,
+      transparent 42%),
+    color-mix(in srgb, var(--muted,#5b6b61) 3.5%, var(--card, #fff));
+  box-shadow:0 1px 0 color-mix(in srgb, #fff 55%, transparent) inset;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  overflow:hidden;
+}
+.rk-rk::before{
+  content:"";position:absolute;left:0;top:12px;bottom:12px;width:3px;
+  border-radius:0 3px 3px 0;background:var(--rk-accent);
+  opacity:.9;
+}
+.rk-rk:hover{
+  border-color:color-mix(in srgb, var(--rk-accent) 42%, var(--border, #E5E7EB));
+  box-shadow:0 10px 28px -18px color-mix(in srgb, var(--rk-accent) 55%, #000);
+}
+@media (hover:hover) and (pointer:fine){
+  .rk-rk:hover{transform:translateY(-2px)}
+}
+
+.rk-rk--dd{--rk-accent:#DC2626}
+.rk-rk--yr{--rk-accent:#EA580C}
+.rk-rk--vol{--rk-accent:#D97706}
+.rk-rk--vol-low{--rk-accent:#059669}
+.rk-rk--vol-high{--rk-accent:#C2410C}
+.rk-rk--beta{--rk-accent:#0284C7}
+.rk-rk--win{--rk-accent:#157A43}
+
 .rk-rkl{font-size:11.5px;font-weight:750;letter-spacing:.05em;text-transform:uppercase;
-  color:var(--muted,#5b6b61);margin:0 0 6px;line-height:1.3}
-.rk-rkv{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:0;
+  color:color-mix(in srgb, var(--rk-accent) 55%, var(--muted,#5b6b61));
+  margin:0 0 7px;line-height:1.3;padding-left:6px}
+.rk-rkv{font-size:27px;font-weight:800;letter-spacing:-.02em;margin:0;
   font-variant-numeric:tabular-nums;line-height:1.1;
-  color:var(--text, var(--ink, #1A1F2C))}
-.rk-rkn{font-size:12.5px;line-height:1.5;color:var(--muted,#5b6b61);margin:7px 0 0}
+  color:var(--text, var(--ink, #1A1F2C));padding-left:6px}
+.rk-rkv.v-neg{color:#C0392B}
+.rk-rkv.v-pos{color:var(--green-dark, #157A43)}
+.rk-rkn{font-size:12.5px;line-height:1.5;color:var(--muted,#5b6b61);
+  margin:8px 0 0;padding-left:6px}
+.rk-rk-good{font-weight:750;font-variant-numeric:tabular-nums}
+.rk-rk-good.v-pos{color:var(--green-dark, #157A43)}
+.rk-rk-good.v-neg{color:#C0392B}
+.rk-rec-open{color:#C0392B;font-weight:650}
+.rk-rec-ok{color:var(--green-dark, #157A43);font-weight:650}
 
 /* Underwater bar for the worst fall. Scaled against 30%, the same cap the
    rating uses for its drawdown pillar, so the picture and the score agree. */
-.rk-uw{margin:9px 0 0;height:6px;border-radius:999px;overflow:hidden;
-  background:color-mix(in srgb, var(--muted,#5b6b61) 16%, transparent)}
-.rk-uw span{display:block;height:100%;border-radius:999px;background:#DC2626}
-[data-theme="dark"] .rk-uw span{background:#F87171}
+.rk-uw{margin:10px 0 0 6px;height:7px;border-radius:999px;overflow:hidden;
+  background:color-mix(in srgb, #DC2626 14%, transparent)}
+.rk-uw span{
+  display:block;height:100%;width:var(--uw, 0%);border-radius:999px;
+  background:linear-gradient(90deg, #F87171, #DC2626 70%, #B91C1C);
+  transform-origin:left center;
+  box-shadow:0 0 12px color-mix(in srgb, #DC2626 35%, transparent);
+}
+
+/* Worst / best 12-month range: left red, right green, zero in the middle. */
+.rk-rng{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  height:7px;margin:10px 0 0 6px;border-radius:999px;
+  background:color-mix(in srgb, var(--muted,#5b6b61) 12%, transparent);
+  overflow:hidden;
+}
+.rk-rng-mid{
+  position:absolute;left:50%;top:1px;bottom:1px;width:2px;margin-left:-1px;
+  background:color-mix(in srgb, var(--muted,#5b6b61) 45%, transparent);
+  border-radius:1px;z-index:1;
+}
+.rk-rng-neg,.rk-rng-pos{
+  position:absolute;top:0;bottom:0;width:var(--w, 0%);
+  border-radius:999px;
+  transform-origin:right center;
+}
+.rk-rng-neg{
+  right:50%;background:linear-gradient(270deg, #F87171, #DC2626);
+  transform-origin:right center;
+}
+.rk-rng-pos{
+  left:50%;background:linear-gradient(90deg, #34D399, #157A43);
+  transform-origin:left center;
+}
+
+/* Positive-spells fill. */
+.rk-fill{margin:10px 0 0 6px;height:7px;border-radius:999px;overflow:hidden;
+  background:color-mix(in srgb, var(--green,#1F9E57) 14%, transparent)}
+.rk-fill span{
+  display:block;height:100%;width:var(--fill, 0%);border-radius:999px;
+  background:linear-gradient(90deg, #34D399, #157A43);
+  transform-origin:left center;
+  box-shadow:0 0 12px color-mix(in srgb, #157A43 30%, transparent);
+}
 
 .rk-risknote{font-size:12px;line-height:1.55;color:var(--muted,#5b6b61);
   margin:16px 0 0;max-width:70ch}
 .rk-risknote a{color:var(--green,#157A43);font-weight:600}
 
+[data-theme="dark"] .rk-rk{
+  background:
+    linear-gradient(165deg,
+      color-mix(in srgb, var(--rk-accent) 14%, transparent) 0%,
+      transparent 48%),
+    color-mix(in srgb, var(--rk-accent) 5%, #141C28);
+  border-color:color-mix(in srgb, var(--rk-accent) 28%, #1E2735);
+  box-shadow:none;
+}
+[data-theme="dark"] .rk-rk:hover{
+  box-shadow:0 12px 30px -16px color-mix(in srgb, var(--rk-accent) 50%, #000);
+}
+[data-theme="dark"] .rk-rkv.v-neg{color:#F87171}
+[data-theme="dark"] .rk-rkv.v-pos{color:#34D399}
+[data-theme="dark"] .rk-rk-good.v-pos{color:#34D399}
+[data-theme="dark"] .rk-rk-good.v-neg{color:#F87171}
+[data-theme="dark"] .rk-rec-open{color:#F87171}
+[data-theme="dark"] .rk-rec-ok{color:#34D399}
+[data-theme="dark"] .rk-uw{background:color-mix(in srgb, #F87171 18%, transparent)}
+[data-theme="dark"] .rk-uw span{
+  background:linear-gradient(90deg, #FCA5A5, #F87171 65%, #EF4444);
+}
+[data-theme="dark"] .rk-fill{background:color-mix(in srgb, #34D399 16%, transparent)}
+[data-theme="dark"] .rk-risk > h2::before{
+  box-shadow:0 0 0 3px color-mix(in srgb, #34D399 22%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference){
+  /* Bars only animate after rk-ui.js marks the panel ready AND in view.
+     Without JS the bars stay at full width (progressive enhancement). */
+  .rk-risk.rk-uw-ready:not(.is-in) .rk-uw span,
+  .rk-risk.rk-uw-ready:not(.is-in) .rk-fill span,
+  .rk-risk.rk-uw-ready:not(.is-in) .rk-rng-neg,
+  .rk-risk.rk-uw-ready:not(.is-in) .rk-rng-pos{
+    transform:scaleX(0);
+  }
+  .rk-risk.is-in .rk-uw span,
+  .rk-risk.is-in .rk-fill span,
+  .rk-risk.is-in .rk-rng-neg,
+  .rk-risk.is-in .rk-rng-pos{
+    transform:scaleX(1);
+    transition:transform .85s cubic-bezier(.2,.85,.3,1);
+    transition-delay:calc(var(--rk-i, 0) * 70ms);
+  }
+  .rk-risk.is-in .rk-rk{
+    animation:rkRiskPop .48s cubic-bezier(.2,.85,.3,1) both;
+    animation-delay:calc(var(--rk-i, 0) * 55ms);
+  }
+  @keyframes rkRiskPop{
+    from{opacity:.55;transform:translateY(8px)}
+    to{opacity:1;transform:none}
+  }
+}
+
 @media (max-width:560px){
   .rk-rkgrid{grid-template-columns:1fr;gap:11px}
   .rk-rkv{font-size:24px}
-  .rk-rk{padding:12px 13px}
+  .rk-rk{padding:13px 13px 12px;border-radius:14px}
+  .rk-rk:hover{transform:none}
 }
