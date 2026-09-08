@@ -1,6 +1,6 @@
 {
  "asOf": "2026-09-07",
- "generated": "2026-09-08T17:15:09.026Z",
+ "generated": "2026-09-08T19:57:27.787Z",
  "funds": [
   {
    "id": "idlc-income-fund",
@@ -279,7 +279,7 @@
    "sh": 0,
    "since": "31-08-2021",
    "M": 62,
-   "aum": 3121,
+   "aum": 2877,
    "nav": 12.438,
    "navAsOf": "2026-09-08",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
@@ -546,7 +546,7 @@
    "sh": 1,
    "since": "28-02-2019",
    "M": 92,
-   "aum": 628,
+   "aum": 638,
    "nav": 10.795,
    "navAsOf": "2026-09-08",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
