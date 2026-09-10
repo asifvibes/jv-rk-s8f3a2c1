@@ -1,6 +1,6 @@
 {
  "asOf": "2026-09-09",
- "generated": "2026-09-09",
+ "generated": "2026-09-10",
  "preview": "edge",
  "funds": [
   {
@@ -343,7 +343,7 @@
    "amcAsOf": "2026-09-09",
    "fullPublishedHistory": 1,
    "edgeCagr": 10.19,
-   "edgeCagrAsOf": "2026-09-09",
+   "edgeCagrAsOf": "2026-09-10",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -874,7 +874,7 @@
    "amcAsOf": "2026-09-09",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.32,
-   "edgeCagrAsOf": "2026-09-09",
+   "edgeCagrAsOf": "2026-09-10",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -1279,7 +1279,7 @@
    "amcAsOf": "2026-09-09",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.87,
-   "edgeCagrAsOf": "2026-09-09",
+   "edgeCagrAsOf": "2026-09-10",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -1614,7 +1614,7 @@
    "amcAsOf": "2026-09-09",
    "fullPublishedHistory": 1,
    "edgeCagr": 4.84,
-   "edgeCagrAsOf": "2026-09-09",
+   "edgeCagrAsOf": "2026-09-10",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
