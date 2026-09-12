@@ -68,6 +68,7 @@
 - [Shariah-compliant mutual funds in Bangladesh](https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html)
 
 ## Blog
+- [Monthly investing checkpoint, week ending 10 September 2026](https://returnkoto.com/blog/monthly-checkpoint-2026-09-13.html): What a fixed monthly amount became over two years in growth, balanced and income funds, compared inside each category. Figures through 9 September 2026.
 - [Fund movers report, week ending 3 September 2026](https://returnkoto.com/blog/fund-movers-2026-09-06.html): One-year total return for every Bangladeshi mutual fund we track, with the places gained and lost since the last report. Figures through 2 September 2026.
 - [Fund movers report, week of 31 August 2026](https://returnkoto.com/blog/fund-movers-2026-w36.html): One-year total return for every Bangladeshi mutual fund we track, with the places gained and lost since the last report. Figures through 30 August 2026.
 - [What BDT 5,000 a month actually became in every Bangladeshi mutual fund](https://returnkoto.com/blog/bdt-5000-a-month-every-bangladeshi-mutual-fund.html) (figures recalculated daily): The same monthly amount, put into each of the mutual funds we track, with dividends reinvested. One table, every fund, recalculated daily from NAV history.

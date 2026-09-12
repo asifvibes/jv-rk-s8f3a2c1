@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://returnkoto.com/more.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -848,19 +848,25 @@
   </url>
   <url>
     <loc>https://returnkoto.com/blog/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://returnkoto.com/blog/monthly-checkpoint-2026-09-13.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://returnkoto.com/blog/fund-movers-2026-09-06.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://returnkoto.com/blog/fund-movers-2026-w36.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -896,19 +902,19 @@
   </url>
   <url>
     <loc>https://returnkoto.com/blog/how-long-to-hold-a-mutual-fund.html</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://returnkoto.com/blog/how-to-compare-two-mutual-funds.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://returnkoto.com/blog/how-to-start-investing-in-mutual-funds-bangladesh.html</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
