@@ -1,6 +1,6 @@
 {
  "asOf": "2026-09-17",
- "generated": "2026-09-20",
+ "generated": "2026-09-21",
  "preview": "owner",
  "funds": [
   {
@@ -280,7 +280,7 @@
    "sh": 0,
    "since": "31-08-2021",
    "M": 62,
-   "aum": 3190,
+   "aum": 2877,
    "nav": 12.473,
    "navAsOf": "2026-09-20",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
@@ -547,7 +547,7 @@
    "sh": 1,
    "since": "28-02-2019",
    "M": 92,
-   "aum": 629,
+   "aum": 638,
    "nav": 10.783,
    "navAsOf": "2026-09-20",
    "navSrc": "Shanta Asset Management Limited (SAML)'s website",
@@ -1625,7 +1625,7 @@
    "amcAsOf": "2026-09-20",
    "fullPublishedHistory": 1,
    "edgeCagr": 10.2,
-   "edgeCagrAsOf": "2026-09-20",
+   "edgeCagrAsOf": "2026-09-21",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -2156,7 +2156,7 @@
    "amcAsOf": "2026-09-20",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.35,
-   "edgeCagrAsOf": "2026-09-20",
+   "edgeCagrAsOf": "2026-09-21",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -2561,7 +2561,7 @@
    "amcAsOf": "2026-09-20",
    "fullPublishedHistory": 1,
    "edgeCagr": 9.87,
-   "edgeCagrAsOf": "2026-09-20",
+   "edgeCagrAsOf": "2026-09-21",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
@@ -2896,7 +2896,7 @@
    "amcAsOf": "2026-09-20",
    "fullPublishedHistory": 1,
    "edgeCagr": 4.64,
-   "edgeCagrAsOf": "2026-09-20",
+   "edgeCagrAsOf": "2026-09-21",
    "dividendsDated": 1,
    "Hamc": {
     "6": [
