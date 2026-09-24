@@ -10,7 +10,7 @@
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://cloudflareinsights.com; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Open-End Mutual Funds in Bangladesh: A Plain-Language Guide | ReturnKoto?</title>
 <meta name="description" content="A clear guide and glossary for Bangladeshi open-end mutual funds: how they work, NAV, SIP vs lump sum, fees, returns, dividends, Shariah funds, tax, and who regulates them.">
@@ -18,7 +18,7 @@
 <meta property="og:description" content="How open-end mutual funds work in Bangladesh, in plain language: NAV, SIP, fees, returns, dividends, Shariah funds, tax, and the rules. Plus a full glossary.">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2026-06-29">
-<meta property="article:modified_time" content="2026-08-03">
+<meta property="article:modified_time" content="2026-09-25">
 <meta property="og:image:alt" content="ReturnKoto? guide to open-end mutual funds in Bangladesh">
 <meta property="og:url" content="https://returnkoto.com/learn.html">
 <meta property="og:site_name" content="ReturnKoto?">
@@ -54,10 +54,11 @@
   .backlink{font-size:13px;font-weight:700;color:var(--green-dark);text-decoration:none;background:var(--green-soft);border:1px solid #CDEEDB;border-radius:999px;padding:7px 14px}
   .backlink:hover{background:#D6F0E2}
   h1{font-size:27px;font-weight:800;letter-spacing:-.02em;margin:24px 0 6px;line-height:1.25}
-  .lead{font-size:15.5px;color:var(--muted)}
+  .lead{font-size:16px;color:var(--muted)}
   .lead a{color:var(--green-dark);font-weight:600}
   h2{font-size:19px;font-weight:800;margin:30px 0 8px;scroll-margin-top:14px}
-  p{margin:0 0 12px;font-size:15px}
+  p{margin:0 0 12px;font-size:16px}
+  .wrap>p:not(.g-updated),dl.gloss dd{max-width:60ch}
   p a{color:var(--green-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px}
   .toc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px 18px;margin:20px 0}
   .lnsearch{position:sticky;top:47px;z-index:55;margin:0 0 4px;padding:10px 0;background:var(--bg)}
@@ -67,7 +68,13 @@
   .lnsearch input{animation:rkSrchHint 1.6s ease-in-out .7s 3}
   .lnsearch input:focus,.lnsearch input:not(:placeholder-shown){animation:none}
   @media(prefers-reduced-motion:reduce){.lnsearch input{animation:none}}
-  .ln-none{font-size:15px;color:var(--muted);margin:16px 0}
+  .ln-none{font-size:16px;color:var(--muted);margin:16px 0}
+  .ln-none p{margin:0 0 8px}
+  .ln-none b{color:var(--text)}
+  .ln-none ul{margin:0 0 6px 1.2em}
+  .ln-none li{margin:0 0 4px;line-height:1.5}
+  .ln-none li a{display:block;padding:10px 0;color:var(--green-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+  .lnclear2{font:inherit;font-size:14px;font-weight:700;color:var(--green-dark);background:none;border:0;padding:8px 0;min-height:44px;cursor:pointer}
   @media(max-width:560px){.lnsearch{top:38px;margin-left:-18px;margin-right:-18px;padding:10px 18px}}
   .toc h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px}
   .toc ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
@@ -75,8 +82,8 @@
   .toc a:hover{color:var(--green-dark);text-decoration:underline}
   @media(max-width:560px){.toc ul{grid-template-columns:1fr}}
   dl.gloss dt{font-weight:700;font-size:15px;margin-top:15px}
-  dl.gloss dd{margin:2px 0 0;font-size:14.5px;color:#374151}
-  .callout{margin:14px 0;font-size:13.5px;color:#7A4B0B;background:var(--amber-soft);border:1px solid #F4D58D;border-radius:10px;padding:12px 14px;line-height:1.55}
+  dl.gloss dd{margin:2px 0 0;font-size:16px;color:#374151}
+  .callout{margin:14px 0;font-size:16px;color:#7A4B0B;background:var(--amber-soft);border:1px solid #F4D58D;border-radius:10px;padding:12px 14px;line-height:1.55}
   .cta{display:inline-block;margin-top:8px;background:var(--green-dark);color:#fff;font-weight:800;font-size:15px;padding:12px 24px;border-radius:999px;text-decoration:none}
   .cta:hover{background:#1f9853}
   footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted);text-align:center;line-height:1.6}
@@ -149,7 +156,7 @@
   .tocdisc>summary::-webkit-details-marker{display:none}
   .tocdisc>summary::after{content:"\25be";transition:transform .2s}
   .tocdisc[open]>summary::after{transform:rotate(180deg)}
-  .ln-next{font-size:13.5px;color:var(--muted);margin:12px 0 0;padding:9px 12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
+  .ln-next{font-size:15px;line-height:1.55;color:var(--muted);margin:12px 0 0;padding:9px 12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
   .ln-next a{font-weight:700}
   .srchbox{position:relative}
   .srchclear{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;color:var(--muted);font-size:15px;cursor:pointer;border-radius:10px}
@@ -223,10 +230,10 @@
 
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Open-end mutual funds in Bangladesh, explained", "description": "A plain-language guide and glossary to open-end mutual funds in Bangladesh: NAV, SIP, fees, returns, dividends, Shariah funds, tax and the rules.", "inLanguage": "en", "about": "Bangladeshi open-end mutual funds", "datePublished": "2026-06-29", "dateModified": "2026-08-03", "author": {"@id": "https://returnkoto.com/#org"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "isPartOf": {"@id": "https://returnkoto.com/#website"}, "mainEntityOfPage": "https://returnkoto.com/learn.html", "url": "https://returnkoto.com/learn.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn", "item": "https://returnkoto.com/learn.html"}]}, {"@type": "DefinedTermSet", "@id": "https://returnkoto.com/learn.html#glossary", "name": "Bangladeshi open-end mutual fund glossary", "description": "Plain-language definitions of NAV, SIP, AUM, exit load, Shariah funds and related terms used on ReturnKoto?.", "url": "https://returnkoto.com/learn.html#glossary", "inLanguage": "en", "hasDefinedTerm": [{"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-nav-net-asset-value", "name": "NAV (Net Asset Value)", "description": "The per-unit value of a fund: everything it owns minus what it owes, divided by the number of units. Open-end funds price off the NAV, which managers update frequently (often daily); ReturnKoto? keeps one published observation per month for comparable long-term series, refreshed with the newest validated NAV from the manager's own website.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-unit", "name": "Unit", "description": "One share of a mutual fund. Owning units means owning a slice of the fund's whole portfolio.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-open-end-fund", "name": "Open-end fund", "description": "A fund with no fixed size or maturity; you buy and redeem units directly with the manager at NAV-based prices.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-closed-end-fund", "name": "Closed-end fund", "description": "A fund with a fixed size and life whose units trade on the stock exchange like a share, often above or below NAV.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-amc-asset-management-company", "name": "AMC (Asset Management Company)", "description": "The licensed company that runs a fund's portfolio and makes the investment decisions.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-sponsor", "name": "Sponsor", "description": "The institution that establishes a fund and puts up its initial capital.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-trustee", "name": "Trustee", "description": "The independent party that holds the fund in trust and protects unit-holders' interests.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-custodian", "name": "Custodian", "description": "The party that keeps the fund's securities and assets in safe custody.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-sip-systematic-investment-plan", "name": "SIP (Systematic Investment Plan)", "description": "Investing a fixed amount every month by auto-debit, spreading your entry price over time.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-lump-sum", "name": "Lump sum", "description": "Investing a single amount all at once.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-aum-assets-under-management", "name": "AUM (Assets Under Management)", "description": "The total value of money a fund or manager currently manages.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-management-fee", "name": "Management fee", "description": "The annual fee the AMC charges for running the fund, taken from the fund's assets.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-expense-ratio", "name": "Expense ratio", "description": "A fund's total yearly running costs expressed as a percentage of its assets.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-exit-load-surrender-charge", "name": "Exit load / surrender charge", "description": "A small fee some funds deduct if you redeem, or cancel a SIP, very early.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-face-value", "name": "Face value", "description": "The original par value of a unit at launch, BDT 10 for Bangladeshi funds.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-total-return", "name": "Total return", "description": "Performance counting both the unit-price change and dividends (reinvested by default, or taken as cash).", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-cagr-compound-annual-growth-rate", "name": "CAGR (Compound Annual Growth Rate)", "description": "The steady yearly rate that grows your starting amount into the final amount; used for lump-sum returns.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-irr-money-weighted-return", "name": "IRR (money-weighted return)", "description": "A return measure that accounts for the timing and size of each deposit; used for SIP returns.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-dividend", "name": "Dividend", "description": "A cash distribution of part of a fund's earnings to unit-holders.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-shariah-compliant-fund", "name": "Shariah-compliant fund", "description": "A fund that invests only in Islamically permissible ways, overseen by a Shariah board.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-bsec", "name": "BSEC", "description": "The Bangladesh Securities and Exchange Commission, the regulator that oversees mutual funds.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-sanchayapatra-dps-fdr", "name": "Sanchayapatra / DPS / FDR", "description": "Traditional fixed-return savings options (savings certificates, deposit pension schemes, fixed deposits) often compared with funds.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}]}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Open-end mutual funds in Bangladesh, explained", "description": "A plain-language guide and glossary to open-end mutual funds in Bangladesh: NAV, SIP, fees, returns, dividends, Shariah funds, tax and the rules.", "inLanguage": "en", "about": "Bangladeshi open-end mutual funds", "datePublished": "2026-06-29", "dateModified": "2026-09-25", "author": {"@id": "https://returnkoto.com/#org"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "isPartOf": {"@id": "https://returnkoto.com/#website"}, "mainEntityOfPage": "https://returnkoto.com/learn.html", "url": "https://returnkoto.com/learn.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Learn", "item": "https://returnkoto.com/learn.html"}]}, {"@type": "DefinedTermSet", "@id": "https://returnkoto.com/learn.html#glossary", "name": "Bangladeshi open-end mutual fund glossary", "description": "Plain-language definitions of NAV, SIP, AUM, exit load, Shariah funds and related terms used on ReturnKoto?.", "url": "https://returnkoto.com/learn.html#glossary", "inLanguage": "en", "hasDefinedTerm": [{"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-nav-net-asset-value", "name": "NAV (Net Asset Value)", "description": "The per-unit value of a fund: everything it owns minus what it owes, divided by the number of units. Open-end funds price off the NAV, which managers update frequently (often daily); ReturnKoto? keeps one published observation per month for comparable long-term series, refreshed with the newest validated NAV from the manager's own website.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-unit", "name": "Unit", "description": "One share of a mutual fund. Owning units means owning a slice of the fund's whole portfolio.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-open-end-fund", "name": "Open-end fund", "description": "A fund with no fixed size or maturity; you buy and redeem units directly with the manager at NAV-based prices.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-closed-end-fund", "name": "Closed-end fund", "description": "A fund with a fixed size and life whose units trade on the stock exchange like a share, often above or below NAV.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-amc-asset-management-company", "name": "AMC (Asset Management Company)", "description": "The licensed company that runs a fund's portfolio and makes the investment decisions.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-sponsor", "name": "Sponsor", "description": "The institution that establishes a fund and puts up its initial capital.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-trustee", "name": "Trustee", "description": "The independent party that holds the fund in trust and protects unit-holders' interests.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-custodian", "name": "Custodian", "description": "The party that keeps the fund's securities and assets in safe custody.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-sip-systematic-investment-plan", "name": "SIP (Systematic Investment Plan)", "description": "Investing a fixed amount every month by auto-debit, spreading your entry price over time.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-lump-sum", "name": "Lump sum", "description": "Investing a single amount all at once.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-aum-assets-under-management", "name": "AUM (Assets Under Management)", "description": "The total value of money a fund or manager currently manages.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-management-fee", "name": "Management fee", "description": "The annual fee the AMC charges for running the fund, taken from the fund's assets.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-expense-ratio", "name": "Expense ratio", "description": "A fund's total yearly running costs expressed as a percentage of its assets.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-exit-load-surrender-charge", "name": "Exit load / surrender charge", "description": "A small fee some funds deduct if you redeem, or cancel a SIP, very early.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-face-value", "name": "Face value", "description": "The original par value of a unit at launch, ৳10 for Bangladeshi funds.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-total-return", "name": "Total return", "description": "Performance counting both the unit-price change and dividends (reinvested by default, or taken as cash).", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-cagr-compound-annual-growth-rate", "name": "CAGR (Compound Annual Growth Rate)", "description": "The steady yearly rate that grows your starting amount into the final amount; used for lump-sum returns.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-irr-money-weighted-return", "name": "IRR (money-weighted return)", "description": "A return measure that accounts for the timing and size of each deposit; used for SIP returns.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-dividend", "name": "Dividend", "description": "A cash distribution of part of a fund's earnings to unit-holders.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-shariah-compliant-fund", "name": "Shariah-compliant fund", "description": "A fund that invests only in Islamically permissible ways, overseen by a Shariah board.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-bsec", "name": "BSEC", "description": "The Bangladesh Securities and Exchange Commission, the regulator that oversees mutual funds.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}, {"@type": "DefinedTerm", "@id": "https://returnkoto.com/learn.html#g-sanchayapatra-dps-fdr", "name": "Sanchayapatra / DPS / FDR", "description": "Traditional fixed-return savings options (savings certificates, deposit pension schemes, fixed deposits) often compared with funds.", "inDefinedTermSet": "https://returnkoto.com/learn.html#glossary"}]}]}
 </script>
-<link rel="stylesheet" href="/rk-ui.css?v=8e606a8b90">
-<script src="/rk-ui.js?v=7c46a3f03c" defer></script>
+<link rel="stylesheet" href="/rk-ui.css?v=c22a57a87d">
+<script src="/rk-ui.js?v=8574a5b0c6" defer></script>
 </head>
 <body>
 <div id="rk-preview-banner" style="background:#FEF3C7;color:#92400E;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;border-bottom:1px solid #FDE68A;line-height:1.45">
@@ -255,10 +262,10 @@
 
   <h1>Open-end mutual funds in Bangladesh, explained</h1>
   <p class="lead">A plain-language guide to open-end mutual funds in Bangladesh, ending in a glossary of every term you will meet. For real returns, head to the <a href="/">calculator</a>.</p>
-  <p class="g-updated">Updated <time datetime="2026-08-03">3 Aug 2026</time> · First published <time datetime="2026-06-29">29 Jun 2026</time></p>
+  <p class="g-updated">Updated <time datetime="2026-09-25">25 Sep 2026</time> · First published <time datetime="2026-06-29">29 Jun 2026</time></p>
 
   <div class="lnsearch"><div class="srchbox"><input type="search" id="lnSearch" placeholder="Search this guide, e.g. NAV, SIP, exit load, tax…" aria-label="Search the guide" autocomplete="off"><button type="button" id="lnClear" class="srchclear" hidden aria-label="Clear search">&#10005;</button></div><div class="lncount" id="lnCount"></div><div class="sr-only" aria-live="polite" id="lnLive"></div></div>
-  <p class="ln-none" id="lnNone" hidden>No matches. Try another word, or clear the search.</p>
+  <div class="ln-none" id="lnNone" hidden><p>Nothing on this page matches <b id="lnNoneQ"></b>. These pages may help:</p><ul id="lnSugg"><li><a href="/">The calculator: what an amount became in every fund</a></li><li><a href="/faq.html">Common questions, answered</a></li></ul><p><button type="button" class="lnclear2" id="lnNoneClear">Clear the search</button></p></div>
 
   <nav class="toc" aria-label="Step-by-step guides" style="background:var(--green-soft);border-color:#CDEEDB">
     <p class="toclbl">Step-by-step guides</p>
@@ -294,36 +301,43 @@
   <h2 id="what">What is an open-end mutual fund?</h2>
   <p>A mutual fund pools money from many investors, and a professional manager invests it in a portfolio of shares, bonds, and other assets. You own units of the fund, each one worth a slice of that whole portfolio.</p>
   <p>"Open-end" means the fund can create or cancel units on demand: you buy units from the asset manager and sell them back whenever you like, at a price based on the fund's net asset value. There is no fixed size and no maturity date. A closed-end fund is the opposite: a fixed size and a fixed life, with units that trade on the stock exchange like a share, often at a price above or below their true value. This site and this guide are about open-end funds only. Since late 2025, the regulator has stopped approving new closed-end funds, so open-end is the way forward.</p>
+  <p class="ln-next">Why a NAV-based return only makes sense for open-end funds: <a href="/blog/open-end-vs-closed-end-funds-bangladesh.html">open-end and closed-end funds, compared</a>.</p>
 
   <h2 id="how">How open-end funds work here</h2>
-  <p>The manager values everything the fund owns, subtracts what it owes, and divides by the number of units. That gives the net asset value, or NAV, per unit, and managers update it frequently, often daily. ReturnKoto?'s source history contains real published NAV observations; the calculation keeps one observation per month for comparable long-term series, then uses the newest validated NAV collected from the manager's own website to keep current figures fresh. You buy in at a sale price and cash out at a repurchase (surrender) price, both based on NAV. Because the price is tied to the actual value of the portfolio, not to supply and demand on an exchange, open-end units do not swing on market mood the way a listed share can.<p class="ln-next"><a href="/methodology.html">How the numbers are built</a>.</p>
+  <p>The manager values everything the fund owns, subtracts what it owes, and divides by the number of units. That gives the net asset value, or NAV, per unit, and managers update it frequently, often daily. ReturnKoto?'s source history contains real published NAV observations; the calculation keeps one observation per month for comparable long-term series, then uses the newest validated NAV collected from the manager's own website to keep current figures fresh. You buy in at a sale price and cash out at a repurchase (surrender) price, both based on NAV. Because the price is tied to the actual value of the portfolio, not to supply and demand on an exchange, open-end units do not swing on market mood the way a listed share can.</p>
+  <p class="ln-next">Why a fund manager&rsquo;s NAV can differ from the one used here: <a href="/blog/what-is-nav-mutual-fund-bangladesh.html">what NAV means</a>. Where ReturnKoto? gets its NAVs: <a href="/methodology.html#nav-data">methodology</a>.</p>
 
   <h2 id="invest">How you actually invest</h2>
   <p>You buy open-end units directly from the asset management company (AMC) or its authorized selling agents, in person at their offices and designated bank branches, or online. You fill in a form with your basic KYC details and pay by cheque, pay order, bank transfer, or mobile money like bKash or Nagad.</p>
-  <p>You also need a BO (Beneficiary Owner) account, because fund units are held in dematerialised form with CDBL; you open one through a broker or a bank that offers the service, often online. Minimums are modest, often just a few thousand taka, and you can also set up a SIP from around BDT 1,000 a month.</p>
+  <p>You also need a BO (Beneficiary Owner) account, because fund units are held in dematerialised form with CDBL; you open one through a broker or a bank that offers the service, often online. Minimums are modest, often just a few thousand taka, and you can also set up a SIP from around &#2547;1,000 a month.</p>
+  <p class="ln-next">Step by step: <a href="/guides/how-to-invest-in-mutual-funds-bangladesh.html">how to invest in a mutual fund</a>. Before you choose: <a href="/blog/how-to-start-investing-in-mutual-funds-bangladesh.html">the decisions that change the outcome</a>.</p>
 
   <h2 id="sip">SIP vs lump sum</h2>
-  <p>A lump sum puts all your money in at once. A SIP, or Systematic Investment Plan, invests a fixed amount every month by auto-debit. A SIP spreads your purchases across many different prices, so you do not have to guess the right moment to enter, and it builds a saving habit. A lump sum can do better if you happen to invest before a strong run, and worse if you invest right before a dip. ReturnKoto? lets you test both on each fund's real history.<p class="ln-next">Try it: <a href="/#m=sip&h=36&b=reinvest">replay a monthly SIP on the calculator</a>.</p>
+  <p>A lump sum puts all your money in at once. A SIP, or Systematic Investment Plan, invests a fixed amount every month by auto-debit. A SIP spreads your purchases across many different prices, so you do not have to guess the right moment to enter, and it builds a saving habit. A lump sum can do better if you happen to invest before a strong run, and worse if you invest right before a dip. ReturnKoto? lets you test both on each fund's real history.</p>
+  <p class="ln-next">Try it: <a href="/#m=sip&h=36&b=reinvest">replay a monthly SIP on the calculator</a>. What happened in each fund: <a href="/blog/sip-vs-lump-sum-bangladesh.html">monthly vs lump sum, counted</a>.</p>
 
   <h2 id="fees">What fees you pay</h2>
   <p>The main cost is the annual management fee the AMC charges, often a tiered rate that starts around 2.5% of net asset value and falls toward 1% as the fund grows, though some funds charge a flat rate closer to 1%. On top of that are small, regulated trustee, custodian, and BSEC fees, usually a fraction of a percent combined. Some funds also apply an exit load if you redeem very early, or a small charge for cancelling a SIP in its first year or two.</p>
-  <p>One key point: the NAV you see is already after these fees, so the returns shown on ReturnKoto? are net of the fund's costs. You can see each fund's exact, prospectus-verified fee in its details on the main page.<p class="ln-next">Compare costs: <a href="/compare.html">every fund's exact fee and exit load side by side</a>.</p>
+  <p>One key point: the NAV you see is already after these fees, so the returns shown on ReturnKoto? are net of the fund's costs. Each fund's exact, prospectus-verified fee is on its own page; start from the <a href="/funds/">funds directory</a>.</p>
+  <p class="ln-next">Compare costs: <a href="/compare.html">every fund's exact fee and exit load side by side</a>.</p>
 
   <h2 id="returns">How returns are measured</h2>
   <p>ReturnKoto? shows total return, which counts both the change in unit price and the cash dividends a fund pays, reinvested by default. For a lump sum, the annualized figure is the CAGR, the compound annual growth rate, meaning the steady yearly rate that would turn your starting amount into the final amount. For a SIP, where you invest bit by bit, the fair measure is the money-weighted return (IRR), which accounts for the timing of each deposit. Both express a multi-year result as a single yearly percentage.</p>
+  <p class="ln-next">Worked through by hand: <a href="/blog/what-total-return-actually-means.html">what total return means</a>. The full method: <a href="/methodology.html#returns">how returns are calculated</a>.</p>
 
   <h2 id="dividends">Dividends</h2>
   <p>Many funds distribute part of their earnings as a cash dividend. You can take it as cash, or reinvest it to buy more units and compound your holding. ReturnKoto? reinvests dividends by default (switch any figure to taken as cash), which is the like-for-like way to compare total performance across funds.</p>
 
   <h2 id="shariah">Shariah-compliant funds</h2>
-  <p>Several open-end funds are Shariah-compliant, meaning they avoid interest-based and non-permissible businesses and are overseen by a Shariah supervisory board. Otherwise they work exactly like any other open-end fund. ReturnKoto? has a one-tap filter to show only these.<p class="ln-next">Filter for them: <a href="/#sh=1">show only Shariah-compliant funds on the calculator</a>.</p>
+  <p>Several open-end funds are Shariah-compliant, meaning they avoid interest-based and non-permissible businesses and are overseen by a Shariah supervisory board. Otherwise they work exactly like any other open-end fund. ReturnKoto? has a one-tap filter to show only these.</p>
+  <p class="ln-next">Filter for them: <a href="/#sh=1">show only Shariah-compliant funds on the calculator</a>. The full guide: <a href="/guides/shariah-mutual-funds-bangladesh.html">Shariah-compliant funds</a>. The numbers: <a href="/blog/shariah-mutual-funds-bangladesh-returns.html">how their returns compare</a>.</p>
 
   <h2 id="risk">What are the risks?</h2>
   <p>Mutual funds are investments, not savings accounts, so their value moves with the markets they hold and can fall as well as rise. Equity-leaning funds are more volatile than income funds. Past performance, the very thing this site shows, does not guarantee future results; it is context, not a promise. Spreading money across funds and across time, and matching your choice to how long you can stay invested, are the usual ways to manage that risk.</p>
 
   <h2 id="tax">Tax, in plain terms</h2>
-  <p>This is general information, not tax advice, and the rules change with each national budget, so confirm current figures with the National Board of Revenue (NBR) or a tax professional. The broad shape for an individual investor: the fund itself pays no tax on its earnings, so tax falls on you rather than the fund; the money you invest in mutual funds counts toward the yearly investment tax rebate that lowers your tax bill; cash dividends have tax withheld at source, with a small tax-free allowance; and capital gains when you sell units have, for ordinary retail investors, been effectively tax-free up to a high yearly threshold that most individuals stay well under.</p>
-  <div class="callout"><b>2026-27 budget update.</b> The national budget passed on 29 June 2026 made mutual funds notably more tax-friendly. It removed the old Tk 5 lakh ceiling that capped how much of a mutual fund investment could earn a tax rebate, so a much larger investment can now qualify. The total yearly investment eligible for the rebate is now up to Tk 75 lakh, rebated at 10% (a maximum rebate of about Tk 7.5 lakh across all eligible investments combined), and individual dividend income is now taxed at a flat 15% at source as a final tax, regardless of TIN or e-TIN. Rules still change with each budget, so confirm the latest figures with the NBR or a tax professional before you rely on them.</div>
+  <p>This is general information, not tax advice, and the rules change with each national budget, so confirm current figures with the National Board of Revenue (NBR) or a tax professional. The broad shape for an individual investor: the fund itself pays no tax on its earnings, so tax falls on you rather than the fund; the money you invest in mutual funds counts toward the yearly investment tax rebate that lowers your tax bill; cash dividends are taxed at source, at a flat 15% as a final tax for individuals under the 2026-27 rules (see the update below); and capital gains when you sell units have, for ordinary retail investors, been effectively tax-free up to a high yearly threshold that most individuals stay well under.</p>
+  <div class="callout"><b>2026-27 budget update.</b> The national budget passed on 29 June 2026 made mutual funds notably more tax-friendly. It removed the old &#2547;5 lakh ceiling that capped how much of a mutual fund investment could earn a tax rebate, so a much larger investment can now qualify. The total yearly investment eligible for the rebate is now up to &#2547;75 lakh, rebated at 10% (a maximum rebate of about &#2547;7.5 lakh across all eligible investments combined), and individual dividend income is now taxed at a flat 15% at source as a final tax, regardless of TIN or e-TIN. Rules still change with each budget, so confirm the latest figures with the NBR or a tax professional before you rely on them.</div>
   <p class="ln-next">Common questions: <a href="/faq.html#fees">fees, dividends and tax on the FAQ</a>.</p>
 
   <h2 id="rules">Who regulates mutual funds</h2>
@@ -331,9 +345,10 @@
 
   <h2 id="vs">Mutual funds vs the safe options</h2>
   <p>Bangladeshis often weigh funds against Sanchayapatra, DPS, FDR, or gold. The safe options give a fixed, predictable return and are designed to protect your capital under their own terms, but that return is capped and can be eaten away by inflation. Mutual funds offer the potential for higher long-run returns by taking market risk, with no guarantee. They are different tools for different goals. ReturnKoto? lets you line a fund up against all of these on the growth chart, so you can see the trade-off for yourself.</p>
+  <p class="ln-next">The full comparison: <a href="/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html">funds vs Sanchayapatra, DPS and FDR</a>. The count: <a href="/blog/do-mutual-funds-beat-sanchayapatra.html">how many tracked funds beat Sanchayapatra</a>.</p>
 
   <h2 id="market">The market at a glance</h2>
-  <p>Bangladesh has roughly 100 open-end funds run by dozens of asset managers, alongside about three dozen older closed-end funds that are gradually converting to open-end under the 2025 rules. The mutual fund industry is still young and small relative to the economy; the last published industry-wide total was around BDT 16,200 crore in mid-2023. Figures shift as funds launch and convert, so treat them as approximate.</p>
+  <p>Bangladesh has roughly 100 open-end funds run by dozens of asset managers, alongside about three dozen older closed-end funds that are gradually converting to open-end under the 2025 rules. The industry is still young and small relative to the economy: its total size was about &#2547;16,200 crore as of mid-2023, the most recent industry-wide figure this guide cites, so treat it as a dated snapshot rather than today&rsquo;s size. Fund counts shift as funds launch and convert, so treat those as approximate too.</p>
 
   
   <!-- rk-owner-partners:learn -->
@@ -359,7 +374,7 @@
     <dt id="g-management-fee">Management fee</dt><dd>The annual fee the AMC charges for running the fund, taken from the fund's assets.</dd>
     <dt id="g-expense-ratio">Expense ratio</dt><dd>A fund's total yearly running costs expressed as a percentage of its assets.</dd>
     <dt id="g-exit-load-surrender-charge">Exit load / surrender charge</dt><dd>A small fee some funds deduct if you redeem, or cancel a SIP, very early.</dd>
-    <dt id="g-face-value">Face value</dt><dd>The original par value of a unit at launch, BDT 10 for Bangladeshi funds.</dd>
+    <dt id="g-face-value">Face value</dt><dd>The original par value of a unit at launch, &#2547;10 for Bangladeshi funds.</dd>
     <dt id="g-total-return">Total return</dt><dd>Performance counting both the unit-price change and dividends (reinvested by default, or taken as cash).</dd>
     <dt id="g-cagr-compound-annual-growth-rate">CAGR (Compound Annual Growth Rate)</dt><dd>The steady yearly rate that grows your starting amount into the final amount; used for lump-sum returns.</dd>
     <dt id="g-irr-money-weighted-return">IRR (money-weighted return)</dt><dd>A return measure that accounts for the timing and size of each deposit; used for SIP returns.</dd>
@@ -432,8 +447,61 @@
   var count=document.getElementById('lnCount'),live=document.getElementById('lnLive'),clearB=document.getElementById('lnClear');
   var tocDisc=document.getElementById('lnTocDisc');
   if(tocDisc&&window.matchMedia&&matchMedia('(min-width:561px)').matches)tocDisc.open=true;
-  var SYN=[["redeem","withdraw"],["lump sum","one-time","one time"],["bo account","beneficiary owner"],["amc","asset manager","asset management"],["exit load","surrender charge"],["shariah","halal","islamic"]];
-  function needles(q){var out=[q];SYN.forEach(function(g){if(g.some(function(m){return q.indexOf(m)>-1||m.indexOf(q)>-1;}))g.forEach(function(m){if(out.indexOf(m)<0)out.push(m);});});return out;}
+  // Search: every word must appear somewhere in the question or answer, in any
+  // order. Synonyms and common spellings widen each word, never the whole query.
+  // Matching only: the raw query is NEVER sent anywhere.
+  var SYN=[["redeem","withdraw","sell","cash out","encash"],["lump sum","lump","lumpsum","one-time","one time"],["sip","monthly","systematic investment"],["bo account","beneficiary owner"],["amc","asset manager","asset management","fund manager"],["exit load","surrender charge","early exit"],["shariah","sharia","shariah-compliant","halal","islamic"],["sanchayapatra","sanchaypatra","sanchayapatro","sanchaypatro","sanchoypatro","savings certificate","savings certificates"],["dps","deposit pension","deposit"],["fdr","fixed deposit"],["update","updated","refresh","how often"],["tax","taxed","rebate","nbr"],["best","top","highest"],["buy","buying","purchase","invest in","investing in"],["fee","fees","charge","charges","cost","expense"],["nav","net asset value"],["dividend","dividends","payout"],["safe","safety","risk","risky"]];
+  var STOP=["a","an","the","is","are","am","do","does","did","i","my","me","to","of","in","on","for","and","or","what","how","can","should","which","it","be","with","from","at","by","about","any","there","this","that","when","where","why","who","much","need","get"];
+  var PHRASES=[];SYN.forEach(function(g){g.forEach(function(m){if(m.indexOf(' ')>-1)PHRASES.push(m);});});
+  PHRASES.sort(function(a,b){return b.length-a.length;});
+  function toks(q){
+    q=' '+q.replace(/[?!.,;:()"\u2018\u2019\u201c\u201d]/g,' ').replace(/\s+/g,' ')+' ';
+    var out=[];
+    PHRASES.forEach(function(p){if(q.indexOf(' '+p+' ')>-1){out.push(p);q=q.split(' '+p+' ').join(' ');}});
+    q.split(' ').forEach(function(w){if(w&&STOP.indexOf(w)<0&&out.indexOf(w)<0)out.push(w);});
+    return out;
+  }
+  function variants(t){
+    var v=[t];
+    SYN.forEach(function(g){if(g.indexOf(t)>-1)g.forEach(function(m){if(v.indexOf(m)<0)v.push(m);});});
+    if(t.length>3&&t.charAt(t.length-1)==='s'&&v.indexOf(t.slice(0,-1))<0)v.push(t.slice(0,-1));
+    return v;
+  }
+  function matcher(q){
+    var ts=toks(q);
+    if(!ts.length)return function(text){return text.indexOf(q)>-1;};
+    var vs=ts.map(variants);
+    return function(text){return vs.every(function(v){return v.some(function(n){return text.indexOf(n)>-1;});});};
+  }
+  // Where to send someone when nothing matches: the closest guide or post first,
+  // then the calculator and the plain-language guide.
+  var SUGG=[
+    {k:["sanchayapatra","sanchaypatra","sanchayapatro","sanchoypatro","savings","dps","fdr","deposit","fixed","safe","bank"],h:"/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html",t:"Guide: mutual funds vs Sanchayapatra, DPS and FDR"},
+    {k:["shariah","sharia","halal","islamic"],h:"/guides/shariah-mutual-funds-bangladesh.html",t:"Guide: Shariah-compliant mutual funds"},
+    {k:["buy","invest","start","begin","bo","kyc","document","documents","open","account","apply"],h:"/guides/how-to-invest-in-mutual-funds-bangladesh.html",t:"Guide: how to invest, step by step"},
+    {k:["sip","monthly","lump","lumpsum","one-time"],h:"/blog/sip-vs-lump-sum-bangladesh.html",t:"Monthly investing or one lump sum: what happened in each fund"},
+    {k:["best","top","highest","rank","ranking","perform","performing","performance","return","returns"],h:"/blog/best-performing-mutual-funds-bangladesh.html",t:"Every fund ranked by actual return"},
+    {k:["nav","price","value"],h:"/blog/what-is-nav-mutual-fund-bangladesh.html",t:"What NAV means"},
+    {k:["closed","closed-end","listed","exchange"],h:"/blog/open-end-vs-closed-end-funds-bangladesh.html",t:"Open-end and closed-end funds"},
+    {k:["hold","holding","holdings","stock","stocks","share","shares","own","portfolio"],h:"/stocks.html",t:"The stocks the funds hold most"},
+    {k:["compare","vs","versus","difference","better"],h:"/compare.html",t:"Compare funds side by side"},
+    {k:["tax","taxed","rebate","nbr"],h:"/faq.html#fees",t:"FAQ: fees, dividends and tax"},
+    {k:["fee","fees","charge","cost","expense","load"],h:"/compare.html",t:"Every fund\u2019s fee and exit load, side by side"}
+  ];
+  var SUGG_DEFAULT=[{h:"/",t:"The calculator: what an amount became in every fund"},{h:"/faq.html",t:"Common questions, answered"}];
+  function suggest(q){
+    var ts=toks(q),out=[];
+    SUGG.forEach(function(s){if(out.length<3&&ts.some(function(t){return s.k.some(function(k){return k===t||(t.length>3&&k.indexOf(t)===0);});}))out.push(s);});
+    SUGG_DEFAULT.forEach(function(s){if(out.length<3)out.push(s);});
+    return out;
+  }
+  var noneQ=document.getElementById('lnNoneQ'),noneList=document.getElementById('lnSugg'),noneClear=document.getElementById('lnNoneClear');
+  function fillNone(q){
+    if(noneQ)noneQ.textContent='\u201c'+q+'\u201d';
+    if(!noneList)return;
+    noneList.textContent='';
+    suggest(q.toLowerCase()).forEach(function(s){var li=document.createElement('li'),a=document.createElement('a');a.href=s.h;a.textContent=s.t;li.appendChild(a);noneList.appendChild(li);});
+  }
   var navEl=document.querySelector('.rk-nav');
   function land(){var bar=document.querySelector('.lnsearch');if(!bar)return;var nh=navEl?navEl.offsetHeight:50;if(bar.getBoundingClientRect().top<=nh+2){try{window.scrollTo({top:Math.max(0,bar.offsetTop-nh),behavior:'auto'});}catch(e){}}}
   function bucket(n){return n===0?'0':n<=3?'1-3':n<=10?'4-10':'11+';}
@@ -444,13 +512,12 @@
     if(clearB)clearB.hidden=!q;
     if(!q){groups.forEach(function(g){g.nodes.forEach(function(x){show(x,1);});});pairs.forEach(function(p){show(p.dt,1);show(p.dd,1);});tocs.forEach(function(t){show(t,1);});if(none)none.hidden=true;if(count)count.textContent='';return;}
     tocs.forEach(function(t){show(t,0);});
-    var nds=needles(q),any=false,hits=0;
+    var match=matcher(q),any=false,hits=0;
     groups.forEach(function(g){
-      var match=function(t){return nds.some(function(n){return t.indexOf(n)>-1;});};
       if(g.gloss){var ga=0;pairs.forEach(function(p){var m=match(p.text);show(p.dt,m);show(p.dd,m);if(m){ga++;cue(p.dt);}});g.nodes.forEach(function(x){show(x,ga>0);});if(ga){any=true;hits+=ga;}}
       else{var m=match(g.text);g.nodes.forEach(function(x){show(x,m);});if(m){any=true;hits++;cue(g.nodes[0]);}}
     });
-    if(none)none.hidden=any;
+    if(none){none.hidden=any;if(!any)fillNone(inp.value.trim());}
     var msg=hits===1?'1 section found':hits+' sections found';
     if(count)count.textContent=msg;
     clearTimeout(srT);srT=setTimeout(function(){if(live)live.textContent=msg;},600);
@@ -460,6 +527,7 @@
   var dT=null;
   inp.addEventListener('input',function(){clearTimeout(dT);dT=setTimeout(run,140);});
   if(clearB)clearB.addEventListener('click',function(){inp.value='';run();inp.focus();});
+  if(noneClear)noneClear.addEventListener('click',function(){inp.value='';run();inp.focus();});
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="/guides/"]');if(a)track('learn_guide_open',{slug:(a.getAttribute('href').split('/').pop()||'').replace('.html','')});});
 })();
 </script>

@@ -145,141 +145,6 @@
     if (!tailOnly) overlay("rk-dot", "0.1 " + len, tail);
   }
 
-  /* A surfer rides the result sparkline.
-
-     Why it is an HTML element and not a shape inside the SVG: these sparklines
-     are drawn with preserveAspectRatio="none" and stretched by a different
-     amount on each axis, so anything drawn in SVG user space arrives squashed,
-     and squashed by a different amount on the hero than on a fund row. An
-     absolutely positioned HTML element sits outside that coordinate system, so
-     it stays the right shape at every width.
-
-     Position comes from getPointAtLength on the real path, mapped to client
-     coordinates through getScreenCTM, so the surfer sits exactly on the line
-     however the SVG has been scaled. The rotation is the local slope, measured
-     from a second sample just ahead, which is what makes it read as riding
-     rather than sliding.
-
-     Deliberately hero only. Fund pages and fund rows keep the plain marker:
-     riding the wave is a momentum idea, and those are the pages an asset
-     manager reviews. */
-  var SURF_MS = 8200;
-  var surfRaf = null;
-
-  function surfHero() {
-    if (reduced) return;
-    var wrap = document.querySelector(".hs-spark");
-    if (!wrap || wrap.querySelector(".rk-surf")) return;
-    var svg = wrap.querySelector("svg.spark");
-    var path = svg && svg.querySelector("polyline:not(.rk-trace):not(.rk-dot)");
-    if (!path) return;
-
-    var len = 0;
-    try { len = path.getTotalLength(); } catch (e) { return; }
-    if (!len) return;
-
-    // Decorative sea, behind the data line.
-    //
-    // This is the only thing that moves. The total-return path itself is never
-    // deformed: it is the fund's real published performance, and a chart that
-    // visibly wobbles away from its own numbers would undercut the one claim
-    // the whole site rests on. So the water animates and the data does not.
-    //
-    // The wave tiles four times across a 400 unit viewBox at a period of 100,
-    // and the element is twice its container's width, so translating it by 25%
-    // shifts exactly one period and the loop is seamless with no visible jump.
-    if (!wrap.querySelector(".rk-sea")) {
-      // The sea is twice the container's width so it can slide a full period
-      // without exposing a gap, which means it overhangs the right edge. It
-      // gets its own clipping box rather than clipping .hs-spark itself,
-      // because the surfer sits above the line and would lose its head.
-      var seaBox = document.createElement("div");
-      seaBox.className = "rk-sea-box";
-      seaBox.setAttribute("aria-hidden", "true");
-
-      var sea = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      sea.setAttribute("class", "rk-sea");
-      sea.setAttribute("viewBox", "0 0 400 24");
-      sea.setAttribute("preserveAspectRatio", "none");
-      sea.setAttribute("aria-hidden", "true");
-      sea.innerHTML =
-        '<path class="rk-sea-back" d="M0,14 q25,-7 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 V24 H0 Z"/>' +
-        '<path class="rk-sea-front" d="M0,17 q25,-6 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 V24 H0 Z"/>';
-      seaBox.appendChild(sea);
-      wrap.insertBefore(seaBox, wrap.firstChild);
-    }
-
-    var surf = document.createElement("span");
-    surf.className = "rk-surf";
-    surf.setAttribute("aria-hidden", "true");
-    surf.textContent = "🏄";
-    wrap.appendChild(surf);
-
-    var t0 = null;
-
-    function frame(ts) {
-      // Bail out cleanly if the chart was re-rendered underneath us.
-      if (!surf.isConnected || !path.isConnected) {
-        surfRaf = null;
-        return;
-      }
-      if (document.hidden) { surfRaf = requestAnimationFrame(frame); return; }
-      if (t0 === null) t0 = ts;
-
-      var p = ((ts - t0) % SURF_MS) / SURF_MS;
-      var ctm = svg.getScreenCTM();
-      if (!ctm) { surfRaf = requestAnimationFrame(frame); return; }
-
-      var here = path.getPointAtLength(p * len).matrixTransform(ctm);
-      var ahead = path.getPointAtLength(Math.min(len, p * len + len * 0.02)).matrixTransform(ctm);
-      var box = wrap.getBoundingClientRect();
-      var deg = Math.atan2(ahead.y - here.y, ahead.x - here.x) * 180 / Math.PI;
-
-      // Lean with the slope but never far enough to look like it fell over.
-      deg = Math.max(-32, Math.min(32, deg));
-
-      surf.style.transform =
-        "translate(" + (here.x - box.left) + "px," + (here.y - box.top) + "px) " +
-        "translate(-50%,-92%) rotate(" + deg.toFixed(1) + "deg)";
-
-      // Climbing gets a bit more spray than coasting, so the surfer reads as
-      // working with the line rather than being dragged along it.
-      surf.style.setProperty("--rk-spray", Math.min(1, Math.max(0.25, deg / -32 + 0.35)).toFixed(2));
-
-      surfRaf = requestAnimationFrame(frame);
-    }
-
-    if (surfRaf) cancelAnimationFrame(surfRaf);
-    surfRaf = requestAnimationFrame(frame);
-  }
-
-  /* The "riding the wave" tooltip, bottom right of the result card.
-
-     Appended here rather than added to the render function, because that
-     function rebuilds the card on every control change and this only needs to
-     exist once. It carries data-tip, so the delegated tooltip component already
-     on the page handles opening and closing it. */
-  function addRideTip() {
-    var card = document.querySelector(".headline");
-    if (!card || card.querySelector(".rk-ride")) return;
-
-    var b = document.createElement("button");
-    b.type = "button";
-    b.className = "rk-ride";
-    b.setAttribute("data-tipkey", "ride");
-    b.setAttribute("aria-label", "What does riding the wave mean here?");
-    b.setAttribute(
-      "data-tip",
-      "Riding the wave: this is the ride you would have had if you had put money " +
-      "in over this period and stayed in. The line is the fund's own published " +
-      "total return with cash dividends reinvested, not a projection and not a " +
-      "smoothed average, so the calm stretches and the drops are both real. " +
-      "It describes what already happened. It does not predict the next wave."
-    );
-    b.innerHTML = '<span aria-hidden="true">\uD83C\uDFC4</span> Riding the wave';
-    card.appendChild(b);
-  }
-
   /* Fund list markers: the top three of every group, always.
 
      Not every row. A perpetual animation on a fully expanded list means dozens
@@ -333,7 +198,6 @@
     // Hero: tail only, because the surfer takes the place of the dot.
     var hero = document.querySelector(".hs-spark svg.spark polyline:not(.rk-trace):not(.rk-dot)");
     if (hero) traceOne(hero, 8.2, true);
-    surfHero();
 
     traceFundRows();
 
@@ -434,20 +298,15 @@
     }, { passive: true });
   }
 
-  /* Current page marker, fallback only.
+  /* Current page marker.
 
-     beta-notice.js marks the active nav link from a hand maintained chain of
-     path patterns. That chain was written before Ratings and Stocks joined the
-     navigation, so on those two pages nothing is marked and the reader loses
-     their place. The markup is fine: every link already carries data-nav and a
-     real href.
-
-     This matches on the href instead, longest prefix wins, so it needs no
-     maintenance when a link is added. It runs only if nothing has been marked
-     already, which keeps beta-notice.js authoritative wherever it works. */
+     beta-notice.js marks the active link from a hand maintained chain of path
+     patterns, and this used to run only when that chain marked nothing. But on
+     a phone the wide link row is hidden and the reader only ever sees the menu,
+     so a mark on the wide row alone still left them without a "you are here".
+     This now matches on the href (longest prefix wins, so it needs no upkeep
+     when a link is added) and marks the same destination in BOTH places. */
   function markActiveNav() {
-    if (document.querySelector(".rk-links a.active, .rk-menu a.active")) return;
-
     var path = location.pathname.replace(/index\.html$/, "") || "/";
     var links = document.querySelectorAll(".rk-links a[href], .rk-menu a[href]");
     var best = null;
@@ -459,14 +318,36 @@
       var h = href.replace(/index\.html$/, "") || "/";
       if (h === "/") continue; // the home link must not win on every page
       if ((path === h || path.indexOf(h) === 0) && h.length > bestLen) {
-        best = links[i];
+        best = h;
         bestLen = h.length;
       }
     }
 
-    if (!best) return;
-    best.classList.add("active");
-    best.setAttribute("aria-current", "page");
+    for (var j = 0; j < links.length; j++) {
+      var a = links[j];
+      var hh = (a.getAttribute("href") || "").replace(/index\.html$/, "") || "/";
+      var pre = document.querySelector('.rk-links a.active[data-nav="' + a.getAttribute("data-nav") + '"]');
+      if ((best && hh === best) || (pre && a.getAttribute("data-nav"))) {
+        a.classList.add("active");
+        a.setAttribute("aria-current", "page");
+      }
+    }
+  }
+
+  /* Star ratings had no way in from the navigation: it was linked only from
+     the footer, and the phone menu is how 90% of readers move around. The
+     menu markup is repeated in every page and template, so it is added here,
+     once, right after Most-held Stocks. */
+  function addRatingsLink() {
+    var menu = document.getElementById("rkMenu");
+    if (!menu || menu.querySelector('[data-nav="ratings"], a[href="/ratings.html"]')) return;
+    var a = document.createElement("a");
+    a.href = "/ratings.html";
+    a.setAttribute("data-nav", "ratings");
+    a.textContent = "Star ratings";
+    var stocks = menu.querySelector('[data-nav="stocks"]');
+    if (stocks && stocks.nextSibling) menu.insertBefore(a, stocks.nextSibling);
+    else menu.appendChild(a);
   }
 
   /* Adds rk-barview to the Compare all funds panel when it scrolls into view,
@@ -729,7 +610,6 @@
       pinTableHeads();
       syncDoors();
       dressExpertDoor();
-      addRideTip();
       if (reduced) return;
       scan();
     traceSparks();
@@ -743,7 +623,6 @@
     trackSupportClicks();
     dressExpertDoor();
     syncDoors();
-    addRideTip();
     // The door's own handler runs first, so read the result on the next tick.
     document.addEventListener("click", function (e) {
       if (e.target && e.target.closest && e.target.closest(".door")) {
@@ -752,6 +631,7 @@
       }
     }, true);
     addEventListener("resize", measureChrome, { passive: true });
+    addRatingsLink();
     markActiveNav();
     menuFallback();
     guardSummaryTaps();
