@@ -4,12 +4,13 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-9ZHRMVLEEE');
+  // page_location without the #fragment: shared links carry the typed amount there
+  gtag('config', 'G-9ZHRMVLEEE', {page_location: location.href.split('#')[0]});
   window.addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-9ZHRMVLEEE';document.head.appendChild(s);},1800);});
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://cloudflareinsights.com; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>ReturnKoto? | Real Returns of Bangladeshi Mutual Funds</title>
 <meta name="description" content="See what your money would have become in 35 Bangladeshi open-end mutual funds: real NAV history with dividends reinvested by default or taken as cash, verified fees and holdings, side-by-side comparisons, most-held stocks and rankings by fund type. Free and independent.">
@@ -66,7 +67,7 @@
   [data-theme="dark"] .fund-n{color:#3DD98A}
   .asof{font-weight:700;color:var(--text)}
   .panel{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:18px;margin-top:20px}
-  label.fld{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:7px;text-transform:uppercase;letter-spacing:.03em}
+  .fld{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:7px;text-transform:uppercase;letter-spacing:.03em}
   .amount{position:relative}
   .amount span{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:600}
   input[type=number],.amount input{width:100%;padding:13px 14px 13px 30px;border:1px solid var(--border);border-radius:10px;font-size:18px;font-weight:700;font-family:inherit;color:var(--text)}
@@ -78,7 +79,7 @@
   [data-theme="dark"] .seg button.on{color:#3DD98A}
   #horizon button.on{background:#157A43;color:#fff}
   #horizon button{padding:9px 4px;font-size:12.5px;white-space:nowrap;min-width:0}
-  @media(max-width:420px){#horizon button{font-size:11.5px;padding:9px 2px}.hsel{max-width:62px;font-size:11.5px}}
+  @media(max-width:420px){#horizon button{font-size:12px;padding:9px 2px}.hsel{max-width:62px;font-size:12px}}
   .qbar{position:sticky;top:56px;z-index:50;display:flex;gap:7px;align-items:stretch;margin:16px 0 2px;padding:5px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
   .qbar[hidden]{display:none}
   .qbar .seg{padding:3px;gap:4px;align-items:center}
@@ -92,7 +93,7 @@
   .qsh.on::before{background:#fff;opacity:1}
   [data-theme="dark"] .qsh{background:#141C28}
   [data-theme="dark"] .qsh.on{background:#4F46E5;color:#fff}
-  @media(max-width:560px){.qbar{top:48px;margin-left:-6px;margin-right:-6px;padding:4px}.qbar .seg button{padding:8px 8px;font-size:11.5px}}
+  @media(max-width:560px){.qbar{top:48px;margin-left:-6px;margin-right:-6px;padding:4px}.qbar .seg button{padding:8px 8px;font-size:12px}}
   /* Touch targets: keep the main controls at a 44px minimum tap height on phones */
   @media(max-width:560px){.seg button,#horizon button,.qbar .seg button,.hsel,.qsel2,.qsh{min-height:44px}}
   [data-theme="dark"] .qbar{background:rgba(14,20,31,.95);border-color:#1E2735}
@@ -112,17 +113,18 @@
   .row{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--card);margin-top:10px}
   .row.best{border-color:var(--green)}
   .row.best .rank{width:auto;overflow:visible}
-  .bestbadge{display:inline-flex;align-items:center;font-size:11px;font-weight:800;color:var(--green-dark);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:999px;padding:2px 9px;letter-spacing:.02em}
+  .bestbadge{display:inline-flex;align-items:center;font-size:12px;font-weight:800;color:var(--green-dark);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:999px;padding:2px 9px;letter-spacing:.02em}
   [data-theme="dark"] .bestbadge{border-color:#1E4A30}
-  .rank{font-size:13px;font-weight:700;color:var(--muted);width:20px;text-align:center;flex:none}
+  .rank{font-size:13px;font-weight:700;color:#4B5563;width:20px;text-align:center;flex:none}
+  [data-theme="dark"] .rank{color:var(--muted)}
   .fund{flex:1;min-width:0}
   .fund .nm{font-weight:700;font-size:15px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
   .fund .tags{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:5px}
   .fundlink{color:inherit;text-decoration:none}
   .fundlink:hover{color:var(--green-dark);text-decoration:underline}
   .fundlink::after{content:"\2197";font-size:.78em;font-weight:800;color:var(--green-dark);margin-left:3px;vertical-align:top}
-  .tag{font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px;letter-spacing:.02em;white-space:nowrap}
-  @media(max-width:380px){.tag.batag{font-size:10px;padding:3px 7px}}
+  .tag{font-size:12px;font-weight:700;padding:2px 7px;border-radius:5px;letter-spacing:.02em;white-space:nowrap}
+  @media(max-width:380px){.tag.batag{font-size:12px;padding:3px 7px}}
   .tag.sh{background:#EEF2FF;color:#4338CA}
   .shrow{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}
   .shrow .sht{font-size:15px;font-weight:700;color:var(--text)}
@@ -140,7 +142,7 @@
   .tag.income{background:#E0F2FE;color:#0369A1}
   .tag.growth{background:#DCFCE7;color:#15803D}
   .tag.balanced{background:#E2E8F0;color:#475569}
-  .why{margin-top:8px;font-size:11.5px;line-height:1.5;color:#475569;background:#F1F5F9;border-radius:6px;padding:7px 10px}
+  .why{margin-top:8px;font-size:12px;line-height:1.5;color:#475569;background:#F1F5F9;border-radius:6px;padding:7px 10px}
   .why b{font-weight:700;color:#334155}
   .why.caveat{color:#475569;background:#F1F5F9}
   .why.caveat b{color:#334155}
@@ -156,16 +158,15 @@
   .nums .gn.pos{color:#15803d}
   .nums .gn.neg{color:var(--red)}
   .pos{color:var(--green-dark)} .neg{color:var(--red)}
-  .ann{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .ann{font-size:12px;color:var(--muted);margin-top:2px}
   .sec-title{font-size:18px;font-weight:800;letter-spacing:-.01em;margin:30px 0 12px}
   .eyebrow{display:inline-block;font-size:13px;font-weight:800;color:var(--green-dark);letter-spacing:-.01em;margin:0 0 2px}
   .herostat{margin-bottom:9px}
-  .hs-kicker{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px;line-height:1.35}
+  .hs-kicker{font-size:13px;font-weight:600;color:#4B5563;margin-bottom:6px;line-height:1.35}
+  [data-theme="dark"] .hs-kicker{color:var(--muted)}
   .hs-main{font-size:36px;font-weight:800;letter-spacing:-.03em;color:var(--text);line-height:1.05;font-variant-numeric:tabular-nums}
-  .hs-main b{color:var(--green-dark)}
-  .hs-spark{margin:10px 0 2px}
-  .hs-spark .spark{display:block;width:100%;height:36px;color:var(--green-dark)}
-  .hs-spark .spark.neg{color:var(--red)}
+  .hs-main .hs-final{color:var(--green-dark)}
+  .hs-main .hs-final.neg{color:var(--red)}
   .hs-op{font-weight:400;color:var(--muted)}
   .hs-sub{font-size:13.5px;font-weight:600;margin-top:3px;color:var(--muted)}
   .hs-ann{font-weight:700;color:var(--green-dark)}
@@ -177,7 +178,6 @@
   .hl-period{display:flex;align-items:center;gap:12px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed #BFE6D0}
   [data-theme="dark"] .hl-period{border-bottom-color:#2B3648}
   .hl-left{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
-  .hl-kicker{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--green-dark)}
   .hs-period-sel{appearance:none;-webkit-appearance:none;font-family:inherit;font-size:13px;font-weight:800;color:#fff;background-color:var(--green-dark);border:0;border-radius:999px;padding:10px 32px 10px 15px;min-height:40px;max-width:100%;cursor:pointer;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:11px 7px;transition:background-color .12s}
   .hs-period-sel:hover{background-color:#116538}
   [data-theme="dark"] .hs-period-sel{background-color:#157A43;color:#fff}
@@ -193,13 +193,12 @@
   @media(max-width:420px){#method button{white-space:normal;font-size:12px;line-height:1.3;padding:8px 5px}}
   .hs-fund{text-decoration:underline;text-underline-offset:2px}.hs-fund:hover{color:var(--text)}
   .hl-sentence{font-size:14px;color:var(--text);line-height:1.5}
-  .hl-note{font-size:13px;color:#57616F;margin:9px 0 0;text-align:center;animation:hlNoteIn .9s ease .35s both,hlGlow 3.8s ease-in-out 1.4s 3}
+  .hl-note{font-size:13px;color:#57616F;margin:9px 0 0;text-align:center;animation:hlNoteIn .9s ease .35s both}
   [data-theme="dark"] .hl-note{color:var(--muted)}
   @keyframes hlNoteIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
-  @keyframes hlGlow{0%,100%{text-shadow:none}50%{text-shadow:0 0 14px rgba(46,204,113,.6),0 0 3px rgba(46,204,113,.35);color:var(--text)}}
   .fresh-under{text-align:center;margin:8px 0 0;animation:hlNoteIn .9s ease .55s both}
   .cbar-fill.pos{opacity:.5}
-  details.why{margin-top:8px;font-size:11.5px;line-height:1.5;color:#475569}
+  details.why{margin-top:8px;font-size:12px;line-height:1.5;color:#475569}
   details.why>summary{cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-weight:700;color:#475569;background:#F1F5F9;border-radius:6px;padding:4px 9px;list-style:none;width:fit-content}
   details.why>summary::-webkit-details-marker{display:none}
   details.why>summary::after{content:"\203A";font-size:13px;opacity:.55;transform:rotate(90deg)}
@@ -212,7 +211,7 @@
   .chart-head .ct{font-size:14px;font-weight:700}
   .chart-head .cs{font-size:12px;color:var(--muted);margin-top:2px}
   .cseg{display:flex;gap:4px;background:#F1F3F5;border-radius:8px;padding:3px;flex:none}
-  .cseg button{border:none;background:transparent;padding:6px 11px;border-radius:6px;font-family:inherit;font-size:11.5px;font-weight:600;color:var(--muted);cursor:pointer}
+  .cseg button{border:none;background:transparent;padding:6px 11px;border-radius:6px;font-family:inherit;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer}
   .cseg button.on{background:#fff;color:var(--green-dark);font-weight:700;box-shadow:0 1px 2px rgba(0,0,0,.08)}
   .dvrow{margin-top:16px}
   .dhint{font-size:12px;color:var(--muted);margin-top:7px;line-height:1.5}
@@ -234,8 +233,8 @@
   .cbar-val{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;line-height:1.15}
   .cbar-num{font-size:12.5px;font-weight:700}
   .cbar-num.pos{color:#15803d}.cbar-num.neg{color:var(--red)}
-  .cbar-dur{font-size:10px;font-weight:600;color:var(--muted);margin-top:1px}
-  .cleg{font-size:11.5px;color:var(--muted);margin-top:10px}
+  .cbar-dur{font-size:12px;font-weight:600;color:var(--muted);margin-top:1px}
+  .cleg{font-size:12px;color:var(--muted);margin-top:10px}
   .showall{margin-top:12px;border:1px solid var(--border);background:#fff;color:var(--green-dark);font-family:inherit;font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:8px;cursor:pointer;width:100%}
   .showall:hover{background:var(--green-soft);border-color:var(--green)}
   .lcmore{margin-top:2px}
@@ -243,18 +242,18 @@
   .lmcount{display:block;font-size:12.5px;color:var(--muted);margin-bottom:9px}
   .lmcount b{color:var(--text)}
   #linechart svg{width:100%;height:auto;display:block}
-  .lcleg{display:flex;flex-wrap:wrap;gap:6px 13px;margin-top:10px;font-size:11px}
+  .lcleg{display:flex;flex-wrap:wrap;gap:6px 13px;margin-top:10px;font-size:12px}
   .lcleg .li{display:flex;align-items:center;gap:6px;color:var(--muted);white-space:nowrap;cursor:pointer;user-select:none}
   .lcleg .li.off{opacity:.55}
   .lcleg .li.inv .cbx{border-radius:2px}
   .lcleg .li.inv b,.lcleg .li.inv{font-weight:600}
   .lcleg .lcbulk{flex-basis:100%;display:flex;gap:8px;align-items:center;margin:1px 0 3px}
-  .lcleg .lcbulk button{font-family:inherit;font-size:11px;font-weight:700;color:var(--green-dark);background:none;border:0;padding:0;cursor:pointer}
+  .lcleg .lcbulk button{font-family:inherit;font-size:12px;font-weight:700;color:var(--green-dark);background:none;border:0;padding:0;cursor:pointer}
   .lcleg .lcbulk button[data-bulk="none"]{color:var(--muted)}
   .lcleg .lcbulk button:hover{text-decoration:underline}
   .lcleg .lcbulk .bsep{color:var(--border)}
   .lccmp{display:flex;flex-wrap:wrap;align-items:center;gap:7px 8px;margin-top:12px;padding:9px 12px;background:#F8FAFC;border:1px solid var(--line);border-radius:11px}
-  .lccmp .cmplbl{font-size:10.5px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin-right:3px}
+  .lccmp .cmplbl{font-size:12px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin-right:3px}
   .cmppill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-family:inherit;color:var(--muted);background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer;transition:background .12s,border-color .12s,color .12s;white-space:nowrap}
   .cmppill .pdot{width:9px;height:9px;border-radius:50%;background:var(--cc);opacity:.45;transition:opacity .12s}
   .cmppill:hover{border-color:var(--cc)}
@@ -264,7 +263,7 @@
   .cmppill[data-key="crowdfunding"].on::before{content:"🤡 "}
   .cmppill[data-key="crowdfunding"].on .pdot{display:none}
   .cmpbasis{display:inline-flex;gap:2px;background:#eef2f5;border-radius:8px;padding:2px;margin-right:5px;vertical-align:middle}
-  .cmpbb{border:none;background:transparent;font-family:inherit;font-size:11.5px;font-weight:700;color:var(--muted);padding:5px 9px;border-radius:6px;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+  .cmpbb{border:none;background:transparent;font-family:inherit;font-size:12px;font-weight:700;color:var(--muted);padding:5px 9px;border-radius:6px;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}
   .cmpbb.on{background:#fff;color:var(--green-dark);box-shadow:0 1px 2px rgba(0,0,0,.12)}
   [data-theme="dark"] .cmpbasis{background:#212C3C}
   [data-theme="dark"] .cmpbb.on{background:#0B111A;color:#3DD98A}
@@ -277,7 +276,7 @@
   .lcleg .li:not(.off) .cbx{background:var(--cc);border-color:var(--cc)}
   .lcleg .li:not(.off) .cbx::after{content:"";position:absolute;left:4px;top:1px;width:3.5px;height:7px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
   .chartpanel{position:relative}
-  #lctip{position:absolute;pointer-events:none;transform:translate(-50%,-145%);background:#111827;color:#fff;font-size:11px;font-weight:600;padding:3px 7px;border-radius:6px;white-space:nowrap;opacity:0;transition:opacity .08s;z-index:6}
+  #lctip{position:absolute;pointer-events:none;transform:translate(-50%,-145%);background:#111827;color:#fff;font-size:12px;font-weight:600;padding:3px 7px;border-radius:6px;white-space:nowrap;opacity:0;transition:opacity .08s;z-index:6}
   #lctip.on{opacity:1}
   #linechart svg path{stroke-linejoin:round;stroke-linecap:round}
   .lcsel{font-size:12px;color:var(--muted);min-height:17px;margin-top:6px}
@@ -292,10 +291,10 @@
   .rategrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
   .ratefield{display:flex;flex-direction:column;gap:4px;background:#F8FAFC;border:1px solid var(--border);border-radius:10px;padding:8px 11px;transition:border-color .15s,background .15s}
   .ratefield:focus-within{border-color:var(--green);background:#fff}
-  .ratefield label{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--muted)}
+  .ratefield label{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--muted)}
   .ratefield .rdot{width:7px;height:7px;border-radius:50%;flex:none}
   .ratefield .inwrap{display:flex;align-items:baseline;gap:1px}
-  .ratefield input{width:44px;border:none;background:transparent;padding:0;font-family:inherit;font-size:16px;font-weight:700;color:var(--text);text-align:right;-moz-appearance:textfield}
+  .ratefield input{width:100%;min-width:44px;min-height:32px;border:none;background:transparent;padding:0;font-family:inherit;font-size:16px;font-weight:700;color:var(--text);text-align:right;-moz-appearance:textfield}
   .ratefield input:focus{outline:none}
   .ratefield input::-webkit-outer-spin-button,.ratefield input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
   .ratefield .pct{font-size:13px;font-weight:600;color:var(--muted)}
@@ -306,7 +305,7 @@
   @keyframes betaWiggle{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(-1deg) scale(1.07)}}
   .learncta{display:block;margin-top:22px;padding:13px 16px;background:var(--green-soft);border:1px solid #CDEEDB;border-radius:12px;color:var(--green-dark);font-weight:700;font-size:14px;text-decoration:none;transition:background .12s}
   .learncta:hover{background:#D6F0E2}
-  @media(max-width:560px){.cbar-row{grid-template-columns:118px 1fr 76px;gap:8px}.cbar-name{font-size:11px}.cbar-num{font-size:11.5px}.cbar-dur{font-size:9.5px}}
+  @media(max-width:560px){.cbar-row{grid-template-columns:118px 1fr 80px;gap:8px}.cbar-name{font-size:12px}.cbar-num{font-size:12px}.cbar-dur{font-size:12px}}
   .miss{animation:hlNoteIn .7s ease both;display:flex;align-items:center;gap:11px;flex-wrap:wrap;font-size:13px;font-weight:600;color:#475569;background:#F1F5F9;border:1px solid #E2E8F0;border-left:4px solid #94A3B8;border-radius:10px;padding:12px 14px;margin-top:12px}
   .miss .miss-ic{flex:none;width:26px;height:26px;color:#94A3B8}
   .themetog{background:none;border:0;cursor:pointer;font-size:15px;line-height:1;padding:5px 7px;border-radius:7px;display:inline-flex;align-items:center}
@@ -351,8 +350,7 @@
   [data-theme="dark"] .tag.growth{background:#0C2E1B;color:#4ADE80}
   [data-theme="dark"] .tag.balanced{background:#2A3446;color:#AAB6C6}
   [data-theme="dark"] .pos,[data-theme="dark"] .nums .gn.pos,[data-theme="dark"] .cbar-num.pos,[data-theme="dark"] .hs-pct.pos{color:#34D399}
-  [data-theme="dark"] .hs-main b,[data-theme="dark"] .eyebrow,[data-theme="dark"] .fundlink:hover,[data-theme="dark"] .fundlink::after{color:#3DD98A}
-  [data-theme="dark"] .hs-main b{text-shadow:0 0 22px rgba(61,217,138,.28)}
+  [data-theme="dark"] .hs-main .hs-final:not(.neg),[data-theme="dark"] .eyebrow,[data-theme="dark"] .fundlink:hover,[data-theme="dark"] .fundlink::after{color:#3DD98A}
   [data-theme="dark"] .headline{box-shadow:inset 0 1px 0 rgba(61,217,138,.08)}
   [data-theme="dark"] .cfmsg a,[data-theme="dark"] .lcsel .x,[data-theme="dark"] .lcleg .lcbulk button{color:#3DD98A}
   [data-theme="dark"] .rk-foot{background:#0B111A;border-top-color:#1E2735}
@@ -402,7 +400,7 @@
   .src-body{padding:2px 16px 16px;font-size:12.5px;color:var(--muted);line-height:1.65}
   .src-body a{color:var(--green-dark);text-decoration:none}
   .src-body a:hover{text-decoration:underline}
-  .src-body h4{font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.03em;margin:12px 0 5px}
+  .src-body h4{font-size:12px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.03em;margin:12px 0 5px}
   .fdtog{margin-top:9px;display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--green-dark);background:#EFFAF3;border:1px solid #CDEBD8;border-radius:8px;padding:5px 11px;cursor:pointer;transition:background .15s,border-color .15s}
   .fdtog:hover{background:#E3F6EA;border-color:#A9DCBC}
   .fdtog .fchev{font-size:10px;transition:transform .2s}
@@ -412,12 +410,12 @@
   @keyframes fdIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
   .fdgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px 20px}
   .fdrow{display:flex;flex-direction:column;gap:2px}
-  .fdk{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+  .fdk{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
   .fdv{font-size:12.5px;color:#1F2937;line-height:1.45}
   .fdfee{grid-column:1/-1;background:linear-gradient(135deg,#EFFAF3,#FBFEFC);border:1px solid #CDEBD8;border-radius:9px;padding:9px 12px}
   .fdfee .fdk{color:var(--green-dark)}
   .fdfee .fdv{font-weight:800;font-size:14px;color:#13301F}
-  .fdnote{margin-top:12px;font-size:10.8px;color:var(--muted);line-height:1.5}
+  .fdnote{margin-top:12px;font-size:12px;color:var(--muted);line-height:1.5}
   .fdlim{font-size:12px;color:#475569;background:#F1F5F9;border-radius:8px;padding:10px 12px;line-height:1.5}
   @media(max-width:560px){.fdgrid{grid-template-columns:1fr}}
   .sortbar{margin-top:20px}
@@ -581,20 +579,17 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   button.tag{border:0;font-family:inherit;cursor:pointer;line-height:inherit}
   button.fsz{background:none;border:0;padding:0;font-family:inherit;font-size:inherit;cursor:pointer;text-decoration:underline dotted;text-underline-offset:2px}
   /* ---- Headline context + chart caption + safe-line ---- */
-  .hl-ctx{font-size:13px;color:var(--muted);margin-top:13px;line-height:1.7}
+  .hl-ctx{font-size:13px;color:#4B5563;margin-top:13px;line-height:1.7}
+  [data-theme="dark"] .hl-ctx{color:var(--muted)}
   .hl-ctx b{color:var(--text)}
   .hs-sub{margin-top:5px}
   .hl-sentence{margin-top:7px}
   #topperf{margin-top:16px}
   .lccap{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
-  .safeline{font-size:13px;color:var(--text);background:#F8FAFC;border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-top:12px;line-height:1.6}
-  .safeline a{color:var(--green-dark);font-weight:700;text-decoration:none}
-  .safeline a:hover{text-decoration:underline}
-  [data-theme="dark"] .safeline{background:#141C28}
   .amthint{font-size:12px;color:var(--amber);margin-top:6px}
   .shnote{font-weight:600;text-transform:none;letter-spacing:0;font-size:12px;flex-basis:100%;margin-left:20px;color:var(--muted)}
   /* ---- Legend items as real buttons ---- */
-  .lcleg button.li{background:none;border:0;font-family:inherit;font-size:11px;text-align:left;padding:0}
+  .lcleg button.li{background:none;border:0;font-family:inherit;font-size:12px;text-align:left;padding:0}
   /* ---- Larger touch targets on phones ---- */
   @media(max-width:560px){
     details.why>summary{padding:9px 12px}
@@ -662,7 +657,13 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   [data-theme="dark"] .ty-other{--tytext:#94A3B8}
   .typehead-n{color:var(--tytext,var(--tycol,#157A43))}
   .tag.batag{color:var(--tytext,var(--tycol,#157A43))}
-  /* benchmark names in the caption need brighter shades on dark */
+  /* Benchmark names in the caption: the line colours are too pale for 12px text,
+     so the caption uses deeper shades on light and brighter ones on dark (AA both) */
+  .lccap b[data-bn="Sanchayapatra"]{color:#BE185D}
+  .lccap b[data-bn="DPS"]{color:#0369A1}
+  .lccap b[data-bn="FDR"]{color:#475569}
+  .lccap b[data-bn="Inflation"]{color:#B91C1C}
+  .lccap b[data-bn="Gold"]{color:#B45309}
   [data-theme="dark"] .lccap b[data-bn="Sanchayapatra"]{color:#F472B6!important}
   [data-theme="dark"] .lccap b[data-bn="DPS"]{color:#38BDF8!important}
   [data-theme="dark"] .lccap b[data-bn="FDR"]{color:#94A3B8!important}
@@ -718,6 +719,35 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   }
 
 .nm a,.ba-nm,.hs-fund{overflow-wrap:anywhere}.fund-short{white-space:nowrap;font-weight:600;color:var(--muted);letter-spacing:.02em;font-size:.92em}
+  /* ---- Result card: middle-fund answer, outcome strip, safe-option line (Sep 2026) ---- */
+  .hl-strip{margin:14px 0 2px;color:var(--text)}
+  .hl-strip svg{display:block;width:100%;height:auto;overflow:visible}
+  .hl-strip{--st-dot:#64748B;--st-sep:#F2FBF6;--st-axis:#94A3B8;--st-txt:#4B5563;--st-med:#157A43}
+  [data-theme="dark"] .hl-strip{--st-dot:#8FA0B8;--st-sep:#14261D;--st-axis:#4A5A70;--st-txt:#AEB9CC;--st-med:#3DD98A}
+  .st-dot{fill:var(--st-dot);stroke:var(--st-sep);stroke-width:1}
+  .st-med{fill:var(--st-med);stroke:var(--st-sep);stroke-width:2}
+  .st-axis{stroke:var(--st-axis);stroke-width:1}
+  .st-end,.st-medlab{font-size:12px;font-weight:600;fill:var(--st-txt)}
+  .st-medlab{font-weight:800;fill:var(--st-med)}
+  .st-line{stroke:var(--mc);stroke-width:1.5}
+  .st-lab{font-size:12px;font-weight:700;fill:var(--mc)}
+  .st-put .st-line{stroke-dasharray:3 3}
+  .st-dep{--mc:#0369A1}.st-san{--mc:#BE185D}.st-inf{--mc:#B91C1C}.st-put{--mc:#475569}
+  [data-theme="dark"] .st-dep{--mc:#38BDF8}
+  [data-theme="dark"] .st-san{--mc:#F472B6}
+  [data-theme="dark"] .st-inf{--mc:#F87171}
+  [data-theme="dark"] .st-put{--mc:#9BA7BB}
+  .hl-dps{font-size:13.5px;line-height:1.6;color:var(--text);margin-top:10px}
+  .hl-dps a{color:var(--green-dark);font-weight:700;text-decoration:none;white-space:nowrap}
+  .hl-dps a:hover{text-decoration:underline}
+  .hl-err{text-align:center;padding:14px 0 6px;font-size:14px;line-height:1.55;color:var(--text)}
+  .hl-retry{margin-top:12px;font-family:inherit;font-size:14px;font-weight:800;color:#fff;background:var(--green-dark);border:0;border-radius:10px;padding:11px 20px;min-height:44px;cursor:pointer}
+  [data-theme="dark"] .hl-retry{background:#157A43;color:#fff}
+  /* Section title with its tip button beside it, not inside the h2, so the heading's
+     accessible name stays "Compare all funds" rather than "Compare all funds ?" */
+  .ct-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .bars-tog{margin-top:4px}
+  @media(max-width:560px){.ratefield input{min-height:44px}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"ReturnKoto?","alternateName":"ReturnKoto?","url":"https://returnkoto.com/","description":"Historical return calculator for Bangladeshi open-end mutual funds. See what a SIP or lump-sum investment would actually have earned, with dividends reinvested by default or taken as cash, and verified fund fees and details.","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"BDT"},"featureList":["Historical SIP and lump-sum returns","Total return with dividends reinvested by default or taken as cash","Verified management fees, trustee and custodian for each fund","Dedicated Shariah funds section","Comparison with Sanchayapatra, DPS, FDR, gold and inflation"],"areaServed":{"@type":"Country","name":"Bangladesh"}}
@@ -756,7 +786,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   <header>
     <h1>What if you&rsquo;d actually invested?</h1>
     <p>One amount. Real Bangladesh fund history. See what it&nbsp;became.</p>
-    <p class="hero-stat">ReturnKoto? tracks <span class="fund-n">35</span> mutual funds, and <b class="st-u">2,900+</b> people have used the calculator</p>
+    <p class="hero-stat">ReturnKoto? tracks <span class="fund-n">35</span> mutual funds, and <b class="st-u">4,690+</b> people have used the calculator</p>
   </header>
 
   <h2 class="sr-only">Calculate what your money would have become</h2>
@@ -767,10 +797,10 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
     <p class="rk-hook" id="rkHook">Example starting amount: <b>৳5,000</b>. Change it anytime.</p>
 
     <div style="margin-top:14px">
-      <label class="fld">How you&rsquo;d invest <button type="button" class="tipbtn" data-tipkey="sip" data-tip="SIP means investing a fixed amount every month, like a DPS, except it buys fund units instead of sitting in a deposit. One Time (Lump Sum) means the whole amount is invested at the start." aria-label="What do these methods mean?">?</button></label>
-      <div class="seg" id="method">
-        <button data-m="sip" class="on">Every Month (SIP)</button>
-        <button data-m="lump">One Time (Lump Sum)</button>
+      <div class="fld" id="methodLbl">How you&rsquo;d invest <button type="button" class="tipbtn" data-tipkey="sip" data-tip="SIP means investing a fixed amount every month, like a DPS, except it buys fund units instead of sitting in a deposit. One Time (Lump Sum) means the whole amount is invested at the start." aria-label="What do these methods mean?">?</button></div>
+      <div class="seg" id="method" role="group" aria-labelledby="methodLbl">
+        <button type="button" data-m="sip" class="on" aria-pressed="true">Every Month (SIP)</button>
+        <button type="button" data-m="lump" aria-pressed="false">One Time (Lump Sum)</button>
       </div>
     </div>
     <div class="shrow" style="margin-top:16px">
@@ -782,15 +812,15 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
 
   <div id="answerzone" hidden>
   <div class="headline" id="headline">
-    <div class="hl-period"><div class="hl-left"><span class="hl-kicker">Historical result</span><span class="hl-range" id="hlRange"></span></div><select id="hsPeriodSel" class="hs-period-sel" aria-label="Return period"><option value="6">Last 6 months</option><option value="ytd">Year to date</option><option value="12">Last 1 year</option><option value="24">Last 2 years</option><option value="36" selected>Last 3 years</option><option value="60">Last 5 years</option><option value="max">Since launch</option></select></div>
+    <div class="hl-period"><div class="hl-left"><span class="hl-range" id="hlRange">Historical result</span></div><select id="hsPeriodSel" class="hs-period-sel" aria-label="Return period"><option value="12">Last 1 year</option><option value="36" selected>Last 3 years</option><option value="60">Last 5 years</option><option value="max">Since launch</option><option value="more">More periods&hellip;</option></select></div>
     <div id="hlBody"><div class="hl-loading">Loading fund returns&hellip;</div></div>
   </div>
   <div class="sr-only" aria-live="polite" id="srlive"></div>
   <p class="hl-note">For learning and research. Past performance doesn&rsquo;t predict the future.</p>
-  <p class="fresh fresh-under"><span class="dot"></span>Comparable through <span class="asof-wrap"><span class="asof">23 Sep 2026</span> <button type="button" class="tipbtn" id="asofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
+  <p class="fresh fresh-under"><span class="dot"></span>Comparable through <span class="asof-wrap"><span class="asof">23 Sep 2026</span> <button type="button" class="tipbtn" id="asofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs." aria-label="Why this as-of date?" aria-expanded="false">i</button></span></p>
 
   <div class="doors">
-    <button type="button" class="door door-b" id="doorBeginner" aria-expanded="false" aria-controls="beginnerCard">New to funds? Click here</button>
+    <button type="button" class="door door-b" id="doorBeginner" aria-expanded="false" aria-controls="beginnerCard">New to funds? Start here</button>
   </div>
   <div class="bcard" id="beginnerCard" hidden>
     <p>A mutual fund pools money from many savers, and a licensed manager invests it in shares and bonds. You own units; their price is called NAV, and it moves with the value of everything the fund owns. Below: what your amount became in each tracked fund&rsquo;s published history.</p>
@@ -804,7 +834,7 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   </div>
 
   <section class="browseall" id="topperf">
-    <div class="ba-head"><h2 class="ba-title" id="tpTitle">Top performers · 3-year annualized returns</h2></div>
+    <div class="ba-head"><h2 class="ba-title" id="tpTitle">Top performers · Monthly SIP, per year, last 3 years</h2></div>
     <div class="ba-grid" id="browseall"></div>
   </section>
 
@@ -816,23 +846,23 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
 
   <div id="cockpit" hidden>
   <div class="panel" id="optionspanel">
-    <label class="fld">Return period <button type="button" class="tipbtn" data-tipkey="max" data-tip="Each period replays the fund's real history, ending at the shared comparison date. Three years is the default: long enough to smooth short-term noise, short enough that most funds are comparable. YTD runs from 1 January of the current data year through that shared date. Since launch uses each fund's own full history, so periods differ by fund; the small label under each bar shows how many years that figure covers." aria-label="What do the return periods mean?">?</button></label>
-    <div class="seg" id="horizon">
-      <button data-h="6">6 mo</button>
-      <button data-h="ytd">YTD</button>
-      <button data-h="12">1 yr</button>
-      <button data-h="24">2 yr</button>
-      <button data-h="36" class="on">3 yr</button>
-      <button data-h="60">5 yr</button>
-      <button data-h="max">Since launch</button>
+    <div class="fld" id="horizonLbl">Return period <button type="button" class="tipbtn" data-tipkey="max" data-tip="Each period replays the fund's real history, ending at the shared comparison date. Three years is the default: long enough to smooth short-term noise, short enough that most funds are comparable. YTD runs from 1 January of the current data year through that shared date. Since launch uses each fund's own full history, so periods differ by fund; the small label under each bar shows how many years that figure covers." aria-label="What do the return periods mean?">?</button></div>
+    <div class="seg" id="horizon" role="group" aria-labelledby="horizonLbl">
+      <button type="button" data-h="6" aria-pressed="false">6 mo</button>
+      <button type="button" data-h="ytd" aria-pressed="false">YTD</button>
+      <button type="button" data-h="12" aria-pressed="false">1 yr</button>
+      <button type="button" data-h="24" aria-pressed="false">2 yr</button>
+      <button type="button" data-h="36" class="on" aria-pressed="true">3 yr</button>
+      <button type="button" data-h="60" aria-pressed="false">5 yr</button>
+      <button type="button" data-h="max" aria-pressed="false">Since launch</button>
     </div>
     <details class="allopts" id="allopts">
       <summary>All options: dividends as cash, Shariah filter, longer periods</summary>
       <div class="dvrow bc-off" id="dvrow">
-        <label class="fld">Dividends <button type="button" class="tipbtn" data-tipkey="dividends" data-tip="Reinvested means cash payouts are used to buy more units, so returns compound. Taken as cash shows the payouts kept aside instead." aria-label="What does the dividends choice mean?">?</button></label>
-        <div class="seg" id="divbasis">
-          <button type="button" data-basis="reinvest" class="on">Reinvested</button>
-          <button type="button" data-basis="cash">Taken as cash</button>
+        <div class="fld" id="divbasisLbl">Dividends <button type="button" class="tipbtn" data-tipkey="dividends" data-tip="Reinvested means cash payouts are used to buy more units, so returns compound. Taken as cash shows the payouts kept aside instead." aria-label="What does the dividends choice mean?">?</button></div>
+        <div class="seg" id="divbasis" role="group" aria-labelledby="divbasisLbl">
+          <button type="button" data-basis="reinvest" class="on" aria-pressed="true">Reinvested</button>
+          <button type="button" data-basis="cash" aria-pressed="false">Taken as cash</button>
         </div>
         <div class="dhint" id="divhint"></div>
       </div>
@@ -844,23 +874,25 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   </div>
 
   <div class="qbar" id="qbar" aria-label="Quick controls: method and return period" hidden>
-    <div class="seg qseg" id="sMethod"><button type="button" data-m="sip" class="on">Monthly</button><button type="button" data-m="lump">One-time</button></div>
+    <div class="seg qseg" id="sMethod" role="group" aria-label="How you'd invest"><button type="button" data-m="sip" class="on" aria-pressed="true">Monthly</button><button type="button" data-m="lump" aria-pressed="false">One-time</button></div>
     <select id="qPeriod" class="qsel2" aria-label="Return period"><option value="6">6 months</option><option value="ytd">YTD</option><option value="12">1 year</option><option value="24">2 years</option><option value="36" selected>3 years</option><option value="60">5 years</option><option value="max">Since launch</option></select>
     <button type="button" id="qSh" class="qsh" aria-pressed="false" title="Show only Halal-certified funds">Shariah</button>
   </div>
 
-  <div class="panel chartpanel">
-    <p class="rk-barnote">Bars in each column are relative to the largest figure in that column, not a 0 to 100% scale. <button type="button" class="tipbtn" data-tipkey="barscale" data-tip="Read the printed %. A full bar means that cell is the largest figure in its column. A short bar means a smaller figure than the column&#39;s peak, not a near-zero return. A 3% six-month gain looks tiny next to a 100% since-launch total because both sit in the same column. That is deliberate, so you can scan which periods dominated." aria-label="How are these bars scaled?">?</button></p>
+  <div class="panel chartpanel" id="barpanel">
     <div class="chart-head">
-      <div><h2 class="ct">Compare all funds <button type="button" class="tipbtn" data-tipkey="annualized" data-tip="Annualized is the steady per-year rate that would give the same overall result for this period; it makes different periods comparable. Final value is the taka amount at the end." aria-label="What do Annualized and Final value mean?">?</button></h2><div class="cs" id="chartsub"></div></div>
-      <div class="cseg" id="chartmetric">
-        <button data-cm="annual" class="on">Annualized</button>
-        <button data-cm="value">Final value</button>
-      </div>
+      <div><div class="ct-row"><h2 class="ct" id="barsTitle">Compare all funds</h2><button type="button" class="tipbtn" data-tipkey="annualized" data-tip="Annualized is the steady per-year rate that would give the same overall result for this period; it makes different periods comparable. Final value is the taka amount at the end." aria-label="What do Annualized and Final value mean?">?</button></div><div class="cs" id="chartsub"></div></div>
     </div>
-    <div id="chart"></div>
-    <div class="cleg" id="chartleg" style="display:none">The grey line marks what you invested. Bar past it is profit, short of it is a loss.</div>
-    
+    <button type="button" class="showall bars-tog" id="barsTog" aria-expanded="false" aria-controls="barsBody">Show the ranked bar chart &#9662;</button>
+    <div id="barsBody" hidden>
+      <div class="cseg" id="chartmetric" role="group" aria-label="Measure shown by the bars" style="width:fit-content;margin:12px 0">
+        <button type="button" data-cm="annual" class="on" aria-pressed="true">Annualized</button>
+        <button type="button" data-cm="value" aria-pressed="false">Final value</button>
+      </div>
+      <p class="rk-barnote">Bars in each column are relative to the largest figure in that column, not a 0 to 100% scale. <button type="button" class="tipbtn" data-tipkey="barscale" data-tip="Read the printed %. A full bar means that cell is the largest figure in its column. A short bar means a smaller figure than the column&#39;s peak, not a near-zero return. A 3% six-month gain looks tiny next to a 100% since-launch total because both sit in the same column. That is deliberate, so you can scan which periods dominated." aria-label="How are these bars scaled?">?</button></p>
+      <div id="chart"></div>
+      <div class="cleg" id="chartleg" style="display:none">The grey line marks what you invested. Bar past it is profit, short of it is a loss.</div>
+    </div>
   </div>
 
   <div class="panel chartpanel">
@@ -875,7 +907,6 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
     <div id="lccompare" class="lccmp"></div>
     <div id="lclegend" class="lcleg"></div>
     <div id="lccaption" class="lccap"></div>
-    <div id="safeline" class="safeline" hidden></div>
     <div id="cfLink" class="cflink"><button type="button" data-cflink>See how &quot;Crowdfunding&quot; returns compare with other investment options in Bangladesh &rarr;</button></div>
     <div id="lcmore" class="lcmore"></div>
     <div id="cfPanel" style="display:none">
@@ -1077,8 +1108,100 @@ function applyRates(){var r=PERIODRATES[horizon]||(function(){if(horizon==="ytd"
 function scheduleRender(d){clearTimeout(window._rrT);window._rrT=setTimeout(render,d||0);}
 function syncBasisUI(){document.querySelectorAll("#divbasis button,#lcbasis button").forEach(b=>b.classList.toggle("on",b.getAttribute("data-basis")===divBasis));const h=document.getElementById("divhint");if(h)h.textContent=divBasis==="cash"?"Every dividend is taken out as cash instead of reinvested. Useful if you plan to spend the payouts.":"Default. Dividends are put back into the fund to compound over time, which is what we encourage.";}
 function setDivBasis(v){if(v!=="cash"&&v!=="reinvest")return;if(divBasis!==v){hashTouched=true;track("set_basis",{basis:v});}divBasis=v;syncBasisUI();scheduleRender();}
+const slugOf=f=>f.label.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+const sgnPct=v=>(v>=0?"+":"")+tn(v);
+const escA=v=>String(v).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+const rateIn=id=>{const e=document.getElementById(id);return e?(+e.value||0):0;};
+const fmtC=v=>{const a=Math.abs(v);if(a>=1e7)return "৳"+(v/1e7).toFixed(2)+"Cr";if(a>=1e5)return "৳"+(v/1e5).toFixed(2)+"L";if(a>=1e3)return "৳"+(v/1e3).toFixed(1)+"k";return "৳"+Math.round(v);};
+// Safe-option value as a multiple of the amount, with the same deposit timing as the
+// fund figures in data.json (build-data.js backtest): a lump sum is held m months; a
+// SIP is m monthly deposits valued one month after the last. With dividends taken as
+// cash, deposit products earn simple interest to match; inflation is a price index,
+// so callers pass simple=false for it and it always compounds.
+function safeMult(rate,m,isSIP,simple){
+  const r=rate/100;
+  if(!isSIP)return simple?(1+r*m/12):Math.pow(1+r,m/12);
+  if(simple)return m+r/12*m*(m+1)/2;
+  const g=Math.pow(1+r,1/12);let s=0,k=g;for(let i=0;i<m;i++){s+=k;k*=g;}return s;
+}
+/* Outcome strip: every fund as one dot on a single axis, the middle fund
+   highlighted, and the safe options as labelled markers. Fixed periods plot the taka
+   each fund ended with (same start, same deposits), so dots and markers compare
+   directly; Since launch plots %/yr because each fund's history is a different
+   length. Drawn at the card's real width so its 12px text stays 12px on a phone. */
+let _strip=null;
+function stripTextW(t){try{const c=stripTextW.c||(stripTextW.c=document.createElement("canvas").getContext("2d"));c.font="700 12px Inter,-apple-system,BlinkMacSystemFont,sans-serif";return c.measureText(t).width;}catch(e){return t.length*7;}}
+function drawStrip(){
+  const host=document.getElementById("hlStrip");
+  if(!host||!_strip)return;
+  const S=_strip,W=Math.max(240,Math.round(host.clientWidth||320));
+  const R=4.5,RM=7,ROWH=17,DY=2*R+1,EDGE=RM+2;
+  const all=S.pts.concat(S.marks.map(m=>m.v));
+  let lo=Math.min(...all),hi=Math.max(...all);
+  if(!(hi>lo)){lo-=1;hi+=1;}
+  const X=v=>EDGE+(v-lo)/(hi-lo)*(W-2*EDGE);
+  // Marker labels: each label sits centred on its line, or just left or right of it,
+  // in one of up to n rows. Every combination is scored (at most 12^4, cheap): text
+  // overlapping text is worst, then a label crossed by another marker's line, then
+  // extra rows, then off-centre labels. Close rates (DPS and inflation are often
+  // within half a point) end up side by side, one on each side of the pair.
+  const mk=S.marks.map(m=>{const x=X(m.v),tw=stripTextW(m.lab);
+    const place=l=>{l=Math.max(0,Math.min(W-tw,l));return {l,r:l+tw};};
+    return {m,x,opts:[place(x-tw/2),place(x-tw-4),place(x+4)]};});
+  const n=mk.length;let pick=mk.map(()=>({row:0,o:0})),scoreBest=Infinity;
+  const K=n*3;
+  for(let c=0,total=Math.pow(Math.max(K,1),n);c<total;c++){
+    const ch=[];let t=c;for(let i=0;i<n;i++){const v=t%K;ch.push({row:Math.floor(v/3),o:v%3});t=Math.floor(t/K);}
+    let score=0,maxRow=0;
+    for(let i=0;i<n;i++){
+      const a=mk[i].opts[ch[i].o];maxRow=Math.max(maxRow,ch[i].row);if(ch[i].o)score+=1;
+      for(let j=0;j<n;j++){
+        if(i===j)continue;const b=mk[j].opts[ch[j].o];
+        if(j>i&&ch[i].row===ch[j].row&&a.l<b.r+8&&b.l<a.r+8)score+=1000;
+        if(ch[j].row<ch[i].row&&mk[j].x>a.l-4&&mk[j].x<a.r+4)score+=100; // j's line runs down through i's label
+      }
+    }
+    score+=maxRow*10;
+    if(score<scoreBest){scoreBest=score;pick=ch;}
+  }
+  mk.forEach((o,i)=>{const p=o.opts[pick[i].o];o.l=p.l;o.r=p.r;});
+  const rowsBest=pick.map(p=>p.row);
+  const labH=n?(Math.max(...rowsBest)+1)*ROWH:0;
+  // Beeswarm: the middle fund first on the centre row, then the rest left to right,
+  // each on the nearest row where it touches nothing (rows alternate below/above)
+  const order=S.pts.map((_,i)=>i).sort((a,b)=>a===S.med?-1:b===S.med?1:S.pts[a]-S.pts[b]);
+  const placed=[],MAXROW=6;
+  order.forEach(i=>{
+    const x=X(S.pts[i]),r=i===S.med?RM:R;let row=0;
+    for(let k=1;k<=2*MAXROW+1;k++){
+      const cand=k===1?0:(k%2?-(k-1)/2:k/2);
+      if(placed.every(p=>Math.hypot(p.x-x,(p.row-cand)*DY)>=p.r+r+0.6)){row=cand;break;}
+    }
+    placed.push({i,x,row,r});
+  });
+  const up=Math.max(0,...placed.map(p=>-p.row)),dn=Math.max(0,...placed.map(p=>p.row));
+  const yc=labH+6+RM+up*DY,axisY=yc+dn*DY+RM+5,H=axisY+19;
+  let s='<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" aria-label="'+escA(S.aria)+'">';
+  mk.forEach((o,i)=>{const ry=rowsBest[i]*ROWH;s+='<g class="'+o.m.cls+'"><line class="st-line" x1="'+o.x.toFixed(1)+'" x2="'+o.x.toFixed(1)+'" y1="'+(ry+ROWH-1)+'" y2="'+axisY+'"/><text class="st-lab" x="'+o.l.toFixed(1)+'" y="'+(ry+12)+'">'+escA(o.m.lab)+'</text></g>';});
+  s+='<line class="st-axis" x1="0" x2="'+W+'" y1="'+axisY+'" y2="'+axisY+'"/>';
+  let pm=null;
+  placed.forEach(p=>{if(p.i===S.med){pm=p;return;}s+='<circle class="st-dot" cx="'+p.x.toFixed(1)+'" cy="'+(yc+p.row*DY).toFixed(1)+'" r="'+R+'"/>';});
+  if(pm)s+='<circle class="st-med" cx="'+pm.x.toFixed(1)+'" cy="'+(yc+pm.row*DY).toFixed(1)+'" r="'+RM+'"/>';
+  // Under the axis: "Middle" beneath the highlighted dot, and the lowest and highest
+  // fund values beneath their own dots, dropped if they would collide with "Middle"
+  const bl=[],lab=(txt,x,cls)=>{const tw=stripTextW(txt),l=Math.max(0,Math.min(W-tw,x-tw/2));return {txt,l,r:l+tw,cls};};
+  if(pm)bl.push(lab("Middle",pm.x,"st-medlab"));
+  const vmin=Math.min(...S.pts),vmax=Math.max(...S.pts);
+  [lab(S.fmt(vmin),X(vmin),"st-end"),lab(S.fmt(vmax),X(vmax),"st-end")].forEach(e=>{if(bl.every(b=>e.r+8<b.l||e.l>b.r+8))bl.push(e);});
+  bl.forEach(b=>{s+='<text class="'+b.cls+'" x="'+b.l.toFixed(1)+'" y="'+(axisY+15)+'">'+escA(b.txt)+'</text>';});
+  s+='</svg>';
+  host.innerHTML=s;
+}
 function render(){
   const amt=getAmt();
+  // Nothing to show until data.json arrives; a render triggered by typing must not
+  // claim "no fund has enough history" while the data is still loading or failed
+  if(!FUNDS.length){if(window.__rkLoadFailed)rkShowLoadError();return;}
   let pool=FUNDS.slice();
   if(shOnly)pool=pool.filter(f=>f.sh);
   const rows=[]; let missing=0; const missNames=[];
@@ -1095,51 +1218,92 @@ function render(){
   rows.sort((a,b)=>b.annual-a.annual);
 
   const amtB=`<b>${fmt(amt)}</b>`;
-  let banner, hs="";
+  const isMax=horizon==="max", isSIP=method==="sip", simple=divBasis==="cash";
+  const perSr=isMax?"since launch":horizon==="ytd"?"this year to date":"over the last "+periodWords(horizon);
+  let banner="", hs="", srText="", fromHint=null;
+  _strip=null;
   if(!rows.length){
     banner=`No fund has enough history for this return period yet. Try a shorter period or "Since launch".`;
+    srText="No fund has enough history for this return period.";
+  }else if(amt<=0){
+    banner="Type an amount above to see what it became.";
   }else{
-    const b0=rows[0], pp=b0.gain>=0;
-    const pct=Math.round(b0.gain/b0.invested*10000)/100;
-    const bsl=b0.f.label.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
-    const ser=(divBasis==="cash"&&b0.f.series&&b0.f.series.co&&b0.f.series.co.length)?b0.f.series.co:((b0.f.series&&b0.f.series.tr)||[]);
-    const sparkVals=sparkSlice(ser, b0.monthsUsed);
-    const sparkHtml=sparkVals?('<div class="hs-spark">'+sparkSvg(sparkVals,280,36,true)+'</div>'):'';
-    const kicker=fmt(b0.invested)+' <span class="hs-op">'+(pp?'grew to':'became')+'</span>';
-    hs='<div class="herostat"><div class="hs-kicker">'+kicker+'</div><div class="hs-main"><b class="hs-final" data-to="'+Math.round(b0.final)+'">'+fmt(b0.final)+'</b></div>'+sparkHtml+'<div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+(b0.annual>=0?'+':'')+tn(b0.annual)+'%/yr)</span> \u00b7 <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(b0.gain))+'</span> \u00b7 best: <a class="fundlink hs-fund" href="/funds/'+bsl+'.html">'+fundDispHtml(b0.f)+'</a></div></div>';
-    // Scannable context: fund count + spread only (period + dates live in the card header)
-    if(rows.length>2){
-      const mid=rows[Math.floor((rows.length-1)/2)], low=rows[rows.length-1];
-      hs+= horizon==="max"
-        ? '<div class="hl-ctx">Across '+rows.length+' funds: best <b>'+((b0.annual>=0?'+':'')+tn(b0.annual))+'%/yr</b>, middle <b>'+((mid.annual>=0?'+':'')+tn(mid.annual))+'%/yr</b>, lowest <b>'+((low.annual>=0?'+':'')+tn(low.annual))+'%/yr</b>.</div>'
-        : '<div class="hl-ctx">Across '+rows.length+' funds: best <b>'+fmt(b0.final)+'</b>, middle <b>'+fmt(mid.final)+'</b>, lowest <b>'+fmt(low.final)+'</b>.</div>';
+    // The answer leads with the MIDDLE fund (as many funds did better as did worse),
+    // not the best one: the best of 35 is the luckiest outcome, not a typical one.
+    const n=rows.length, md=rows[Math.floor((n-1)/2)], top=rows[0], low=rows[n-1];
+    const pp=md.gain>=0, pct=Math.round(md.gain/md.invested*10000)/100;
+    const who = n>=3 ? "In the middle "+(shOnly?"Shariah ":"")+"fund of "+n : n===2 ? "In the better of 2 funds" : "In the one fund with enough history";
+    const midTip = n>=3 ? ' <button type="button" class="tipbtn" data-tipkey="middle" data-tip="Funds are ranked by their yearly return over this period. The middle fund has as many funds above it as below it, so it shows a typical result rather than the luckiest one. Each dot in the strip below is one fund." aria-label="What does the middle fund mean?">?</button>' : '';
+    hs='<div class="herostat"><div class="hs-kicker">'+who+', '+fmt(md.invested)+' <span class="hs-op">'+(pp?'grew to':'became')+'</span>'+midTip+'</div>'
+      +'<div class="hs-main"><span class="hs-final'+(pp?'':' neg')+'" data-to="'+Math.round(md.final)+'">'+fmt(md.final)+'</span></div>'
+      +'<div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+sgnPct(md.annual)+'%/yr'+(isMax?' over '+yrs(md.monthsUsed):'')+')</span> · <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(md.gain))+'</span> · <a class="fundlink hs-fund" href="/funds/'+slugOf(md.f)+'.html">'+fundDispHtml(md.f)+'</a></div></div>';
+    // Safe options, from the editable rates (filled from PERIODRATES for the period).
+    // SIP compares with a DPS (a monthly deposit), one-time with an FDR (a lump deposit).
+    const depNm=isSIP?"DPS":"FDR", depA=isSIP?"a DPS":"an FDR", depR=rateIn(isSIP?"rDPS":"rFDR"), sanR=rateIn("rSAN"), infR=rateIn("rINF");
+    let marks=[], dep=null, beat=null, dpsHtml="", dpsSr="";
+    if(!isMax){
+      const m=md.monthsUsed;
+      dep=depR>0?amt*safeMult(depR,m,isSIP,simple):null;
+      const san=sanR>0?amt*safeMult(sanR,m,isSIP,simple):null, inf=infR>0?amt*safeMult(infR,m,isSIP,false):null;
+      if(dep!=null)marks.push({v:dep,lab:depNm+" "+depR+"%",cls:"st-dep"});
+      if(san!=null)marks.push({v:san,lab:"Sanchayapatra "+sanR+"%",cls:"st-san"});
+      if(inf!=null)marks.push({v:inf,lab:"Inflation "+infR+"%",cls:"st-inf"});
+      if(low.final<md.invested)marks.push({v:md.invested,lab:"Put in",cls:"st-put"});
+      if(dep!=null){
+        beat=rows.filter(r=>r.final>dep).length;
+        const DepA=depA.charAt(0).toUpperCase()+depA.slice(1);
+        dpsHtml=DepA+' at '+depR+'%/yr'+(simple?', interest paid out,':'')+' would have reached <b>'+fmt(dep)+'</b>. <b>'+beat+' of '+n+'</b> funds beat it over this period.';
+        dpsSr=' '+DepA+' at '+depR+'% a year would have reached '+fmt(dep)+', and '+beat+' of '+n+' funds beat it.';
+      }
+      if(n>=3)_strip={pts:rows.map(r=>r.final),med:rows.indexOf(md),marks,fmt:fmtC,
+        aria:"Each of the "+n+" funds as a dot, from "+fmt(low.final)+" to "+fmt(top.final)+"; the middle fund ended at "+fmt(md.final)+"."+marks.map(k=>" "+k.lab.replace(/ [\d.]+%$/,"")+" "+fmt(k.v)+".").join("")};
+    }else{
+      if(depR>0)marks.push({v:depR,lab:depNm+" "+depR+"%",cls:"st-dep"});
+      if(sanR>0)marks.push({v:sanR,lab:"Sanchayapatra "+sanR+"%",cls:"st-san"});
+      if(infR>0)marks.push({v:infR,lab:"Inflation "+infR+"%",cls:"st-inf"});
+      if(low.annual<0)marks.push({v:0,lab:"0%",cls:"st-put"});
+      if(depR>0){
+        beat=rows.filter(r=>r.annual>depR).length;
+        dpsHtml='Over each fund’s own history, <b>'+beat+' of '+n+'</b> funds grew faster than '+depA+' at '+depR+'%/yr.';
+        dpsSr=' '+beat+' of '+n+' funds grew faster than '+depA+' at '+depR+'% a year.';
+      }
+      const pf=v=>(v>=0?"+":"")+v.toFixed(1)+"%";
+      if(n>=3)_strip={pts:rows.map(r=>r.annual),med:rows.indexOf(md),marks,fmt:pf,
+        aria:"Each of the "+n+" funds as a dot by yearly return, from "+pf(low.annual)+" to "+pf(top.annual)+"; the middle fund returned "+pf(md.annual)+" a year."+marks.map(k=>" "+k.lab+".").join("")};
     }
+    if(_strip)hs+='<div class="hl-strip" id="hlStrip"></div>';
+    hs+= isMax
+      ? '<div class="hl-ctx">Across '+n+' funds'+(n>=3?' (one dot each)':'')+': best <b>'+sgnPct(top.annual)+'%/yr</b>, lowest <b>'+sgnPct(low.annual)+'%/yr</b>.</div>'
+      : '<div class="hl-ctx">Across '+n+' funds'+(n>=3?' (one dot each)':'')+': best <b>'+fmt(top.final)+'</b>, lowest <b>'+fmt(low.final)+'</b>.</div>';
+    if(dpsHtml)hs+='<p class="hl-dps">'+dpsHtml+' <a href="/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html" data-guide="mutual-funds-vs-sanchayapatra-dps-fdr">Funds vs Sanchayapatra, DPS &amp; FDR &rarr;</a></p>';
     banner = method==="lump"
-      ? (horizon==="max" ? `That's a one-time ${amtB} invested at each fund's launch.` : `That's a one-time ${amtB} invested at the start of the period.`)
+      ? (isMax ? `That's a one-time ${amtB} invested at each fund's launch.` : `That's a one-time ${amtB} invested at the start of the period.`)
       : `That's ${amtB} invested every month.`;
+    srText=who+" "+perSr+", "+fmt(md.invested)+" became "+fmt(md.final)+"."+dpsSr;
+    fromHint=md.invested;
   }
   const endMY=window.RK_END_MY||"";
   const hlRange=document.getElementById("hlRange");
-  if(hlRange)hlRange.textContent = horizon==="max"
-    ? (endMY?"Each fund's own launch to "+endMY+" · periods differ by fund":"Each fund's own full history · periods differ by fund")
+  if(hlRange)hlRange.textContent = "Historical result, "+(isMax
+    ? (endMY?"each fund's launch to "+endMY:"each fund's full history")
     : horizon==="ytd"
     ? (ytdStartLabel()+(endMY?" to "+endMY:""))
-    : (startSince(+horizon)+(endMY?" to "+endMY:""));
-  const sel=document.getElementById("hsPeriodSel");
-  if(sel&&sel.value!==horizon&&[...sel.options].some(o=>o.value===horizon))sel.value=horizon;
+    : (startSince(+horizon)+(endMY?" to "+endMY:"")));
+  syncHsSel();
   document.getElementById("hlBody").innerHTML=hs+'<div class="hl-sentence">'+banner+'</div>';
+  drawStrip();
   var az=document.getElementById("answerzone");
   var fin=document.querySelector("#hlBody .hs-final");
   if(fin){
     var to=+fin.getAttribute("data-to");
-    if(az&&!az.hidden) countTaka(fin,to,rows[0]?rows[0].invested:to);
+    if(az&&!az.hidden) countTaka(fin,to,fromHint!=null?fromHint:to);
     else{fin.textContent=fmt(to);_hsFrom=to;}
   }
   // Screen readers get one settled sentence instead of every keystroke's partial result
   clearTimeout(window._srT);
   window._srT=setTimeout(function(){
     var sl=document.getElementById("srlive");
-    if(sl)sl.textContent=rows.length?(fmt(rows[0].invested)+" became "+fmt(rows[0].final)+" in the best of "+rows.length+" funds over the selected period."):"No fund has enough history for this return period.";
+    if(sl&&srText)sl.textContent=srText;
   },1200);
   var rsub=document.getElementById("ratesub");if(rsub)rsub.textContent=(horizon==="max")?"· long-run averages; type your own bank's rate":(horizon==="ytd")?"· averages matched to the YTD stretch; type your own bank's rate":"· averages for the last "+periodWords(horizon)+"; type your own bank's rate";
 
@@ -1153,6 +1317,7 @@ function render(){
   const miss=document.getElementById("missing");
   miss.innerHTML = missing? `<div class="miss"><span class="miss-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 1.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="miss-tx"><b>${missing} ${t(missing>1?"hiddenB":"hiddenA")}</b> i.e. ${fmtNames(missNames)} ${missing>1?"are":"is"} too new for the ${periodAdj(horizon)} return period, so ${missing>1?"they are":"it is"} sitting out for now. To see ${missing>1?"their":"its"} performance, switch the return period to <button type="button" class="maxlink" data-setmax>Since launch</button>.</span></div>`:"";
   updateHash();
+  syncStateLinks();
 }
 // Shareable homepage state: only written once the visitor changes something
 function updateHash(){
@@ -1164,6 +1329,27 @@ function updateHash(){
     history.replaceState(null,"","#"+p.toString());
   }catch(e){}
 }
+/* Carry the visitor's scenario to fund pages (amount, method, period) and to the
+   compare tool (method and period only: it never uses the amount, so the amount is
+   not handed to a page that has no use for it). Same rule as the shareable hash:
+   nothing is added until the visitor has changed something. A URL fragment is never
+   sent to the server. */
+function stateHash(withAmt){
+  var p=new URLSearchParams(),a=getAmt();
+  if(withAmt&&a>0)p.set("amt",a);
+  p.set("m",method);p.set("h",horizon);
+  return "#"+p.toString();
+}
+const STATE_LINK=/^\/(funds\/[a-z0-9-]+\.html|compare\.html)(\?[^#]*)?$/i;
+function stateLink(a){
+  var href=a.getAttribute("href")||"",base=href.split("#")[0];
+  if(!STATE_LINK.test(base))return;
+  var next=hashTouched?base+stateHash(base.indexOf("/funds/")===0):base;
+  if(next!==href)a.setAttribute("href",next);
+}
+function syncStateLinks(){document.querySelectorAll('a[href^="/funds/"],a[href^="/compare.html"]').forEach(stateLink);}
+// A click can beat the debounced render after typing, so refresh the link right before it is followed
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="/funds/"],a[href^="/compare.html"]');if(a)stateLink(a);},true);
 function readHash(){
   try{
     var h=location.hash.replace(/^#/,"");if(!h||h.indexOf("=")<0)return;
@@ -1184,7 +1370,8 @@ function renderChart(rows){
   if(!rows.length){host.innerHTML="";sub.textContent="";leg.style.display="none";return;}
   const metric=chartMetric;
   const periodTxt = horizon==="max" ? t("eachHist") : (t("overLast")+" "+periodWords(horizon));
-  sub.textContent = (metric==="annual" ? t("annPerYr") : t("endingValue")) + " · " + periodTxt;
+  // The grouped list below is the primary view; this is the same funds in one cross-type ranking
+  sub.textContent = "All "+rows.length+" funds in one ranking, every type together · " + (metric==="annual" ? t("annPerYr") : t("endingValue")) + " · " + periodTxt;
   leg.style.display = metric==="value" ? "block":"none";
   const shown = showAllBars ? rows : rows.slice(0,7);
   const vals=shown.map(r=> metric==="annual"? r.annual : r.final);
@@ -1245,7 +1432,7 @@ function renderLineChart(rows){
   const fKey=sr=>"f"+sr.f.id, bKey=nm=>"b"+nm, colOf=i=>i===0?"#15803D":pal[i%pal.length];
   const fmtK=v=>{const a=Math.abs(v);if(a>=1e7)return "৳"+(v/1e7).toFixed(a>=1e8?0:1)+"Cr";if(a>=1e5)return "৳"+(v/1e5).toFixed(a>=1e6?0:1)+"L";if(a>=1e3)return "৳"+(v/1e3).toFixed(0)+"k";return "৳"+Math.round(v);};
   const fundVal=p=>{if(!isSIP)return p.map(v=>amt*v/100);const out=[];let s=0;for(let t=0;t<p.length;t++){s+=1/p[t];out.push(amt*p[t]*s);}return out;};
-  const benchVal=r=>{const out=[];const cash=divBasis==="cash";if(!isSIP){for(let t=0;t<maxLen;t++)out.push(cash?amt*(1+r/100*t/12):amt*Math.pow(1+r/100,t/12));return out;}if(cash){for(let t=0;t<maxLen;t++)out.push(amt*(t+1)+amt*(r/100)*(t*(t+1)/2)/12);return out;}const rm=Math.pow(1+r/100,1/12)-1;let s=0;for(let t=0;t<maxLen;t++){s=s*(1+rm)+1;out.push(amt*s);}return out;};
+  const benchVal=(r,price)=>{const out=[];const cash=divBasis==="cash"&&!price;if(!isSIP){for(let t=0;t<maxLen;t++)out.push(cash?amt*(1+r/100*t/12):amt*Math.pow(1+r/100,t/12));return out;}if(cash){for(let t=0;t<maxLen;t++)out.push(amt*(t+1)+amt*(r/100)*(t*(t+1)/2)/12);return out;}const rm=Math.pow(1+r/100,1/12)-1;let s=0;for(let t=0;t<maxLen;t++){s=s*(1+rm)+1;out.push(amt*s);}return out;};
   let lg="";
   const invOff=lcHidden.has("invested");
   lg+=`<button type="button" class="li inv${invOff?' off':''}" data-key="invested" aria-pressed="${!invOff}"><span class="cbx" style="--cc:var(--ch-inv)"></span>What you invested</button>`;
@@ -1255,7 +1442,7 @@ function renderLineChart(rows){
   const capEl=document.getElementById("lccaption");
   if(capEl){
     const vb=benchDef.filter(b=>!lcHidden.has(bKey(b[0])));
-    capEl.innerHTML=vb.length?("Also drawn: "+vb.map(b=>'<b style="color:'+b[2]+'">'+b[0]+'</b> at '+b[1]+'%/yr').join(" · ")+", so you can judge funds against what you already know. Toggle any line with the pills above."):"";
+    capEl.innerHTML=vb.length?("Also drawn: "+vb.map(b=>'<b data-bn="'+b[0]+'">'+b[0]+'</b> at '+b[1]+'%/yr').join(" · ")+", so you can judge funds against what you already know. Toggle any line with the pills above."):"";
   }
   const cmp=document.getElementById("lccompare");
   if(cmp){
@@ -1275,7 +1462,7 @@ function renderLineChart(rows){
   const moreEl=document.getElementById("lcmore");
   if(moreEl) moreEl.innerHTML = rows.length>3 ? `<button class="showall" data-toggleall="1">${showAllLines?"Show top 3 ▴":"Show all "+rows.length+" funds ▾"}</button>` : "";
   const visS=series.map((sr,i)=>({sr,i,vals:fundVal(sr.p)})).filter(o=>!lcHidden.has(fKey(o.sr)));
-  const visB=benchDef.filter(b=>!lcHidden.has(bKey(b[0]))).map(b=>({nm:b[0],c:b[2],vals:benchVal(b[1])}));
+  const visB=benchDef.filter(b=>!lcHidden.has(bKey(b[0]))).map(b=>({nm:b[0],c:b[2],vals:benchVal(b[1],b[0]==="Inflation"||b[0]==="Gold")}));
   const investedVals=isSIP?Array.from({length:maxLen},(_,t)=>amt*(t+1)):Array.from({length:maxLen},()=>amt);
   const showInv=!lcHidden.has("invested")&&amt>0;
   if(!visS.length&&!visB.length&&!showInv){host.innerHTML="<div class='note'>Nothing selected. Tap a name below to show it.</div>";return;}
@@ -1360,17 +1547,7 @@ function renderLineChart(rows){
     }
     selEl.innerHTML = nm ? `<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${col};margin-right:5px;vertical-align:middle"></span>Highlighting <b>${esc(nm)}</b><span class="x" data-clear="1">clear ✕</span>` : "";
   }
-  // One-sentence answer for the DPS/FDR saver, in their own vocabulary (uses the editable rate, never a fabricated one)
-  const sfEl=document.getElementById("safeline");
-  if(sfEl){
-    const dps=gv("rDPS");
-    if(dps>0&&amt>0&&maxLen>1){
-      const dv=benchVal(dps), dfin=dv[dv.length-1];
-      const perTxt=horizon==="max"?"the same stretch of time shown above":("the same "+periodWords(horizon));
-      sfEl.hidden=false;
-      sfEl.innerHTML='A DPS at '+dps+'%/yr would have reached <b>'+fmt(dfin)+'</b> over '+perTxt+'. <a href="/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html" data-guide="mutual-funds-vs-sanchayapatra-dps-fdr">How funds compare with Sanchayapatra, DPS &amp; FDR &rarr;</a>';
-    }else{sfEl.hidden=true;}
-  }
+  // The DPS/FDR sentence now lives in the result card (render), where it is seen first
 }
 
 function applySort(rows){
@@ -1387,13 +1564,10 @@ function buildDetPanel(id,d){
   var fee=d.fee?`<div class="fdrow fdfee"><span class="fdk">Management fee</span><span class="fdv">${d.fee}</span></div>`:"";
   return `<div class="fdet" id="fdet-${id}" hidden><div class="fdgrid">${fee}${detField("Early-exit fee",d.exit)}${detField("Minimum investment",d.min)}${detField("Liquidity",d.liquidity)}${detField("Asset manager",d.amc)}${detField("Sponsor",d.sponsor)}${detField("Trustee",d.trustee)}${detField("Custodian",d.custodian)}${detField("Face value",d.face)}</div><div class="fdnote">Plus small regulated trustee, custodian and BSEC fees common to all funds. Figures from the fund's official BSEC prospectus.</div></div>`;
 }
-// Per-visit type-group order (matches funds directory cadence: Math.random on load, stable across re-renders).
-const TYPE_ORDER=["Growth","Balanced","Income"];
-const GROUP_ORDER=(function(){
-  var o=TYPE_ORDER.concat(["Shariah"]);
-  for(var i=o.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=o[i];o[i]=o[j];o[j]=t;}
-  return o;
-})();
+// Fixed group order, lowest to highest risk, then the Shariah gathering: the page reads
+// the same on every visit (it used to shuffle on each load).
+const TYPE_ORDER=["Income","Balanced","Growth"];
+const GROUP_ORDER=TYPE_ORDER.concat(["Shariah"]);
 function renderList(rows){
   const wrap=document.getElementById("results");
   wrap.innerHTML="";
@@ -1490,18 +1664,48 @@ function routePeriod(v){
   if(hm&&[...hm.options].some(x=>x.value===v)){hm.value=v;hm.dispatchEvent(new Event("change"));}
 }
 document.getElementById("qPeriod").addEventListener("change",function(){routePeriod(this.value);});
-document.getElementById("hsPeriodSel").addEventListener("change",function(){hashTouched=true;routePeriod(this.value);});
+/* Result-card period select: a short list (1, 3, 5 years, since launch) plus the
+   current period when it is another one, and "More periods" to jump to the full set
+   in the tools. Months ascending, since launch last. */
+const HS_BASE=["12","36","60","max"];
+const hsOrd=v=>v==="max"?1e9:v==="ytd"?(window.RK_ASOF_M||6)+0.5:+v;
+function syncHsSel(){
+  var s=document.getElementById("hsPeriodSel");if(!s)return;
+  var maxM=FUNDS.length?Math.max.apply(null,FUNDS.map(function(f){return f.M||0;})):1e9;
+  var vals=HS_BASE.filter(function(v){return v==="max"||+v<=maxM;});
+  if(vals.indexOf(horizon)<0)vals.push(horizon);
+  vals.sort(function(a,b){return hsOrd(a)-hsOrd(b);});
+  var key=vals.join(",");
+  if(s.getAttribute("data-k")!==key){
+    s.innerHTML=vals.map(function(v){return '<option value="'+v+'">'+(v==="max"?"Since launch":v==="ytd"?"Year to date":"Last "+periodWords(v))+'</option>';}).join("")+'<option value="more">More periods\u2026</option>';
+    s.setAttribute("data-k",key);
+  }
+  s.value=horizon;
+}
+document.getElementById("hsPeriodSel").addEventListener("change",function(){
+  if(this.value==="more"){
+    this.value=horizon;
+    window.rkOpenCockpit();
+    var ao=document.getElementById("allopts");if(ao)ao.open=true;
+    var op=document.getElementById("optionspanel");
+    if(op&&op.scrollIntoView)setTimeout(function(){op.scrollIntoView({behavior:REDUCED_MOTION?"auto":"smooth",block:"start"});var on=document.querySelector("#horizon button.on")||document.getElementById("hMore");if(on)on.focus({preventScroll:true});},120);
+    return;
+  }
+  hashTouched=true;track("period_chip",{});routePeriod(this.value);
+});
 function syncQbar(){document.querySelectorAll("#sMethod button").forEach(b=>b.classList.toggle("on",b.dataset.m===method));const q=document.getElementById("qPeriod");if(q&&q.value!==horizon&&[...q.options].some(o=>o.value===horizon))q.value=horizon;const qs=document.getElementById("qSh");if(qs){qs.classList.toggle("on",shOnly);qs.setAttribute("aria-pressed",shOnly?"true":"false");}rkSyncPressed();/* aria-pressed always follows the same sync as the classes */}
 document.getElementById("qSh").addEventListener("click",function(){setSh(!shOnly);});
 document.getElementById("sortby").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;sortBy=b.dataset.sort;[...e.currentTarget.children].forEach(x=>x.classList.toggle("on",x===b));scheduleRender();});
 // Reflect segmented-control state to assistive tech (aria-pressed)
-function rkSyncPressed(){document.querySelectorAll('#method button,#horizon button,#sMethod button,#sortby button,#divbasis button,#lcbasis button').forEach(function(b){b.setAttribute('aria-pressed',b.classList.contains('on')?'true':'false');});}
-document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('#method,#horizon,#sMethod,#sortby,#divbasis,#lcbasis'))setTimeout(rkSyncPressed,0);},true);
+function rkSyncPressed(){document.querySelectorAll('#method button,#horizon button,#sMethod button,#sortby button,#divbasis button,#lcbasis button,#chartmetric button').forEach(function(b){b.setAttribute('aria-pressed',b.classList.contains('on')?'true':'false');});}
+document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('#method,#horizon,#sMethod,#sortby,#divbasis,#lcbasis,#chartmetric'))setTimeout(rkSyncPressed,0);},true);
 document.addEventListener('change',function(e){if(e.target.closest&&e.target.closest('#hMore,#qPeriod'))setTimeout(rkSyncPressed,0);});
 rkSyncPressed();
 function setSh(v){shOnly=v;hashTouched=true;track("shariah_toggle",{on:!!v});var t=document.getElementById("shToggle");if(t){t.classList.toggle("on",shOnly);t.setAttribute("aria-checked",shOnly?"true":"false");}scheduleRender();}
 document.getElementById("shToggle").addEventListener("click",function(){setSh(!shOnly);});
 document.getElementById("chartmetric").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;chartMetric=b.dataset.cm;[...e.currentTarget.children].forEach(x=>x.classList.toggle("on",x===b));scheduleRender();});
+// The ranked bars repeat the grouped list in another order, so they start collapsed
+document.getElementById("barsTog").addEventListener("click",function(){var body=document.getElementById("barsBody");if(!body)return;var open=body.hidden;body.hidden=!open;this.setAttribute("aria-expanded",open?"true":"false");this.innerHTML=open?"Hide the ranked bar chart &#9652;":"Show the ranked bar chart &#9662;";});
 document.getElementById("lcmore").addEventListener("click",e=>{if(e.target.closest("[data-toggleall]")){showAllLines=!showAllLines;if(!showAllLines){lcRows.forEach(r=>lcHidden.delete("f"+r.f.id));}scheduleRender();}});
 const GLIM={};
 document.getElementById("results").addEventListener("click",e=>{const b=e.target.closest("[data-glim]");if(!b)return;const ty=b.getAttribute("data-glim");GLIM[ty]=(GLIM[ty]&&GLIM[ty]>defLim())?defLim():999;scheduleRender();});
@@ -1511,8 +1715,6 @@ document.getElementById("amt").addEventListener("input",function(){const v=getAm
   scheduleRender(200);});
 document.getElementById("missing").addEventListener("click",e=>{if(e.target.closest("[data-setmax]")){const mb=[...document.querySelectorAll("#horizon button")].find(b=>b.dataset.h==="max");if(mb){mb.click();const seg=document.getElementById("horizon");if(seg)seg.scrollIntoView({behavior:REDUCED_MOTION?"auto":"smooth",block:"center"});mb.classList.add("flash");setTimeout(()=>mb.classList.remove("flash"),1700);}}});
 document.addEventListener("click",e=>{var fb=e.target.closest&&e.target.closest(".seg button,.cseg button");if(fb){fb.classList.add("flash");setTimeout(()=>fb.classList.remove("flash"),1700);}},true);
-// Result-card period select changes are tracked alongside the pill sync
-document.getElementById("hsPeriodSel").addEventListener("change",function(){track("period_chip",{});});
 ["rSAN","rDPS","rFDR","rINF","rGOLD"].forEach(id=>{const e=document.getElementById(id);if(e)e.addEventListener("input",function(){scheduleRender(200);});});
 document.getElementById("lclegend").addEventListener("click",e=>{const bulk=e.target.closest("[data-bulk]");if(bulk){const all=bulk.getAttribute("data-bulk")==="all";lcRows.forEach(r=>{const k="f"+r.f.id;if(all)lcHidden.delete(k);else lcHidden.add(k);});scheduleRender();return;}const el=e.target.closest("[data-key]");if(!el)return;const k=el.getAttribute("data-key");if(lcHidden.has(k))lcHidden.delete(k);else lcHidden.add(k);scheduleRender();});
 document.getElementById("lccompare").addEventListener("click",e=>{const el=e.target.closest("[data-key]");if(!el)return;const k=el.getAttribute("data-key");if(k==="crowdfunding"){setCF(!window.__cf);return;}if(lcHidden.has(k))lcHidden.delete(k);else lcHidden.add(k);scheduleRender();});
@@ -1523,7 +1725,7 @@ function setCF(on){
   var anchor=document.getElementById("cfPanel");
   anchor=anchor?(anchor.closest(".chartpanel")||anchor):null;
   var before=anchor?anchor.getBoundingClientRect().top:0;
-  ["linechart","lcsel","lclegend","lcmore","lcsub","lccaption","safeline","cfLink","lccompare"].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display=on?"none":"";});
+  ["linechart","lcsel","lclegend","lcmore","lcsub","lccaption","cfLink","lccompare"].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display=on?"none":"";});
   var p=document.getElementById("cfPanel");if(p)p.style.display=on?"block":"none";
   if(anchor){
     var drift=anchor.getBoundingClientRect().top-before;
@@ -1574,23 +1776,22 @@ if(el=t.closest(".connect a")){track("social_click",{network:el.getAttribute("ar
   const sel=document.getElementById("lcsel");
   if(sel)sel.addEventListener("click",ev=>{if(ev.target.closest("[data-clear]")){lcSel=null;renderLineChart(lcRows);}});
 })();
-function fret(f){var H=f.H||{};var k=H["36"]?"36":String(f.M);return (H[k]&&typeof H[k][1]==="number")?H[k][1]:-999;}function renderBrowse(){var el=document.getElementById("browseall");if(!el)return;
+// Before the first render: the 3-year figure (or since launch) for the chosen method
+function fret(f){var H=f.H||{};var k=H["36"]?"36":String(f.M);var i=method==="lump"?1:4;return (H[k]&&typeof H[k][i]==="number")?H[k][i]:-999;}
+// Same order as the fund groups below: lowest to highest risk, then Shariah
+const TP_ORDER=["Income","Balanced","Growth","Shariah"];
+function renderBrowse(){var el=document.getElementById("browseall");if(!el)return;
 var src=(typeof lcRows!=="undefined"&&lcRows&&lcRows.length)?lcRows:null;
-var rows=[];
-["Growth","Balanced","Income"].forEach(function(ty){
+var byTy={};
+TP_ORDER.forEach(function(ty){
+  var match=ty==="Shariah"?function(f){return f.sh;}:function(f){return (f.type||"")===ty;};
   var best=null;
-  if(src){for(var i=0;i<src.length;i++){if((src[i].f.type||"")===ty){best=src[i];break;}}}
-  else{var g=FUNDS.filter(function(f){return (f.type||"")===ty;}).sort(function(a,b){return fret(b)-fret(a);});if(g.length)best={f:g[0],annual:fret(g[0])};}
-  if(best)rows.push([ty,best]);
+  if(src){for(var i=0;i<src.length;i++){if(match(src[i].f)){best=src[i];break;}}}
+  else{var g=FUNDS.filter(match).sort(function(a,b){return fret(b)-fret(a);});if(g.length)best={f:g[0],annual:fret(g[0])};}
+  if(best)byTy[ty]=best;
 });
-(function(){var best=null;
-  if(src){for(var i=0;i<src.length;i++){if(src[i].f.sh){best=src[i];break;}}}
-  else{var g=FUNDS.filter(function(f){return f.sh;}).sort(function(a,b){return fret(b)-fret(a);});if(g.length)best={f:g[0],annual:fret(g[0])};}
-  if(best)rows.push(["Shariah",best]);
-})();
-var byTy={};rows.forEach(function(p){byTy[p[0]]=p[1];});
 var perTxt=horizon==="max"?"":periodAdj(horizon);
-el.innerHTML=["Growth","Balanced","Income","Shariah"].map(function(ty){
+el.innerHTML=TP_ORDER.map(function(ty){
   var tyCls=ty==="Shariah"?"ty-shariah":"ty-"+ty.toLowerCase();
   var lab=ty==="Shariah"?"Best Shariah":"Best "+ty.toLowerCase();
   var r=byTy[ty];
@@ -1600,13 +1801,14 @@ el.innerHTML=["Growth","Balanced","Income","Shariah"].map(function(ty){
     var tyWord=ty==="Shariah"?"Shariah":ty.toLowerCase();
     return '<div class="ba-link ba-empty"><span style="margin-bottom:6px"><span class="tag batag '+tyCls+'">'+lab+'</span></span><span class="ba-nm">No '+tyWord+' fund is old enough for this '+(perTxt||"")+' period yet.</span></div>';
   }
-  var f=r.f;var sl=f.label.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+  var f=r.f;
   var v=+r.annual;var rs=(isFinite(v)&&v>-900)?((v>=0?"+":"")+tn(v)+"%/yr"):"";
-  return '<a class="ba-link" href="/funds/'+sl+'.html" data-nav="fundpage"><span style="margin-bottom:6px"><span class="tag batag '+tyCls+'">'+lab+'</span></span><span class="ba-nm">'+fundDispHtml(f)+'</span><span class="ba-ret">'+rs+'</span></a>';
+  return '<a class="ba-link" href="/funds/'+slugOf(f)+'.html" data-nav="fundpage"><span style="margin-bottom:6px"><span class="tag batag '+tyCls+'">'+lab+'</span></span><span class="ba-nm">'+fundDispHtml(f)+'</span><span class="ba-ret">'+rs+'</span></a>';
 }).join("");
+// Say which figure the cards show: SIP and one-time rates differ, and so do the bases
 var tt=document.getElementById("tpTitle");
-if(tt)tt.textContent = horizon==="max" ? "Top performers \u00b7 annualized since launch" : "Top performers \u00b7 "+periodAdj(horizon)+" annualized returns";
-var btn=document.getElementById("browseallbtn");if(btn)btn.textContent="Browse all "+FUNDS.length+" funds \u2192";}
+if(tt)tt.textContent="Top performers · "+(method==="lump"?"One-time":"Monthly SIP")+", per year, "+(horizon==="max"?"since launch":horizon==="ytd"?"year to date":"last "+periodWords(horizon))+(divBasis==="cash"?", dividends as cash":"");
+var btn=document.getElementById("browseallbtn");if(btn)btn.textContent="Browse all "+FUNDS.length+" funds →";}
 /* ---- Two doors: beginner explainer vs full cockpit, remembered via rk_path ---- */
 (function(){
   var db=document.getElementById("doorBeginner"),dx=document.getElementById("doorExpert"),bc=document.getElementById("beginnerCard"),bcont=document.getElementById("bContinue"),ao=document.getElementById("allopts");
@@ -1641,6 +1843,8 @@ var btn=document.getElementById("browseallbtn");if(btn)btn.textContent="Browse a
     track("reveal_answer",{});
     var hl=document.getElementById("headline");
     if(hl&&hl.scrollIntoView)setTimeout(function(){hl.scrollIntoView({behavior:REDUCED_MOTION?"auto":"smooth",block:"center"});},140);
+    // The alert was written while this zone was hidden, so it was never announced: move focus to it
+    if(window.__rkLoadFailed)setTimeout(function(){var rt=document.querySelector("#hlBody [data-rk-retry]");if(rt)rt.focus({preventScroll:true});},160);
   });
   var amtEl=document.getElementById("amt");
   if(amtEl)amtEl.addEventListener("keydown",function(e){if(e.key==="Enter"&&az&&az.hidden&&rb){e.preventDefault();rb.click();}});
@@ -1770,7 +1974,7 @@ var btn=document.getElementById("browseallbtn");if(btn)btn.textContent="Browse a
     var p=document.createElement("span");
     p.className="rktip";p.id="rktip"+(++n);p.setAttribute("role","note");
     p.textContent=b.getAttribute("data-tip");
-    var host=b.closest(".tags")||b.closest("label")||b.closest(".fresh")||b.closest("h2")||b.closest(".sub")||b;
+    var host=b.closest(".tags")||b.closest(".fld")||b.closest("label")||b.closest(".fresh")||b.closest(".ct-row")||b.closest(".hs-kicker")||b.closest("h2")||b.closest(".sub")||b;
     host.insertAdjacentElement("afterend",p);
     b.setAttribute("aria-expanded","true");b.setAttribute("aria-describedby",p.id);
     var k=b.getAttribute("data-tipkey");if(k)track("badge_tooltip_open",{tag:k});
@@ -1783,16 +1987,17 @@ function pruneHorizons(){
   var maxM=Math.max.apply(null,FUNDS.map(function(f){return f.M||0;}));
   var hm=document.getElementById("hMore");
   if(hm)[...hm.options].forEach(function(o){if(o.value&&+o.value>maxM)o.remove();});
-  [["qPeriod",""],["hsPeriodSel","Last "]].forEach(function(cfg){
-    var q=document.getElementById(cfg[0]);
-    if(!q||!hm)return;
-    var maxOpt=[...q.options].find(function(o){return o.value==="max";});
+  var q=document.getElementById("qPeriod");
+  if(q&&hm){
+    [...q.options].forEach(function(o){if(/^\d+$/.test(o.value)&&+o.value>maxM)o.remove();});
     [...hm.options].forEach(function(o){
       if(!o.value||[...q.options].some(function(x){return x.value===o.value;}))return;
-      var opt=document.createElement("option");opt.value=o.value;opt.textContent=cfg[1]+periodWords(+o.value);
-      if(maxOpt)q.insertBefore(opt,maxOpt);else q.appendChild(opt);
+      var opt=document.createElement("option");opt.value=o.value;opt.textContent=periodWords(+o.value);
+      // before the first longer numeric period, else before "Since launch"
+      var next=[...q.options].find(function(x){return x.value==="max"||(/^\d+$/.test(x.value)&&+x.value>+o.value);});
+      if(next)q.insertBefore(opt,next);else q.appendChild(opt);
     });
-  });
+  }
   // if a restored hash pointed at a period no fund can serve, fall back to Since launch
   if(horizon!=="max"&&horizon!=="ytd"&&+horizon>maxM){horizon="max";syncControlsFromState();}
   rkShortPeriodLabels();
@@ -1810,8 +2015,7 @@ function syncControlsFromState(){
   }
   var st=document.getElementById("shToggle");
   if(st){st.classList.toggle("on",shOnly);st.setAttribute("aria-checked",shOnly?"true":"false");}
-  var hp=document.getElementById("hsPeriodSel");
-  if(hp&&[...hp.options].some(function(o){return o.value===horizon;}))hp.value=horizon;
+  syncHsSel();
   syncBasisUI();applyRates();rkSyncPressed();
 }
 readHash();
@@ -1831,8 +2035,8 @@ function rkShortPeriodLabels(){
   });
 }
 rkShortPeriodLabels();
-/* Redraw the growth chart at the new width when the viewport changes */
-(function(){var t=null;addEventListener("resize",function(){clearTimeout(t);t=setTimeout(function(){if(lcRows&&lcRows.length)renderLineChart(lcRows);},180);},{passive:true});})();
+/* Redraw the growth chart and the result strip at the new width when the viewport changes */
+(function(){var t=null;addEventListener("resize",function(){clearTimeout(t);t=setTimeout(function(){drawStrip();if(lcRows&&lcRows.length)renderLineChart(lcRows);},180);},{passive:true});})();
 /* ---- result_seen: did the visitor actually meet the payoff? ---- */
 (function(){
   var el=document.getElementById("headline");
@@ -1856,10 +2060,19 @@ rkShortPeriodLabels();
   }
   addEventListener("scroll",onScroll,{passive:true});
 })();
-var _detailsP=fetch("details.json").then(r=>r.json()).catch(()=>({}));
-fetch("data.json").then(r=>r.json()).then(d=>{
-  if(!(d&&Array.isArray(d.funds)&&d.funds.length))throw 0;
+/* ---- Data load. A failure shows in the result card (the part people actually see),
+        with a retry, instead of only inside the hidden tools section. ---- */
+function rkShowLoadError(){
+  var msg='Could not load the fund data. Check your connection, then try again.';
+  var hb=document.getElementById("hlBody");
+  if(hb)hb.innerHTML='<div class="hl-err" role="alert"><p>'+msg+'</p><button type="button" class="hl-retry" data-rk-retry>Try again</button></div>';
+  var r=document.getElementById("results");
+  if(r)r.innerHTML='<div class="hl-err"><p>'+msg+'</p><button type="button" class="hl-retry" data-rk-retry>Try again</button></div>';
+  var tp=document.getElementById("topperf");if(tp)tp.hidden=true;
+}
+function rkOnData(d){
   FUNDS=d.funds;pruneHorizons();renderBrowse();
+  var tp=document.getElementById("topperf");if(tp)tp.hidden=false;
   if(FUNDS.some(f=>f.series&&f.series.co&&f.series.co.length)){var _dv=document.getElementById("dvrow"),_lb=document.getElementById("lcbasis");if(_dv)_dv.classList.remove("bc-off");if(_lb)_lb.classList.remove("bc-off");}
   syncBasisUI();
   if(d.asOf){const p=d.asOf.split("-");const asofLabel=(+p[2])+" "+MONTHS[+p[1]-1]+" "+p[0];document.querySelectorAll(".asof").forEach(e=>e.textContent=asofLabel);window.RK_END_MY=MONTHS[+p[1]-1]+" "+p[0];window.RK_ASOF_Y=+p[0];window.RK_ASOF_M=+p[1];
@@ -1877,30 +2090,62 @@ fetch("data.json").then(r=>r.json()).then(d=>{
       tipEl.setAttribute("data-tip",base);
     }
   }
-  _detailsP.then(dd=>{DETAILS=dd||{};scheduleRender();});
-}).catch(()=>{var r=document.getElementById("results");if(r)r.innerHTML='<p style="text-align:center;color:var(--muted);padding:28px 0;font-size:14px">Could not load the latest fund data. Please refresh the page.</p>';});
+  applyRates(); // rate fields always start from PERIODRATES for the current period
+}
+function rkLoadData(){
+  window.__rkLoadFailed=false;
+  var hb=document.getElementById("hlBody");
+  if(hb&&!FUNDS.length)hb.innerHTML='<div class="hl-loading">Loading fund returns&hellip;</div>';
+  var detP=fetch("details.json").then(r=>r.ok?r.json():{}).catch(()=>({}));
+  fetch("data.json").then(r=>{if(!r.ok)throw 0;return r.json();}).then(d=>{
+    if(!(d&&Array.isArray(d.funds)&&d.funds.length))throw 0;
+    rkOnData(d);
+    scheduleRender();
+    detP.then(dd=>{DETAILS=dd||{};scheduleRender();});
+  }).catch(()=>{window.__rkLoadFailed=true;rkShowLoadError();});
+}
+document.addEventListener("click",function(e){if(e.target.closest&&e.target.closest("[data-rk-retry]"))rkLoadData();});
+rkLoadData();
 </script>
 <script>document.addEventListener("click",function(e){var c=e.target&&e.target.closest&&e.target.closest(".btn-coffee,.rk-coffee");if(c){e.preventDefault();var w=480,h=Math.min(940,(screen.availHeight||screen.height||800)-40),L=Math.max(0,((screen.width||1000)-w)/2),T=Math.max(0,((screen.height||800)-h)/2);window.open("https://www.supportkori.com/widget/returnkoto","skpay","popup=yes,width="+w+",height="+h+",left="+L+",top="+T);}},true);</script>
 <script>function rkToggleTheme(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}rkThemeIcon();}function rkThemeIcon(){var b=document.querySelector('.themetog');if(!b)return;var dark=document.documentElement.getAttribute('data-theme')==='dark';b.textContent=dark?'☀️':'🌙';b.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');}(function(){var b=document.querySelector('.themetog');if(b)b.addEventListener('click',rkToggleTheme);rkThemeIcon();})();</script>
 <script>
-(async function(){
-  try{
-    var h=await (await fetch('/holdings.json')).json();
-    var INSTR=/sukuk|bond|treasur|t-bill|deposit|fdr|units|unit fund|mutual fund|preference|perpetual|brokerage|cash|\bIPO\b|SEML/i;
-    var ALIAS={"Marico":"Marico Bangladesh","Bangladesh Submarine Cable Company PLC":"Bangladesh Submarine Cables","The ACME Laboratories Limited":"The ACME Laboratories"};
-    var counts={},total=0;
-    for(var k in h){ total++;
-      (h[k].top||[]).forEach(function(t){ if(INSTR.test(t.name))return; var n=ALIAS[t.name]||t.name; counts[n]=(counts[n]||0)+1; });
-    }
-    var top=Object.keys(counts).map(function(n){return [n,counts[n]];}).sort(function(a,b){return b[1]-a[1];}).slice(0,5);
-    if(!top.length)return;
-    var el=document.getElementById('mostheldrows');
-    el.innerHTML=top.map(function(x,i){
-      return '<div style="display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:'+(i<4?'1px solid var(--line,#eef3f0)':'none')+';font-size:14px"><span style="font-weight:700">'+(i+1)+'. '+x[0].replace(/</g,'&lt;')+'</span><span style="color:var(--muted,#6B7280);white-space:nowrap">in '+x[1]+' of '+total+' funds</span></div>';
-    }).join('');
-    document.getElementById('mostheld').style.display='';
-    if(typeof window.dispatchEvent==='function')window.dispatchEvent(new Event('scroll'));
-  }catch(e){}
+/* Most-held stocks. holdings.json is ~150 KB, and this section sits deep inside the
+   tools, so it is fetched only once the tools are open and the reader scrolls within
+   reach of it, not on every page load. */
+(function(){
+  var started=false,armed=false;
+  async function load(){
+    if(started)return;started=true;
+    try{
+      var h=await (await fetch('/holdings.json')).json();
+      var INSTR=/sukuk|bond|treasur|t-bill|deposit|fdr|units|unit fund|mutual fund|preference|perpetual|brokerage|cash|\bIPO\b|SEML/i;
+      var ALIAS={"Marico":"Marico Bangladesh","Bangladesh Submarine Cable Company PLC":"Bangladesh Submarine Cables","The ACME Laboratories Limited":"The ACME Laboratories"};
+      var counts={},total=0;
+      for(var k in h){ total++;
+        (h[k].top||[]).forEach(function(t){ if(INSTR.test(t.name))return; var n=ALIAS[t.name]||t.name; counts[n]=(counts[n]||0)+1; });
+      }
+      var top=Object.keys(counts).map(function(n){return [n,counts[n]];}).sort(function(a,b){return b[1]-a[1];}).slice(0,5);
+      if(!top.length)return;
+      var el=document.getElementById('mostheldrows');
+      el.innerHTML=top.map(function(x,i){
+        return '<div style="display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:'+(i<4?'1px solid var(--line,#eef3f0)':'none')+';font-size:14px"><span style="font-weight:700">'+(i+1)+'. '+x[0].replace(/</g,'&lt;')+'</span><span style="color:var(--muted,#6B7280);white-space:nowrap">in '+x[1]+' of '+total+' funds</span></div>';
+      }).join('');
+      document.getElementById('mostheld').style.display='';
+      if(typeof window.dispatchEvent==='function')window.dispatchEvent(new Event('scroll'));
+    }catch(e){started=false;}
+  }
+  function arm(){
+    if(armed)return;armed=true;
+    var near=document.getElementById("browseallbtn");
+    if(!near||!("IntersectionObserver" in window)){load();return;}
+    var io=new IntersectionObserver(function(en){if(en.some(function(x){return x.isIntersecting;})){io.disconnect();load();}},{rootMargin:"0px 0px 900px 0px"});
+    io.observe(near);
+  }
+  var ck=document.getElementById("cockpit");
+  if(ck&&!ck.hidden){arm();return;}
+  var prev=window.rkOpenCockpit;
+  if(typeof prev==="function")window.rkOpenCockpit=function(){var r=prev.apply(this,arguments);arm();return r;};
 })();
 </script>
 </body>

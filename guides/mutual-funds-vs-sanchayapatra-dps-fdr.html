@@ -10,7 +10,7 @@
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://cloudflareinsights.com; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Mutual Funds vs Sanchayapatra, DPS and FDR in Bangladesh | ReturnKoto?</title>
 <meta name="description" content="How open-end mutual funds compare with Sanchayapatra, DPS, FDR and gold in Bangladesh: returns, risk, liquidity, tax and which tool fits which goal.">
@@ -23,7 +23,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="article:published_time" content="2026-07-01">
-<meta property="article:modified_time" content="2026-08-13">
+<meta property="article:modified_time" content="2026-09-24">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://returnkoto.com/og-card.png">
 <meta name="twitter:title" content="Mutual Funds vs Sanchayapatra, DPS and FDR">
@@ -53,10 +53,11 @@
   .backlink{font-size:13px;font-weight:700;color:var(--green-dark);text-decoration:none;background:var(--green-soft);border:1px solid #CDEEDB;border-radius:999px;padding:7px 14px}
   .backlink:hover{background:#D6F0E2}
   h1{font-size:27px;font-weight:800;letter-spacing:-.02em;margin:24px 0 6px;line-height:1.25}
-  .lead{font-size:15.5px;color:var(--muted)}
+  .lead{font-size:16px;color:var(--muted)}
   .lead a{color:var(--green-dark);font-weight:600}
   h2{font-size:19px;font-weight:800;margin:30px 0 8px;scroll-margin-top:14px}
-  p{margin:0 0 12px;font-size:15px}
+  p{margin:0 0 12px;font-size:16px}
+  .wrap>p:not(.g-updated),dl.gloss dd{max-width:60ch}
   p a{color:var(--green-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px}
   .toc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px 18px;margin:20px 0}
   .lnsearch{position:sticky;top:47px;z-index:55;margin:0 0 4px;padding:10px 0;background:var(--bg)}
@@ -66,7 +67,13 @@
   .lnsearch input{animation:rkSrchHint 1.6s ease-in-out .7s 3}
   .lnsearch input:focus,.lnsearch input:not(:placeholder-shown){animation:none}
   @media(prefers-reduced-motion:reduce){.lnsearch input{animation:none}}
-  .ln-none{font-size:15px;color:var(--muted);margin:16px 0}
+  .ln-none{font-size:16px;color:var(--muted);margin:16px 0}
+  .ln-none p{margin:0 0 8px}
+  .ln-none b{color:var(--text)}
+  .ln-none ul{margin:0 0 6px 1.2em}
+  .ln-none li{margin:0 0 4px;line-height:1.5}
+  .ln-none li a{display:block;padding:10px 0;color:var(--green-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+  .lnclear2{font:inherit;font-size:14px;font-weight:700;color:var(--green-dark);background:none;border:0;padding:8px 0;min-height:44px;cursor:pointer}
   @media(max-width:560px){.lnsearch{top:38px;margin-left:-18px;margin-right:-18px;padding:10px 18px}}
   .toc h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px}
   .toc ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
@@ -74,8 +81,8 @@
   .toc a:hover{color:var(--green-dark);text-decoration:underline}
   @media(max-width:560px){.toc ul{grid-template-columns:1fr}}
   dl.gloss dt{font-weight:700;font-size:15px;margin-top:15px}
-  dl.gloss dd{margin:2px 0 0;font-size:14.5px;color:#374151}
-  .callout{margin:14px 0;font-size:13.5px;color:#7A4B0B;background:var(--amber-soft);border:1px solid #F4D58D;border-radius:10px;padding:12px 14px;line-height:1.55}
+  dl.gloss dd{margin:2px 0 0;font-size:16px;color:#374151}
+  .callout{margin:14px 0;font-size:16px;color:#7A4B0B;background:var(--amber-soft);border:1px solid #F4D58D;border-radius:10px;padding:12px 14px;line-height:1.55}
   .cta{display:inline-block;margin-top:8px;background:var(--green-dark);color:#fff;font-weight:800;font-size:15px;padding:12px 24px;border-radius:999px;text-decoration:none}
   .cta:hover{background:#1f9853}
   footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted);text-align:center;line-height:1.6}
@@ -148,7 +155,7 @@
   .tocdisc>summary::-webkit-details-marker{display:none}
   .tocdisc>summary::after{content:"\25be";transition:transform .2s}
   .tocdisc[open]>summary::after{transform:rotate(180deg)}
-  .ln-next{font-size:13.5px;color:var(--muted);margin:12px 0 0;padding:9px 12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
+  .ln-next{font-size:15px;line-height:1.55;color:var(--muted);margin:12px 0 0;padding:9px 12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
   .ln-next a{font-weight:700}
   .srchbox{position:relative}
   .srchclear{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;color:var(--muted);font-size:15px;cursor:pointer;border-radius:10px}
@@ -163,14 +170,14 @@
 <style>
 .g-updated{font-size:13px;color:var(--muted);margin:0 0 16px;line-height:1.45}
 .g-updated time{font-weight:600;color:var(--text)}
-.g-list{margin:0 0 12px;padding-left:1.15em;font-size:15px}
+.g-list{margin:0 0 12px;padding-left:1.15em;font-size:16px}
 .g-list li{margin:0 0 6px}
 @media(max-width:560px){.g-updated{font-size:12.5px}}
 </style>
 <link rel="stylesheet" href="/rk-ui.css?v=8e606a8b90">
 <script src="/rk-ui.js?v=7c46a3f03c" defer></script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Mutual Funds vs Sanchayapatra, DPS and FDR in Bangladesh", "description": "How open-end mutual funds compare with Sanchayapatra, DPS, FDR and gold in Bangladesh: returns, risk, liquidity, tax and which tool fits which goal.", "inLanguage": "en", "about": "Bangladeshi open-end mutual funds", "datePublished": "2026-07-01", "dateModified": "2026-08-13", "author": {"@id": "https://returnkoto.com/#org"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "isPartOf": {"@id": "https://returnkoto.com/#website"}, "mainEntityOfPage": "https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html", "url": "https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://returnkoto.com/learn.html"}, {"@type": "ListItem", "position": 3, "name": "Mutual funds vs Sanchayapatra, DPS and FDR", "item": "https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are mutual funds better than Sanchayapatra or FDR?", "acceptedAnswer": {"@type": "Answer", "text": "Neither is universally better. Sanchayapatra and FDR give a fixed, guaranteed return with very low risk; mutual funds are market-linked, with higher potential return and real risk. ReturnKoto? lets you compare each fund's real history against the safe options for your own goal and horizon."}}, {"@type": "Question", "name": "Do mutual funds give higher returns than a DPS?", "acceptedAnswer": {"@type": "Answer", "text": "They can over the long run, but it is not guaranteed. A DPS pays a fixed rate; a mutual fund's return varies with the market. Compare the actual numbers on the ReturnKoto? calculator before deciding."}}, {"@type": "Question", "name": "Which is safer, a mutual fund or a fixed deposit?", "acceptedAnswer": {"@type": "Answer", "text": "A fixed deposit is safer in the sense that capital and rate are fixed. A mutual fund can rise or fall. The safer option usually returns less, and inflation can eat into a fixed return."}}, {"@type": "Question", "name": "Can I withdraw from a mutual fund any time?", "acceptedAnswer": {"@type": "Answer", "text": "Open-end fund units are redeemable at net asset value on a regular basis, often weekly. Some funds apply a small early-exit charge if you redeem or cancel a SIP very early. Sanchayapatra and FDR are meant to be held to term."}}]}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Mutual Funds vs Sanchayapatra, DPS and FDR in Bangladesh", "description": "How open-end mutual funds compare with Sanchayapatra, DPS, FDR and gold in Bangladesh: returns, risk, liquidity, tax and which tool fits which goal.", "inLanguage": "en", "about": "Bangladeshi open-end mutual funds", "datePublished": "2026-07-01", "dateModified": "2026-09-24", "author": {"@id": "https://returnkoto.com/#org"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "isPartOf": {"@id": "https://returnkoto.com/#website"}, "mainEntityOfPage": "https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html", "url": "https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://returnkoto.com/learn.html"}, {"@type": "ListItem", "position": 3, "name": "Mutual funds vs Sanchayapatra, DPS and FDR", "item": "https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are mutual funds better than Sanchayapatra or FDR?", "acceptedAnswer": {"@type": "Answer", "text": "Neither is universally better. Sanchayapatra and FDR give a fixed, guaranteed return with very low risk; mutual funds are market-linked, with higher potential return and real risk. ReturnKoto? lets you compare each fund's real history against the safe options for your own goal and horizon."}}, {"@type": "Question", "name": "Do mutual funds give higher returns than a DPS?", "acceptedAnswer": {"@type": "Answer", "text": "They can over the long run, but it is not guaranteed. A DPS pays a fixed rate; a mutual fund's return varies with the market. Compare the actual numbers on the ReturnKoto? calculator before deciding."}}, {"@type": "Question", "name": "Which is safer, a mutual fund or a fixed deposit?", "acceptedAnswer": {"@type": "Answer", "text": "A fixed deposit is safer in the sense that capital and rate are fixed. A mutual fund can rise or fall. The safer option usually returns less, and inflation can eat into a fixed return."}}, {"@type": "Question", "name": "Can I withdraw from a mutual fund any time?", "acceptedAnswer": {"@type": "Answer", "text": "Open-end fund units are redeemable at net asset value on a regular basis, often weekly. Some funds apply a small early-exit charge if you redeem or cancel a SIP very early. Sanchayapatra and FDR are meant to be held to term."}}]}]}
 </script>
 </head>
 <body>
@@ -194,15 +201,16 @@
 <div class="wrap" role="main" id="main">
   <h1>Mutual funds vs Sanchayapatra, DPS and FDR</h1>
   <p class="lead">Sanchayapatra, DPS and FDR pay a fixed rate and are built to protect capital under their own terms. Open-end mutual funds are market-linked. Line them up on the <a href="/">calculator</a>.</p>
-  <p class="g-updated">Updated <time datetime="2026-08-13">13 Aug 2026</time> · First published <time datetime="2026-07-01">1 Jul 2026</time></p>
-<div class="toc"><h3>On this page</h3><ul><li><a href="#safe">The fixed-return options</a></li><li><a href="#funds">How mutual funds differ</a></li><li><a href="#returns">Returns</a></li><li><a href="#risk">Risk</a></li><li><a href="#liquidity">Liquidity</a></li><li><a href="#tax">Tax</a></li><li><a href="#who">Which is right for you?</a></li></ul></div>
+  <p class="g-updated">Updated <time datetime="2026-09-24">24 Sep 2026</time> · First published <time datetime="2026-07-01">1 Jul 2026</time></p>
+<nav class="toc" aria-label="On this page"><details class="tocdisc" id="gTocDisc"><summary>On this page (7 topics)</summary><ul><li><a href="#safe">The fixed-return options</a></li><li><a href="#funds">How mutual funds differ</a></li><li><a href="#returns">Returns</a></li><li><a href="#risk">Risk</a></li><li><a href="#liquidity">Liquidity</a></li><li><a href="#tax">Tax</a></li><li><a href="#who">Which is right for you?</a></li></ul></details></nav>
+<script>(function(){var d=document.getElementById('gTocDisc');if(d&&window.matchMedia&&matchMedia('(min-width:561px)').matches)d.open=true;})();</script>
   <h2 id="safe">The fixed-return options</h2>
   <p>Most Bangladeshis know the fixed-return choices well. Sanchayapatra (savings certificates) pay a government-set rate over a fixed term. A DPS (Deposit Pension Scheme) builds savings through fixed monthly deposits at a set rate. An FDR (Fixed Deposit Receipt) locks a lump sum for a term at an agreed rate. All three protect your capital and give a predictable return, but that return is capped and can be eroded by inflation.</p>
   <p>Two more lines on the ReturnKoto? chart are yardsticks, not safe parking spots. Inflation shows how fast prices rise, so you can judge whether a return grew purchasing power. Gold is a familiar long-run store of value, but its price swings year to year, so it neither protects capital like an FDR nor pays a set rate. Read both as benchmarks.</p>
   <h2 id="funds">How mutual funds differ</h2>
   <p>An open-end mutual fund pools money from many investors; a licensed asset manager invests it in a portfolio of shares, bonds and other assets. There is no fixed, guaranteed rate: return depends on the portfolio. That means more risk than a fixed deposit, and also the potential for higher long-run returns. You buy and redeem units with the manager at NAV. New to the idea? Start with the <a href="/learn.html">plain-language guide</a> or the <a href="/guides/how-to-invest-in-mutual-funds-bangladesh.html">how-to-invest steps</a>.</p>
   <h2 id="returns">Returns</h2>
-  <p>Fixed options give you the rate on the label. Mutual fund returns vary year to year and are never guaranteed. On ReturnKoto?, each fund&rsquo;s actual total return (dividends reinvested by default, or taken as cash) sits next to Sanchayapatra, DPS, FDR, gold and inflation for the period you choose. Safe-option lines use each instrument&rsquo;s headline rate as a rate illustration, not a full model of payout or tax. <a href="/">Open the comparison.</a></p>
+  <p>Fixed options give you the rate on the label. Mutual fund returns vary year to year and are never guaranteed. On ReturnKoto?, each fund&rsquo;s actual total return (dividends reinvested by default, or taken as cash) sits next to Sanchayapatra, DPS, FDR, gold and inflation for the period you choose. Safe-option lines use each instrument&rsquo;s headline rate as a rate illustration, not a full model of payout or tax. <a href="/">Open the comparison.</a> For a count of how many tracked funds beat Sanchayapatra over a recent window, and which ones, see <a href="/blog/do-mutual-funds-beat-sanchayapatra.html">this data post</a>.</p>
   <h2 id="risk">Risk</h2>
   <p>Sanchayapatra, DPS and FDR carry very low risk and return capital with interest under their terms. Mutual funds can fall as well as rise; equity-leaning funds move more than income funds. Risk is the price of higher potential return. A longer horizon, spreading money across funds, and investing gradually through a SIP are the usual ways to manage it.</p>
   <h2 id="liquidity">Liquidity</h2>

@@ -10,7 +10,7 @@
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://cloudflareinsights.com; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Shariah-Compliant Mutual Funds in Bangladesh: A Guide | ReturnKoto?</title>
 <meta name="description" content="What makes a mutual fund Shariah-compliant in Bangladesh, how these open-end funds work, who oversees them, and how to find and compare them on ReturnKoto?.">
@@ -23,7 +23,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="article:published_time" content="2026-07-01">
-<meta property="article:modified_time" content="2026-08-13">
+<meta property="article:modified_time" content="2026-09-24">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://returnkoto.com/og-card.png">
 <meta name="twitter:title" content="Shariah-Compliant Mutual Funds in Bangladesh">
@@ -53,10 +53,11 @@
   .backlink{font-size:13px;font-weight:700;color:var(--green-dark);text-decoration:none;background:var(--green-soft);border:1px solid #CDEEDB;border-radius:999px;padding:7px 14px}
   .backlink:hover{background:#D6F0E2}
   h1{font-size:27px;font-weight:800;letter-spacing:-.02em;margin:24px 0 6px;line-height:1.25}
-  .lead{font-size:15.5px;color:var(--muted)}
+  .lead{font-size:16px;color:var(--muted)}
   .lead a{color:var(--green-dark);font-weight:600}
   h2{font-size:19px;font-weight:800;margin:30px 0 8px;scroll-margin-top:14px}
-  p{margin:0 0 12px;font-size:15px}
+  p{margin:0 0 12px;font-size:16px}
+  .wrap>p:not(.g-updated),dl.gloss dd{max-width:60ch}
   p a{color:var(--green-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px}
   .toc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px 18px;margin:20px 0}
   .lnsearch{position:sticky;top:47px;z-index:55;margin:0 0 4px;padding:10px 0;background:var(--bg)}
@@ -66,7 +67,13 @@
   .lnsearch input{animation:rkSrchHint 1.6s ease-in-out .7s 3}
   .lnsearch input:focus,.lnsearch input:not(:placeholder-shown){animation:none}
   @media(prefers-reduced-motion:reduce){.lnsearch input{animation:none}}
-  .ln-none{font-size:15px;color:var(--muted);margin:16px 0}
+  .ln-none{font-size:16px;color:var(--muted);margin:16px 0}
+  .ln-none p{margin:0 0 8px}
+  .ln-none b{color:var(--text)}
+  .ln-none ul{margin:0 0 6px 1.2em}
+  .ln-none li{margin:0 0 4px;line-height:1.5}
+  .ln-none li a{display:block;padding:10px 0;color:var(--green-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+  .lnclear2{font:inherit;font-size:14px;font-weight:700;color:var(--green-dark);background:none;border:0;padding:8px 0;min-height:44px;cursor:pointer}
   @media(max-width:560px){.lnsearch{top:38px;margin-left:-18px;margin-right:-18px;padding:10px 18px}}
   .toc h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px}
   .toc ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
@@ -74,8 +81,8 @@
   .toc a:hover{color:var(--green-dark);text-decoration:underline}
   @media(max-width:560px){.toc ul{grid-template-columns:1fr}}
   dl.gloss dt{font-weight:700;font-size:15px;margin-top:15px}
-  dl.gloss dd{margin:2px 0 0;font-size:14.5px;color:#374151}
-  .callout{margin:14px 0;font-size:13.5px;color:#7A4B0B;background:var(--amber-soft);border:1px solid #F4D58D;border-radius:10px;padding:12px 14px;line-height:1.55}
+  dl.gloss dd{margin:2px 0 0;font-size:16px;color:#374151}
+  .callout{margin:14px 0;font-size:16px;color:#7A4B0B;background:var(--amber-soft);border:1px solid #F4D58D;border-radius:10px;padding:12px 14px;line-height:1.55}
   .cta{display:inline-block;margin-top:8px;background:var(--green-dark);color:#fff;font-weight:800;font-size:15px;padding:12px 24px;border-radius:999px;text-decoration:none}
   .cta:hover{background:#1f9853}
   footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted);text-align:center;line-height:1.6}
@@ -148,7 +155,7 @@
   .tocdisc>summary::-webkit-details-marker{display:none}
   .tocdisc>summary::after{content:"\25be";transition:transform .2s}
   .tocdisc[open]>summary::after{transform:rotate(180deg)}
-  .ln-next{font-size:13.5px;color:var(--muted);margin:12px 0 0;padding:9px 12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
+  .ln-next{font-size:15px;line-height:1.55;color:var(--muted);margin:12px 0 0;padding:9px 12px;background:var(--card);border:1px dashed var(--line);border-radius:10px}
   .ln-next a{font-weight:700}
   .srchbox{position:relative}
   .srchclear{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;color:var(--muted);font-size:15px;cursor:pointer;border-radius:10px}
@@ -163,14 +170,14 @@
 <style>
 .g-updated{font-size:13px;color:var(--muted);margin:0 0 16px;line-height:1.45}
 .g-updated time{font-weight:600;color:var(--text)}
-.g-list{margin:0 0 12px;padding-left:1.15em;font-size:15px}
+.g-list{margin:0 0 12px;padding-left:1.15em;font-size:16px}
 .g-list li{margin:0 0 6px}
 @media(max-width:560px){.g-updated{font-size:12.5px}}
 </style>
 <link rel="stylesheet" href="/rk-ui.css?v=8e606a8b90">
 <script src="/rk-ui.js?v=7c46a3f03c" defer></script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Shariah-Compliant Mutual Funds in Bangladesh: A Guide", "description": "What makes a mutual fund Shariah-compliant in Bangladesh, how these open-end funds work, who oversees them, and how to find and compare them on ReturnKoto?.", "inLanguage": "en", "about": "Bangladeshi open-end mutual funds", "datePublished": "2026-07-01", "dateModified": "2026-08-13", "author": {"@id": "https://returnkoto.com/#org"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "isPartOf": {"@id": "https://returnkoto.com/#website"}, "mainEntityOfPage": "https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html", "url": "https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://returnkoto.com/learn.html"}, {"@type": "ListItem", "position": 3, "name": "Shariah-compliant mutual funds in Bangladesh", "item": "https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are there halal mutual funds in Bangladesh?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Several open-end mutual funds in Bangladesh are Shariah-compliant, investing only in Islamically permissible ways under a Shariah supervisory board. ReturnKoto? has a one-tap filter to show only these funds."}}, {"@type": "Question", "name": "How is a Shariah-compliant fund different from a regular fund?", "acceptedAnswer": {"@type": "Answer", "text": "It applies Islamic screening: avoiding interest-based income and non-permissible businesses, with a Shariah board reviewing its holdings. Otherwise it works like any open-end fund, with units priced at NAV."}}, {"@type": "Question", "name": "How do I find Shariah-compliant funds on ReturnKoto?", "acceptedAnswer": {"@type": "Answer", "text": "Turn on the 'Shariah-compliant only' filter on the calculator or compare tool, or look for the Shariah tag in the funds directory. You can then compare their real historical returns."}}, {"@type": "Question", "name": "Do Shariah funds give lower returns?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. Returns depend on the specific fund and the time period, not on whether it is Shariah-compliant. Compare actual history on ReturnKoto? with the Shariah filter on."}}]}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Shariah-Compliant Mutual Funds in Bangladesh: A Guide", "description": "What makes a mutual fund Shariah-compliant in Bangladesh, how these open-end funds work, who oversees them, and how to find and compare them on ReturnKoto?.", "inLanguage": "en", "about": "Bangladeshi open-end mutual funds", "datePublished": "2026-07-01", "dateModified": "2026-09-24", "author": {"@id": "https://returnkoto.com/#org"}, "publisher": {"@id": "https://returnkoto.com/#org"}, "isPartOf": {"@id": "https://returnkoto.com/#website"}, "mainEntityOfPage": "https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html", "url": "https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://returnkoto.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://returnkoto.com/learn.html"}, {"@type": "ListItem", "position": 3, "name": "Shariah-compliant mutual funds in Bangladesh", "item": "https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are there halal mutual funds in Bangladesh?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Several open-end mutual funds in Bangladesh are Shariah-compliant, investing only in Islamically permissible ways under a Shariah supervisory board. ReturnKoto? has a one-tap filter to show only these funds."}}, {"@type": "Question", "name": "How is a Shariah-compliant fund different from a regular fund?", "acceptedAnswer": {"@type": "Answer", "text": "It applies Islamic screening: avoiding interest-based income and non-permissible businesses, with a Shariah board reviewing its holdings. Otherwise it works like any open-end fund, with units priced at NAV."}}, {"@type": "Question", "name": "How do I find Shariah-compliant funds on ReturnKoto?", "acceptedAnswer": {"@type": "Answer", "text": "Turn on the 'Shariah-compliant only' filter on the calculator or compare tool, or look for the Shariah tag in the funds directory. You can then compare their real historical returns."}}, {"@type": "Question", "name": "Do Shariah funds give lower returns?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. Returns depend on the specific fund and the time period, not on whether it is Shariah-compliant. Compare actual history on ReturnKoto? with the Shariah filter on."}}]}]}
 </script>
 </head>
 <body>
@@ -194,8 +201,9 @@
 <div class="wrap" role="main" id="main">
   <h1>Shariah-compliant mutual funds in Bangladesh</h1>
   <p class="lead">Shariah-compliant funds invest only in Islamically permissible ways, overseen by a Shariah board. Here is how they work, with a one-tap filter on the <a href="/">calculator</a>.</p>
-  <p class="g-updated">Updated <time datetime="2026-08-13">13 Aug 2026</time> · First published <time datetime="2026-07-01">1 Jul 2026</time></p>
-<div class="toc"><h3>On this page</h3><ul><li><a href="#what">What makes a fund Shariah-compliant</a></li><li><a href="#how">How they work</a></li><li><a href="#oversight">Who oversees them</a></li><li><a href="#find">Find Shariah funds</a></li><li><a href="#returns">Returns</a></li><li><a href="#choose">Choosing one</a></li></ul></div>
+  <p class="g-updated">Updated <time datetime="2026-09-24">24 Sep 2026</time> · First published <time datetime="2026-07-01">1 Jul 2026</time></p>
+<nav class="toc" aria-label="On this page"><details class="tocdisc" id="gTocDisc"><summary>On this page (6 topics)</summary><ul><li><a href="#what">What makes a fund Shariah-compliant</a></li><li><a href="#how">How they work</a></li><li><a href="#oversight">Who oversees them</a></li><li><a href="#find">Find Shariah funds</a></li><li><a href="#returns">Returns</a></li><li><a href="#choose">Choosing one</a></li></ul></details></nav>
+<script>(function(){var d=document.getElementById('gTocDisc');if(d&&window.matchMedia&&matchMedia('(min-width:561px)').matches)d.open=true;})();</script>
   <h2 id="what">What makes a fund Shariah-compliant?</h2>
   <p>A Shariah-compliant fund follows Islamic finance principles. It avoids interest-based income (riba) and businesses considered non-permissible (haram), such as conventional banking, alcohol, gambling and tobacco. Investments are screened against Shariah criteria, and any incidental non-compliant income is typically purified by donating it to charity. The aim is to let observant Muslims invest in line with their faith.</p>
   <h2 id="how">How they work</h2>
@@ -205,7 +213,7 @@
   <h2 id="find">How to find Shariah funds on ReturnKoto?</h2>
   <p>ReturnKoto? tags every Shariah-compliant fund and offers a one-tap &ldquo;Shariah-compliant only&rdquo; filter on the <a href="/">calculator</a> and in the <a href="/compare.html">compare tool</a>. You can also spot the Shariah tag in the <a href="/funds/">funds directory</a>; each Shariah fund has its own page with verified details.</p>
   <h2 id="returns">Returns</h2>
-  <p>Shariah-compliant funds are not automatically higher or lower returning than conventional ones; performance depends on the fund and the period. Judge them on real history. Turn on the Shariah filter and compare actual total returns over the period you care about, with dividends reinvested by default (or taken as cash).</p>
+  <p>Shariah-compliant funds are not automatically higher or lower returning than conventional ones; performance depends on the fund and the period. Judge them on real history. Turn on the Shariah filter and compare actual total returns over the period you care about, with dividends reinvested by default (or taken as cash). <a href="/blog/shariah-mutual-funds-bangladesh-returns.html">This data post</a> ranks the Shariah funds and measures their gap to conventional funds over the same window.</p>
   <h2 id="choose">Choosing a Shariah fund</h2>
   <p>Look at track record and size, verified management fee and exit load, and whether the risk profile (income, balanced or growth) matches your horizon. Then decide between a lump sum and a monthly SIP. The same document and BO-account steps apply as for any open-end fund.</p>
 <h2 id="faq">Common questions</h2><p style="margin-top:10px"><b>Are there halal mutual funds in Bangladesh?</b><br>Yes. Several open-end mutual funds in Bangladesh are Shariah-compliant, investing only in Islamically permissible ways under a Shariah supervisory board. ReturnKoto? has a one-tap filter to show only these funds.</p><p style="margin-top:10px"><b>How is a Shariah-compliant fund different from a regular fund?</b><br>It applies Islamic screening: avoiding interest-based income and non-permissible businesses, with a Shariah board reviewing its holdings. Otherwise it works like any open-end fund, with units priced at NAV.</p><p style="margin-top:10px"><b>How do I find Shariah-compliant funds on ReturnKoto?</b><br>Turn on the 'Shariah-compliant only' filter on the calculator or compare tool, or look for the Shariah tag in the funds directory. You can then compare their real historical returns.</p><p style="margin-top:10px"><b>Do Shariah funds give lower returns?</b><br>Not necessarily. Returns depend on the specific fund and the time period, not on whether it is Shariah-compliant. Compare actual history on ReturnKoto? with the Shariah filter on.</p>

@@ -5,12 +5,13 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-9ZHRMVLEEE');
+  // page_location without the #fragment: links from the homepage carry its state there
+  gtag('config', 'G-9ZHRMVLEEE', {page_location: location.href.split('#')[0]});
   window.addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-9ZHRMVLEEE';document.head.appendChild(s);},1800);});
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://cloudflareinsights.com; base-uri 'self'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Compare Bangladeshi Mutual Funds Side by Side | ReturnKoto?</title>
 <meta name="description" content="Compare Bangladeshi open-end mutual funds side by side: historical and rolling returns, path risk, management fee, exit load, holdings overlap and more, from verified data.">
@@ -53,7 +54,7 @@
   .lead a{color:var(--green-dark);font-weight:600}
   .pickers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 0 14px}
   @media(max-width:640px){.pickers{grid-template-columns:1fr}}
-  .pk label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;margin:0 0 4px}
+  .pk label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;margin:0 0 4px}
   .pk select{width:100%;font:inherit;font-size:14px;font-weight:600;color:var(--text);background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:11px 12px;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2712%27%20height%3D%278%27%20viewBox%3D%270%200%2012%208%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cpath%20d%3D%27M1%201l5%205%205-5%27%20stroke%3D%27%236B7280%27%20stroke-width%3D%271.6%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 12px center}
   .pk select:focus{outline:none;border-color:var(--green-dark)}
   .cqbar{position:sticky;top:var(--cmp-nav,47px);z-index:55;display:flex;gap:7px;align-items:stretch;margin:0 0 16px;padding:5px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
@@ -121,7 +122,7 @@
   [data-theme="dark"] .cmp-copy.is-ok{background:#12301E;border-color:#1E4A30;color:#3DD98A}
   [data-theme="dark"] .cmp-howto{border-color:#2B3648}
   .v-pos{color:#15803d;font-weight:700}.v-neg{color:#c0392b;font-weight:700}
-  .ctag{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:5px;margin:0 3px 3px 0}
+  .ctag{display:inline-block;font-size:12px;font-weight:700;padding:2px 7px;border-radius:5px;margin:0 3px 3px 0}
   .ctag.income{background:#e8f1fb;color:#1f5fa8}.ctag.growth{background:#eaf7ef;color:#1f9e57}.ctag.balanced{background:#fdf1e7;color:#b5641a}
   .ctag.sh{background:#eef0fb;color:#4a4fb0}.ctag.ok{background:#e7f6ec;color:#1f9e57}.ctag.est{background:#fbf4e6;color:#9a7b14}
   .ctag.sc{background:#eef1f4;color:#556170}
@@ -131,22 +132,22 @@
   tr.cmp-sect .tipbtn:hover,tr.cmp-sect .tipbtn:focus{border-color:var(--green-dark);color:var(--green-dark)}
   tr.cmp-sect .k-lab,tr.cmp-sect .k-end{font-weight:800}
   .cmix-bar{display:flex;height:12px;border-radius:6px;overflow:hidden;min-width:130px;margin:2px 0 7px}
-  .cmix-leg{font-size:11.5px;color:var(--muted);line-height:1.55}
+  .cmix-leg{font-size:12px;color:var(--muted);line-height:1.55}
   .cmix-leg span{display:block}
   .cmix-sw{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px}
   .cmp-basis{color:var(--muted);font-size:12px;font-weight:500}
   .csec-row{display:flex;align-items:center;gap:6px;margin:0 0 4px;min-width:150px}
-  .csec-lbl{font-size:11.5px;color:var(--muted);flex:0 0 34%;max-width:110px;white-space:normal;line-height:1.25;overflow-wrap:break-word}
+  .csec-lbl{font-size:12px;color:var(--muted);flex:0 0 34%;max-width:110px;white-space:normal;line-height:1.25;overflow-wrap:break-word}
   .csec-trk{flex:1;height:7px;border-radius:4px;background:var(--border);overflow:hidden}
   .csec-fill{display:block;height:100%;width:var(--w,0);background:var(--green-dark);border-radius:4px}
-  .csec-val{font-size:11.5px;font-weight:700;flex:0 0 auto}
+  .csec-val{font-size:12px;font-weight:700;flex:0 0 auto}
   .cbar{display:block}
   .cbar-trk{display:block;height:7px;border-radius:4px;background:var(--border);overflow:hidden;margin-top:6px}
   .cbar-fill{display:block;height:100%;width:var(--w,0);background:var(--green-dark);border-radius:4px}
   .cbar-fill.neg{background:#c0392b}
   .cmix-donut{width:72px;height:72px;display:block;margin:0 auto 8px}
   .cmix-donut circle{cursor:pointer;stroke-dasharray:var(--len) var(--gap);stroke-dashoffset:var(--off,0)}
-  .cmix-tip{display:block;width:100%;font-size:11.5px;font-weight:600;line-height:1.4;color:var(--text);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:8px;padding:7px 9px;margin:0 0 8px;box-sizing:border-box}
+  .cmix-tip{display:block;width:100%;font-size:12px;font-weight:600;line-height:1.4;color:var(--text);background:var(--green-soft);border:1px solid #CDEEDB;border-radius:8px;padding:7px 9px;margin:0 0 8px;box-sizing:border-box}
   .hp-conc-trk,.cconc-trk{display:block;height:7px;border-radius:4px;background:var(--border);overflow:hidden;margin-top:6px}
   .hp-conc-fill,.cconc-fill{display:block;height:100%;width:var(--w,0);background:var(--green-dark);border-radius:4px}
   .roll-trk{position:relative;height:8px;border-radius:4px;background:var(--border);margin:7px 6px 0;overflow:visible}
@@ -175,20 +176,22 @@
   .cmp-div-warn{color:#b5641a}
   .cmp-div-bad{color:#b42318}
   .cmp-div-sub{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500;line-height:1.5}
+  /* Chart numbers table: fund-name headers wrap so the table fits a phone-width card */
+  #cmpVizNums thead th{white-space:normal;vertical-align:bottom;line-height:1.25}
   .cmp-note{font-size:12.5px;color:var(--muted);margin:14px 2px 0;line-height:1.6}
   /* Phone density. Kept after the base table + holdings rules so these actually win. */
   @media(max-width:640px){
     table.cmpt{font-size:13px}
     table.cmpt th,table.cmpt td{padding:9px 8px}
     table.cmpt thead th{font-size:12px}
-    table.cmpt td.k,table.cmpt th.k{width:94px;font-size:11px;box-shadow:none}
+    table.cmpt td.k,table.cmpt th.k{width:96px;font-size:12px;box-shadow:none}
     table.cmpt thead th.k{box-shadow:inset 0 -1px 0 var(--line)}
     tr.cmp-sect td{padding:7px 8px}
     tr.cmp-tiprow td{padding:0 8px 9px}
     .cmix-bar{min-width:0;height:10px}
     .cmix-donut{width:64px;height:64px}
     .csec-row{flex-wrap:wrap;min-width:0;gap:1px 5px;margin:0 0 7px}
-    .csec-lbl{flex:1 1 100%;max-width:none;min-width:0;font-size:11px;overflow-wrap:anywhere}
+    .csec-lbl{flex:1 1 100%;max-width:none;min-width:0;font-size:12px;overflow-wrap:anywhere}
     .csec-trk{flex:1 1 auto}
     .fund-short{white-space:normal}
   }
@@ -198,8 +201,8 @@
   }
   @media(max-width:400px){
     table.cmpt th,table.cmpt td{padding:8px 6px}
-    table.cmpt thead th{font-size:11.5px;padding:7px 6px}
-    table.cmpt td.k,table.cmpt th.k{width:80px;font-size:10.5px}
+    table.cmpt thead th{font-size:12px;padding:7px 6px}
+    table.cmpt td.k,table.cmpt th.k{width:96px;font-size:12px}
   }
   .cta{display:inline-block;margin-top:20px;background:var(--green-dark);color:#fff;font-weight:800;font-size:15px;padding:12px 24px;border-radius:999px;text-decoration:none}
   .cta:hover{background:#1f9853}
@@ -299,7 +302,7 @@
 <div class="wrap" role="main" id="main">
 
   <h1>Compare mutual funds</h1>
-  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical and rolling returns, path risk, fees, exit loads, minimum investment and holdings. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">!</button></span></p>
+  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical and rolling returns, path risk, fees, exit loads, minimum investment and holdings. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">i</button></span></p>
 
   <noscript>
     <p>JavaScript is required to load live fund figures into the comparison table. Without it, use the <a href="/funds/">fund directory</a> and individual fund pages for returns, fees and details, or the <a href="/">homepage calculator</a>.</p>
@@ -327,6 +330,7 @@
     <button type="button" id="cmpSh" class="qsh" aria-pressed="false" title="Show only Halal-certified funds">Shariah</button>
   </div>
 
+  <div class="sr-only" id="cmpLive" aria-live="polite"></div>
   <div class="cmp-meta" id="cmpMeta">
     <div id="cmpPeriodChip" class="cmp-period-chip" hidden></div>
     <button type="button" class="cmp-copy" id="cmpCopyLink" hidden>Copy link</button>
@@ -341,6 +345,7 @@
     <div class="cmp-legend" id="cmpLegend"></div>
     <div class="cmp-chart" id="cmpChart"></div>
     <p class="rk-barnote cmp-viz-foot">Each line starts at 100, and the number beside each line is where it ended. Dividends are reinvested. <button type="button" class="tipbtn" data-tipkey="cmp_index" data-tip="These are index values, not taka and not NAV. Every fund is set to 100 on the first month of the window, so 145 means that fund ended the period 45% above where it started. Setting them all to 100 is what makes the shapes comparable: unit prices differ from fund to fund, so the raw NAVs cannot be read against each other. The dashed line marks 100, which is break even for the window." aria-label="What do these numbers mean?">?</button></p>
+    <p class="cmp-viz-foot" id="cmpVizDated" hidden></p>
     <details class="cht-nums" id="cmpVizNums"></details>
   </section>
 
@@ -476,7 +481,7 @@
     var zero=x(0);
     var latest=x(b.latest);
     return '<b class="'+cls+'">'+(b.latest>=0?'+':'')+b.latest.toFixed(2)+'%</b>'
-      +'<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">median '+(b.median>=0?'+':'')+b.median.toFixed(1)
+      +'<div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45">median '+(b.median>=0?'+':'')+b.median.toFixed(1)
       +'% · best '+(b.best>=0?'+':'')+b.best.toFixed(1)+'% · worst '+(b.worst>=0?'+':'')+b.worst.toFixed(1)
       +'% · '+b.n+' windows</div>'
       +'<div class="roll-trk" aria-hidden="true"><span class="roll-span" style="left:'+left.toFixed(1)+'%;width:'+Math.max(width,2).toFixed(1)+'%"></span>'
@@ -493,7 +498,7 @@
     }
     var html=fmt(p[key]);
     if(!p.fixed3y&&p.months!=null){
-      html+='<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">Available history (~'+(p.months/12).toFixed(1)+'y) · fixed 3-year window after 3 years</div>';
+      html+='<div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45">Available history (~'+(p.months/12).toFixed(1)+'y) · fixed 3-year window after 3 years</div>';
     }
     return html;
   }
@@ -501,7 +506,7 @@
     var anyAvail=cols.some(function(f){var p=pathOf(f);return p&&!p.fixed3y;});
     var anyMissing=cols.some(function(f){return !pathOf(f);});
     if(!anyAvail&&!anyMissing)return '';
-    return '<div style="font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.45">Fixed 3-year path risk needs 36 closed months. Younger funds show available-history figures (labeled), or &ldquo;Needs 3 years of history&rdquo; / &ldquo;Insufficient history&rdquo; when a measure still cannot be computed.</div>';
+    return '<div style="font-size:12px;color:var(--muted);margin-top:6px;line-height:1.45">Fixed 3-year path risk needs 36 closed months. Younger funds show available-history figures (labeled), or &ldquo;Needs 3 years of history&rdquo; / &ldquo;Insufficient history&rdquo; when a measure still cannot be computed.</div>';
   }
   function feePeerNote(f){
     var own=detRaw(f,'fee'); if(!own)return '';
@@ -515,7 +520,7 @@
     var distinct={}; peers.forEach(function(n){distinct[n.toFixed(2)]=1;});
     if(peers.length<2||Object.keys(distinct).length<2)return '';
     var lo=Math.min.apply(null,peers), hi=Math.max.apply(null,peers);
-    return '<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">Peers ('+f.type+'): '+lo.toFixed(2)+'% to '+hi.toFixed(2)+'% stated headline. Management fee only, not full TER.</div>';
+    return '<div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45">Peers ('+f.type+'): '+lo.toFixed(2)+'% to '+hi.toFixed(2)+'% stated headline. Management fee only, not full TER.</div>';
   }
   function detRaw(f,key){var d=details[String(f.id)];return d&&d[key]?d[key]:'';}
   function det(f,key){var v=detRaw(f,key);return v?v:voidMsg('Not stated in prospectus');}
@@ -687,37 +692,48 @@
     var sub='Shared stock weight uses disclosed named equity tops (sum of the smaller weight in each shared name). Sector weight uses the same idea when both statements label sectors (close labels are normalized). Co-movement is the correlation of monthly total returns over the shared recent history. Holdings are quarterly; past co-movement is not a promise of future risk reduction. Growth vs Income pairs often look diversified because their mandates differ.';
     return '<div class="cmp-div"><div class="cmp-div-line">'+line+'</div><div class="cmp-div-sub">'+sub+'</div></div>';
   }
-  var PERIODS=[['6','6 months'],['ytd','YTD'],['12','1 year'],['24','2 years'],['36','3 years'],['60','5 years'],['max','Since launch']];
-  var YRS=[4,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,25,30,35,42];
   var period='36';
   function track(n,p){try{if(window.gtag)gtag('event',n,p||{});}catch(e){}}
-  // Cold open: two random funds of the same type (Growth / Balanced / Income), fresh each visit.
-  // Deep links (?funds= / ?a=) below keep an exact comparison when shared.
-  function shuffleInPlace(arr){
-    for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t;}
-    return arr;
+  /* Period list: months ascending, pruned to the longest history any fund has, so
+     nothing longer than real data is offered (it used to run to 42 years). */
+  var MAXM=Math.max.apply(null,funds.map(function(f){return f.M||0;}));
+  var PERIOD_M=[6,12,24,36,48,60,72,84,96,108,120,132,144,156,168,180,192,204,216,228,240].filter(function(m){return m<=MAXM;});
+  var PERIODS=[];
+  PERIOD_M.forEach(function(m){
+    PERIODS.push([String(m),spanLabel(m)]);
+    if(m===6)PERIODS.push(['ytd','Year to date']);
+  });
+  PERIODS.push(['max','Since launch']);
+  function validPeriod(v){return PERIODS.some(function(p){return p[0]===v;});}
+  /* Cold open: the two largest funds by assets under management, the same pair
+     scripts/inject-compare-default.py writes into the static table for crawlers,
+     so the no-JavaScript view and the live page agree. Ties break on the name, in
+     both places. */
+  function byAumDesc(a,b){return ((b.aum||0)-(a.aum||0))||a.label.localeCompare(b.label);}
+  function largestPair(list){
+    var r=list.filter(function(f){return f.aum;}).sort(byAumDesc);
+    return [r[0]||list[0]||null, r[1]||list[1]||null, null];
   }
-  function pickSameTypePair(list){
-    var byType={};
-    list.forEach(function(f){var t=f.type||'';if(!t)return;(byType[t]=byType[t]||[]).push(f);});
-    var types=Object.keys(byType).filter(function(t){return byType[t].length>=2;});
-    if(!types.length){
-      var all=shuffleInPlace(list.slice());
-      return [all[0]||null, all[1]||null, null];
-    }
-    var pool=shuffleInPlace(byType[types[Math.floor(Math.random()*types.length)]].slice());
-    return [pool[0], pool[1], null];
+  // For ?a=X alone: the largest fund of the same type, so the pair is like for like
+  function peerOf(fa){
+    var same=funds.filter(function(f){return f.id!==fa.id&&f.type===fa.type;}).sort(byAumDesc);
+    return same[0]||funds.filter(function(f){return f.id!==fa.id;}).sort(byAumDesc)[0]||null;
   }
-  var sel=pickSameTypePair(funds);
-  // deep-link: ?funds=a,b,c or ?a=slug (intentional shares only).
-  // Do NOT write ?funds= on cold open: that made hard refresh re-apply the last pair
-  // and killed same-type randomization. Share URL only after interaction or when linked.
+  var sel=largestPair(funds);
+  var isDefaultPair=true;
+  // Deep links: ?funds=a,b,c (current), and the older ?a=X&b=Y[&c=Z] that the public
+  // fund-versus-fund pages still use. Shared URLs are only written after interaction,
+  // so a refresh of a cold open never pins a pair.
   var q=new URLSearchParams(location.search);
   var shareReady=!!(q.get('funds')||q.get('a'));
   function resolve(x){x=(x||'').trim().toLowerCase();return bySlug[x]||byId[x]||null;}
-  if(q.get('funds')){var arr=q.get('funds').split(',').map(resolve).filter(Boolean);if(arr.length)sel=[arr[0]||null,arr[1]||null,arr[2]||null];}
-  else if(q.get('a')){var fa=resolve(q.get('a'));if(fa){var other=funds.find(function(f){return f.id!==fa.id;});sel=[fa,other||null,null];}}
-  if(q.get('p')&&/^(\d{1,3}|max|ytd)$/.test(q.get('p')))period=q.get('p');
+  if(q.get('funds')){var arr=q.get('funds').split(',').map(resolve).filter(Boolean);if(arr.length){sel=[arr[0]||null,arr[1]||null,arr[2]||null];if(!sel[1])sel[1]=peerOf(sel[0]);isDefaultPair=false;}}
+  else if(q.get('a')){var fa=resolve(q.get('a'));if(fa){var fb=resolve(q.get('b')),fc=resolve(q.get('c'));sel=[fa,(fb&&fb.id!==fa.id)?fb:peerOf(fa),fc||null];isDefaultPair=false;}}
+  // Period: ?p= on a shared link wins; otherwise the homepage's period (#h=), carried
+  // over when the visitor followed a Compare link after choosing one there
+  var hp=null;try{hp=new URLSearchParams(location.hash.replace(/^#/,'')).get('h');}catch(e){}
+  if(q.get('p')&&validPeriod(q.get('p')))period=q.get('p');
+  else if(hp&&validPeriod(hp))period=hp;
   function cmpCols(){
     var cols=sel.filter(Boolean),seen={},uniq=[];
     cols.forEach(function(f){if(!seen[f.id]){seen[f.id]=1;uniq.push(f);}});
@@ -734,12 +750,20 @@
       history.replaceState(null,'','/compare.html?'+u.toString());
     }catch(e){}
   }
-  // build selects
+  // build selects: grouped by type, lowest to highest risk (same order as the homepage);
+  // Shariah funds stay in their own type group, marked, so no fund is listed twice
   var shOnly=false;
+  var TYPES=['Income','Balanced','Growth'];
   function opts(selectedId,allowNone){
-    var s=allowNone?'<option value="">none</option>':'';
+    var s=allowNone?'<option value="">None</option>':'';
     var list=shOnly?funds.filter(function(f){return f.sh;}):funds;
-    list.forEach(function(f){s+='<option value="'+f.id+'"'+(String(f.id)===String(selectedId)?' selected':'')+'>'+fundDisp(f).replace(/</g,'&lt;')+'</option>';});
+    function opt(f){return '<option value="'+f.id+'"'+(String(f.id)===String(selectedId)?' selected':'')+'>'+esc(fundDisp(f))+(f.sh&&!shOnly?' · Shariah':'')+'</option>';}
+    TYPES.forEach(function(t){
+      var g=list.filter(function(f){return f.type===t;});
+      if(g.length)s+='<optgroup label="'+t+' funds">'+g.map(opt).join('')+'</optgroup>';
+    });
+    var other=list.filter(function(f){return TYPES.indexOf(f.type)<0;});
+    if(other.length)s+='<optgroup label="Other funds">'+other.map(opt).join('')+'</optgroup>';
     return s;
   }
   var pk=[document.getElementById('pk0'),document.getElementById('pk1'),document.getElementById('pk2')];
@@ -750,28 +774,27 @@
     var slugs=cols.map(function(f){return slug(f.label);}).sort();
     track('compare_pair',{pair:slugs.join('|'),count:slugs.length});
   }
-  pk.forEach(function(el,i){el.addEventListener('change',function(){shareReady=true;sel[i]=this.value?byId[this.value]:null;track('compare_selected',{count:sel.filter(Boolean).length});
+  pk.forEach(function(el,i){el.addEventListener('change',function(){shareReady=true;isDefaultPair=false;sel[i]=this.value?byId[this.value]:null;track('compare_selected',{count:sel.filter(Boolean).length});
     trackComparePair();
     scheduleRender();});});
   // Shared / deep-linked pairs only (not the cold-open default two largest by AUM).
   if(shareReady)trackComparePair();
   var shBtn=document.getElementById('cmpSh');
   function syncShariah(){if(!shBtn)return;shBtn.classList.toggle('on',shOnly);shBtn.setAttribute('aria-pressed',shOnly?'true':'false');}
-  if(shBtn)shBtn.addEventListener('click',function(){shareReady=true;shOnly=!shOnly;syncShariah();if(shOnly){var sf=funds.filter(function(f){return f.sh;});sel=[sf[0]||null,sf[1]||null,(sel[2]&&sel[2].sh)?sel[2]:null];}fillSelects();scheduleRender();try{if(window.gtag)gtag('event','shariah_toggle',{on:shOnly?1:0});}catch(e){}});
+  if(shBtn)shBtn.addEventListener('click',function(){shareReady=true;isDefaultPair=false;shOnly=!shOnly;syncShariah();if(shOnly){var sp=largestPair(funds.filter(function(f){return f.sh;}));sel=[sp[0],sp[1],(sel[2]&&sel[2].sh)?sel[2]:null];}fillSelects();scheduleRender();try{if(window.gtag)gtag('event','shariah_toggle',{on:shOnly?1:0});}catch(e){}});
   syncShariah();
   // period select (homepage-style sticky control)
   var psel=document.getElementById('cmpPeriod');
   if(psel){
-    var optsHtml=PERIODS.map(function(p){return '<option value="'+p[0]+'">'+p[1]+'</option>';}).join('')+YRS.map(function(y){return '<option value="'+(y*12)+'">'+y+' years</option>';}).join('');
-    psel.innerHTML=optsHtml;
-    if(![].some.call(psel.options,function(o){return o.value===period;}))period='36';
+    psel.innerHTML=PERIODS.map(function(p){return '<option value="'+p[0]+'">'+p[1]+'</option>';}).join('');
+    if(!validPeriod(period))period='36';
     psel.value=period;
     psel.addEventListener('change',function(){if(!this.value)return;shareReady=true;period=this.value;scheduleRender();});
   }
   function horizonFor(f){if(period==='max')return String(f.M);return (f.H&&f.H[period])?period:null;}
   function typeCell(f){var s='';if(f.type)s+='<span class="ctag '+f.type.toLowerCase()+'">'+f.type+'</span>';if(f.sh)s+='<span class="ctag sh">Shariah</span>';return s||voidMsg('Type not stated');}
   function qualCell(f){if(f.amcVerified)return '<span class="ctag ok" title="'+String(f.amcVerified).replace(/"/g,'&quot;')+' and ReturnKoto? spoke through official channels, discussed this fund\u2019s figures in detail, and share an understanding of what appears on the site">✓ AMC-Verified</span>';if(f.conf==='estimated'||f.conf==='partial')return '<span class="ctag est">'+f.conf+'</span>';if(f.conf==='complete')return '<span class="ctag sc" title="Built and cross-checked from public records (BSEC prospectus, AMC portfolio statements and NAV history), not AMC-confirmed.">source-checked</span>';return voidMsg('Quality not tagged');}
-  function plabel(){for(var i=0;i<PERIODS.length;i++)if(PERIODS[i][0]===period)return PERIODS[i][1];return (+period%12===0)?(+period/12+' years'):(period+' months');}
+  function plabel(){for(var i=0;i<PERIODS.length;i++)if(PERIODS[i][0]===period)return PERIODS[i][1];return spanLabel(+period);}
   function tipBtn(key,text,aria){
     return '<button type="button" class="tipbtn" data-tipkey="'+key+'" data-tip="'+String(text).replace(/"/g,'&quot;')+'" aria-label="'+(aria||'What does this mean?')+'" aria-expanded="false">?</button>';
   }
@@ -835,7 +858,7 @@
       var w=max?Math.max(2,Math.round(Math.abs(v)/max*100)):0;
       var html=fmt(v);
       if(!p.fixed3y&&p.months!=null){
-        html+='<div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.45">Available history (~'+(p.months/12).toFixed(1)+'y) · fixed 3-year window after 3 years</div>';
+        html+='<div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45">Available history (~'+(p.months/12).toFixed(1)+'y) · fixed 3-year window after 3 years</div>';
       }
       return metricCell(html,w,v<0?'neg':'');
     });
@@ -858,26 +881,32 @@
      its own it looks like the chart ignored the period selector. So this also
      returns how many months were asked for and which fund is the constraint,
      which is the part that tells a reader what to change. */
-  // Render a month count in the unit a person would actually say out loud.
-  // Only rounds to years on an exact 12-month boundary, so 33 months stays
-  // "33 months" and never becomes a misleading "2 years". Used for the chart
-  // subtitle and the clamp notice so one sentence never mixes both units.
+  // Render a month count the way a person would say it: "3 years", "33 months" is
+  // "2 years 9 months", never rounded to a misleading "2 years". Used for the period
+  // list, the chart subtitle, the clamp notice and the comparing chip.
   function spanLabel(m){
-    if(m>=12&&m%12===0){var y=m/12;return y+(y===1?' year':' years');}
-    return m+(m===1?' month':' months');
+    var y=Math.floor(m/12),r=m%12;
+    var ys=y?(y+(y===1?' year':' years')):'', ms=r?(r+(r===1?' month':' months')):'';
+    return (ys&&ms)?(ys+' '+ms):(ys||ms||'0 months');
   }
 
+  /* A look-back of H months spans H monthly steps, so it needs H+1 points: the
+     base month plus H more. Slicing only H points (the old code) made "3 years"
+     cover 35 months and could drop a whole October dividend, so the chart legend
+     disagreed with the table by several points. This matches build-data.js, whose
+     H figures fill the table. YTD uses the data's own month count (ytdM), not the
+     visitor's calendar. n is points; the window spans n-1 months. */
   function cmpWindow(cols){
     var lens = cols.map(function(f){ return cmpTr(f).length; });
     var minLen = Math.min.apply(null, lens);
-    var want;
-    if (period === 'max') want = minLen;
-    else if (period === 'ytd') want = (new Date().getMonth() + 1);
-    else want = +period;
-    if (!isFinite(want) || want < 2) want = minLen;
-    var n = Math.max(2, Math.min(want, minLen));
+    var steps;
+    if (period === 'max') steps = minLen - 1;
+    else if (period === 'ytd') steps = Math.max.apply(null, cols.map(function(f){ return f.ytdM || 0; }));
+    else steps = +period;
+    if (!isFinite(steps) || steps < 1) steps = minLen - 1;
+    var n = Math.max(2, Math.min(steps + 1, minLen));
     var limiter = cols[lens.indexOf(minLen)];
-    return { n: n, want: want, clamped: want > minLen, limiter: limiter, minLen: minLen };
+    return { n: n, want: steps, clamped: period !== 'max' && steps + 1 > minLen, limiter: limiter, minLen: minLen };
   }
 
   function drawCmpChart(cols){
@@ -937,8 +966,8 @@
     // year tick already says where the window begins.
     var xlabels = [];
     if (n <= 14) {
-      xlabels.push([0, n + 'm ago'], [n - 1, 'now']);
-      if (n > 6) xlabels.push([Math.round((n - 1) / 2), Math.round((n - 1) / 2) + 'm ago']);
+      xlabels.push([0, (n - 1) + 'm ago'], [n - 1, 'now']);
+      if (n > 6) xlabels.push([Math.round((n - 1) / 2), ((n - 1) - Math.round((n - 1) / 2)) + 'm ago']);
     } else {
       var years = Math.floor((n - 1) / 12);
       var step = Math.max(1, Math.ceil(years / 5));
@@ -985,6 +1014,18 @@
     svg += '</svg>';
     document.getElementById('cmpChart').innerHTML = svg;
 
+    // The table's figures come from data.json H; most funds use the same month-end
+    // points as this chart and agree to rounding. Funds whose figures are built from
+    // exact dates (VIPB's date-anchored look-backs, EDGE's dated records) can differ;
+    // name them instead of leaving two unexplained numbers.
+    var offBy = [];
+    if (!winInfo.clamped && period !== 'max') usable.forEach(function(f, i){
+      var h = f.H && f.H[period];
+      if (!h) return;
+      var a = lines[i], chart = a[a.length - 1] - 100, table = (h[0] - 1) * 100;
+      if (Math.abs(chart - table) >= 0.1) offBy.push(fundDisp(f));
+    });
+    winInfo.offBy = offBy;
     document.getElementById('cmpLegend').innerHTML = usable.map(function(f, i){
       var a = lines[i], chg = a[a.length - 1] - 100;
       return '<span class="cmp-lg"><i style="background:' + CMPC[i % CMPC.length] + '"></i>' +
@@ -992,7 +1033,7 @@
              ' <b class="' + (chg >= 0 ? 'v-pos' : 'v-neg') + '">' + (chg >= 0 ? '+' : '') + chg.toFixed(1) + '%</b></span>';
     }).join('');
 
-    var months = spanLabel(n);
+    var months = spanLabel(n - 1);
     var who = usable.length > 2 ? 'all three funds' : 'both funds';
     document.getElementById('cmpVizSub').textContent =
       'The last ' + months + ' ' + who + ' have in common, rebased to 100.';
@@ -1022,13 +1063,22 @@
       }
     }
 
-    // Same numbers as a table, for screen readers and for anyone citing them.
-    var head = '<tr><th>Month</th>' + usable.map(function(f){
-      return '<th>' + fundDisp(f).replace(/</g, '&lt;') + '</th>';
+    var foot = document.getElementById('cmpVizDated');
+    if (foot) {
+      foot.hidden = !offBy.length;
+      foot.textContent = offBy.length ? ('This chart steps through month-end values. The table figure for ' + offBy.join(' and ') + ' is worked out from its exact NAV and dividend dates, so the two can differ.') : '';
+    }
+
+    // Same numbers as a table, for screen readers and for anyone citing them. Short
+    // fund names and real month labels keep it inside a phone-width card.
+    var head = '<tr><th scope="col">Month</th>' + usable.map(function(f){
+      return '<th scope="col">' + esc(f.short || f.label) + '</th>';
     }).join('') + '</tr>';
+    var ap = (data.asOf || '').split('-'), endIdx = ap.length === 3 ? (+ap[0]) * 12 + (+ap[1] - 1) : null;
     var body = '';
     for (var r = 0; r < n; r++){
-      body += '<tr><td>' + (r + 1) + '</td>' + lines.map(function(a){
+      var mi = endIdx == null ? null : endIdx - (n - 1 - r);
+      body += '<tr><th scope="row">' + (mi == null ? (r + 1) : (MONTHS[mi % 12] + ' ' + Math.floor(mi / 12))) + '</th>' + lines.map(function(a){
         return '<td>' + a[r].toFixed(2) + '</td>';
       }).join('') + '</tr>';
     }
@@ -1044,8 +1094,17 @@
     var copyBtn=document.getElementById('cmpCopyLink');
     if(cols.length<2){var _v=document.getElementById('cmpViz');if(_v)_v.hidden=true;root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;return;}
     var pl=plabel();
+    // The chip names the window actually compared: when the period is longer than the
+    // shortest fund's history, the chart falls back to that history, so say so
+    var usableW=cols.filter(function(f){return cmpTr(f).length>1;});
+    var win=usableW.length>=2?cmpWindow(usableW):null;
     var chip=document.getElementById('cmpPeriodChip');
-    if(chip){chip.hidden=false;chip.textContent='Comparing over '+pl+(period==='max'?' (each fund\u2019s full tracked history)':'');}
+    if(chip){
+      chip.hidden=false;
+      chip.textContent=period==='max'?'Comparing since launch (each fund\u2019s full tracked history)'
+        :(win&&win.clamped)?('Comparing over '+spanLabel(win.n-1)+' (the '+(cols.length>2?'shortest':'shorter')+' fund\u2019s full history)')
+        :('Comparing over '+pl.toLowerCase());
+    }
     if(psel&&psel.value!==period)psel.value=period;
     if(copyBtn){copyBtn.hidden=false;copyBtn.classList.remove('is-ok');copyBtn.textContent='Copy link';}
     var rows=[];
@@ -1106,18 +1165,30 @@
       if(_sc!==null)rows.push(['__span',lab('Shared stocks','cmp_shared','Named stocks that appear in more than one of these funds\u2019 disclosed top holdings. Weights are from those statements, not live market prices.','What does Shared stocks mean?'),_sc]);
     }
     try{ drawCmpChart(cols); }catch(e){ var _v=document.getElementById('cmpViz'); if(_v)_v.hidden=true; }
-    var head='<thead><tr><th class="k"></th>'+cols.map(function(f){return '<th>'+fundDispHtml(f)+'</th>';}).join('')+'</tr></thead>';
+    // Row labels are row headers so each figure is read with its row; the label text
+    // alone names the header (the ? tip button beside it stays its own control)
+    function rowHead(html){
+      var txt=String(html).replace(/<button[\s\S]*?<\/button>/g,'').replace(/<[^>]+>/g,'').replace(/\u00A0/g,' ').trim();
+      return '<th scope="row" class="k"'+(txt?' aria-label="'+txt.replace(/"/g,'&quot;')+'"':'')+'>'+html+'</th>';
+    }
+    var cap=isDefaultPair?('The two largest funds by assets under management, over '+pl.toLowerCase()+', dividends reinvested.')
+      :(cols.map(fundDisp).join(cols.length>2?', ':' and ')+', over '+(period==='max'?'each fund\u2019s full history':pl.toLowerCase())+', dividends reinvested.');
+    var head='<caption class="sr-only">'+esc(cap)+'</caption><thead><tr><th class="k" scope="col"><span class="sr-only">Measure</span></th>'+cols.map(function(f){return '<th scope="col">'+fundDispHtml(f)+'</th>';}).join('')+'</tr></thead>';
     var body='<tbody>';
     rows.forEach(function(r){
       if(r[0]==='__sect'){body+='<tr class="cmp-sect"><td colspan="'+(cols.length+1)+'">'+r[1]+'</td></tr>';return;}
-      if(r[0]==='__span'){body+='<tr><td class="k">'+r[1]+'</td><td colspan="'+cols.length+'" style="font-size:13px;line-height:1.6">'+r[2]+'</td></tr>';return;}
-      body+='<tr><td class="k">'+r[0]+'</td>'+r[1].map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>';});
+      if(r[0]==='__span'){body+='<tr>'+rowHead(r[1])+'<td colspan="'+cols.length+'" style="font-size:13px;line-height:1.6">'+r[2]+'</td></tr>';return;}
+      body+='<tr>'+rowHead(r[0])+r[1].map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>';});
     body+='<tr class="cmp-openrow"><td class="k"></td>'+cols.map(function(f){return '<td><a href="/funds/'+slug(f.label)+'.html">Open '+fundDisp(f).replace(/</g,'&lt;')+' →</a></td>';}).join('')+'</tr>';
     body+='</tbody>';
     root.innerHTML=head+body;
     document.getElementById('cmpNote').innerHTML='Returns are total return (dividends reinvested) over the '+pl+' look-back. "Per year" is the annualized compound rate (CAGR); "Monthly SIP /yr" is the money-weighted return (IRR) on a fixed monthly investment. Return and size bars in each row are relative to the highest figure among the funds on screen, not a 0 to 100% scale. When a fund is younger than the selected period, return cells say Needs N years of history (or Insufficient history). Rolling 1-year and 3-year rows replay every closed window in each fund&rsquo;s history (latest, median, best, worst). Path risk uses the fixed 3-year rating window when the fund is old enough; shorter track records show available-history figures or a clear shortfall label. For two funds, Diversification snapshot combines shared stock weight, shared sector weight (when both statements label sectors), and monthly-return co-movement into one plain-language line. Tap the ? next to each row or section for a short tip (it opens above the row). "Minimum (one-time)" is the lump-sum minimum and "Minimum (SIP)" is the smallest monthly instalment, each verified from the prospectus or asset manager. Risk (by type) is a general guide; measured path risk is in the rows above. Management fee peer lines use each prospectus fee sentence&rsquo;s first %, not a full expense ratio (TER). Missing prospectus or holdings fields say why they are blank (for example Not stated in prospectus, or No sector labels in this statement). Holdings come from each fund&rsquo;s quarterly portfolio disclosure, with that fund&rsquo;s own as-of date and valuation basis; they are quarterly, so they can lag the latest daily NAV.';
     writeShareUrl(cols);
     rkReveal(root);
+    // One settled sentence for screen readers, not the whole table
+    clearTimeout(window._cmpLiveT);
+    var liveTxt=cols.map(fundDisp).join(cols.length>2?', ':' and ')+(period==='max'?', since launch':', over '+((win&&win.clamped)?spanLabel(win.n-1):pl.toLowerCase()))+'. Total return: '+cols.map(function(f){var v=retNum(f,0);return fundDisp(f)+' '+(v==null?'not enough history':((v>=0?'+':'')+v.toFixed(2)+'%'));}).join('; ')+'.';
+    window._cmpLiveT=setTimeout(function(){var lv=document.getElementById('cmpLive');if(lv)lv.textContent=liveTxt;},900);
   }
   var _revIo;
   function rkReveal(scope){

@@ -106,18 +106,19 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 @media(min-width:561px){.sx-sec[id]{scroll-margin-top:80px}}
 .sx-note{font-size:12.5px;color:var(--muted);line-height:1.65;margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line)}
 .m-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px 18px;margin-bottom:12px}
-.m-card h3{margin:0 0 8px;font-size:15.5px}
-.m-card p{font-size:13.5px;color:var(--muted);margin:0 0 9px;line-height:1.7}
+.m-card h3{margin:0 0 8px;font-size:17px;line-height:1.35}
+.m-card p{font-size:16px;color:#37463d;margin:0 0 12px;line-height:1.65;max-width:60ch}
+[data-theme="dark"] .m-card p{color:#C2CAD6}
 .m-card p:last-child{margin-bottom:0}
 .m-card p b{color:var(--ink)}
 .m-card code{font-size:12.5px;background:#f2f7f4;border-radius:5px;padding:1px 6px;color:var(--ink)}
 [data-theme="dark"] .m-card code{background:#131B29}
 .m-card a{font-weight:600}
-.rk-stats p{font-size:14.5px;line-height:1.7;color:var(--muted);margin:0 0 10px}
+.rk-stats p{font-size:16px;line-height:1.65;color:#37463d;margin:0 0 10px}
 .rk-stats p:last-child{margin-bottom:0}
 .rk-stats b{color:var(--ink);font-weight:700}
-.rk-stats .rk-stats-note{font-size:12.5px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
-[data-theme="dark"] .rk-stats p{color:var(--muted)}
+.rk-stats .rk-stats-note{font-size:13px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+[data-theme="dark"] .rk-stats p{color:#C2CAD6}
 [data-theme="dark"] .rk-stats b{color:var(--ink)}
 </style>
 <link rel="stylesheet" href="/rk-ui.css?v=8e606a8b90">
@@ -143,19 +144,19 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 </nav>
 <main id="main" class="wrap">
 <h1>About ReturnKoto?</h1>
-<p class="intro">ReturnKoto? is an independent, owner-operated site that replays published Bangladeshi open-end mutual fund history so you can see what an amount actually became. Last updated 8 August 2026.</p>
+<p class="intro">ReturnKoto? is an independent, owner-operated site that replays published Bangladeshi open-end mutual fund history so you can see what an amount actually became. Last updated 24 September 2026.</p>
+
+<h2 class="sx-sec" id="what">What this site does</h2>
+<div class="m-card"><h3>Historical total returns, not tips</h3><p>You enter an amount and a period. ReturnKoto? replays that investment over each tracked fund&rsquo;s published NAV history, with cash dividends <b>reinvested by default</b> (or taken as cash). It also publishes fees and structure from BSEC prospectuses, and holdings panels built from each asset manager&rsquo;s own portfolio statements.</p><p>The site currently tracks <span class="fund-n">35</span> open-end funds. That count is a trust choice, not a claim that Bangladesh has only 35 funds.</p></div>
 
 <h2 class="sx-sec" id="usage">Who uses ReturnKoto?</h2>
 <div class="m-card rk-stats" id="rk-usage">
-<p id="rk-stats-body">Since June 2026, about <b class="st-u">2,960+</b> people have used ReturnKoto?.</p>
+<p id="rk-stats-body">Since June 2026, <b class="st-u">4,690+</b> people have used ReturnKoto?.</p>
 <p id="rk-stats-extra" hidden></p>
 <p id="rk-stats-funds" hidden></p>
 <p id="rk-stats-compares" hidden></p>
 <p class="rk-stats-note">These are site-wide totals, not paid traffic, not AMC-sponsored. Numbers update automatically from GA4 every 24 to 48 hours. <span id="rk-stats-updated" hidden></span></p>
 </div>
-
-<h2 class="sx-sec" id="what">What this site does</h2>
-<div class="m-card"><h3>Historical total returns, not tips</h3><p>You enter an amount and a period. ReturnKoto? replays that investment over each tracked fund&rsquo;s published NAV history, with cash dividends <b>reinvested by default</b> (or taken as cash). It also publishes fees and structure from BSEC prospectuses, and holdings panels built from each asset manager&rsquo;s own portfolio statements.</p><p>The site currently tracks <span class="fund-n">35</span> open-end funds. That count is a trust choice, not a claim that Bangladesh has only 35 funds.</p></div>
 
 <h2 class="sx-sec" id="independence">Independence and funding</h2>
 <div class="m-card"><h3>No AMC pays for anything on this site</h3><p>ReturnKoto? is <b>not affiliated with any asset manager, distributor, trustee, custodian or regulator</b>. No AMC pays for badges, star rankings, homepage placement, preview access or inclusion on the roster.</p><p>The site is free to use. Running costs are covered by the owner. Optional reader tips via <a href="https://www.supportkori.com/returnkoto" target="_blank" rel="noopener" class="btn-coffee">A coffee keeps ReturnKoto? running</a> are welcome and do not buy influence over which funds appear, how they are scored, or how numbers are computed.</p><p>Collaborations under the <a href="/badges.html">AMC-Verified</a> badge are data-accuracy conversations. They are not sponsorships.</p></div>
@@ -168,7 +169,7 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <div class="m-card"><h3>Trust over coverage</h3><p>A fund is listed only when ReturnKoto? can rebuild a usable history from publicly verifiable sources: a market-value NAV series long enough for the calculators, a dividend record that can be checked, and (for the holdings panel) a recent portfolio statement from the manager.</p><p>Funds that publish <b>cost-basis</b> NAVs, or whose prints cannot be verified against the secondary series within the site&rsquo;s validation rules, stay off the roster even when they are large or well known. Missing a fund is usually a data bar, not an oversight.</p><p>Full sourcing, validation and return math live on the <a href="/methodology.html">methodology</a> page.</p></div>
 
 <h2 class="sx-sec" id="verification">How numbers are checked</h2>
-<div class="m-card"><h3>Published sources, then a second look</h3><p>Each fund&rsquo;s newest NAV is collected from the manager&rsquo;s own website when a parser can read it, validated (newer-or-same date, drift within the published limit) and folded into the return series. Holdings are reconciled to the statement they came from. Star ratings are labeled <b>experimental</b> on the site and are not buy or sell recommendations.</p><p><b>AMC-Verified</b> appears only after ReturnKoto? and that manager spoke through official channels, reviewed the figures together, and reached a shared understanding of what the page shows. Most funds do not carry that badge yet. Details: <a href="/badges.html">badge guide</a>.</p><p>The site is still in <b>BETA</b>. Figures can lag, contain errors, or change when a method is corrected. Always check the manager&rsquo;s own disclosures before you act.</p></div>
+<div class="m-card"><h3>Published sources, then a second look</h3><p>Each fund&rsquo;s newest NAV is collected from the manager&rsquo;s own website when a parser can read it, validated (newer-or-same date, drift within the published limit) and folded into the return series. Holdings are reconciled to the statement they came from. Star ratings are labeled <b>experimental</b> on the site and are not buy or sell recommendations.</p><p><b>AMC-Verified</b> appears only after ReturnKoto? and that manager spoke through official channels, reviewed the figures together, and reached a shared understanding of what the page shows. Not every fund carries that badge; it depends on whether the fund&rsquo;s manager has been through that review. Details: <a href="/badges.html">badge guide</a>.</p><p>The site is still in <b>BETA</b>. Figures can lag, contain errors, or change when a method is corrected. Always check the manager&rsquo;s own disclosures before you act.</p></div>
 
 <h2 class="sx-sec" id="not">What this is not</h2>
 <div class="m-card"><h3>Not advice, not a regulator, not a complete market map</h3><p>Nothing on ReturnKoto? is investment advice, a solicitation, or a prediction of future performance. Past results do not predict the future.</p><p>ReturnKoto? is not BSEC, not an AMC, and not a substitute for a prospectus, offer document or advice from a licensed intermediary.</p></div>
@@ -208,8 +209,8 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
     var cmpEl=document.getElementById("rk-stats-compares");
     var upd=document.getElementById("rk-stats-updated");
     if(typeof s.users==="number"&&body){
-      var u=floorTen(s.users).toLocaleString()+"+";
-      body.innerHTML="Since June 2026, about <b>"+u+"</b> people have used ReturnKoto?.";
+      var u=floorTen(s.users).toLocaleString("en-IN")+"+";
+      body.innerHTML="Since June 2026, <b>"+u+"</b> people have used ReturnKoto?.";
     }
     if(extra){
       // returnPct + tools stay in stats.json for later; not shown publicly for now.
@@ -230,14 +231,23 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
     }
     if(cmpEl){
       if(Array.isArray(s.topCompares)&&s.topCompares.length){
-        var parts=s.topCompares.slice(0,2).map(function(c){
-          var labs=(c.labels||c.slugs||[]).map(shortName);
-          if(labs.length<2)return "";
-          return labs[0]+" and "+labs[1];
-        }).filter(Boolean);
+        // One line per distinct set of funds: A vs B and B vs A are the same
+        // comparison, and a three-way compare names all three funds.
+        var seen={},parts=[];
+        s.topCompares.forEach(function(c){
+          if(parts.length>=2)return;
+          var ids=(c.slugs&&c.slugs.length?c.slugs:(c.labels||[])),labs=(c.labels||c.slugs||[]);
+          var uniq=[],names=[];
+          ids.forEach(function(id,i){if(uniq.indexOf(id)<0){uniq.push(id);names.push(shortName(labs[i]||id));}});
+          if(uniq.length<2)return;
+          var key=uniq.slice().sort().join("|");
+          if(seen[key])return;
+          seen[key]=1;
+          parts.push(names.map(esc).join(" vs "));
+        });
         if(parts.length){
           cmpEl.hidden=false;
-          cmpEl.innerHTML="Top comparisons were between "+parts.join(", and between ")+".";
+          cmpEl.innerHTML="Most-run comparisons: "+parts.join(", and ")+".";
         }
       }else if(s.comparesReady===false||(Array.isArray(s.topCompares)&&!s.topCompares.length)){
         cmpEl.hidden=false;
