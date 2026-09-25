@@ -705,21 +705,34 @@
   });
   PERIODS.push(['max','Since launch']);
   function validPeriod(v){return PERIODS.some(function(p){return p[0]===v;});}
-  /* Cold open: the two largest funds by assets under management, the same pair
-     scripts/inject-compare-default.py writes into the static table for crawlers,
-     so the no-JavaScript view and the live page agree. Ties break on the name, in
-     both places. */
+  /* Cold open: two RANDOM funds of the same type (Growth / Balanced / Income), fresh
+     on every visit and every refresh. RANDOMIZED ON PURPOSE (owner rule, restored
+     25 Sep 2026; never replace with a fixed or "largest funds" default): no fund or
+     AMC gets the permanent spotlight. Deep links (?funds= / ?a=) keep an exact pair.
+     The static table scripts/inject-compare-default.py writes (two largest by AUM)
+     is only the no-JavaScript / crawler fallback; this script replaces it. */
   function byAumDesc(a,b){return ((b.aum||0)-(a.aum||0))||a.label.localeCompare(b.label);}
-  function largestPair(list){
-    var r=list.filter(function(f){return f.aum;}).sort(byAumDesc);
-    return [r[0]||list[0]||null, r[1]||list[1]||null, null];
+  function shuffleInPlace(arr){
+    for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t;}
+    return arr;
+  }
+  function pickSameTypePair(list){
+    var byType={};
+    list.forEach(function(f){var t=f.type||'';if(!t)return;(byType[t]=byType[t]||[]).push(f);});
+    var types=Object.keys(byType).filter(function(t){return byType[t].length>=2;});
+    if(!types.length){
+      var all=shuffleInPlace(list.slice());
+      return [all[0]||null, all[1]||null, null];
+    }
+    var pool=shuffleInPlace(byType[types[Math.floor(Math.random()*types.length)]].slice());
+    return [pool[0], pool[1], null];
   }
   // For ?a=X alone: the largest fund of the same type, so the pair is like for like
   function peerOf(fa){
     var same=funds.filter(function(f){return f.id!==fa.id&&f.type===fa.type;}).sort(byAumDesc);
     return same[0]||funds.filter(function(f){return f.id!==fa.id;}).sort(byAumDesc)[0]||null;
   }
-  var sel=largestPair(funds);
+  var sel=pickSameTypePair(funds);
   var isDefaultPair=true;
   // Deep links: ?funds=a,b,c (current), and the older ?a=X&b=Y[&c=Z] that the public
   // fund-versus-fund pages still use. Shared URLs are only written after interaction,
@@ -777,11 +790,11 @@
   pk.forEach(function(el,i){el.addEventListener('change',function(){shareReady=true;isDefaultPair=false;sel[i]=this.value?byId[this.value]:null;track('compare_selected',{count:sel.filter(Boolean).length});
     trackComparePair();
     scheduleRender();});});
-  // Shared / deep-linked pairs only (not the cold-open default two largest by AUM).
+  // Shared / deep-linked pairs only (not the random cold-open pair).
   if(shareReady)trackComparePair();
   var shBtn=document.getElementById('cmpSh');
   function syncShariah(){if(!shBtn)return;shBtn.classList.toggle('on',shOnly);shBtn.setAttribute('aria-pressed',shOnly?'true':'false');}
-  if(shBtn)shBtn.addEventListener('click',function(){shareReady=true;isDefaultPair=false;shOnly=!shOnly;syncShariah();if(shOnly){var sp=largestPair(funds.filter(function(f){return f.sh;}));sel=[sp[0],sp[1],(sel[2]&&sel[2].sh)?sel[2]:null];}fillSelects();scheduleRender();try{if(window.gtag)gtag('event','shariah_toggle',{on:shOnly?1:0});}catch(e){}});
+  if(shBtn)shBtn.addEventListener('click',function(){shareReady=true;isDefaultPair=false;shOnly=!shOnly;syncShariah();if(shOnly){var sp=pickSameTypePair(funds.filter(function(f){return f.sh;}));sel=[sp[0],sp[1],(sel[2]&&sel[2].sh)?sel[2]:null];}fillSelects();scheduleRender();try{if(window.gtag)gtag('event','shariah_toggle',{on:shOnly?1:0});}catch(e){}});
   syncShariah();
   // period select (homepage-style sticky control)
   var psel=document.getElementById('cmpPeriod');
@@ -1171,8 +1184,7 @@
       var txt=String(html).replace(/<button[\s\S]*?<\/button>/g,'').replace(/<[^>]+>/g,'').replace(/\u00A0/g,' ').trim();
       return '<th scope="row" class="k"'+(txt?' aria-label="'+txt.replace(/"/g,'&quot;')+'"':'')+'>'+html+'</th>';
     }
-    var cap=isDefaultPair?('The two largest funds by assets under management, over '+pl.toLowerCase()+', dividends reinvested.')
-      :(cols.map(fundDisp).join(cols.length>2?', ':' and ')+', over '+(period==='max'?'each fund\u2019s full history':pl.toLowerCase())+', dividends reinvested.');
+    var cap=(cols.map(fundDisp).join(cols.length>2?', ':' and ')+', over '+(period==='max'?'each fund\u2019s full history':pl.toLowerCase())+', dividends reinvested.');
     var head='<caption class="sr-only">'+esc(cap)+'</caption><thead><tr><th class="k" scope="col"><span class="sr-only">Measure</span></th>'+cols.map(function(f){return '<th scope="col">'+fundDispHtml(f)+'</th>';}).join('')+'</tr></thead>';
     var body='<tbody>';
     rows.forEach(function(r){

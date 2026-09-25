@@ -1564,10 +1564,16 @@ function buildDetPanel(id,d){
   var fee=d.fee?`<div class="fdrow fdfee"><span class="fdk">Management fee</span><span class="fdv">${d.fee}</span></div>`:"";
   return `<div class="fdet" id="fdet-${id}" hidden><div class="fdgrid">${fee}${detField("Early-exit fee",d.exit)}${detField("Minimum investment",d.min)}${detField("Liquidity",d.liquidity)}${detField("Asset manager",d.amc)}${detField("Sponsor",d.sponsor)}${detField("Trustee",d.trustee)}${detField("Custodian",d.custodian)}${detField("Face value",d.face)}</div><div class="fdnote">Plus small regulated trustee, custodian and BSEC fees common to all funds. Figures from the fund's official BSEC prospectus.</div></div>`;
 }
-// Fixed group order, lowest to highest risk, then the Shariah gathering: the page reads
-// the same on every visit (it used to shuffle on each load).
-const TYPE_ORDER=["Income","Balanced","Growth"];
-const GROUP_ORDER=TYPE_ORDER.concat(["Shariah"]);
+// Per-visit type-group order. RANDOMIZED ON PURPOSE (owner rule, restored 25 Sep 2026;
+// never replace with a fixed order): Growth, Balanced, Income and Shariah take turns at
+// the top on each load so no fund type is always shown first. Stable across re-renders
+// within a visit (computed once), same cadence as the funds directory.
+const TYPE_ORDER=["Growth","Balanced","Income"];
+const GROUP_ORDER=(function(){
+  var o=TYPE_ORDER.concat(["Shariah"]);
+  for(var i=o.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=o[i];o[i]=o[j];o[j]=t;}
+  return o;
+})();
 function renderList(rows){
   const wrap=document.getElementById("results");
   wrap.innerHTML="";
@@ -1778,8 +1784,8 @@ if(el=t.closest(".connect a")){track("social_click",{network:el.getAttribute("ar
 })();
 // Before the first render: the 3-year figure (or since launch) for the chosen method
 function fret(f){var H=f.H||{};var k=H["36"]?"36":String(f.M);var i=method==="lump"?1:4;return (H[k]&&typeof H[k][i]==="number")?H[k][i]:-999;}
-// Same order as the fund groups below: lowest to highest risk, then Shariah
-const TP_ORDER=["Income","Balanced","Growth","Shariah"];
+// Top performers keep a fixed order (only the fund groups below shuffle per visit)
+const TP_ORDER=["Growth","Balanced","Income","Shariah"];
 function renderBrowse(){var el=document.getElementById("browseall");if(!el)return;
 var src=(typeof lcRows!=="undefined"&&lcRows&&lcRows.length)?lcRows:null;
 var byTy={};
