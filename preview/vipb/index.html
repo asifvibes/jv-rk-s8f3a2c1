@@ -1410,9 +1410,9 @@ function updateHash(){
     history.replaceState(null,"","#"+p.toString());
   }catch(e){}
 }
-/* Carry the visitor's scenario to fund pages (amount, method, period) and to the
-   compare tool (method and period only: it never uses the amount, so the amount is
-   not handed to a page that has no use for it). Same rule as the shareable hash:
+/* Carry the visitor's scenario (amount, method, period) to fund pages and to the
+   compare tool, which shows each fund's result for that amount. Same rule as the
+   shareable hash:
    nothing is added until the visitor has changed something. A URL fragment is never
    sent to the server. */
 function stateHash(withAmt){
@@ -1425,7 +1425,7 @@ const STATE_LINK=/^\/(funds\/[a-z0-9-]+\.html|compare\.html)(\?[^#]*)?$/i;
 function stateLink(a){
   var href=a.getAttribute("href")||"",base=href.split("#")[0];
   if(!STATE_LINK.test(base))return;
-  var next=hashTouched?base+stateHash(base.indexOf("/funds/")===0):base;
+  var next=hashTouched?base+stateHash(true):base;
   if(next!==href)a.setAttribute("href",next);
 }
 function syncStateLinks(){document.querySelectorAll('a[href^="/funds/"],a[href^="/compare.html"]').forEach(stateLink);}
