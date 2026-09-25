@@ -2908,3 +2908,31 @@ body.rk-menu-open{overflow:hidden}
   .rk-foot-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}
   .rk-social a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
 }
+
+/* ---------------------------------------------------------------------------
+   BLOG INDEX: topic jump bar + "The numbers today" (Sep 2026)
+   The index carried no figures although its data posts recalculate daily.
+   The panel lifts one live number from four of them, each line linking to the
+   post that explains it; the jump bar gets a reader to their kind of post.
+   ------------------------------------------------------------------------ */
+.bl-jump{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:4px 0 22px;padding:2px 0 4px;-webkit-overflow-scrolling:touch}
+.bl-jump::-webkit-scrollbar{display:none}
+.bl-jump a{flex:none;display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--border, var(--line, #E5E7EB));background:var(--card,#fff);
+  font-size:13.5px;font-weight:700;color:var(--text, var(--ink, #1A1F2C));text-decoration:none;white-space:nowrap}
+.bl-jump a span{font-size:12px;font-weight:700;color:var(--muted,#5b6b61);font-variant-numeric:tabular-nums}
+.bl-jump a:hover{border-color:var(--green,#157A43)}
+.bl-sec[id]{scroll-margin-top:90px}
+.bl-nf{list-style:none;margin:0;padding:0;border:1px solid var(--border, var(--line, #E5E7EB));border-radius:16px;background:var(--card,#fff);overflow:hidden}
+.bl-nf li+li{border-top:1px solid var(--border, var(--line, #E5E7EB))}
+.bl-nf a{display:flex;align-items:center;gap:14px;padding:14px 16px;color:var(--text, var(--ink, #1A1F2C));text-decoration:none;min-height:44px}
+.bl-nf a:hover{background:color-mix(in srgb, var(--green,#157A43) 5%, transparent)}
+.bl-nf-t{flex:1;font-size:15px;line-height:1.5}
+.bl-nf-t b{font-weight:800;font-variant-numeric:tabular-nums}
+.bl-nf-go{flex:none;font-weight:800;color:var(--green-dark,#157A43)}
+[data-theme="dark"] .bl-nf-go{color:#3DD98A}
+@media (max-width:560px){
+  .bl-jump a{min-height:44px}
+  .bl-nf a{padding:13px 14px}
+  .bl-nf-t{font-size:14.5px}
+}
