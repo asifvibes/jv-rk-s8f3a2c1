@@ -53,7 +53,66 @@
   .cmp-seo a{color:var(--green-dark);font-weight:600}
   .lead a{color:var(--green-dark);font-weight:600}
   .pickers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 0 14px}
-  @media(max-width:640px){.pickers{grid-template-columns:1fr}}
+  /* Phones: two pickers side by side, the optional third full width, so the
+     controls take one short block instead of three stacked rows */
+  @media(max-width:640px){.pickers{grid-template-columns:1fr 1fr;gap:8px}.pickers .pk:nth-child(3){grid-column:1/-1}}
+  /* ---- Head to head (Sep 2026): the answer before the evidence ---- */
+  .cx{margin:4px 0 30px}
+  .cx h2{font-size:21px;font-weight:800;letter-spacing:-.015em;line-height:1.25;margin:0}
+  .cx-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 20px;margin:0 0 14px}
+  .cx-amt{min-width:0}
+  .cx-amtlab{display:block;font-size:13px;font-weight:600;color:var(--muted);margin:0 0 5px}
+  .cx-amtrow{display:flex;gap:8px;flex-wrap:wrap}
+  .cx-field{position:relative;flex:0 1 150px}
+  .cx-tk{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted);pointer-events:none}
+  .cx-field input{width:100%;min-height:44px;font:inherit;font-size:16px;font-weight:700;color:var(--text);background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:9px 12px 9px 30px;font-variant-numeric:tabular-nums}
+  .cx-field input:focus{outline:none;border-color:var(--green-dark)}
+  .cx-seg{display:flex;background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:3px}
+  .cx-seg button{font:inherit;font-size:13.5px;font-weight:700;min-height:36px;padding:0 12px;border:0;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer}
+  .cx-seg button[aria-pressed="true"]{background:#157A43;color:#fff}
+  .cx-amtnote{font-size:12px;color:var(--muted);margin:5px 0 0}
+  .cx-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+  .cx-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px 15px 13px;min-width:0}
+  .cx-name{display:flex;gap:8px;align-items:flex-start;font-size:15px;font-weight:800;line-height:1.3;margin:0 0 6px}
+  .cx-name a{color:var(--text);text-decoration:none}
+  .cx-name a:hover{text-decoration:underline;text-underline-offset:3px}
+  .cx-dot{flex:0 0 10px;height:10px;border-radius:50%;margin-top:5px}
+  .cx-tags{margin:0 0 8px}
+  .cx-big{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+  .cx-big.neg{color:#B91C1C}
+  .cx-sub{font-size:13px;color:var(--muted);margin:3px 0 0;line-height:1.45;font-variant-numeric:tabular-nums}
+  .cx-sub b{color:var(--text);font-weight:700}
+  .cx-need{font-size:14px;font-weight:600;color:var(--muted);line-height:1.4}
+  .cx-meta{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px;color:var(--muted);margin:10px 0 0;padding-top:9px;border-top:1px solid var(--border)}
+  .cx-stars{color:var(--text);letter-spacing:1px}
+  .cx-h3{font-size:15px;font-weight:800;margin:22px 0 8px}
+  .cx-rows{list-style:none;border:1px solid var(--border);border-radius:16px;background:var(--card);overflow:hidden}
+  .cx-row{display:grid;grid-template-columns:minmax(150px,34%) 1fr;gap:4px 16px;padding:12px 15px;border-top:1px solid var(--border)}
+  .cx-row:first-child{border-top:0}
+  .cx-k{font-size:13.5px;font-weight:700;color:var(--text);line-height:1.4}
+  .cx-k small{display:block;font-size:12px;font-weight:500;color:var(--muted)}
+  .cx-v{font-size:14px;line-height:1.45;min-width:0}
+  .cx-who{font-weight:800}
+  .cx-who i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:1px}
+  .cx-by{color:var(--text)}
+  .cx-all{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+  .cx-level{font-weight:700;color:var(--muted)}
+  .cx-yes{color:#157A43;font-weight:700}.cx-no{color:#B91C1C;font-weight:700}
+  .cx-foot{font-size:12px;color:var(--muted);margin:8px 2px 0}
+  .cmp-h2{font-size:21px;font-weight:800;letter-spacing:-.015em;margin:34px 0 10px}
+  [data-theme="dark"] .cx-seg button[aria-pressed="true"]{background:#1F9E57;color:#06140C}
+  [data-theme="dark"] .cx-big.neg,[data-theme="dark"] .cx-no{color:#F87171}
+  [data-theme="dark"] .cx-yes{color:#3DD98A}
+  [data-theme="dark"] .cx-field input{background-color:#141C28}
+  @media(max-width:560px){
+    .cx-row{grid-template-columns:1fr;padding:12px 13px}
+    .cx-cards{grid-template-columns:1fr 1fr;gap:8px}
+    .cx-cards .cx-card:nth-child(3){grid-column:1/-1}
+    .cx-card{padding:12px}
+    .cx-big{font-size:22px}
+    .cx-name{font-size:14px}
+    .cx-field{flex:1 1 120px}
+  }
   .pk label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;margin:0 0 4px}
   .pk select{width:100%;font:inherit;font-size:14px;font-weight:600;color:var(--text);background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:11px 12px;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2712%27%20height%3D%278%27%20viewBox%3D%270%200%2012%208%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cpath%20d%3D%27M1%201l5%205%205-5%27%20stroke%3D%27%236B7280%27%20stroke-width%3D%271.6%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 12px center}
   .pk select:focus{outline:none;border-color:var(--green-dark)}
@@ -123,8 +182,8 @@
   [data-theme="dark"] .cmp-howto{border-color:#2B3648}
   .v-pos{color:#15803d;font-weight:700}.v-neg{color:#c0392b;font-weight:700}
   .ctag{display:inline-block;font-size:12px;font-weight:700;padding:2px 7px;border-radius:5px;margin:0 3px 3px 0}
-  .ctag.income{background:#e8f1fb;color:#1f5fa8}.ctag.growth{background:#eaf7ef;color:#1f9e57}.ctag.balanced{background:#fdf1e7;color:#b5641a}
-  .ctag.sh{background:#eef0fb;color:#4a4fb0}.ctag.ok{background:#e7f6ec;color:#1f9e57}.ctag.est{background:#fbf4e6;color:#9a7b14}
+  .ctag.income{background:#e8f1fb;color:#1f5fa8}.ctag.growth{background:#eaf7ef;color:#157A43}.ctag.balanced{background:#fdf1e7;color:#9A5516}
+  .ctag.sh{background:#eef0fb;color:#4a4fb0}.ctag.ok{background:#e7f6ec;color:#157A43}.ctag.est{background:#fbf4e6;color:#9a7b14}
   .ctag.sc{background:#eef1f4;color:#556170}
   .cmp-openrow a{color:var(--green-dark);font-weight:700;text-decoration:none;font-size:13px}
   tr.cmp-sect td{background:var(--green-soft);color:var(--text);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:8px 13px}
@@ -302,22 +361,12 @@
 <div class="wrap" role="main" id="main">
 
   <h1>Compare mutual funds</h1>
-  <p class="lead">Pick two or three Bangladeshi open-end funds to compare their historical and rolling returns, path risk, fees, exit loads, minimum investment and holdings. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">i</button></span></p>
+  <p class="lead">Pick two or three funds. See who came out ahead for your amount, how rough the ride was, what each one costs and what it holds. Figures as of <span class="asof-wrap"><span id="cmpAsof">the latest update</span> <button type="button" class="tipbtn" id="cmpAsofTip" data-tipkey="asof" data-tip="Every figure uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs, collected daily." aria-label="Why this as-of date?" aria-expanded="false">i</button></span></p>
 
   <noscript>
     <p>JavaScript is required to load live fund figures into the comparison table. Without it, use the <a href="/funds/">fund directory</a> and individual fund pages for returns, fees and details, or the <a href="/">homepage calculator</a>.</p>
   </noscript>
 
-  <details class="cmp-howto">
-    <summary>How to read this table</summary>
-    <div class="cmp-howto-body">
-      <p>Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>.</p>
-      <p><b>Total return</b> is the overall gain or loss on a one-time investment over the period you pick (dividends reinvested). It is not a yearly rate.</p>
-      <p><b>Per year</b> turns that same lump-sum result into a steady annual rate (CAGR), so different period lengths stay comparable.</p>
-      <p><b>Monthly SIP /yr</b> is the annualized return if you invested the same amount every month. It differs from Per year because money goes in gradually.</p>
-      <p>Tap the <b>?</b> beside any row label for a short tip. The fund names stay pinned to the top of the screen as you scroll, so you always know which column you are reading. Use <b>Copy link</b> to share this exact comparison.</p>
-    </div>
-  </details>
 
   <div class="pickers">
     <div class="pk"><label for="pk0">Fund 1</label><select id="pk0"></select></div>
@@ -330,11 +379,35 @@
     <button type="button" id="cmpSh" class="qsh" aria-pressed="false" title="Show only Halal-certified funds">Shariah</button>
   </div>
 
+  <!-- rk-rates:start -->
+<script type="application/json" id="rkRates">{"6":{"SAN":11.8,"DPS":9.5,"FDR":8.7,"INF":9.0,"GOLD":3.9},"12":{"SAN":11.8,"DPS":9.6,"FDR":8.9,"INF":8.6,"GOLD":36.4},"24":{"SAN":11.8,"DPS":9.5,"FDR":8.8,"INF":9.3,"GOLD":40.0},"36":{"SAN":11.7,"DPS":9.1,"FDR":8.4,"INF":9.5,"GOLD":32.8},"60":{"SAN":11.5,"DPS":8.2,"FDR":7.3,"INF":8.7,"GOLD":27.4},"max":{"SAN":11.4,"DPS":7.9,"FDR":6.7,"INF":7.1,"GOLD":17.3}}</script>
+  <!-- rk-rates:end -->
   <div class="sr-only" id="cmpLive" aria-live="polite"></div>
   <div class="cmp-meta" id="cmpMeta">
     <div id="cmpPeriodChip" class="cmp-period-chip" hidden></div>
     <button type="button" class="cmp-copy" id="cmpCopyLink" hidden>Copy link</button>
   </div>
+
+  <section class="cx" id="cx" aria-labelledby="cxH" hidden>
+    <div class="cx-top">
+      <h2 id="cxH">Head to head</h2>
+      <div class="cx-amt">
+        <label for="cxAmt" class="cx-amtlab">If you had invested</label>
+        <div class="cx-amtrow">
+          <div class="cx-field"><span class="cx-tk" aria-hidden="true">&#2547;</span><input id="cxAmt" type="text" inputmode="numeric" autocomplete="off" value="5,000" aria-describedby="cxAmtNote"></div>
+          <div class="cx-seg" id="cxSeg" role="group" aria-label="How you would invest">
+            <button type="button" data-m="sip" aria-pressed="true">Every month</button>
+            <button type="button" data-m="lump" aria-pressed="false">One time</button>
+          </div>
+        </div>
+        <p class="cx-amtnote" id="cxAmtNote">Your amount stays in this browser.</p>
+      </div>
+    </div>
+    <div class="cx-cards" id="cxCards"></div>
+    <h3 class="cx-h3">Who came out ahead, and by how much</h3>
+    <ul class="cx-rows" id="cxRows"></ul>
+    <p class="cx-foot">Past results over the same window, dividends reinvested. Ahead in the past is not a forecast or a recommendation.</p>
+  </section>
 
   <section class="cmp-viz" id="cmpViz" hidden>
     <div class="cmp-viz-head">
@@ -349,6 +422,17 @@
     <details class="cht-nums" id="cmpVizNums"></details>
   </section>
 
+  <h2 class="cmp-h2" id="cmpAll">Every number, side by side</h2>
+  <details class="cmp-howto">
+    <summary>How to read this table</summary>
+    <div class="cmp-howto-body">
+      <p>Returns are total return with dividends reinvested by default (or taken as cash), from the same verified data behind the <a href="/">calculator</a>.</p>
+      <p><b>Total return</b> is the overall gain or loss on a one-time investment over the period you pick (dividends reinvested). It is not a yearly rate.</p>
+      <p><b>Per year</b> turns that same lump-sum result into a steady annual rate (CAGR), so different period lengths stay comparable.</p>
+      <p><b>Monthly SIP /yr</b> is the annualized return if you invested the same amount every month. It differs from Per year because money goes in gradually.</p>
+      <p>Tap the <b>?</b> beside any row label for a short tip. The fund names stay pinned to the top of the screen as you scroll, so you always know which column you are reading. Use <b>Copy link</b> to share this exact comparison.</p>
+    </div>
+  </details>
   <p class="rk-barnote">Bars in each column are relative to the largest figure in that column, not a 0 to 100% scale. <button type="button" class="tipbtn" data-tipkey="barscale" data-tip="Read the printed %. A full bar means that cell is the largest figure in its column. A short bar means a smaller figure than the column&#39;s peak, not a near-zero return. A 3% six-month gain looks tiny next to a 100% since-launch total because both sit in the same column. That is deliberate, so you can scan which periods dominated." aria-label="How are these bars scaled?">?</button></p>
   <div class="tablewrap" id="cmpTableWrap">
     <table class="cmpt" id="cmpTable">
@@ -1101,12 +1185,118 @@
       '<thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>';
   }
 
+
+  /* ---- Head to head: the answer before the evidence (Sep 2026) ----
+     One card per fund with what the visitor's own amount became, then a list of
+     who came out ahead on each measure and by how much. Every figure comes from
+     data already on this page (data.json H windows, ratings.json, details.json,
+     holdings.json) plus the safe-option rates build-injected from index.html. The
+     amount stays in the browser and never reaches analytics. */
+  var RATES=null;try{RATES=JSON.parse(document.getElementById('rkRates').textContent);}catch(e){RATES=null;}
+  var cxAmt=5000,cxM='sip';
+  (function(){try{var hp=new URLSearchParams(location.hash.replace(/^#/,''));var a=parseInt(String(hp.get('amt')||'').replace(/[^0-9]/g,''),10);if(a>0&&a<1e10)cxAmt=a;var m=hp.get('m');if(m==='sip'||m==='lump')cxM=m;}catch(e){}})();
+  function cxRate(key){if(!RATES)return null;var r=RATES[period]||(function(){if(period==='max')return RATES.max;var m=period==='ytd'?6:+period;return RATES[m<=6?'6':m<=12?'12':m<=24?'24':m<=36?'36':m<=60?'60':'max'];})();return r&&typeof r[key]==='number'?r[key]:null;}
+  function cxSafe(rate,m,sip){var r=rate/100;if(!sip)return Math.pow(1+r,m/12);var g=Math.pow(1+r,1/12),s=0,k=g;for(var i=0;i<m;i++){s+=k;k*=g;}return s;}
+  function cxMonths(f){if(period==='max')return null;if(period==='ytd')return f.ytdM||null;return +period;}
+  function cxOutcome(f){
+    var h=horizonFor(f);if(!h||!f.H||!f.H[h])return null;
+    var a=f.H[h],sip=cxM==='sip',m=period==='max'?f.M:cxMonths(f);
+    return {rate:sip?a[4]:a[1],final:sip?a[2]*cxAmt/5000:a[0]*cxAmt,put:sip?cxAmt*m:cxAmt,months:m};
+  }
+  function cxFeePct(f){var m=String(detRaw(f,'fee')||'').match(/(\d+(?:\.\d+)?)\s*%/);return m?parseFloat(m[1]):null;}
+  function cxStars(n){var s='';for(var i=0;i<5;i++)s+=i<n?'★':'☆';return s;}
+  function cxColor(i){return CMPC[i%CMPC.length];}
+  function cxWho(f,i){return '<span class="cx-who"><i style="background:'+cxColor(i)+'" aria-hidden="true"></i>'+esc(f.label)+'</span>';}
+  // One row: who leads on a measure, the gap to the next fund, and every value
+  function cxLead(cols,k,sub,vals,high,fmt,gap,eps){
+    var have=[];cols.forEach(function(f,i){if(vals[i]!=null&&isFinite(vals[i]))have.push({f:f,i:i,v:vals[i]});});
+    if(have.length<2)return '';
+    have.sort(function(a,b){return high?b.v-a.v:a.v-b.v;});
+    var t=have[0],n=have[1],d=Math.abs(t.v-n.v);
+    var all=have.slice().sort(function(a,b){return a.i-b.i;}).map(function(h){return esc(h.f.short||h.f.label)+' '+fmt(h.v);}).join(' &middot; ');
+    var res=d<eps?'<span class="cx-level">Level</span>':cxWho(t.f,t.i)+' <span class="cx-by">'+gap(d)+'</span>';
+    if(have.length<cols.length)all+=' &middot; '+(cols.length-have.length)+' without enough data';
+    return '<li class="cx-row"><div class="cx-k">'+k+(sub?'<small>'+sub+'</small>':'')+'</div><div class="cx-v">'+res+'<span class="cx-all">'+all+'</span></div></li>';
+  }
+  function renderCx(cols){
+    var box=document.getElementById('cx');if(!box)return;
+    if(cols.length<2){box.hidden=true;return;}
+    box.hidden=false;
+    var isMax=period==='max',sip=cxM==='sip',pl=plabel().toLowerCase();
+    var outs=cols.map(cxOutcome);
+    // Cards
+    document.getElementById('cxCards').innerHTML=cols.map(function(f,i){
+      var o=outs[i],r=rateOf(f),tags=typeCell(f)+(f.amcVerified?'<span class="ctag ok">&#10003; AMC-Verified</span>':'');
+      var body;
+      if(!o)body='<p class="cx-need">'+(isMax?'No return figure yet':'Needs '+pl+' of history')+'</p>';
+      else if(isMax)body='<div class="cx-big'+(o.rate<0?' neg':'')+'">'+(o.rate>=0?'+':'')+o.rate.toFixed(2)+'%<span style="font-size:.5em;font-weight:700">/yr</span></div><p class="cx-sub">since '+since(f.since)+', '+(Math.round(f.M/12*10)/10)+' yrs of history</p>';
+      else body='<div class="cx-big'+(o.final<o.put?' neg':'')+'">'+tk(o.final)+'</div><p class="cx-sub">from <b>'+tk(o.put)+'</b> put in &middot; <b>'+(o.rate>=0?'+':'')+o.rate.toFixed(2)+'%</b> a year</p>';
+      var meta=[];
+      if(r&&r.rated&&r.stars)meta.push('<span><span class="cx-stars" aria-hidden="true">'+cxStars(r.stars)+'</span><span class="sr-only">'+r.stars+' of 5 stars</span> 3-year rating</span>');
+      else if(r)meta.push('<span>Not yet rated</span>');
+      if(f.aum)meta.push('<span>'+aumcr(f)+' fund size</span>');
+      return '<div class="cx-card"><div class="cx-name"><span class="cx-dot" style="background:'+cxColor(i)+'" aria-hidden="true"></span><a href="/funds/'+slug(f.label)+'.html">'+fundDispHtml(f)+'</a></div><div class="cx-tags">'+tags+'</div>'+body+(meta.length?'<div class="cx-meta">'+meta.join('')+'</div>':'')+'</div>';
+    }).join('');
+    // Rows
+    var rows='';
+    var winLab=isMax?'each fund’s full history':pl;
+    if(!isMax)rows+=cxLead(cols,'Your money',(sip?tk(cxAmt)+' a month':tk(cxAmt)+' one time')+(isMax?'':' for '+winLab),outs.map(function(o){return o?o.final:null;}),true,tk,function(d){return 'ended '+tk(d)+' more';},1);
+    rows+=cxLead(cols,'Return per year',(sip?'monthly SIP':'one-time')+', '+winLab,outs.map(function(o){return o?o.rate:null;}),true,function(v){return (v>=0?'+':'')+v.toFixed(2)+'%';},function(d){return d.toFixed(2)+' pts a year ahead';},0.005);
+    // Safe option check: did each fund beat Sanchayapatra over the same window?
+    var san=cxRate('SAN');
+    if(san!=null){
+      var bits=[],okN=0,haveN=0;
+      cols.forEach(function(f,i){var o=outs[i];if(!o)return;haveN++;
+        var beat=isMax?(o.rate>san):(o.final>cxAmt*cxSafe(san,o.months,sip));
+        if(beat)okN++;
+        bits.push(esc(f.short||f.label)+' <span class="'+(beat?'cx-yes':'cx-no')+'">'+(beat?'beat it':'did not')+'</span>');});
+      if(haveN>=2){
+        var head=okN===haveN?(haveN===2?'Both':'All '+haveN)+' beat Sanchayapatra':okN===0?'Neither beat Sanchayapatra':okN+' of '+haveN+' beat Sanchayapatra';
+        if(okN===0&&haveN>2)head='None beat Sanchayapatra';
+        var sanV=isMax?'':' (would have reached '+tk(cxAmt*cxSafe(san,outs.filter(Boolean)[0].months,sip))+')';
+        rows+='<li class="cx-row"><div class="cx-k">Versus Sanchayapatra<small>'+san+'% a year, same '+(isMax?'average rate':'window')+'</small></div><div class="cx-v"><span class="cx-who">'+head+'</span>'+sanV+'<span class="cx-all">'+bits.join(' &middot; ')+'</span></div></li>';
+      }
+    }
+    var paths=cols.map(pathOf),fixed=paths.every(function(p){return !p||p.fixed3y;});
+    var pSub=fixed?'last 3 closed years':'available history, windows differ';
+    rows+=cxLead(cols,'Smaller worst fall','peak to lowest point, '+pSub,paths.map(function(p){return p&&p.mdd!=null?p.mdd:null;}),true,function(v){return v.toFixed(1)+'%';},function(d){return 'fell '+d.toFixed(1)+' pts less';},0.25);
+    rows+=cxLead(cols,'Gentler down months','downside deviation, '+pSub,paths.map(function(p){return p&&p.ddev!=null?p.ddev:null;}),false,function(v){return v.toFixed(1)+'%';},function(d){return d.toFixed(1)+' pts calmer';},0.15);
+    rows+=cxLead(cols,'More 12-month holds ended up','share of rolling 12-month windows, '+pSub,paths.map(function(p){return p&&p.consist!=null?p.consist:null;}),true,function(v){return v+'%';},function(d){return d.toFixed(0)+' pts more often';},0.5);
+    rows+=cxLead(cols,'Lower management fee','stated headline rate, already inside the NAV',cols.map(cxFeePct),false,function(v){return v.toFixed(2)+'%';},function(d){return d.toFixed(2)+' pts a year cheaper';},0.005);
+    rows+=cxLead(cols,'Higher star rating','3-year rating, past risk-adjusted return',cols.map(function(f){var r=rateOf(f);return r&&r.rated&&r.stars?r.stars:null;}),true,function(v){return v+'★';},function(d){return d+' star'+(d===1?'':'s')+' more';},0.5);
+    rows+=cxLead(cols,'Longer track record','months of NAV history',cols.map(function(f){return f.M||null;}),true,function(v){return (Math.round(v/12*10)/10)+' yrs';},function(d){return (Math.round(d/12*10)/10)+' more years of history';},1);
+    if(cols.length===2){
+      var so=stockOverlapPct(cols[0],cols[1]),corr=pairCorr(cols[0],cols[1]),r=corr?corr.r:null;
+      if(so!=null||r!=null){
+        var v=diversifyVerdict(so,sectorOverlapPct(cols[0],cols[1]),r),pp=[];
+        if(so!=null)pp.push('&asymp;'+so.toFixed(0)+'% same stocks');
+        if(r!=null)pp.push(movePhrase(r).toLowerCase());
+        rows+='<li class="cx-row"><div class="cx-k">Owning both<small>overlap in holdings and monthly moves</small></div><div class="cx-v"><span class="cx-who '+v.cls+'">'+v.t+'</span><span class="cx-all">'+pp.join(' &middot; ')+'</span></div></li>';
+      }
+    }
+    document.getElementById('cxRows').innerHTML=rows;
+  }
+  (function(){
+    var inp=document.getElementById('cxAmt'),seg=document.getElementById('cxSeg');
+    function fmtIn(v){return v>0?Math.round(v).toLocaleString('en-IN'):'';}
+    if(inp){
+      inp.value=fmtIn(cxAmt);
+      inp.addEventListener('input',function(){var v=parseInt(this.value.replace(/[^0-9]/g,''),10);cxAmt=v>0?v:0;if(cxAmt>0)renderCx(cmpCols());});
+      inp.addEventListener('blur',function(){if(!(cxAmt>0))cxAmt=5000;this.value=fmtIn(cxAmt);renderCx(cmpCols());});
+    }
+    if(seg){
+      function sync(){seg.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-m')===cxM?'true':'false');});}
+      sync();
+      seg.addEventListener('click',function(e){var b=e.target.closest('button[data-m]');if(!b)return;cxM=b.getAttribute('data-m');sync();renderCx(cmpCols());track('compare_method',{method:cxM});});
+    }
+  })();
   function render(){
     fillSelects();
     var cols=cmpCols();
     var copyBtn=document.getElementById('cmpCopyLink');
-    if(cols.length<2){var _v=document.getElementById('cmpViz');if(_v)_v.hidden=true;root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;return;}
+    if(cols.length<2){renderCx(cols);var _v=document.getElementById('cmpViz');if(_v)_v.hidden=true;root.innerHTML='<tbody><tr><td class="k">Pick two funds</td><td>Choose at least two different funds above.</td></tr></tbody>';document.getElementById('cmpNote').textContent='';var chip=document.getElementById('cmpPeriodChip');if(chip)chip.hidden=true;if(copyBtn)copyBtn.hidden=true;return;}
     var pl=plabel();
+    renderCx(cols);
     // The chip names the window actually compared: when the period is longer than the
     // shortest fund's history, the chart falls back to that history, so say so
     var usableW=cols.filter(function(f){return cmpTr(f).length>1;});
