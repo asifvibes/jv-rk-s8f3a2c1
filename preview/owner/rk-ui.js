@@ -334,21 +334,6 @@
     }
   }
 
-  /* Star ratings had no way in from the navigation: it was linked only from
-     the footer, and the phone menu is how 90% of readers move around. The
-     menu markup is repeated in every page and template, so it is added here,
-     once, right after Most-held Stocks. */
-  function addRatingsLink() {
-    var menu = document.getElementById("rkMenu");
-    if (!menu || menu.querySelector('[data-nav="ratings"], a[href="/ratings.html"]')) return;
-    var a = document.createElement("a");
-    a.href = "/ratings.html";
-    a.setAttribute("data-nav", "ratings");
-    a.textContent = "Star ratings";
-    var stocks = menu.querySelector('[data-nav="stocks"]');
-    if (stocks && stocks.nextSibling) menu.insertBefore(a, stocks.nextSibling);
-    else menu.appendChild(a);
-  }
 
   /* Adds rk-barview to the Compare all funds panel when it scrolls into view,
      which is what starts the bar growth. Purely additive: the resting state in
@@ -631,7 +616,6 @@
       }
     }, true);
     addEventListener("resize", measureChrome, { passive: true });
-    addRatingsLink();
     markActiveNav();
     menuFallback();
     guardSummaryTaps();
