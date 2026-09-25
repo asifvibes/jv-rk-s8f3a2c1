@@ -308,12 +308,19 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <div class="fsearch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4.2-4.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="fq" type="search" placeholder="Fund, AMC or type" aria-label="Search by fund name, AMC or type" autocomplete="off"></div>
 <select id="fsort" aria-label="Sort funds within each group">
 <option value="ret">Sort: Top return</option>
+<option value="ret-asc">Sort: Lowest return</option>
+<option value="aum">Sort: Largest fund</option>
+<option value="aum-asc">Sort: Smallest fund</option>
 <option value="name">Sort: Name A to Z</option>
-<option value="aum">Sort: Fund size</option>
+<option value="name-desc">Sort: Name Z to A</option>
 <option value="m">Sort: Longest history</option>
+<option value="m-asc">Sort: Shortest history</option>
+<option value="hold">Sort: Latest portfolio</option>
+<option value="hold-asc">Sort: Oldest portfolio</option>
+<option value="random">Sort: Shuffle</option>
 </select>
 </div>
-<div class="amcwrap"><button type="button" class="amc-prev" id="amcPrev" aria-label="Show earlier asset managers" hidden>&#8249;</button><div class="amcbar" role="group" aria-label="Filter by asset manager"><button type="button" class="apill on" data-f="all" aria-pressed="true">All AMCs <span>35</span></button><button type="button" class="apill" data-f="CWT" aria-pressed="false">CWT <span>4</span></button><button type="button" class="apill" data-f="EDGE" aria-pressed="false">EDGE <span>4</span></button><button type="button" class="apill" data-f="Ekush" aria-pressed="false">Ekush <span>3</span></button><button type="button" class="apill" data-f="ICL" aria-pressed="false">ICL <span>4</span></button><button type="button" class="apill" data-f="IDLC" aria-pressed="false">IDLC <span>4</span></button><button type="button" class="apill" data-f="LankaBangla" aria-pressed="false">LankaBangla <span>4</span></button><button type="button" class="apill" data-f="Shanta" aria-pressed="false">Shanta <span>3</span></button><button type="button" class="apill" data-f="UCB" aria-pressed="false">UCB <span>3</span></button><button type="button" class="apill" data-f="VIPB" aria-pressed="false">VIPB <span>6</span></button></div><button type="button" class="amc-next" id="amcNext" aria-label="Show more asset managers" hidden>&#8250;</button></div>
+<div class="amcwrap"><button type="button" class="amc-prev" id="amcPrev" aria-label="Show earlier asset managers" hidden>&#8249;</button><div class="amcbar" role="group" aria-label="Filter by asset manager"><button type="button" class="apill on" data-f="all" aria-pressed="true">All AMCs <span>35</span></button><button type="button" class="apill" data-f="CWT" aria-pressed="false">CWT <span>4</span></button><button type="button" class="apill" data-f="Shanta" aria-pressed="false">Shanta <span>3</span></button><button type="button" class="apill" data-f="ICL" aria-pressed="false">ICL <span>4</span></button><button type="button" class="apill" data-f="VIPB" aria-pressed="false">VIPB <span>6</span></button><button type="button" class="apill" data-f="IDLC" aria-pressed="false">IDLC <span>4</span></button><button type="button" class="apill" data-f="Ekush" aria-pressed="false">Ekush <span>3</span></button><button type="button" class="apill" data-f="LankaBangla" aria-pressed="false">LankaBangla <span>4</span></button><button type="button" class="apill" data-f="EDGE" aria-pressed="false">EDGE <span>4</span></button><button type="button" class="apill" data-f="UCB" aria-pressed="false">UCB <span>3</span></button></div><button type="button" class="amc-next" id="amcNext" aria-label="Show more asset managers" hidden>&#8250;</button></div>
 <nav class="tjump" aria-label="Jump to fund type">
 <a class="tpill" href="#grp-growth">Growth</a>
 <a class="tpill" href="#grp-balanced">Balanced</a>
@@ -330,7 +337,7 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <summary>How to read this list</summary>
 <div class="fhowto-body">
 <p>The rate on each card is the fund&rsquo;s return per year as a one-time investment, from the first month ReturnKoto? tracks (shown on the card) to the date above, with dividends reinvested. Fund size is assets under management in crore taka (৳&nbsp;cr).</p>
-<p>Search matches a fund&rsquo;s name, its AMC or its type (Growth, Balanced, Income, Shariah). The AMC pills show one manager&rsquo;s funds. Sort reorders the funds inside each group; groups stay in the same order.</p>
+<p>Search matches a fund&rsquo;s name, its AMC or its type (Growth, Balanced, Income, Shariah). The AMC pills show one manager&rsquo;s funds. Sort reorders the funds inside each group. The group order, the AMC order and the default sort change on every visit, so no fund or manager is always shown first.</p>
 <p>Shariah funds appear in their own group and also under their main type.</p>
 </div>
 </details>
@@ -390,6 +397,36 @@ var amcPrev=document.getElementById('amcPrev');
 var TOTAL=35;
 var amc='all';
 var PEEK=0.45;
+/* RANDOMIZED ON PURPOSE (owner rule, restored 25 Sep 2026; never remove or
+   replace with a fixed order): the group order, the AMC pill order and the
+   default sort change on every visit so no fund type, manager or fund is
+   always shown first. Contents stay intact; only the order moves. */
+function shuffleAmc(){
+ if(!bar)return;
+ var pills=Array.prototype.slice.call(bar.querySelectorAll('.apill'));
+ var all=null,rest=[];
+ pills.forEach(function(p){if(p.getAttribute('data-f')==='all')all=p;else rest.push(p);});
+ for(var i=rest.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=rest[i];rest[i]=rest[j];rest[j]=t;}
+ bar.innerHTML='';
+ if(all)bar.appendChild(all);
+ rest.forEach(function(p){bar.appendChild(p);});
+}
+function shuffleGroups(){
+ var main=document.getElementById('main')||document.querySelector('main');
+ if(!main)return;
+ var secs=Array.prototype.slice.call(main.querySelectorAll('section.grp'));
+ if(secs.length<2)return;
+ for(var i=secs.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=secs[i];secs[i]=secs[j];secs[j]=t;}
+ var anchor=main.querySelector('.fhowto-end')||main.querySelector('.qlinks-head');
+ secs.forEach(function(s){if(anchor)main.insertBefore(s,anchor);else main.appendChild(s);});
+ var jump=document.querySelector('.tjump');
+ if(jump){
+  secs.forEach(function(s){
+   var a=jump.querySelector('a[href="#'+s.id+'"]');
+   if(a)jump.appendChild(a);
+  });
+ }
+}
 function maxScroll(){return bar?Math.max(0,bar.scrollWidth-bar.clientWidth):0;}
 function amcInset(){return 48;}
 function syncAmcArrow(){
@@ -466,6 +503,8 @@ function amcScrollPrev(){
  bar.scrollLeft=0;
  syncAmcArrow();
 }
+shuffleGroups();
+shuffleAmc();
 function runPeek(){ensureAmcPeek(false);}
 requestAnimationFrame(function(){requestAnimationFrame(runPeek);});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(runPeek).catch(function(){});
@@ -582,18 +621,23 @@ document.querySelectorAll('.tjump .tpill').forEach(function(a){
  });
 });
 if(srt){
- // Sorts within each group; group order stays fixed. The server already
- // renders "Top return" order, so the default needs no work on load.
+ // Sorts the funds inside each group.
  function applySort(k){
-  k=k||'ret';
+  k=k||(srt.value||'ret');
   document.querySelectorAll('section.grp .fgrid').forEach(function(g){
    var cards=Array.prototype.slice.call(g.querySelectorAll('.fcard'));
-   if(k==='name'){
+   if(k==='random'){
+    for(var i=cards.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=cards[i];cards[i]=cards[j];cards[j]=t;}
+   }else if(k==='name'){
     cards.sort(function(a,b){return (a.getAttribute('data-name')||'').localeCompare(b.getAttribute('data-name')||'');});
+   }else if(k==='name-desc'){
+    cards.sort(function(a,b){return (b.getAttribute('data-name')||'').localeCompare(a.getAttribute('data-name')||'');});
    }else{
+    var asc=/-asc$/.test(k);
+    var key=k.replace(/-asc$/,'');
     cards.sort(function(a,b){
-     var ka=+(a.getAttribute('data-'+k)||-999),kb=+(b.getAttribute('data-'+k)||-999);
-     return kb-ka;
+     var ka=+(a.getAttribute('data-'+key)||-999),kb=+(b.getAttribute('data-'+key)||-999);
+     return asc?(ka-kb):(kb-ka);
     });
    }
    cards.forEach(function(c){g.appendChild(c);});
@@ -603,8 +647,14 @@ if(srt){
   applySort(srt.value);
   try{if(window.gtag)gtag('event','funds_sort',{key:srt.value});}catch(e){}
  });
- // A browser can restore the last chosen option on Back; match the cards to it.
- if(srt.value&&srt.value!=='ret')applySort(srt.value);
+ // Random default sort (owner rule, see the note at the top of this script).
+ (function(){
+  var opts=Array.prototype.slice.call(srt.options).map(function(o){return o.value;}).filter(Boolean);
+  if(!opts.length)return;
+  var pick=opts[Math.floor(Math.random()*opts.length)];
+  srt.value=pick;
+  applySort(pick);
+ })();
 }
 if(!readAmcUrl())syncMeta(true);
 })();</script>
