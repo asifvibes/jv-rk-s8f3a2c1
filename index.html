@@ -1227,7 +1227,7 @@ function drawStrip(){
   // Under the axis: "Middle" beneath the highlighted dot, and the lowest and highest
   // fund values beneath their own dots, dropped if they would collide with "Middle"
   const bl=[],lab=(txt,x,cls)=>{const tw=stripTextW(txt),l=Math.max(0,Math.min(W-tw,x-tw/2));return {txt,l,r:l+tw,cls};};
-  if(pm)bl.push(lab("Middle",pm.x,"st-medlab"));
+  if(pm)bl.push(lab(S.hiLab||"Middle",pm.x,"st-medlab"));
   const vmin=Math.min(...S.pts),vmax=Math.max(...S.pts);
   [lab(S.fmt(vmin),X(vmin),"st-end"),lab(S.fmt(vmax),X(vmax),"st-end")].forEach(e=>{if(bl.every(b=>e.r+8<b.l||e.l>b.r+8))bl.push(e);});
   bl.forEach(b=>{s+='<text class="'+b.cls+'" x="'+b.l.toFixed(1)+'" y="'+(axisY+15)+'">'+escA(b.txt)+'</text>';});
@@ -1254,7 +1254,7 @@ function stripSelect(host,i){
   svg&&svg.querySelectorAll(".st-dot.on").forEach(c=>c.classList.remove("on"));
   if(!med&&svg){const c=[...svg.querySelectorAll(".st-dot")].find(c=>Math.abs(+c.getAttribute("cx")-p.x)<.05&&Math.abs(+c.getAttribute("cy")-p.y)<.05);if(c)c.classList.add("on");}
   const f=S.funds[i],n=S.funds.length,out=host.querySelector(".st-pick");
-  if(out&&f)out.innerHTML='<span class="st-pick-r'+(med?' is-med':'')+'">'+(med?"Middle":stripOrd(i,n))+'</span> <a class="fundlink st-pick-f" href="/funds/'+slugOf(f)+'.html">'+fundDispHtml(f)+'</a> <span class="st-pick-v">'+S.vals[i]+'</span>';
+  if(out&&f)out.innerHTML='<span class="st-pick-r'+(med?' is-med':'')+'">'+(med?(S.hiLab||"Middle"):stripOrd(i,n))+'</span> <a class="fundlink st-pick-f" href="/funds/'+slugOf(f)+'.html">'+fundDispHtml(f)+'</a> <span class="st-pick-v">'+S.vals[i]+'</span>';
 }
 function stripWire(host){
   if(host._wired)return;host._wired=true;
@@ -1320,15 +1320,17 @@ function render(){
   }else if(amt<=0){
     banner="Type an amount above to see what it became.";
   }else{
-    // The answer leads with the MIDDLE fund (as many funds did better as did worse),
-    // not the best one: the best of 35 is the luckiest outcome, not a typical one.
-    const n=rows.length, md=rows[Math.floor((n-1)/2)], top=rows[0], low=rows[n-1];
-    const pp=md.gain>=0, pct=Math.round(md.gain/md.invested*10000)/100;
-    const who = n>=3 ? "In the middle "+(shOnly?"Shariah ":"")+"fund of "+n : n===2 ? "In the better of 2 funds" : "In the one fund with enough history";
-    const midTip = n>=3 ? ' <button type="button" class="tipbtn" data-tipkey="middle" data-tip="Funds are ranked by their yearly return over this period. The middle fund has as many funds above it as below it, so it shows a typical result rather than the luckiest one. Each dot in the strip below is one fund." aria-label="What does the middle fund mean?">?</button>' : '';
-    hs='<div class="herostat"><div class="hs-kicker">'+who+', '+fmt(md.invested)+' <span class="hs-op">'+(pp?'grew to':'became')+'</span>'+midTip+'</div>'
-      +'<div class="hs-main"><span class="hs-final'+(pp?'':' neg')+'" data-to="'+Math.round(md.final)+'">'+fmt(md.final)+'</span></div>'
-      +'<div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+sgnPct(md.annual)+'%/yr'+(isMax?' over '+yrs(md.monthsUsed):'')+')</span> · <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(md.gain))+'</span> · <a class="fundlink hs-fund" href="/funds/'+slugOf(md.f)+'.html">'+fundDispHtml(md.f)+'</a></div></div>';
+    // The answer leads with the BEST result (owner call, Sep 2026: the site is
+    // pro-mutual-fund, so the good outcome comes first). The middle and lowest
+    // results sit directly under it and every fund is a dot in the strip, so the
+    // spread is never hidden; only the order of presentation favours the best.
+    const n=rows.length, md=rows[Math.floor((n-1)/2)], top=rows[0], low=rows[n-1], hd=top;
+    const pp=hd.gain>=0, pct=Math.round(hd.gain/hd.invested*10000)/100;
+    const who = n>=3 ? "In the top "+(shOnly?"Shariah ":"")+"fund of "+n : n===2 ? "In the better of 2 funds" : "In the one fund with enough history";
+    const midTip = n>=3 ? ' <button type="button" class="tipbtn" data-tipkey="middle" data-tip="Funds are ranked by their yearly return over this period. This is the best result. The middle fund (as many funds above it as below) and the lowest are shown right below, and every fund is one dot in the strip." aria-label="What does the top fund mean?">?</button>' : '';
+    hs='<div class="herostat"><div class="hs-kicker">'+who+', '+fmt(hd.invested)+' <span class="hs-op">'+(pp?'grew to':'became')+'</span>'+midTip+'</div>'
+      +'<div class="hs-main"><span class="hs-final'+(pp?'':' neg')+'" data-to="'+Math.round(hd.final)+'">'+fmt(hd.final)+'</span></div>'
+      +'<div class="hs-sub"><span class="hs-pct '+(pp?'pos':'neg')+'">'+(pp?'+':'-')+Math.abs(pct).toFixed(2)+'%</span> <span class="hs-ann" title="Annualized: the steady per-year rate over this period, the figure asset managers usually quote.">('+sgnPct(hd.annual)+'%/yr'+(isMax?' over '+yrs(hd.monthsUsed):'')+')</span> · <span class="hs-gain">'+(pp?'+':'-')+fmt(Math.abs(hd.gain))+'</span> · <a class="fundlink hs-fund" href="/funds/'+slugOf(hd.f)+'.html">'+fundDispHtml(hd.f)+'</a></div></div>';
     // Safe options, from the editable rates (filled from PERIODRATES for the period).
     // SIP compares with a DPS (a monthly deposit), one-time with an FDR (a lump deposit).
     const depNm=isSIP?"DPS":"FDR", depA=isSIP?"a DPS":"an FDR", depR=rateIn(isSIP?"rDPS":"rFDR"), sanR=rateIn("rSAN"), infR=rateIn("rINF");
@@ -1347,9 +1349,9 @@ function render(){
         dpsHtml=DepA+' at '+depR+'%/yr'+(simple?', interest paid out,':'')+' would have reached <b>'+fmt(dep)+'</b>. <b>'+beat+' of '+n+'</b> funds beat it over this period.';
         dpsSr=' '+DepA+' at '+depR+'% a year would have reached '+fmt(dep)+', and '+beat+' of '+n+' funds beat it.';
       }
-      if(n>=3)_strip={pts:rows.map(r=>r.final),med:rows.indexOf(md),marks,fmt:fmtC,
+      if(n>=3)_strip={pts:rows.map(r=>r.final),med:rows.indexOf(hd),hiLab:"Top",marks,fmt:fmtC,
         funds:rows.map(r=>r.f),vals:rows.map(r=>fmt(r.final)+' · '+(r.gain>=0?'+':'-')+Math.abs(Math.round(r.gain/r.invested*10000)/100).toFixed(2)+'%'),
-        aria:"Each of the "+n+" funds as a dot, from "+fmt(low.final)+" to "+fmt(top.final)+"; the middle fund ended at "+fmt(md.final)+"."+marks.map(k=>" "+k.lab.replace(/ [\d.]+%$/,"")+" "+fmt(k.v)+".").join("")};
+        aria:"Each of the "+n+" funds as a dot, from "+fmt(low.final)+" to "+fmt(top.final)+"; the top fund, highlighted, ended at "+fmt(hd.final)+" and the middle fund at "+fmt(md.final)+"."+marks.map(k=>" "+k.lab.replace(/ [\d.]+%$/,"")+" "+fmt(k.v)+".").join("")};
     }else{
       if(depR>0)marks.push({v:depR,lab:depNm+" "+depR+"%",cls:"st-dep"});
       if(sanR>0)marks.push({v:sanR,lab:"Sanchayapatra "+sanR+"%",cls:"st-san"});
@@ -1361,29 +1363,29 @@ function render(){
         dpsSr=' '+beat+' of '+n+' funds grew faster than '+depA+' at '+depR+'% a year.';
       }
       const pf=v=>(v>=0?"+":"")+v.toFixed(1)+"%";
-      if(n>=3)_strip={pts:rows.map(r=>r.annual),med:rows.indexOf(md),marks,fmt:pf,
+      if(n>=3)_strip={pts:rows.map(r=>r.annual),med:rows.indexOf(hd),hiLab:"Top",marks,fmt:pf,
         funds:rows.map(r=>r.f),vals:rows.map(r=>sgnPct(r.annual)+'%/yr over '+yrs(r.monthsUsed)),
-        aria:"Each of the "+n+" funds as a dot by yearly return, from "+pf(low.annual)+" to "+pf(top.annual)+"; the middle fund returned "+pf(md.annual)+" a year."+marks.map(k=>" "+k.lab+".").join("")};
+        aria:"Each of the "+n+" funds as a dot by yearly return, from "+pf(low.annual)+" to "+pf(top.annual)+"; the top fund, highlighted, returned "+pf(hd.annual)+" a year and the middle fund "+pf(md.annual)+"."+marks.map(k=>" "+k.lab+".").join("")};
     }
     if(_strip)hs+='<div class="hl-strip" id="hlStrip"></div>';
     hs+= isMax
-      ? '<div class="hl-ctx">Across '+n+' funds'+(n>=3?' (one dot each)':'')+': best <b>'+sgnPct(top.annual)+'%/yr</b>, lowest <b>'+sgnPct(low.annual)+'%/yr</b>.</div>'
-      : '<div class="hl-ctx">Across '+n+' funds'+(n>=3?' (one dot each)':'')+': best <b>'+fmt(top.final)+'</b>, lowest <b>'+fmt(low.final)+'</b>.</div>';
+      ? '<div class="hl-ctx">'+(n>=3?'Middle fund <b>'+sgnPct(md.annual)+'%/yr</b>, lowest <b>'+sgnPct(low.annual)+'%/yr</b>, across '+n+' funds (one dot each).':'Across '+n+' funds.')+'</div>'
+      : '<div class="hl-ctx">'+(n>=3?'Middle fund <b>'+fmt(md.final)+'</b>, lowest <b>'+fmt(low.final)+'</b>, across '+n+' funds (one dot each).':'Across '+n+' funds: lowest <b>'+fmt(low.final)+'</b>.')+'</div>';
     if(dpsHtml)hs+='<p class="hl-dps">'+dpsHtml+' <a href="/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html" data-guide="mutual-funds-vs-sanchayapatra-dps-fdr">Funds vs Sanchayapatra, DPS &amp; FDR &rarr;</a></p>';
-    // The ride, not just the destination: how far the middle fund fell on the way,
-    // over the same months. Deposits do not fall like this, which is the trade.
+    // The ride, not just the destination: how far the headline fund fell on the
+    // way, over the same months. Deposits do not dip like this.
     if(!isMax&&n>=3){
-      const dd=winFall(md.f,md.monthsUsed);
+      const dd=winFall(hd.f,hd.monthsUsed);
       if(dd!=null)hs+='<p class="hl-risk">'+(dd<-0.5
-        ?'Along the way, the middle fund&rsquo;s value was at its worst <b>'+Math.abs(dd).toFixed(1)+'% below</b> its previous peak. A DPS or Sanchayapatra does not dip like that.'
-        :'Along the way, the middle fund&rsquo;s value barely dipped below a previous peak over this period.')
-        +(top.f!==md.f?' <a href="/compare.html?funds='+slugOf(top.f)+','+slugOf(md.f)+'">Compare the top and the middle fund &rarr;</a>':'')+'</p>';
+        ?'Along the way, the top fund&rsquo;s value was at its worst <b>'+Math.abs(dd).toFixed(1)+'% below</b> its previous peak. A DPS or Sanchayapatra does not dip like that.'
+        :'Along the way, the top fund&rsquo;s value barely dipped below a previous peak over this period.')
+        +(hd.f!==md.f?' <a href="/compare.html?funds='+slugOf(hd.f)+','+slugOf(md.f)+'">Compare it with the middle fund &rarr;</a>':'')+'</p>';
     }
     banner = method==="lump"
       ? (isMax ? `That's a one-time ${amtB} invested at each fund's launch.` : `That's a one-time ${amtB} invested at the start of the period.`)
       : `That's ${amtB} invested every month.`;
-    srText=who+" "+perSr+", "+fmt(md.invested)+" became "+fmt(md.final)+"."+dpsSr;
-    fromHint=md.invested;
+    srText=who+" "+perSr+", "+fmt(hd.invested)+" became "+fmt(hd.final)+". The middle fund reached "+fmt(md.final)+"."+dpsSr;
+    fromHint=hd.invested;
   }
   const endMY=window.RK_END_MY||"";
   const hlRange=document.getElementById("hlRange");
