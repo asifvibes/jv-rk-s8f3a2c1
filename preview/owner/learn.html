@@ -152,6 +152,28 @@
   h2[id],dt[id]{scroll-margin-top:130px}
   @media(min-width:561px){h2[id],dt[id]{scroll-margin-top:80px}}
   .toclbl{font-size:13px;font-weight:700;margin:0 0 8px;color:var(--ink)}
+  /* ---- Sep 2026: reading path with progress, live "In today's data" callouts ---- */
+  .ln-path{margin:20px 0 26px;border:1px solid var(--border);border-radius:14px;background:var(--card);overflow:hidden}
+  .ln-path-head{display:flex;align-items:center;gap:12px;padding:13px 15px 10px}
+  .ln-path-head h2{font-size:16px;margin:0;flex:1}
+  .ln-path-n{font-size:13px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ln-bar{height:5px;margin:0 15px 8px;border-radius:4px;background:var(--border);overflow:hidden}
+  .ln-bar span{display:block;height:100%;width:0;background:var(--green-dark);border-radius:4px;transition:width .3s ease}
+  .ln-path ol{list-style:none;margin:0;padding:0 0 6px;display:grid;grid-template-columns:1fr 1fr;column-gap:10px}
+  .ln-path li a{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 15px;color:var(--text);text-decoration:none;font-size:14px;line-height:1.3}
+  .ln-path li a:hover{background:var(--green-soft)}
+  .ln-num{flex:none;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;border:1.5px solid var(--border);color:var(--muted);font-variant-numeric:tabular-nums}
+  .ln-t{flex:1}
+  .ln-min{flex:none;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .ln-path li.done .ln-num{background:var(--green-dark);border-color:var(--green-dark);color:#fff;font-size:0}
+  .ln-path li.done .ln-num::after{content:"\2713";font-size:12px}
+  [data-theme="dark"] .ln-path li.done .ln-num{color:#06140C}
+  .ln-reset{font:inherit;font-size:12.5px;font-weight:700;color:var(--muted);background:none;border:0;cursor:pointer;min-height:36px;padding:0 4px;text-decoration:underline;text-underline-offset:3px}
+  .ln-data{margin:14px 0 18px;padding:12px 15px;border:1px solid var(--border);border-radius:12px;background:var(--card);font-size:15px;line-height:1.55}
+  .ln-data-k{display:block;font-size:12px;font-weight:700;color:var(--green-dark);margin:0 0 3px}
+  .ln-data b{font-weight:800;font-variant-numeric:tabular-nums}
+  .ln-data a{font-weight:700;color:var(--green-dark);white-space:nowrap}
+  @media(max-width:560px){.ln-path ol{grid-template-columns:1fr}.ln-path li a{padding:6px 13px}}
   .tocdisc>summary{list-style:none;cursor:pointer;font-size:13px;font-weight:700;color:var(--green-dark);min-height:44px;display:flex;align-items:center;gap:7px}
   .tocdisc>summary::-webkit-details-marker{display:none}
   .tocdisc>summary::after{content:"\25be";transition:transform .2s}
@@ -415,6 +437,61 @@
   <!-- /rk-owner-partners:home -->
 
 </main>
+<script>
+/* Reading path (Sep 2026). Rebuilds the page contents as numbered chapters with
+   reading time and a tick for each chapter the reader has scrolled through. The
+   ticks live in this browser only (localStorage), purely as a convenience; the
+   plain contents list above stays in place if this script never runs. */
+(function(){
+  var main=document.getElementById('main');if(!main)return;
+  var hs=[].slice.call(main.querySelectorAll('h2[id]')).filter(function(h){return !h.closest('nav,aside,.ln-path');});
+  if(hs.length<3)return;
+  var KEY='rk_learn_read',read={};
+  try{(JSON.parse(localStorage.getItem(KEY)||'[]')||[]).forEach(function(id){read[id]=1;});}catch(e){}
+  function words(h){var n=0,el=h.nextElementSibling;while(el&&el.tagName!=='H2'){n+=(el.textContent||'').trim().split(/\s+/).length;el=el.nextElementSibling;}return n;}
+  var old=main.querySelector('nav.toc[aria-label="Page contents"]');
+  var nav=document.createElement('nav');nav.className='ln-path';nav.setAttribute('aria-labelledby','lnPathH');
+  var total=hs.reduce(function(a,h){return a+words(h);},0);
+  nav.innerHTML='<div class="ln-path-head"><h2 id="lnPathH">Read it in order</h2><span class="ln-path-n" id="lnPathN"></span></div><div class="ln-bar" aria-hidden="true"><span id="lnBar"></span></div><ol>'+hs.map(function(h,i){var m=Math.max(1,Math.round(words(h)/200));return '<li data-id="'+h.id+'"><a href="#'+h.id+'"><span class="ln-num">'+(i+1)+'</span><span class="ln-t">'+h.textContent.replace(/</g,'&lt;')+'</span><span class="ln-min">'+m+' min</span></a></li>';}).join('')+'</ol>';
+  if(old){old.parentNode.insertBefore(nav,old);old.hidden=true;}else{hs[0].parentNode.insertBefore(nav,hs[0]);}
+  var mins=Math.max(1,Math.round(total/200));
+  function paint(){var n=0;nav.querySelectorAll('li').forEach(function(li){var d=!!read[li.getAttribute('data-id')];li.classList.toggle('done',d);if(d)n++;var a=li.querySelector('a');a.setAttribute('aria-label',li.querySelector('.ln-t').textContent+(d?', read':''));});
+    document.getElementById('lnPathN').innerHTML=(n?n+' of '+hs.length+' read':hs.length+' chapters &middot; about '+mins+' min')+(n?' <button type="button" class="ln-reset" id="lnReset">Reset</button>':'');
+    document.getElementById('lnBar').style.width=(n/hs.length*100)+'%';
+    var r=document.getElementById('lnReset');if(r)r.onclick=function(){read={};save();paint();};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(Object.keys(read)));}catch(e){}}
+  // A chapter counts as read once the reader has scrolled to where the next one starts
+  var t=null;function check(){t=null;var ch=false,vh=innerHeight;
+    hs.forEach(function(h,i){if(read[h.id])return;var nx=hs[i+1];var done=nx?nx.getBoundingClientRect().top<vh*0.5:(innerHeight+scrollY>=document.documentElement.scrollHeight-40);if(done){read[h.id]=1;ch=true;}});
+    if(ch){save();paint();}}
+  addEventListener('scroll',function(){if(!t)t=setTimeout(check,250);},{passive:true});
+  paint();
+})();
+/* "In today's data": one live figure inside the chapters where a real number
+   helps, read from the same files every page uses. Nothing typed in, nothing
+   estimated; a callout is skipped when its data is missing. */
+(function(){
+  if(!window.fetch)return;
+  function put(id,html){var h=document.getElementById(id);if(!h)return;var p=h.nextElementSibling;while(p&&p.tagName!=='P')p=p.nextElementSibling;var a=document.createElement('aside');a.className='ln-data';a.innerHTML='<span class="ln-data-k">In today’s data</span>'+html;(p||h).insertAdjacentElement('afterend',a);}
+  function j(u){return fetch(u).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});}
+  Promise.all([j('/data.json'),j('/ratings.json'),j('/details.json')]).then(function(res){
+    var d=res[0],rt=res[1]||{},det=res[2]||{};if(!d||!d.funds||!d.funds.length)return;
+    var f=d.funds,n=f.length,M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    function dt(iso){var p=String(iso||'').split('-');return p.length===3?(+p[2])+' '+M[+p[1]-1]+' '+p[0]:'';}
+    var navs=f.map(function(x){return x.nav;}).filter(function(v){return v>0;});
+    if(navs.length)put('how','Across the <b>'+n+'</b> funds ReturnKoto? tracks, one unit costs between <b>৳'+Math.min.apply(null,navs).toFixed(2)+'</b> and <b>৳'+Math.max.apply(null,navs).toFixed(2)+'</b> at the latest NAVs (through '+dt(d.asOf)+'). A higher NAV is not a better fund; it mostly reflects age and past growth. <a href="/funds/">See every fund &rarr;</a>');
+    var fees=Object.keys(det).map(function(k){var m=String((det[k]||{}).fee||'').match(/(\d+(?:\.\d+)?)\s*%/);return m?parseFloat(m[1]):null;}).filter(function(v){return v!=null;});
+    if(fees.length>2)put('fees','Stated management fees across '+fees.length+' tracked funds run from <b>'+Math.min.apply(null,fees).toFixed(2)+'%</b> to <b>'+Math.max.apply(null,fees).toFixed(2)+'%</b> a year (the headline rate in each prospectus). Every return on this site is already after that fee. <a href="/compare.html">Compare fees side by side &rarr;</a>');
+    var sh=f.filter(function(x){return x.sh;}).length;
+    if(sh)put('shariah','<b>'+sh+' of '+n+'</b> tracked funds are Shariah-compliant. <a href="/#sh=1">See only Shariah funds in the calculator &rarr;</a>');
+    var mdd=Object.keys(rt).filter(function(k){return k.charAt(0)!=='_'&&rt[k]&&rt[k].rated&&typeof rt[k].mdd==='number';}).map(function(k){return rt[k].mdd;});
+    if(mdd.length>2)put('risk','Over the last three closed years, the deepest fall from a peak ranged from <b>'+Math.max.apply(null,mdd).toFixed(1)+'%</b> for the steadiest fund to <b>'+Math.min.apply(null,mdd).toFixed(1)+'%</b> for the bumpiest, across '+mdd.length+' funds with enough history. <a href="/ratings.html">See each fund’s risk scores &rarr;</a>');
+    var aum=f.reduce(function(a,x){return a+(x.aum||0);},0);
+    if(aum)put('market','The <b>'+n+'</b> funds ReturnKoto? tracks manage about <b>৳'+Math.round(aum/10).toLocaleString('en-IN')+' cr</b> between them, from their latest disclosed fund sizes. <a href="/funds/">Browse them all &rarr;</a>');
+  });
+})();
+</script>
+
 <footer class="rk-foot">
 <div class="rk-foot-in">
 <a class="rk-logo" href="/"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="24" fill="#1F9E57"/><path d="M22 66 44 50 58 58 76 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 34 76 34 76 50" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>ReturnKoto?</a>

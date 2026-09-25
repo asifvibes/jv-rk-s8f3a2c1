@@ -52,6 +52,29 @@
   p{margin:0 0 12px;font-size:16px}
   p a{color:var(--green-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px}
   .toc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px 18px;margin:20px 0}
+  /* ---- Sep 2026: start chips, live data panel, visible topic grid, per-answer actions ---- */
+  .fq-h{font-size:17px;font-weight:800;letter-spacing:-.01em;margin:0 0 10px}
+  .fq-start,.fq-live,.fq-topics{margin:22px 0}
+  .fq-chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .fq-chips a{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:14px;font-weight:600;line-height:1.35;text-decoration:none}
+  .fq-chips a:hover{border-color:var(--green-dark);color:var(--green-dark)}
+  .fq-facts{list-style:none;border:1px solid var(--border);border-radius:14px;background:var(--card);overflow:hidden}
+  .fq-facts li+li{border-top:1px solid var(--border)}
+  .fq-facts a{display:flex;gap:12px;align-items:baseline;justify-content:space-between;padding:12px 15px;color:var(--text);text-decoration:none;min-height:44px}
+  .fq-facts a:hover{background:var(--green-soft)}
+  .fq-facts b{font-weight:800;font-variant-numeric:tabular-nums}
+  .fq-facts .go{flex:none;font-size:13px;font-weight:700;color:var(--green-dark);white-space:nowrap}
+  .fq-topics ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+  .fq-topics a{display:flex;flex-direction:column;gap:2px;justify-content:center;min-height:64px;padding:11px 14px;border:1px solid var(--border);border-radius:12px;background:var(--card);color:var(--text);text-decoration:none}
+  .fq-topics a:hover{border-color:var(--green-dark)}
+  .fq-topics span{font-size:14.5px;font-weight:700;line-height:1.3}
+  .fq-topics small{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .fq-act{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);font-size:13px;color:var(--muted)}
+  .fq-act button{font:inherit;font-size:13px;font-weight:700;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer}
+  .fq-act button:hover{border-color:var(--green-dark)}
+  .fq-act .fq-sp{flex:1}
+  .fq-act .fq-ok{color:var(--green-dark);font-weight:700}
+  @media(max-width:560px){.fq-topics ul{grid-template-columns:1fr 1fr}.fq-topics a{min-height:60px;padding:10px 12px}.fq-topics span{font-size:13.5px}.fq-act button{min-height:44px}}
   .toc h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px}
   .toc ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
   .toc a{font-size:13.5px;color:var(--text);text-decoration:none}
@@ -265,7 +288,33 @@
   <p class="g-updated">Updated <time datetime="2026-09-25">25 Sep 2026</time></p>
 
   <div class="faqsearch"><div class="srchbox"><input type="search" id="faqSearch" placeholder="Search questions, e.g. exit load, SIP, tax…" aria-label="Search FAQs" autocomplete="off"><button type="button" id="faqClear" class="srchclear" hidden aria-label="Clear search">&#10005;</button></div><div class="qatools"><span id="faqCount" class="qcount"></span><span class="qspacer"></span><button type="button" id="faqToggleSticky" class="qtool" aria-expanded="false" hidden>Expand all</button></div><div class="sr-only" aria-live="polite" id="faqLive"></div></div>
-  <nav class="toc" id="faqToc" aria-label="FAQ topics"><details class="tocdisc" id="faqTocDisc"><summary>Browse by topic (9)</summary><ul><li><a href="#about">About ReturnKoto? and its data</a></li><li><a href="#basics">Mutual fund basics</a></li><li><a href="#invest">How to invest</a></li><li><a href="#sip">SIP vs lump sum</a></li><li><a href="#returns">Returns and risk</a></li><li><a href="#fees">Fees, dividends and tax</a></li><li><a href="#rules">Redemption, safety and rules</a></li><li><a href="#choose">Choosing and comparing</a></li><li><a href="#partners">Partners and investing</a></li></ul></details></nav>
+  <section class="fq-start" aria-labelledby="fqStartH">
+    <h2 id="fqStartH" class="fq-h">Start with these</h2>
+    <ul class="fq-chips">
+      <li><a href="#how-do-i-invest-in-a-mutual-fund-in-bangladesh">How do I invest in a mutual fund?</a></li>
+      <li><a href="#is-sip-or-lump-sum-better">Is SIP or lump sum better?</a></li>
+      <li><a href="#how-risky-are-mutual-funds-compared-with-fdr-or-sanchayapatr">How risky are funds next to FDR or Sanchayapatra?</a></li>
+      <li><a href="#is-my-money-safe-if-the-asset-management-company-fails">Is my money safe if the AMC fails?</a></li>
+      <li><a href="#how-is-dividend-income-from-mutual-funds-taxed">How are fund dividends taxed?</a></li>
+    </ul>
+  </section>
+  <section class="fq-live" id="fqLive" aria-labelledby="fqLiveH" hidden>
+    <h2 id="fqLiveH" class="fq-h">The data behind these answers, today</h2>
+    <ul class="fq-facts" id="fqFacts"></ul>
+  </section>
+  <nav class="fq-topics" id="faqToc" aria-labelledby="fqTopicsH">
+    <h2 id="fqTopicsH" class="fq-h">Browse by topic</h2>
+    <ul>
+      <li><a href="#about"><span>About ReturnKoto? and its data</span><small data-count="about"></small></a></li>
+      <li><a href="#basics"><span>Mutual fund basics</span><small data-count="basics"></small></a></li>
+      <li><a href="#invest"><span>How to invest</span><small data-count="invest"></small></a></li>
+      <li><a href="#sip"><span>SIP vs lump sum</span><small data-count="sip"></small></a></li>
+      <li><a href="#returns"><span>Returns and risk</span><small data-count="returns"></small></a></li>
+      <li><a href="#fees"><span>Fees, dividends and tax</span><small data-count="fees"></small></a></li>
+      <li><a href="#rules"><span>Redemption, safety and rules</span><small data-count="rules"></small></a></li>
+      <li><a href="#choose"><span>Choosing and comparing</span><small data-count="choose"></small></a></li>
+    </ul>
+  </nav>
   <section class="faqcat" id="about">
     <div class="cat-head"><h2>About ReturnKoto? and its data</h2><button type="button" id="faqToggle" class="qtool" aria-expanded="false">Expand all</button></div>
     <details class="qa" id="what-is-returnkoto"><summary><h3>What is ReturnKoto?</h3></summary><div class="qa-b"><p>ReturnKoto? is a free, independent tool that shows the real historical returns of Bangladeshi open-end mutual funds. You enter an amount and a period, and it replays that investment over each fund's actual published NAV history, reinvesting cash dividends by default (or showing them taken as cash), so you can see what that amount became on each fund's published history.</p></div></details>
@@ -462,7 +511,7 @@
     if(!q){
       qas.forEach(function(x){x.style.display='';});
       cats.forEach(function(c){c.style.display='';});
-      if(none)none.hidden=true; if(toc)toc.style.display='';
+      if(none)none.hidden=true; if(toc)toc.style.display='';document.querySelectorAll('.fq-start,.fq-live').forEach(function(x){x.style.display='';});
       if(count)count.textContent='';
       return;
     }
@@ -473,7 +522,7 @@
       if(m){hits++;x.open=true;x.classList.remove('srch-hit');void x.offsetWidth;x.classList.add('srch-hit');}
     });
     cats.forEach(function(c){var vis=c.querySelector('details.qa:not([style*="none"])'); c.style.display=vis?'':'none';});
-    if(toc)toc.style.display='none';
+    if(toc)toc.style.display='none';document.querySelectorAll('.fq-start,.fq-live').forEach(function(x){x.style.display='none';});
     if(none){none.hidden=hits>0;if(!hits)fillNone(inp.value.trim());}
     var msg=hits===1?'1 answer found':hits+' answers found';
     if(count)count.textContent=msg;
@@ -514,6 +563,45 @@
     else if(el.querySelectorAll)el.querySelectorAll('details.qa').forEach(function(x){x.open=true;});
   }
   openHash();addEventListener('hashchange',openHash);
+  /* Topic counts come from the page itself, so they never drift as questions are added */
+  document.querySelectorAll('[data-count]').forEach(function(el){var sec=document.getElementById(el.getAttribute('data-count'));var n=sec?sec.querySelectorAll('details.qa').length:0;el.textContent=n+' question'+(n===1?'':'s');});
+  /* Live facts: read from the same data.json every page uses. Nothing is typed in,
+     so a fact can never go stale; each links to the answer that explains it. */
+  (function(){
+    var box=document.getElementById('fqLive'),ul=document.getElementById('fqFacts');if(!box||!ul||!window.fetch)return;
+    fetch('/data.json').then(function(r){return r.json();}).then(function(d){
+      var f=d.funds||[];if(!f.length)return;
+      var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],p=String(d.asOf||'').split('-');
+      var asof=p.length===3?(+p[2])+' '+M[+p[1]-1]+' '+p[0]:'';
+      var ty={};f.forEach(function(x){ty[x.type]=(ty[x.type]||0)+1;});var sh=f.filter(function(x){return x.sh;}).length;
+      var ver=f.filter(function(x){return x.amcVerified;}).length;
+      var maxM=Math.max.apply(null,f.map(function(x){return x.M||0;}));
+      function li(html,href,go){return '<li><a href="'+href+'"><span>'+html+'</span><span class="go">'+go+' &rarr;</span></a></li>';}
+      var out=li('<b>'+f.length+'</b> open-end funds tracked, every figure from each fund\u2019s own NAV history','#where-does-the-data-come-from','Where it comes from');
+      if(asof)out+=li('Figures comparable through <b>'+asof+'</b>, refreshed four times a day','#how-often-is-returnkoto-updated','How updates work');
+      if(ver)out+=li('<b>'+ver+' of '+f.length+'</b> funds carry the AMC-Verified badge','#what-does-the-amc-verified-badge-mean-and-how-is-it-decided','What it means');
+      out+=li(['Growth','Balanced','Income'].filter(function(t){return ty[t];}).map(function(t){return '<b>'+ty[t]+'</b> '+t;}).join(', ')+(sh?' funds. <b>'+sh+'</b> of all '+f.length+' are Shariah-compliant':''),'#what-types-of-mutual-funds-are-there','Fund types');
+      if(maxM)out+=li('Longest track record: <b>'+(Math.round(maxM/12*10)/10)+' years</b> of monthly NAVs','#do-past-returns-predict-future-returns','What history can tell you');
+      ul.innerHTML=out;box.hidden=false;
+    }).catch(function(){});
+  })();
+  /* Per-answer actions: share a direct link, and a one-tap helpful vote (an
+     anonymous GA event, nothing else is recorded) so weak answers get found */
+  document.querySelectorAll('details.qa').forEach(function(q){
+    var b=q.querySelector('.qa-b');if(!b||b.querySelector('.fq-act'))return;
+    var a=document.createElement('div');a.className='fq-act';
+    a.innerHTML='<span>Was this helpful?</span><button type="button" data-v="yes">Yes</button><button type="button" data-v="no">No</button><span class="fq-sp"></span><button type="button" data-copy>Copy link</button>';
+    b.appendChild(a);
+    a.addEventListener('click',function(e){
+      var t=e.target.closest('button');if(!t)return;
+      if(t.hasAttribute('data-copy')){var u=location.origin+location.pathname+'#'+q.id;var ok=function(){t.textContent='Link copied';setTimeout(function(){t.textContent='Copy link';},1800);};
+        if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(ok,function(){prompt('Copy this link',u);});else prompt('Copy this link',u);
+        try{if(window.gtag)gtag('event','faq_copy_link',{q:q.id});}catch(err){}return;}
+      var v=t.getAttribute('data-v');try{if(window.gtag)gtag('event','faq_helpful',{q:q.id,v:v});}catch(err){}
+      a.querySelectorAll('[data-v]').forEach(function(x){x.remove();});
+      a.firstChild.outerHTML='<span class="fq-ok" role="status">'+(v==='yes'?'Thanks, glad it helped.':'Thanks. Tell us what was missing at hello@returnkoto.com.')+'</span>';
+    });
+  });
   // printing includes every answer
   addEventListener('beforeprint',function(){qas.forEach(function(x){x.dataset.wasOpen=x.open?'1':'';x.open=true;});});
   addEventListener('afterprint',function(){qas.forEach(function(x){x.open=x.dataset.wasOpen==='1';});});

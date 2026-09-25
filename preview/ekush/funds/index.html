@@ -71,6 +71,14 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 /* The card's rate is labelled with its basis and window, like every other
    return on the site, so it cannot be read as a 1-year or SIP figure. */
 .fc-basis{display:block;font-size:12px;margin-top:1px}
+.dir-sum{font-size:13.5px;color:var(--muted);margin:-4px 0 14px;line-height:1.5}.dir-sum b{color:var(--ink)}
+/* Sep 2026: a comparable headline (same 3-year window for every fund) and a row
+   of quick facts, so the directory answers "how did it do, how bumpy, how
+   costly" before the reader opens a fund. */
+.fc-main{font-size:15px;color:var(--muted)}.fc-main b{font-size:17px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+.fc-facts{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:6px;padding-top:6px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.fc-stars{color:var(--ink);letter-spacing:.5px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .foot{font-size:12px;color:var(--muted);text-align:center;line-height:1.7;margin-top:30px}
 .foot a{color:var(--muted)}
 @media(max-width:560px){h1{font-size:23px}.fgrid{grid-template-columns:1fr 1fr;gap:8px}.fcard{padding:11px}.fc-title{font-size:13px}.fc-code{font-size:12px;letter-spacing:.03em}.wrap{padding:18px 14px 50px}.top{padding:12px 14px}}
@@ -243,10 +251,12 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <main id="main" class="wrap">
 <h1>Bangladeshi open-end mutual funds</h1>
 <p class="intro">ReturnKoto? tracks <span class="fund-n">3</span> of Bangladesh&rsquo;s 100+ open-end funds: the ones whose NAV history and dividends can be verified to the source. Figures as of <span class="asof-wrap">24 Sep 2026 <button type="button" class="tipbtn tipbtn-i" data-tipkey="asof" data-tip="Every figure on this list uses one shared NAV date so funds stay comparable: the date only moves forward once every tracked fund has published up to that day, so a single slow fund (or a year-end book closure) holds it back. Individual fund pages can show newer NAVs." aria-label="Why this as-of date?" aria-expanded="false">i</button></span></p>
+<p class="dir-sum"><b>0</b> AMC-Verified &middot; <b>&#2547;131 cr</b> managed between them &middot; cards lead with the <b>same 3-year window</b> for every fund, so the figures compare</p>
 <div class="ftools">
 <div class="fsearch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4.2-4.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="fq" type="search" placeholder="Fund, AMC or type" aria-label="Search by fund name, AMC or type" autocomplete="off"></div>
 <select id="fsort" aria-label="Sort funds within each group">
-<option value="ret">Sort: Top return</option>
+<option value="r3">Sort: Return, last 3 years</option>
+<option value="ret">Sort: Return since launch</option>
 <option value="ret-asc">Sort: Lowest return</option>
 <option value="aum">Sort: Largest fund</option>
 <option value="aum-asc">Sort: Smallest fund</option>
@@ -256,6 +266,9 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <option value="m-asc">Sort: Shortest history</option>
 <option value="hold">Sort: Latest portfolio</option>
 <option value="hold-asc">Sort: Oldest portfolio</option>
+<option value="dd">Sort: Smallest worst fall</option>
+<option value="fee-asc">Sort: Lowest fee</option>
+<option value="st">Sort: Star rating</option>
 <option value="random">Sort: Shuffle</option>
 </select>
 </div>
@@ -271,7 +284,7 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <button type="button" class="fclear" id="fclear" hidden>Clear filters</button>
 </div>
 <p id="fnone" hidden>No funds match. Try a shorter name, or <button type="button" id="fnoneClear">clear filters</button>.</p>
-<section class="grp" id="grp-growth" data-type="Growth"><h2>Growth funds <span class="gc">1</span></h2><div class="fgrid"><a class="fcard" data-amc="Ekush" data-name="ekush growth fund egf" data-type="growth" data-ret="8.4300" data-aum="297" data-m="60" data-hold="20260630" href="/funds/ekush-growth-fund.html"><span class="fc-nm"><span class="fc-ar" aria-hidden="true">&#8599;</span><span class="fc-title">Ekush Growth Fund</span><span class="fc-code" title="Short code">EGF</span></span><span class="fc-badges"></span><span class="fc-stat"><b>+8.43%</b>/yr &middot; &#2547;30 cr<span class="fc-basis">One-time, since Oct 2021</span></span></a></div></section><section class="grp" id="grp-balanced" data-type="Balanced"><h2>Balanced funds <span class="gc">1</span></h2><div class="fgrid"><a class="fcard" data-amc="Ekush" data-name="ekush first unit fund efuf" data-type="balanced" data-ret="12.2000" data-aum="318" data-m="83" data-hold="20260630" href="/funds/ekush-first-unit-fund.html"><span class="fc-nm"><span class="fc-ar" aria-hidden="true">&#8599;</span><span class="fc-title">Ekush First Unit Fund</span><span class="fc-code" title="Short code">EFUF</span></span><span class="fc-badges"></span><span class="fc-stat"><b>+12.20%</b>/yr &middot; &#2547;32 cr<span class="fc-basis">One-time, since Nov 2019</span></span></a></div></section><section class="grp" id="grp-income" data-type="Income"><h2>Income funds <span class="gc">1</span></h2><div class="fgrid"><a class="fcard" data-amc="Ekush" data-name="ekush stable return fund esrf" data-type="income" data-ret="11.5900" data-aum="695" data-m="49" data-hold="20260630" href="/funds/ekush-stable-return-fund.html"><span class="fc-nm"><span class="fc-ar" aria-hidden="true">&#8599;</span><span class="fc-title">Ekush Stable Return Fund</span><span class="fc-code" title="Short code">ESRF</span></span><span class="fc-badges"></span><span class="fc-stat"><b>+11.59%</b>/yr &middot; &#2547;70 cr<span class="fc-basis">One-time, since Sep 2022</span></span></a></div></section>
+<section class="grp" id="grp-growth" data-type="Growth"><h2>Growth funds <span class="gc">1</span></h2><div class="fgrid"><a class="fcard" data-amc="Ekush" data-name="ekush growth fund egf" data-type="growth" data-ret="8.4300" data-aum="297" data-m="60" data-hold="20260630" data-r3="13.0700" data-dd="-9.70" data-fee="2.50" data-st="5" href="/funds/ekush-growth-fund.html"><span class="fc-nm"><span class="fc-ar" aria-hidden="true">&#8599;</span><span class="fc-title">Ekush Growth Fund</span><span class="fc-code" title="Short code">EGF</span></span><span class="fc-badges"></span><span class="fc-stat"><span class="fc-main"><b>+13.07%</b>/yr</span><span class="fc-basis">One-time, last 3 years &middot; since Oct 2021: +8.43%/yr</span><span class="fc-facts"><span class="fc-f"><span class="fc-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="sr-only">5 of 5 stars</span></span><span class="fc-f">Worst fall -9.7%</span><span class="fc-f">Fee 2.50%</span><span class="fc-f">&#2547;30 cr</span></span></span></a></div></section><section class="grp" id="grp-balanced" data-type="Balanced"><h2>Balanced funds <span class="gc">1</span></h2><div class="fgrid"><a class="fcard" data-amc="Ekush" data-name="ekush first unit fund efuf" data-type="balanced" data-ret="12.2000" data-aum="318" data-m="83" data-hold="20260630" data-r3="11.8600" data-dd="-9.70" data-fee="2.50" data-st="5" href="/funds/ekush-first-unit-fund.html"><span class="fc-nm"><span class="fc-ar" aria-hidden="true">&#8599;</span><span class="fc-title">Ekush First Unit Fund</span><span class="fc-code" title="Short code">EFUF</span></span><span class="fc-badges"></span><span class="fc-stat"><span class="fc-main"><b>+11.86%</b>/yr</span><span class="fc-basis">One-time, last 3 years &middot; since Nov 2019: +12.20%/yr</span><span class="fc-facts"><span class="fc-f"><span class="fc-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="sr-only">5 of 5 stars</span></span><span class="fc-f">Worst fall -9.7%</span><span class="fc-f">Fee 2.50%</span><span class="fc-f">&#2547;32 cr</span></span></span></a></div></section><section class="grp" id="grp-income" data-type="Income"><h2>Income funds <span class="gc">1</span></h2><div class="fgrid"><a class="fcard" data-amc="Ekush" data-name="ekush stable return fund esrf" data-type="income" data-ret="11.5900" data-aum="695" data-m="49" data-hold="20260630" data-r3="13.8900" data-dd="-2.40" data-fee="2.50" data-st="4" href="/funds/ekush-stable-return-fund.html"><span class="fc-nm"><span class="fc-ar" aria-hidden="true">&#8599;</span><span class="fc-title">Ekush Stable Return Fund</span><span class="fc-code" title="Short code">ESRF</span></span><span class="fc-badges"></span><span class="fc-stat"><span class="fc-main"><b>+13.89%</b>/yr</span><span class="fc-basis">One-time, last 3 years &middot; since Sep 2022: +11.59%/yr</span><span class="fc-facts"><span class="fc-f"><span class="fc-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="sr-only">4 of 5 stars</span></span><span class="fc-f">Worst fall -2.4%</span><span class="fc-f">Fee 2.50%</span><span class="fc-f">&#2547;70 cr</span></span></span></a></div></section>
 <details class="fhowto fhowto-end">
 <summary>How to read this list</summary>
 <div class="fhowto-body">
