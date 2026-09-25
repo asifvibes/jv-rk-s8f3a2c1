@@ -10,11 +10,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>All Tools, Guides &amp; Community | ReturnKoto?</title>
-<meta name="description" content="Everything on ReturnKoto? in one place: return calculator, fund directory, compare tool, most-held stocks and fund overlap, guides, FAQ and the community group.">
+<meta name="description" content="Every ReturnKoto? tool in one place: return calculator, fund directory, compare, most-held stocks, guides, FAQ and the community group.">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta property="og:type" content="website">
 <meta property="og:title" content="All Tools, Guides &amp; Community | ReturnKoto?">
-<meta property="og:description" content="Everything on ReturnKoto? in one place: return calculator, fund directory, compare tool, most-held stocks and fund overlap, guides, FAQ and the community group.">
+<meta property="og:description" content="Every ReturnKoto? tool in one place: return calculator, fund directory, compare, most-held stocks, guides, FAQ and the community group.">
 <meta property="og:url" content="https://returnkoto.com/more.html">
 <meta property="og:site_name" content="ReturnKoto?">
 <meta property="og:image" content="https://returnkoto.com/og-card.png">
@@ -23,7 +23,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://returnkoto.com/og-card.png">
 <meta name="twitter:title" content="All Tools, Guides &amp; Community | ReturnKoto?">
-<meta name="twitter:description" content="Everything on ReturnKoto? in one place: return calculator, fund directory, compare tool, most-held stocks and fund overlap, guides, FAQ and the community group.">
+<meta name="twitter:description" content="Every ReturnKoto? tool in one place: return calculator, fund directory, compare, most-held stocks, guides, FAQ and the community group.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -144,6 +144,13 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 .sx-row a{color:var(--ink);text-decoration:none;font-weight:600}
 .sx-row a:hover{color:var(--green)}
 .sx-w{font-variant-numeric:tabular-nums;font-weight:700;color:var(--muted);white-space:nowrap}
+.mo-jump{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:6px 0 4px;padding:2px 0 4px}
+.mo-jump::-webkit-scrollbar{display:none}
+.mo-jump a{flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13.5px;font-weight:700;text-decoration:none;white-space:nowrap}
+.mo-jump a:hover{border-color:var(--green-dark)}
+.mo-live{margin:8px 0 0;font-size:13px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.mo-live b{color:var(--green-dark)}
+.mo-quiet{opacity:.85}.mo-quiet .sx-name{font-size:13.5px!important}
 .sx-sec{font-size:17px;font-weight:800;margin:26px 0 4px;letter-spacing:-.01em}
 .sx-sec[id]{scroll-margin-top:130px}
 @media(min-width:561px){.sx-sec[id]{scroll-margin-top:80px}}
@@ -201,27 +208,24 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 </nav>
 <main id="main" class="wrap">
 <h1>Everything on ReturnKoto?</h1>
-<p class="intro">Tools, guides, methodology, badges, and community links.</p>
-<h2 class="sx-sec" id="tools">Tools</h2>
-<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Return calculator &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Enter an amount and period, see what a monthly SIP or lump sum would have become in every tracked fund, with dividends reinvested by default or taken as cash.</p></a>
-<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/funds/"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Fund directory &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">All <span class="fund-n">35</span> tracked funds with returns, NAV charts, verified fees and holdings.</p></a>
+<p class="intro">Start from what you want to know. Every tool here runs on the same verified NAV history and AMC portfolio statements.</p>
+<nav class="mo-jump" aria-label="Jump to a section"><a href="#tools">Check a return</a><a href="#choose">Find and compare funds</a><a href="#portfolio-tools">What funds own</a><a href="#learn">Understand the basics</a><a href="#how">How ReturnKoto? works</a></nav>
+<h2 class="sx-sec" id="tools">Check what an amount became</h2>
+<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Return calculator &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Enter an amount and period, see what a monthly SIP or lump sum would have become in every tracked fund, with dividends reinvested by default or taken as cash.</p><p class="mo-live" data-live="calc" hidden></p></a>
+<h2 class="sx-sec" id="choose">Find and compare funds</h2>
+<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/funds/"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Fund directory &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">All <span class="fund-n">35</span> tracked funds with returns, NAV charts, verified fees and holdings.</p><p class="mo-live" data-live="dir" hidden></p></a>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/compare.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Compare funds side by side &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Pick two or three funds: returns, rolling windows, path risk, fees, holdings, and for two funds a diversification snapshot (same stocks, same sectors, co-movement).</p></a>
+<h2 class="sx-sec" id="portfolio-tools">See what funds own</h2>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/stocks.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Most-held stocks &amp; fund overlap &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Which stocks appear most across the funds, high-overlap pairs, low-overlap diversifiers, and a build-your-own overlap checker for any two or three funds.</p></a>
-<h2 class="sx-sec" id="portfolio-tools">Portfolio overlap</h2>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/stocks.html#overlap"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Where funds overlap most &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Which pairs of funds hold the most of the same stocks. Two funds that overlap heavily give you less diversification than their names suggest, so this is worth checking before holding both.</p></a>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/stocks.html#diversify"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Funds that diversify each other most &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">The opposite view: pairs whose disclosed holdings have the least in common, so each one is doing something the other is not.</p></a>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/stocks.html#check"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Check any funds yourself &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Pick any two tracked funds and see their shared and separate holdings side by side, from the asset managers’ own portfolio statements.</p></a>
-<h2 class="sx-sec" id="learn">Learn</h2>
+<h2 class="sx-sec" id="learn">Understand the basics</h2>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/learn.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Plain-language guide &amp; glossary &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">NAV, SIP, total return, fees, Shariah funds and more, explained simply.</p></a>
+<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/faq.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">FAQ &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Everything about how ReturnKoto? works: sources, badges, fees, tax, privacy. Searchable.</p></a>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="https://returnkoto.com/guides/how-to-invest-in-mutual-funds-bangladesh.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">How to invest in mutual funds in Bangladesh &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Step by step: BO account, choosing a fund, lump sum vs SIP.</p></a>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="https://returnkoto.com/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Mutual funds vs Sanchayapatra, DPS and FDR &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">How funds stack up against the fixed-income options Bangladeshis know best.</p></a>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="https://returnkoto.com/guides/shariah-mutual-funds-bangladesh.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Shariah-compliant mutual funds &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">What makes a fund Halal-certified, and which tracked funds qualify.</p></a>
-<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/ratings.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Star ratings (experimental) &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Still being calibrated, and the data is still being verified. Every sub-score and the star arithmetic are published so you can check them, but treat the stars as a draft, not a recommendation.</p></a><a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/badges.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">What the badges mean &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">AMC-Verified, estimated, partial, + dividends, SHARIAH and fund types, explained in detail with how each one is decided.</p></a>
-<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/methodology.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Methodology &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">The canonical description of how every number is collected, validated and computed, including the rules a NAV must pass and how to cite the data.</p></a>
-<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/about.html#contact"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">About &amp; contact &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Independence, funding, inclusion rules, AMC-Verified, and how to reach ReturnKoto? at hello@returnkoto.com. Partnerships do not buy rankings or placement.</p></a>
-<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/privacy.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Privacy &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Calculator amounts stay in your browser. What analytics collect, what stays on your device, and which links leave the site.</p></a>
-<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/terms.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Terms of use &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Personal use and citation are welcome. Commercial cloning of the product is not. Source code is PolyForm Strict.</p></a>
-<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/faq.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">FAQ &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Everything about how ReturnKoto? works: sources, badges, fees, tax, privacy. Searchable.</p></a>
 <h2 class="sx-sec" id="blog">Blog</h2>
 <!-- RK_BLOG_TEASERS_START -->
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="https://returnkoto.com/blog/fund-movers-2026-09-20.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Fund movers report, week ending 17 September 2026 &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">One-year total return for every Bangladeshi mutual fund we track, with the places gained and lost since the last report. Figures through 16 September 2026.</p><p style="font-size:12px;color:var(--muted);margin:6px 0 0;opacity:.85">20 September 2026</p></a>
@@ -229,6 +233,13 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="https://returnkoto.com/blog/fund-movers-2026-09-06.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Fund movers report, week ending 3 September 2026 &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">One-year total return for every Bangladeshi mutual fund we track, with the places gained and lost since the last report. Figures through 2 September 2026.</p><p style="font-size:12px;color:var(--muted);margin:6px 0 0;opacity:.85">6 September 2026</p></a>
 <!-- RK_BLOG_TEASERS_END -->
 <p style="margin:12px 0 26px;font-size:13.5px"><a href="https://returnkoto.com/blog/" style="color:var(--green);font-weight:700;text-decoration:none">See all blog posts &#8594;</a></p>
+<h2 class="sx-sec" id="how">How ReturnKoto? works</h2>
+<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/methodology.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Methodology &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">The canonical description of how every number is collected, validated and computed, including the rules a NAV must pass and how to cite the data.</p></a>
+<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/badges.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">What the badges mean &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">AMC-Verified, estimated, partial, + dividends, SHARIAH and fund types, explained in detail with how each one is decided.</p></a>
+<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/about.html#contact"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">About &amp; contact &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Independence, funding, inclusion rules, AMC-Verified, and how to reach ReturnKoto? at hello@returnkoto.com. Partnerships do not buy rankings or placement.</p></a>
+<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/privacy.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Privacy &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Calculator amounts stay in your browser. What analytics collect, what stays on your device, and which links leave the site.</p></a>
+<a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="/terms.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Terms of use &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Personal use and citation are welcome. Commercial cloning of the product is not. Source code is PolyForm Strict.</p></a>
+<a class="sx-card mo-quiet" style="display:block;text-decoration:none;color:inherit" href="/ratings.html"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Star ratings (experimental) &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Still being calibrated, and the data is still being verified. Every sub-score and the star arithmetic are published so you can check them, but treat the stars as a draft, not a recommendation.</p></a>
 <h2 class="sx-sec" id="community">Community &amp; support</h2>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="https://www.facebook.com/groups/2419388815175186" target="_blank" rel="noopener"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Join the community &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Our Facebook group for Bangladeshi mutual fund investors: ask questions, share findings, help improve the data.</p></a>
 <a class="sx-card" style="display:block;text-decoration:none;color:inherit" href="https://docs.google.com/forms/d/e/1FAIpQLSePyn2S-1ANxmJM2viqSsVn5LJzJMk7k1IGmJsfd8Ul3KB4Ig/viewform" target="_blank" rel="noopener"><div class="sx-name" style="font-size:14.5px;color:var(--ink)">Report a data issue &#8594;</div><p style="font-size:13px;color:var(--muted);margin:5px 0 0;line-height:1.55">Spot something off? Tell us and we will verify it against the official sources.</p></a>
@@ -257,6 +268,17 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 <script>(function(){var p=location.pathname,k=/^\/funds(\/|$)/.test(p)?'funds':(/compare/.test(p)?'compare':(/learn/.test(p)?'learn':(/faq/.test(p)?'faq':(/invest-with-our-partners/.test(p)?'invest':(/more/.test(p)?'more':null)))));if(k){var a=document.querySelector('.rk-links [data-nav="'+k+'"]');if(a){a.classList.add('active');a.setAttribute('aria-current','page');}}})();</script>
 <script>document.addEventListener("click",function(e){var c=e.target&&e.target.closest&&e.target.closest(".rk-coffee,.btn-coffee");if(c){e.preventDefault();var w=480,h=Math.min(940,(screen.availHeight||screen.height||800)-40),L=Math.max(0,((screen.width||1000)-w)/2),T=Math.max(0,((screen.height||800)-h)/2);window.open("https://www.supportkori.com/widget/returnkoto","skpay","popup=yes,width="+w+",height="+h+",left="+L+",top="+T);}},true);</script>
 </footer>
+<script>
+/* Live figures on the hub (Sep 2026): read from data.json, never typed in */
+(function(){if(!window.fetch)return;fetch('/data.json').then(function(r){return r.json();}).then(function(d){var f=d.funds||[];if(!f.length)return;
+var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],p=String(d.asOf||'').split('-'),asof=p.length===3?(+p[2])+' '+M[+p[1]-1]+' '+p[0]:'';
+var v=f.filter(function(x){return x.amcVerified;}).length,aum=f.reduce(function(a,x){return a+(x.aum||0);},0);
+function set(k,h){var e=document.querySelector('[data-live="'+k+'"]');if(e&&h){e.innerHTML=h;e.hidden=false;}}
+set('calc','<b>'+f.length+'</b> funds, figures comparable through <b>'+asof+'</b>');
+set('dir','<b>'+v+'</b> AMC-Verified &middot; <b>&#2547;'+Math.round(aum/10).toLocaleString('en-IN')+' cr</b> managed between them');
+}).catch(function(){});})();
+</script>
+
 <script>function rkToggleTheme(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}rkThemeIcon();}function rkThemeIcon(){var b=document.querySelector('.themetog');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙';}(function(){var b=document.querySelector('.themetog');if(b)b.addEventListener('click',rkToggleTheme);rkThemeIcon();})();</script>
 <script>(function(){function rkRoadmapTrack(){try{if(window.gtag)gtag("event","roadmap_click",{});}catch(e){}}document.querySelectorAll('a[href="/roadmap/"],a[href="/roadmap"],.rk-roadmap').forEach(function(a){if(a.dataset.rkTrack)return;a.dataset.rkTrack="1";a.addEventListener("click",rkRoadmapTrack);});})();</script>
 </body>
