@@ -757,6 +757,11 @@ body.rk-home:not(.rk-answered) #calcpanel{margin-top:18px;padding:16px}
   @media (max-width:560px){.st-pick{min-height:calc(3 * 1.45em)}}
   .hl-dps a{color:var(--green-dark);font-weight:700;text-decoration:none;white-space:nowrap}
   .hl-dps a:hover{text-decoration:underline}
+  .hl-risk{font-size:13.5px;line-height:1.6;color:var(--text);margin-top:8px}
+  .hl-risk b{font-variant-numeric:tabular-nums}
+  .hl-risk a{color:var(--green-dark);font-weight:700;text-decoration:none;white-space:nowrap}
+  .hl-risk a:hover{text-decoration:underline}
+  .ba-risk{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
   .hl-err{text-align:center;padding:14px 0 6px;font-size:14px;line-height:1.55;color:var(--text)}
   .hl-retry{margin-top:12px;font-family:inherit;font-size:14px;font-weight:800;color:#fff;background:var(--green-dark);border:0;border-radius:10px;padding:11px 20px;min-height:44px;cursor:pointer}
   [data-theme="dark"] .hl-retry{background:#157A43;color:#fff}
@@ -1141,6 +1146,18 @@ function safeMult(rate,m,isSIP,simple){
   if(simple)return m+r/12*m*(m+1)/2;
   const g=Math.pow(1+r,1/12);let s=0,k=g;for(let i=0;i<m;i++){s+=k;k*=g;}return s;
 }
+/* Worst fall inside a window (Sep 2026): the deepest drop from a running peak in
+   the fund's monthly total-return index (or the cash-basis index), over the same
+   months the figures use. Risk shown next to return, from the same series the
+   growth chart draws; null when the window is too short to say anything. */
+function winFall(f,months){
+  const ser=f&&f.series||{};const base=(divBasis==="cash"&&ser.co&&ser.co.length)?ser.co:ser.tr;
+  if(!base||base.length<3)return null;
+  const seg=months>0?base.slice(Math.max(0,base.length-1-months)):base;
+  if(seg.length<3)return null;
+  let peak=seg[0],dd=0;for(const v of seg){if(!(v>0))continue;if(v>peak)peak=v;dd=Math.min(dd,v/peak-1);}
+  return dd*100;
+}
 /* Outcome strip: every fund as one dot on a single axis, the middle fund
    highlighted, and the safe options as labelled markers. Fixed periods plot the taka
    each fund ended with (same start, same deposits), so dots and markers compare
@@ -1353,6 +1370,15 @@ function render(){
       ? '<div class="hl-ctx">Across '+n+' funds'+(n>=3?' (one dot each)':'')+': best <b>'+sgnPct(top.annual)+'%/yr</b>, lowest <b>'+sgnPct(low.annual)+'%/yr</b>.</div>'
       : '<div class="hl-ctx">Across '+n+' funds'+(n>=3?' (one dot each)':'')+': best <b>'+fmt(top.final)+'</b>, lowest <b>'+fmt(low.final)+'</b>.</div>';
     if(dpsHtml)hs+='<p class="hl-dps">'+dpsHtml+' <a href="/guides/mutual-funds-vs-sanchayapatra-dps-fdr.html" data-guide="mutual-funds-vs-sanchayapatra-dps-fdr">Funds vs Sanchayapatra, DPS &amp; FDR &rarr;</a></p>';
+    // The ride, not just the destination: how far the middle fund fell on the way,
+    // over the same months. Deposits do not fall like this, which is the trade.
+    if(!isMax&&n>=3){
+      const dd=winFall(md.f,md.monthsUsed);
+      if(dd!=null)hs+='<p class="hl-risk">'+(dd<-0.5
+        ?'Along the way, the middle fund&rsquo;s value was at its worst <b>'+Math.abs(dd).toFixed(1)+'% below</b> its previous peak. A DPS or Sanchayapatra does not dip like that.'
+        :'Along the way, the middle fund&rsquo;s value barely dipped below a previous peak over this period.')
+        +(top.f!==md.f?' <a href="/compare.html?funds='+slugOf(top.f)+','+slugOf(md.f)+'">Compare the top and the middle fund &rarr;</a>':'')+'</p>';
+    }
     banner = method==="lump"
       ? (isMax ? `That's a one-time ${amtB} invested at each fund's launch.` : `That's a one-time ${amtB} invested at the start of the period.`)
       : `That's ${amtB} invested every month.`;
@@ -1886,7 +1912,11 @@ el.innerHTML=TP_ORDER.map(function(ty){
   }
   var f=r.f;
   var v=+r.annual;var rs=(isFinite(v)&&v>-900)?((v>=0?"+":"")+tn(v)+"%/yr"):"";
-  return '<a class="ba-link" href="/funds/'+slugOf(f)+'.html" data-nav="fundpage"><span style="margin-bottom:6px"><span class="tag batag '+tyCls+'">'+lab+'</span></span><span class="ba-nm">'+fundDispHtml(f)+'</span><span class="ba-ret">'+rs+'</span></a>';
+  // Each best return carries its worst fall over the same months, so the strip
+  // never shows a winner without the bumps it took to get there
+  var wm=horizon==="max"?0:(horizon==="ytd"?(f.ytdM||0):+horizon),wd=wm>0?winFall(f,wm):null;
+  var rk=(wd!=null)?'<span class="ba-risk">Worst fall '+wd.toFixed(1)+'%</span>':'';
+  return '<a class="ba-link" href="/funds/'+slugOf(f)+'.html" data-nav="fundpage"><span style="margin-bottom:6px"><span class="tag batag '+tyCls+'">'+lab+'</span></span><span class="ba-nm">'+fundDispHtml(f)+'</span><span class="ba-ret">'+rs+'</span>'+rk+'</a>';
 }).join("");
 // Say which figure the cards show: SIP and one-time rates differ, and so do the bases
 var tt=document.getElementById("tpTitle");
