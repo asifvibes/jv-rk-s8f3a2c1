@@ -81,7 +81,6 @@
   .cx-sub b{color:var(--text);font-weight:700}
   .cx-need{font-size:14px;font-weight:600;color:var(--muted);line-height:1.4}
   .cx-meta{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px;color:var(--muted);margin:10px 0 0;padding-top:9px;border-top:1px solid var(--border)}
-  .cx-stars{color:var(--text);letter-spacing:1px}
   .cx-h3{font-size:15px;font-weight:800;margin:22px 0 8px}
   .cx-rows{list-style:none;border:1px solid var(--border);border-radius:16px;background:var(--card);overflow:hidden}
   .cx-row{display:grid;grid-template-columns:minmax(150px,34%) 1fr;gap:4px 16px;padding:12px 15px;border-top:1px solid var(--border)}
@@ -1205,7 +1204,6 @@
     return {rate:sip?a[4]:a[1],final:sip?a[2]*cxAmt/5000:a[0]*cxAmt,put:sip?cxAmt*m:cxAmt,months:m};
   }
   function cxFeePct(f){var m=String(detRaw(f,'fee')||'').match(/(\d+(?:\.\d+)?)\s*%/);return m?parseFloat(m[1]):null;}
-  function cxStars(n){var s='';for(var i=0;i<5;i++)s+=i<n?'★':'☆';return s;}
   function cxColor(i){return CMPC[i%CMPC.length];}
   function cxWho(f,i){return '<span class="cx-who"><i style="background:'+cxColor(i)+'" aria-hidden="true"></i>'+esc(f.label)+'</span>';}
   // One row: who leads on a measure, the gap to the next fund, and every value
@@ -1235,8 +1233,8 @@
       else if(isMax)body='<div class="cx-big'+(o.rate<0?' neg':'')+'">'+(o.rate>=0?'+':'')+o.rate.toFixed(2)+'%<span style="font-size:.5em;font-weight:700">/yr</span></div><p class="cx-sub">since '+since(f.since)+', '+(Math.round(f.M/12*10)/10)+' yrs of history</p>';
       else body='<div class="cx-big'+(o.final<o.put?' neg':'')+'">'+tk(o.final)+'</div><p class="cx-sub">from <b>'+tk(o.put)+'</b> put in &middot; <b>'+(o.rate>=0?'+':'')+o.rate.toFixed(2)+'%</b> a year</p>';
       var meta=[];
-      if(r&&r.rated&&r.stars)meta.push('<span><span class="cx-stars" aria-hidden="true">'+cxStars(r.stars)+'</span><span class="sr-only">'+r.stars+' of 5 stars</span> 3-year rating</span>');
-      else if(r)meta.push('<span>Not yet rated</span>');
+      // No stars here (owner rule, Sep 2026): the rating is experimental and its
+      // data is still being verified, so it lives only on the ratings page.
       if(f.aum)meta.push('<span>'+aumcr(f)+' fund size</span>');
       return '<div class="cx-card"><div class="cx-name"><span class="cx-dot" style="background:'+cxColor(i)+'" aria-hidden="true"></span><a href="/funds/'+slug(f.label)+'.html">'+fundDispHtml(f)+'</a></div><div class="cx-tags">'+tags+'</div>'+body+(meta.length?'<div class="cx-meta">'+meta.join('')+'</div>':'')+'</div>';
     }).join('');
@@ -1266,7 +1264,6 @@
     rows+=cxLead(cols,'Gentler down months','downside deviation, '+pSub,paths.map(function(p){return p&&p.ddev!=null?p.ddev:null;}),false,function(v){return v.toFixed(1)+'%';},function(d){return d.toFixed(1)+' pts calmer';},0.15);
     rows+=cxLead(cols,'More 12-month holds ended up','share of rolling 12-month windows, '+pSub,paths.map(function(p){return p&&p.consist!=null?p.consist:null;}),true,function(v){return v+'%';},function(d){return d.toFixed(0)+' pts more often';},0.5);
     rows+=cxLead(cols,'Lower management fee','stated headline rate, already inside the NAV',cols.map(cxFeePct),false,function(v){return v.toFixed(2)+'%';},function(d){return d.toFixed(2)+' pts a year cheaper';},0.005);
-    rows+=cxLead(cols,'Higher star rating','3-year rating, past risk-adjusted return',cols.map(function(f){var r=rateOf(f);return r&&r.rated&&r.stars?r.stars:null;}),true,function(v){return v+'★';},function(d){return d+' star'+(d===1?'':'s')+' more';},0.5);
     rows+=cxLead(cols,'Longer track record','months of NAV history',cols.map(function(f){return f.M||null;}),true,function(v){return (Math.round(v/12*10)/10)+' yrs';},function(d){return (Math.round(d/12*10)/10)+' more years of history';},1);
     if(cols.length===2){
       var so=stockOverlapPct(cols[0],cols[1]),corr=pairCorr(cols[0],cols[1]),r=corr?corr.r:null;

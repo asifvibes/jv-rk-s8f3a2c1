@@ -384,7 +384,7 @@
     var sh=f.filter(function(x){return x.sh;}).length;
     if(sh)put('shariah','<b>'+sh+' of '+n+'</b> tracked funds are Shariah-compliant. <a href="/#sh=1">See only Shariah funds in the calculator &rarr;</a>');
     var mdd=Object.keys(rt).filter(function(k){return k.charAt(0)!=='_'&&rt[k]&&rt[k].rated&&typeof rt[k].mdd==='number';}).map(function(k){return rt[k].mdd;});
-    if(mdd.length>2)put('risk','Over the last three closed years, the deepest fall from a peak ranged from <b>'+Math.max.apply(null,mdd).toFixed(1)+'%</b> for the steadiest fund to <b>'+Math.min.apply(null,mdd).toFixed(1)+'%</b> for the bumpiest, across '+mdd.length+' funds with enough history. <a href="/ratings.html">See each fund’s risk scores &rarr;</a>');
+    if(mdd.length>2)put('risk','Over the last three closed years, the deepest fall from a peak ranged from <b>'+Math.max.apply(null,mdd).toFixed(1)+'%</b> for the steadiest fund to <b>'+Math.min.apply(null,mdd).toFixed(1)+'%</b> for the bumpiest, across '+mdd.length+' funds with enough history. <a href="/compare.html">Compare two funds’ risk side by side &rarr;</a>');
     var aum=f.reduce(function(a,x){return a+(x.aum||0);},0);
     if(aum)put('market','The <b>'+n+'</b> funds ReturnKoto? tracks manage about <b>৳'+Math.round(aum/10).toLocaleString('en-IN')+' cr</b> between them, from their latest disclosed fund sizes. <a href="/funds/">Browse them all &rarr;</a>');
   });
