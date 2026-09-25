@@ -58,18 +58,15 @@
   /* ---- Head to head (Sep 2026): the answer before the evidence ---- */
   .cx{margin:4px 0 30px}
   .cx h2{font-size:21px;font-weight:800;letter-spacing:-.015em;line-height:1.25;margin:0}
-  .cx-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 20px;margin:0 0 14px}
-  .cx-amt{min-width:0}
-  .cx-amtlab{display:block;font-size:13px;font-weight:600;color:var(--muted);margin:0 0 5px}
-  .cx-amtrow{display:flex;gap:8px;flex-wrap:wrap}
-  .cx-field{position:relative;flex:0 1 150px}
+  .cx-scen{font-size:14px;color:var(--muted);margin:4px 0 14px;line-height:1.5}
+  .cx-scen b{color:var(--text);font-weight:700}
+  .cqbar .cx-field{position:relative;flex:1 1 140px;max-width:240px;min-width:110px}
   .cx-tk{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted);pointer-events:none}
-  .cx-field input{width:100%;min-height:44px;font:inherit;font-size:16px;font-weight:700;color:var(--text);background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:9px 12px 9px 30px;font-variant-numeric:tabular-nums}
+  .cx-field input{width:100%;height:100%;min-height:42px;font:inherit;font-size:16px;font-weight:700;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:10px;padding:6px 10px 6px 28px;font-variant-numeric:tabular-nums}
   .cx-field input:focus{outline:none;border-color:var(--green-dark)}
-  .cx-seg{display:flex;background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:3px}
-  .cx-seg button{font:inherit;font-size:13.5px;font-weight:700;min-height:36px;padding:0 12px;border:0;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer}
+  .cx-seg{flex:none;display:flex;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:3px}
+  .cx-seg button{font:inherit;font-size:13px;font-weight:700;min-height:34px;padding:0 11px;border:0;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer}
   .cx-seg button[aria-pressed="true"]{background:#157A43;color:#fff}
-  .cx-amtnote{font-size:12px;color:var(--muted);margin:5px 0 0}
   .cx-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
   .cx-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px 15px 13px;min-width:0}
   .cx-name{display:flex;gap:8px;align-items:flex-start;font-size:15px;font-weight:800;line-height:1.3;margin:0 0 6px}
@@ -102,7 +99,7 @@
   [data-theme="dark"] .cx-seg button[aria-pressed="true"]{background:#1F9E57;color:#06140C}
   [data-theme="dark"] .cx-big.neg,[data-theme="dark"] .cx-no{color:#F87171}
   [data-theme="dark"] .cx-yes{color:#3DD98A}
-  [data-theme="dark"] .cx-field input{background-color:#141C28}
+  [data-theme="dark"] .cx-field input,[data-theme="dark"] .cx-seg{background-color:#141C28}
   @media(max-width:560px){
     .cx-row{grid-template-columns:1fr;padding:12px 13px}
     .cx-cards{grid-template-columns:1fr 1fr;gap:8px}
@@ -110,14 +107,23 @@
     .cx-card{padding:12px}
     .cx-big{font-size:22px}
     .cx-name{font-size:14px}
-    .cx-field{flex:1 1 120px}
+    .cqbar .cx-field{flex:1 1 100px}
+    .cq-over{display:none}
+    .cqbar select.qsel2{flex:1 1 150px;max-width:none}
+    .cqbar .cx-field{max-width:none}
+    .cqbar .cx-field input,.cx-seg{min-height:44px}
+    .cx-seg button{min-height:36px;padding:0 10px}
   }
   .pk label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;margin:0 0 4px}
   .pk select{width:100%;font:inherit;font-size:14px;font-weight:600;color:var(--text);background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:11px 12px;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2712%27%20height%3D%278%27%20viewBox%3D%270%200%2012%208%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cpath%20d%3D%27M1%201l5%205%205-5%27%20stroke%3D%27%236B7280%27%20stroke-width%3D%271.6%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 12px center}
   .pk select:focus{outline:none;border-color:var(--green-dark)}
-  .cqbar{position:sticky;top:var(--cmp-nav,47px);z-index:55;display:flex;gap:7px;align-items:stretch;margin:0 0 16px;padding:5px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-  .cqbar .qsel2{flex:1;min-width:0;border:1px solid var(--border);background:var(--card);color:var(--text);font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;padding:8px 26px 8px 12px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%236B7280' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:12px 8px}
-  .cqbar .qsh{flex:none;font-family:inherit;font-size:12px;font-weight:700;color:var(--muted);background:var(--card);border:1.5px solid var(--border);border-radius:999px;padding:8px 13px;cursor:pointer;min-height:34px;transition:color .12s,background .12s,border-color .12s;display:inline-flex;align-items:center}
+  .cqbar{position:sticky;top:var(--cmp-nav,47px);z-index:55;display:flex;flex-wrap:wrap;gap:7px;align-items:stretch;margin:0 0 16px;padding:5px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+  /* The bar reads as a sentence: "৳5,000 [every month] over [3 years] [Shariah]".
+     The period needs about 200px, not the whole row. */
+  .cq-over{align-self:center;flex:none;font-size:13px;font-weight:600;color:var(--muted);padding:0 2px}
+  .cqbar .qsh{margin-left:auto}
+  .cqbar .qsel2{flex:1 1 200px;max-width:440px;min-width:0;min-height:42px;border:1px solid var(--border);background:var(--card);color:var(--text);font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;padding:8px 26px 8px 12px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%236B7280' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:12px 8px}
+  .cqbar .qsh{flex:none;font-family:inherit;font-size:12px;font-weight:700;color:var(--muted);background:var(--card);border:1.5px solid var(--border);border-radius:999px;padding:8px 13px;cursor:pointer;min-height:42px;transition:color .12s,background .12s,border-color .12s;display:inline-flex;align-items:center}
   .cqbar .qsh::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#6366F1;opacity:.5;margin-right:6px;vertical-align:1px;transition:opacity .12s,background .12s}
   .cqbar .qsh.on{color:#fff;background:#4F46E5;border-color:#4F46E5}
   .cqbar .qsh.on::before{background:#fff;opacity:1}
@@ -452,7 +458,14 @@
     <div class="pk"><label for="pk2">Fund 3 (optional)</label><select id="pk2"></select></div>
   </div>
 
-  <div class="cqbar" id="cqbar" aria-label="Quick controls: period and Shariah filter">
+  <div class="cqbar" id="cqbar" role="group" aria-label="Your scenario: amount, how you invest, period and Shariah filter">
+    <div class="cx-field"><span class="cx-tk" aria-hidden="true">&#2547;</span><input id="cxAmt" type="text" inputmode="numeric" autocomplete="off" value="5,000" aria-label="Amount you would have invested" aria-describedby="cxAmtNote"></div>
+    <div class="cx-seg" id="cxSeg" role="group" aria-label="How you would invest">
+      <button type="button" data-m="sip" aria-pressed="true">Every month</button>
+      <button type="button" data-m="lump" aria-pressed="false">One time</button>
+    </div>
+    <span class="sr-only" id="cxAmtNote">Your amount stays in this browser and is never sent anywhere.</span>
+    <span class="cq-over" aria-hidden="true">over</span>
     <select id="cmpPeriod" class="qsel2" aria-label="Return period"></select>
     <button type="button" id="cmpSh" class="qsh" aria-pressed="false" title="Show only Halal-certified funds">Shariah</button>
   </div>
@@ -467,20 +480,8 @@
   </div>
 
   <section class="cx" id="cx" aria-labelledby="cxH" hidden>
-    <div class="cx-top">
-      <h2 id="cxH">Head to head</h2>
-      <div class="cx-amt">
-        <label for="cxAmt" class="cx-amtlab">If you had invested</label>
-        <div class="cx-amtrow">
-          <div class="cx-field"><span class="cx-tk" aria-hidden="true">&#2547;</span><input id="cxAmt" type="text" inputmode="numeric" autocomplete="off" value="5,000" aria-describedby="cxAmtNote"></div>
-          <div class="cx-seg" id="cxSeg" role="group" aria-label="How you would invest">
-            <button type="button" data-m="sip" aria-pressed="true">Every month</button>
-            <button type="button" data-m="lump" aria-pressed="false">One time</button>
-          </div>
-        </div>
-        <p class="cx-amtnote" id="cxAmtNote">Your amount stays in this browser.</p>
-      </div>
-    </div>
+    <h2 id="cxH">Head to head</h2>
+    <p class="cx-scen" id="cxScen" aria-live="polite"></p>
     <div class="cx-cards" id="cxCards"></div>
     <h3 class="cx-h3">Who came out ahead, and by how much</h3>
     <ul class="cx-rows" id="cxRows"></ul>
@@ -1337,6 +1338,8 @@
     box.hidden=false;
     var isMax=period==='max',sip=cxM==='sip',pl=plabel().toLowerCase();
     var outs=cols.map(cxOutcome);
+    var scen=document.getElementById('cxScen');
+    if(scen)scen.innerHTML='<b>'+tk(cxAmt)+(sip?' every month':' one time')+'</b>, '+(isMax?'from each fund’s launch':(period==='ytd'?'this year to date':'over the last '+pl))+', dividends reinvested. Change it in the bar above.';
     // Cards
     document.getElementById('cxCards').innerHTML=cols.map(function(f,i){
       var o=outs[i],r=rateOf(f),tags=typeCell(f)+(f.amcVerified?'<span class="ctag ok">&#10003; AMC-Verified</span>':'');

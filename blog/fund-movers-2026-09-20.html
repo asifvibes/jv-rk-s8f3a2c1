@@ -140,6 +140,43 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
 .sx-name{font-size:15.5px;font-weight:800;letter-spacing:-.01em}
 .sx-n{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--green-dark);white-space:nowrap}
 .sx-trk{height:7px;border-radius:4px;background:#eef3f0;overflow:hidden;margin:9px 0 4px}
+/* ---- Stocks page insight layer (Sep 2026): money, sectors, quarter changes ---- */
+.sx-brief{list-style:none;margin:14px 0 18px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card);display:grid;gap:8px}
+.sx-brief li{position:relative;padding-left:16px;font-size:14.5px;line-height:1.55}
+.sx-brief li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--green-dark)}
+.sx-tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0 31px}
+.sx-code,.sx-sec-tag{font-size:12px;font-weight:700;line-height:1;padding:4px 7px;border-radius:6px}
+.sx-code{font-variant-numeric:tabular-nums;letter-spacing:.02em;color:var(--ink);background:#EEF1F4}
+.sx-sec-tag{color:#475569;background:transparent;border:1px solid var(--line)}
+.sx-money{font-size:13px;color:var(--muted);margin:2px 0 6px;font-variant-numeric:tabular-nums}
+.sx-m-v{font-weight:800;color:var(--ink)}
+.sx-m-g{font-weight:700}.sx-m-g.up{color:#157A43}.sx-m-g.dn{color:#B42318}
+.sx-secs{list-style:none;margin:10px 0 0;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.sx-srow{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n v" "t t" "f f";gap:4px 12px;padding:11px 15px;border-top:1px solid var(--line)}
+.sx-srow:first-child{border-top:0}
+.sx-sn{grid-area:n;font-weight:700;font-size:14.5px}
+.sx-sv{grid-area:v;font-weight:800;font-size:14.5px;font-variant-numeric:tabular-nums;text-align:right}
+.sx-sp{font-weight:600;color:var(--muted);font-size:12.5px;margin-left:4px}
+.sx-strk{grid-area:t;height:6px;border-radius:4px;background:#eef3f0;overflow:hidden}
+.sx-strk span{display:block;height:100%;border-radius:4px;background:#157A43}
+.sx-sf{grid-area:f;font-size:12px;color:var(--muted)}
+.sx-chg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+.sx-chg h3{font-size:14px;font-weight:800;margin:0 0 8px}
+.sx-cl{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.sx-cl li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 10px;padding:10px 14px;border-top:1px solid var(--line)}
+.sx-cl li:first-child{border-top:0}
+.sx-cn{font-weight:700;font-size:14px}
+.sx-cc{font-size:12.5px;font-weight:800;white-space:nowrap}.sx-cc.up{color:#157A43}.sx-cc.dn{color:#B42318}
+.sx-cf{grid-column:1/-1;font-size:12.5px;color:var(--muted);line-height:1.5}
+.sx-cf a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:2px}
+@media(max-width:640px){.sx-chg{grid-template-columns:1fr}.sx-tags{margin-left:0}}
+[data-theme="dark"] .sx-code{background:#212C3C}
+[data-theme="dark"] .sx-sec-tag{color:#AEB9CC}
+[data-theme="dark"] .sx-m-g.up,[data-theme="dark"] .sx-cc.up{color:#3DD98A}
+[data-theme="dark"] .sx-m-g.dn,[data-theme="dark"] .sx-cc.dn{color:#F87171}
+[data-theme="dark"] .sx-strk{background:#212C3C}
+[data-theme="dark"] .sx-strk span{background:#3DD98A}
+
 .sx-fill{display:block;height:100%;background:var(--green);border-radius:4px}
 .sx-det summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--muted);margin-top:7px;list-style:none;display:inline-flex;align-items:center;gap:5px}
 .sx-det summary::after{content:"\25BE";font-size:10px}
