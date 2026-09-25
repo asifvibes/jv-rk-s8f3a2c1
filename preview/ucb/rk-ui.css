@@ -368,11 +368,14 @@ header p{
 
 @media(min-width:1024px){
   body.rk-home.rk-answered #answerzone{display:contents}
+  /* The result card carries more than the calculator (headline, strip, fund
+     readout, safe-option line), so it gets the wider column: its lines wrap
+     less and the card comes out shorter, closer to the calculator's height. */
   body.rk-home.rk-answered .rk-fold{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:minmax(0,5fr) minmax(0,7fr);
     align-items:start;
-    gap:32px 46px;
+    gap:28px 40px;
   }
   body.rk-home.rk-answered header{grid-column:1/-1}
 
@@ -449,23 +452,30 @@ header p{
 
      Measured after the fix: both columns top at 295 and bottom at 692, so the
      top and bottom deltas are both zero. */
-  body.rk-home.rk-answered .rk-fold{grid-template-rows:auto auto 1fr auto}
+  /* Sep 2026: both cards keep their natural height and share a top edge, and the
+     two footnotes sit directly under the calculator as one small trust block.
+     Stretching the result card and pinning the footnotes to the bottom made
+     sense when the cards were close in height; once the outcome strip and fund
+     readout made the result card much taller, it left the footnotes marooned
+     under a large hole in the left column. Row 5 (1fr) absorbs the remaining
+     height of the result card's span, so the left stack never spreads out. */
+  body.rk-home.rk-answered .rk-fold{grid-template-rows:auto auto auto auto 1fr}
   body.rk-home.rk-answered #headline{
-    grid-column:2;grid-row:2 / 5;
+    grid-column:2;grid-row:2 / 6;
     margin-top:0;
-    align-self:stretch;
+    align-self:start;
   }
   body.rk-home.rk-answered .hl-note{
     grid-column:1;grid-row:3;
-    align-self:end;
+    align-self:start;
     text-align:left;
-    margin:0;
+    margin:-8px 0 0;
     max-width:none;
   }
   body.rk-home.rk-answered .fresh-under{
     grid-column:1;grid-row:4;
-    align-self:end;
-    margin:0;
+    align-self:start;
+    margin:-16px 0 0;
     justify-content:flex-start;
   }
   body.rk-home.rk-answered .doors,
